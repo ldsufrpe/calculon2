@@ -116,12 +116,12 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
             <ol>
                 <li>
                     <p>
-                         xxxxxxxx.
+                         Calcular derivadas parciais de primeira ordem.
                     </p>
                 </li>
                 <li>
                     <p>
-                        xxxxxxxxxxxxx.
+                        Calcular derivadas parciais de segunda ordem.
                     </p>
                 </li>
                 
@@ -133,10 +133,65 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
     <title>Funções com duas e três variáveis</title>
   <introduction>
         <p>
-            introdução
+            A notação para uma função de duas ou
+            mais variáveis é similar àquela para uma função de uma única variável. Seguem
+            dois exemplos.
+
+            <md>
+             <mrow>   z = f\ub{(x,y)}{\ct{2 variáveis}}=2x^3+ xy \amp \qquad \ct{Função depende de duas variáveis} </mrow> 
+            </md>
+            
+            <md>
+                <mrow> w = f\ub{(x,y,z)}{\ct{3 variáveis }} = x^2+ x^2 + z^2\amp\qquad \ct{Função depende de três variáveis} </mrow>
+            </md>
         </p>
     </introduction>
-<subsubsection xml:id="subsubsec-sugestao-video-log-integral">
+<definition xml:id="def-funcoes-duas-tres">
+    <statement>
+        <p>
+            Seja <m>D</m> um conjunto de pares ordenados de números reais. Se a cada par ordenado <m>(x, y)</m>  em <m>D</m> 
+            corresponder um único número real <m>f(x, y)</m>, então <m>f</m> será chamada de função  <m>x</m>  e <m>y</m>. 
+            O conjunto <m>R</m>  é o domínio de <m>f</m>  e o conjunto correspondente de valores de <m>z</m> é a imagem de <m>f</m>. 
+            As funções de três, quatro ou  mais variáveis são definidas de maneira semelhante.
+        </p>
+    </statement>
+</definition>
+
+<example>
+    <statement>
+        <p>
+            Para a função de duas variáveis <m>f(x,y)=2x^2-y^2</m> calcule <m>f(2,3)</m>.
+        </p>
+    </statement>
+    <solution>
+        <p>
+        <md>
+           <mrow> f(2,3)= \amp 2\cdot 2^2-3^2  </mrow>
+           <mrow> \amp = 9-9=-1</mrow>
+        </md>
+
+           
+        </p>
+    </solution>
+</example>
+
+<example>
+    <statement>
+        <p>
+             Para a função de duas variáveis <m>f(x,y,z)=e^x(y+z)</m> calcule <m>f(0,-1,4)</m>.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            <md>
+                <mrow> f(0,-1,4)=e^0(-1+4)\amp </mrow>
+                <mrow> \amp = 1\cdot 3=3 </mrow>
+            </md>
+        </p>
+    </solution>
+</example>
+
+<!-- <subsubsection xml:id="subsubsec-sugestao-video-log-integral">
     <title>Sugestão de vídeo</title>
   
 <ul>
@@ -146,16 +201,402 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
         </p>
     </li>
 </ul>    
-</subsubsection>
+</subsubsection> -->
 </subsection>
 
 
+<subsection xml:id="subsec-derivadas-parciais-2">
+    <title>Derivadas Parciais</title>
+
+<assemblage xml:id="assemblage-parciais">
+    <title>Derivadas parciais de uma função de duas variáveis</title>
+    <p>
+        Se <m>z= f(x,y)</m> , então as primeiras derivadas parciais ou derivadas parciais
+de primeira ordem de <m>f</m>  em relação a x e y são as funções  <m>\frac{\partial z}{\partial x}</m>, <m>\frac{\partial z}{\partial y}</m>,  definidas da seguinte forma:
+    
+    <mdn>
+        <mrow xml:id="fx" > \frac{\partial z}{\partial x}\amp = \lim_{\Delta x\to 0}\frac{f(x+\Delta x,y)-f(x,y)}{\Delta x} </mrow>
+    </mdn>
+
+    <mdn>
+    <mrow xml:id="fy"> \frac{\partial z}{\partial y}\amp = \lim_{\Delta y\to 0}\frac{f(x,y+\Delta x)-f(x,y)}{\Delta y} </mrow>
+
+    </mdn>
+    
+    </p>
+</assemblage>
+<paragraphs>
+ De fato, se <m>z=x^2 +xy^2</m> igualdade <xref ref="fx"/> nos diz que para encontrar a derivada parcial de <m>z</m> em relação a <m>x</m>, considere <m>y</m>
+ constante e então derive <m>z</m> na variável <m>x</m>:
+
+ <me>
+     \frac{\partial z}{\partial x} =2x.
+ </me>
+ 
+A igualdade <xref ref="fy"/> nos diz que para encontrar  a derivada parcial de <m>z</m> em relação a <m>y</m>, considere <m>x</m>
+ constante e então derive <m>z</m> na variável <m>y</m>: 
+
+ <me>
+     \frac{\partial z}{\partial y} = 2xy.
+ </me>
+    
+</paragraphs>
+<example>
+    <statement>
+        <p>
+            Se <m>z=3x-x^2y^2+2x^3y</m> determine 
+            <m>\frac{\partial z}{\partial x}</m>, <m>\frac{\partial z}{\partial y}</m>.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            <md>
+              <mrow>   \frac{\partial z}{\partial x}\amp =3-2xy^2+6x^2y \amp \quad \ct{matenha y constante e derive em relação a x.} </mrow>
+            
+             <mrow>    \frac{\partial z}{\partial y}\amp  = -2x^2y+2x^3 \amp \quad \ct{matenha x constante e derive em relação a y.} </mrow>
+            </md>
+            
+        </p>
+    </solution>
+</example>
+
+<exercise>
+    <statement>
+        <p>
+            Para <m> z = 2x^2-4x^2y^3+y^4</m>, determine <m>\frac{\partial z}{\partial x}</m>, <m>\frac{\partial z}{\partial y}</m>.
+        </p>
+    </statement>
+    <answer>
+        <p>
+            <me>\frac{\partial z}{\partial x}=-8x y^{3} + 4 x</me>
+            
+            <me>\frac{\partial z}{\partial y}-12 x^{2} y^{2} + 4 y^{3}</me>
+        </p>
+    </answer>
+</exercise>
+
+<assemblage xml:id="assemblage-">
+    <title>Notação para derivada parcial de primeira ordem</title>
+    <p>Para <m>z=f(x,y)</m> as derivadas parciais podem ser denotadas por:
+      <me>
+          \frac{\partial z}{\partial x}=f_x(x,y) = \frac{\partial }{\partial x}[f(x,y)].
+      </me>
+
+      <me>
+          \frac{\partial z}{\partial y}=f_y(x,y)=\frac{\partial }{\partial y}[f(x,y)].
+      </me>
+      
+        
+    </p>
+</assemblage>
+
+<example>
+    <statement>
+        <p>
+            Determine ass derivadas parciais de primeira ordem de <m>f(x,y)=xe^{x^2y}</m> 
+            e calcule cada uma delas em <m>(1, \ln{2})</m>.
+        </p>
+    </statement>
+    <solution>
+        <p>
+           Para realizar a derivada parcial em relação a <m>x</m> usando a Regra do Produto:
 
 
+            <md>
+                <mrow>
+                f_x(x,y) \amp = x \frac{\partial z}{\partial x} \left[e^{x^2y} \right]  +
+                e^{x^2y} \frac{\partial z}{\partial x}\left[ x\right]
+                </mrow>
+
+                <mrow> \amp x(2xy)e^{x^2y} + e^{x^2y}  </mrow>
+                <mrow> \amp e^{x^2y}(2x^2y + 1)  </mrow>
+            </md>
+            Quando aplicamos <m> f_x(x,y) </m>  em <m>(1, \ln{2})</m> temos:
+
+            <md>
+                <mrow>f_x(1,2) \amp = e^{(1)^2(\ln{2})}\left[2\cdot 1^2\cdot \ln{2} + 1\right]</mrow>
+                <mrow> \amp = 2(2\ln{2} + 1) </mrow>
+                <mrow> \amp\approx 4,773 </mrow>
+            </md>
+        Derivada parcial em relação a <m>y</m>:
+        <md>
+            <mrow> f_y(x,y)\amp = x(x^2)e^{x^2y}</mrow>
+            <mrow> \amp = x^3e^{x^2y} </mrow>
+        </md>.
+        Quando aplicamos <m> f_y(x,y) </m>  em <m>(1, \ln{2})</m> temos:
+
+        <md>
+            <mrow>f_y(1,\ln{2}) \amp = 1^3\cdot e^{(1)^2(\ln{2})} </mrow>
+            <mrow> \amp = 2 </mrow>
+        </md>
+        </p>
+    </solution>
+</example>
+
+<paragraphs>
+    <title>Funções de três variáveis</title>
+O conceito de derivada parcial pode ser estendido naturalmente para funções de
+três ou mais variáveis. Por exemplo, a função <m>w=f(x,y,z)</m> possui três derivadas
+parciais, cada uma delas formada considerando-se duas variáveis constantes. Por exemplo, se <m>w=x^2+ xy^2+ z^2</m>
+ para obter a derivada parcial de <m>w</m>  em relação a <m>x</m>, considere  <m>y</m>  e <m>z</m>  constantes e então 
+ calcule a derivada   de <m>w</m> na variável <m>x</m> como segue:
+
+ <me>
+     \frac{\partial w}{\partial x} = f_x(x,y,z) = 2x + y^2.
+ </me>
+ 
+Para determinar a derivada parcial de <m>w</m>  em relação a <m>y</m> , considere <m>x</m>  e <m>z</m>  constantes e então
+ calcule a derivada de <m>w</m> na variável <m>y</m> como segue:
+
+ <me>
+     \frac{\partial w}{\partial y} = f_x(x,y,z) =  2yx. 
+ </me>
+
+ Para determinar a derivada parcial de <m>w</m>  em relação a <m>z</m> , considere <m>x</m>  e <m>y</m>  constantes e então
+ calcule a derivada de <m>w</m> na variável <m>z</m> como segue:
+
+ <me>
+     \frac{\partial w}{\partial z} = f_x(x,y,z) =  2z. 
+ </me>
+ 
+</paragraphs>
+
+<example>
+    <statement>
+        <p>
+            Determine as três derivadas parciais da função  <m>w=xe^{xy+2z}</m>.
+        </p>
+    </statement>
+    <solution>
+        <p>
+        Mantendo <m>y</m>  e <m>z</m>  constantes, obtém-se:
+
+<md>
+    <mrow>\frac{\partial w}{\partial x} \amp = x\frac{\partial }{\partial x}\left[ e^{xy+2z}\right]
+    + e^{xy+2z}\frac{\partial }{\partial x}[x]  \quad \amp  \ct{Regra do Produto}
+    </mrow>
+    <mrow> \amp = x(ye^{xy+2z}) +e^{xy+2z}(1) \quad \amp \ct{Considerando y e z constantes.} </mrow>
+    <mrow> \amp = (xy+1)e^{xy+2z}  </mrow>
+</md>.
+
+    Mantendo <m>x</m>  e <m>z</m>  constantes, obtém-se:
+
+    <md>
+        <mrow>\frac{\partial w}{\partial x} \amp = x(x)e^{xy+2z}  \quad \amp \ct{Considerando x e z constantes.}</mrow>
+        <mrow> \amp = x^2e^{xy+2z}</mrow>
+    </md>
+    Mantendo <m>x</m>  e <m>y</m>  constantes, obtém-se:
+
+    <md>
+        <mrow>\frac{\partial w}{\partial x} \amp = x(2)e^{xy+2z} \quad \amp \ct{Considerando x e y constantes.}</mrow>
+        <mrow> \amp = 2xe^{xy+2z} </mrow>
+    </md>.
+
+    </p>
+    </solution>
+</example>
+<exercise>
+    <statement>
+        <p>
+            Determine as três derivadas parciais da função <m>w=x^2y\ln{xz}</m>.
+        </p>
+    </statement>
+    <answer>
+        <p>
+         <me>
+            \frac{\partial w}{\partial x} =  2 \, x y \ln\left(x z\right) + x y
+         </me>
+         <me>
+           \frac{\partial w}{\partial y} =  x^{2} \ln\left(x z\right)
+         </me>
+         
+         <me>
+           \frac{\partial w}{\partial z}=  \frac{x^{2} y}{z}
+         </me>
+         
+
+        </p>
+    </answer>
+</exercise>
+
+</subsection>
+
+
+<subsection xml:id="subsec-derivadas-parciais-ordem-superior">
+    <title>Derivadas parciais de ordem superior</title>
+    <introduction>
+        <p>
+            Derivadas de ordem superior ( segunda, terceira ordem etc.) são denotadas pela ordem na qual ocorre a
+            derivação. Por exemplo, há quatro modos diferentes de determinar uma segunda de-
+            rivada parcial de <m>z=f(x,y)</m>.
+        </p>
+    </introduction>
+
+<assemblage xml:id="assemblage-">
+    <title></title>
+    <p>
+        <md>
+            <mrow> \frac{\partial }{\partial x} \left( \frac{\partial f}{\partial x} \right)
+            \amp = \frac{\partial^2 f}{\partial x^2} = f_{xx} \amp \quad\ct{derive duas em relação a x.}
+            </mrow>
+
+            <mrow> \frac{\partial }{\partial y} \left( \frac{\partial f}{\partial y} \right)
+            \amp = \frac{\partial^2 f}{\partial y^2} = f_{yy} \amp \quad\ct{derive duas em relação a y.}
+            </mrow>
+            
+             <mrow> \frac{\partial }{\partial y} \left( \frac{\partial f}{\partial x} \right)
+            \amp = \frac{\partial^2 f}{\partial y\partial x} = f_{xy} \amp \quad\ct{derive primeiro relação a x e depois a y.}
+            </mrow>
+
+             <mrow> \frac{\partial }{\partial x} \left( \frac{\partial f}{\partial y} \right)
+            \amp = \frac{\partial^2 f}{\partial x\partial y} = f_{yx} \amp \quad\ct{derive primeiro relação a y e depois a x.}
+            </mrow>
+            
+        </md>
+    </p>
+</assemblage>
+
+
+<example>
+    <statement>
+        <p>
+            Determine as segundas derivadas parciais de <m>f(x,y)=3xy^2-2y+5x^2y^2</m> 
+            e determine o valor de <m>f_{xy}(-1,2)</m>.
+        </p>
+    </statement>
+    <solution>
+        <p>
+        Comece determinando as primeiras derivadas parciais.
+        <md>
+            <mrow> f_x(x,y)=3y^2+ 10xy^2 \amp \qquad \amp f_y(x,y)=6xy-2+10x^2y </mrow>
+        </md>
+
+        Em seguida, a derivação em relação a <m>x</m>  e <m>y</m>  produz
+
+        <md>
+            <mrow> f_{xx}(x,y) = 10y^2, \amp \qquad \amp f_{yy}(x,y)=6x+10x^2 </mrow>
+            <mrow>f_{xy}(x,y) = 6y+20xy,\amp \qquad \amp  f_{yx}(x,y)= 6y+20xy.  </mrow>
+        </md>
+        Portanto, o valor de <m>f_{xy}(x,y)</m> no ponto <m>(-1,2)</m> é
+
+        <md>
+            <mrow>f_{xy}(-1,2)=6\cdot 2 + 20(-2)2=-28. </mrow>
+        </md>
+        </p>
+    </solution>
+</example>
+    <exercise>
+        <statement>
+            <p>
+                Determine as segundas derivadas parciais de <m>f(x,y) = 4x^2y^2+2x+4y^2</m>.
+            </p>
+        </statement>
+        <answer>
+            <p>
+                <me>
+                  f_{xx} =  8 y^{2}
+                </me>
+                <me>
+                    f_{yy} = 8x^{2} + 8
+                </me>
+                
+                <me>
+                    f_{zz} = 0
+                </me>
+
+                <me>
+                    f_{xy} = 16xy
+                </me>
+                
+                <me>
+                    f_{zx}=0=f_{zy}
+                </me>
+                
+
+            </p>
+        </answer>
+    </exercise>
+
+</subsection>
 
  <exercises xml:id="exercises-log-integral">
-     
+    
+<exercisegroup cols="2">
+<introduction>
+    <p>
+        Seja <m>f(x,y)=e^{2x}\sin{y}</m>. Determine
+    </p>
+</introduction>
+    
+<exercise>
+    <m>f_x</m>
+</exercise>
+
+<exercise>
+    <m>f_x(\ln{2},0)</m>
+</exercise>
+
+<exercise>
+    <m>f_y</m>
+</exercise>
+
+<exercise>
+    <m>f_y(\ln{2},0)</m>
+</exercise>
+</exercisegroup>
+
+<exercisegroup cols="2">
+<introduction>
+    <p>
+        Determine as derivadas parciais de primeira ordem da função.
+    </p>
+</introduction>
+<exercise>
+ <m>  z=9x^2y-3x^3y </m>
+</exercise>
+
+<exercise>
+    <m> z=x^4y^3+8x^2y</m>
+</exercise>
+
+<exercise>
+<m> f(x,y)=\dfrac{x}{y}</m>
+</exercise>
+
+<exercise>
+  <m>   f(x,y)=(x^2+5x-2y)^4</m>
+</exercise>
+
+<exercise>
+  <m>   z=\dfrac{x}{(x+y)^2}</m>
+</exercise>
+
+<exercise>
+ <m>    w=\ln{(x+2y+3z)}</m>
+</exercise>
+
+<exercise>
+ <m>    z=\cos{(2xy^2-3x^2y^2)}</m>
+</exercise>
+<exercise>
+   <m>  z=\cos{(2xy^2-3x^2y^2)}</m>
+</exercise>
+
+<exercise>
+   
+<m> z=x^y</m>
+</exercise>
+
+<exercise>
+    <m>f(x,y,z)=z\ln{(x^2y\cos{z})}</m>
+</exercise>
+</exercisegroup>
  </exercises>
+
+
+
+
+
 
 
 </section>
