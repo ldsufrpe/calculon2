@@ -104,7 +104,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
         </frontmatter>
 
         <introduction>
-            <p>Aqui uma introdução será necessária </p>
+            <p>Aqui uma introdução será necessária. Sim. </p>
         </introduction>
     <section>
     <title> Funções de mais de uma variável e Derivadas parciais</title>
