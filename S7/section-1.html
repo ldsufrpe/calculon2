@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2020-10-15T22:56:13-03:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Derivadas parciais parte 2</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    asciimath2jax: {
+        ignoreClass: ".*",
+        processClass: "has_am"
+    },
+    jax: ["input/AsciiMath"],
+    extensions: ["asciimath2jax.js"],
+    TeX: {
+        extensions: ["extpfeil.js", "autobold.js", "https://pretextbook.org/js/lib/mathjaxknowl.js", "AMScd.js", ],
+        // scrolling to fragment identifiers is controlled by other Javascript
+        positionToHash: false,
+        equationNumbers: { autoNumber: "none", useLabelIds: true, },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    // HTML-CSS output Jax to be dropped for MathJax 3.0
+    "HTML-CSS": {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+    CommonHTML: {
+        scale: 88,
+        mtextFontInherit: true,
+    },
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML-full"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Avalie (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<script src="https://cdn.geogebra.org/apps/deployggb.js"></script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_red_blue.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-article has-toc has-sidebar-left">
+<a class="assistive" href="#content">[skip-to-content]</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\newcommand{ct}[1]{\color{gray}{\text{#1}}}
+\newcommand{ctm}[1]{\color{gray}{#1}}
+
+\newcommand{\doubler}[1]{2#1}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ob}[2]{\color{gray}{\overbrace{\color{black}{#1}}^{#2}}}
+\newcommand{\ub}[2]{\color{gray}{\underbrace{\color{black}{#1}}_{#2}}}
+\newcommand{\integral}[2]{\displaystyle\int {#1}\,\dd {#2}}
+\newcommand{\integrald}[4]{\displaystyle\int_{#2}^{#3} {#1}\,\dd {#4}}
+\DeclareMathOperator{\arcsec}{arc \,sec}
+\DeclareMathOperator{\sin}{sen}
+\DeclareMathOperator{\arcsin}{arc \,sen}
+\DeclareMathOperator{\arccos}{arc \,cos}
+\DeclareMathOperator{\csc}{cossec}
+\DeclareMathOperator{\tan}{tg}
+\DeclareMathOperator{\arctan}{arc\,tg}
+\DeclareMathOperator{\cot}{cotg}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="http://www.dm.ufrpe.br" target="_blank"><img src="images/projeto_logo_dm_2020_7.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="calc-derivadas-parciais.html"><span class="title">Cálculo Integral: S7</span></a></h1>
+<p class="byline">Leon Silva</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Sumário</button><div class="tree-nav toolbar toolbar-divisor-3">
+<button id="calculator-toggle" class="toolbar-item button toggle" title="Show calculator" aria-expanded="false" aria-controls="calculator-container">Calc</button><div id="calculator-container" class="calculator-container" style="display: none; z-index:100;"><div id="geogebra-calculator"></div></div>
+<script>
+var ggbApp = new GGBApplet({"appName": "graphing",
+    "width": 330,
+    "height": 600,
+    "showToolBar": true,
+    "showAlgebraInput": true,
+    "perspective": "G/A",
+    "algebraInputPosition": "bottom",
+    "scaleContainerClass": "calculator-container",
+    "allowUpscale": true,
+    "autoHeight": true,
+    "disableAutoScale": false},
+true);
+</script><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="calc-derivadas-parciais.html" title="Anterior">Vol</a><a id="upbutton" class="up-button button toolbar-item" href="calc-derivadas-parciais.html" title="Acima">Subir</a><a id="nextbutton" class="next-button button toolbar-item" href="references-backmatter.html" title="Próximo">Ir</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Sumário</button><a class="previous-button toolbar-item button" href="calc-derivadas-parciais.html" title="Anterior">Vol</a><a class="up-button button toolbar-item" href="calc-derivadas-parciais.html" title="Acima">Subir</a><a class="next-button button toolbar-item" href="references-backmatter.html" title="Próximo">Ir</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter-1.html" data-scroll="frontmatter-1"><span class="title">Pré-textual</span></a></li>
+<li class="link active">
+<a href="section-1.html" data-scroll="section-1"><span class="codenumber">1</span> <span class="title">Derivadas parciais parte 2</span></a><ul><li><a href="section-1.html#subsec-regra-cadeia" data-scroll="subsec-regra-cadeia">Regra da Cadeia</a></li></ul>
+</li>
+<li class="link"><a href="references-backmatter.html" data-scroll="references-backmatter"><span class="codenumber">2</span> <span class="title">Referências</span></a></li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Feito com PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-1"><h2 class="heading hide-type">
+<span class="type">Seção</span> <span class="codenumber">1</span> <span class="title">Derivadas parciais parte 2</span>
+</h2>
+<article class="objectives goal-like" id="objectives-1"><h6 class="heading">
+<span class="type">Objetivos:</span><span class="space"> </span><span class="title">Estrutura</span>
+</h6>
+<ol class="decimal">
+<li id="li-1"><p id="p-3">Identificar e a aplicar a regra da cadeia.</p></li>
+<li id="li-2"><p id="p-4">Derivada direcional e vetor gradiente.</p></li>
+</ol></article><section class="subsection" id="subsec-regra-cadeia"><h3 class="heading hide-type">
+<span class="type">Subseção</span> <span class="codenumber">1.1</span> <span class="title">Regra da Cadeia</span>
+</h3>
+<article class="assemblage assemblage-like" id="def-cadeia-1"><h6 class="heading"><span class="title">Regra da cadeia (caso 1).</span></h6>
+<p id="p-5">Suponha que \(z = f (x, y)\) seja uma função diferenciável de \(x\)  e \(y\) , onde \(x =g(t)\) e \(y = h(t)\) são funções diferenciáveis de \(t\text{.}\) Então \(z\) é uma função diferenciável de \(t\)  e</p>
+<div class="displaymath">
+\begin{gather}
+\frac{\dd z}{\dd t}=\frac{\partial z}{\partial x}\frac{\dd x}{\dd t} + \frac{\partial z}{\partial y}\frac{\partial y}{\dd t} \tag{1.1}
+\end{gather}
+</div></article><article class="example example-like" id="ex-cadeia-1"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-cadeia-1"><h6 class="heading">
+<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.1</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-cadeia-1"><article class="example example-like"><p id="p-6">Se \(z=x^2y+3xy^4 + 3xy^4\text{,}\) na qual \(x=\sin{2t}\) e \(y=\cos{t}\text{,}\) determine \(\dd z/\dd t\) quando \(t=0\text{.}\)</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like">
+<p id="p-7">De acordo com <a class="xref" data-knowl="./knowl/assemblage-cadeia-2.html" title="[assemblage]: Regra da Cadeia(caso 2)">Regra da Cadeia(caso 2)</a>, temos</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{\dd z}{\dd t} = \ob{(2xy-3y^4)}{\frac{\partial z}{\partial x}}\ob{(2\cos{2t})}{\frac{\partial x}{\partial t}} 
++ \ob{(x^2+ 12xy^3)}{\frac{\partial z}{\partial y}}\ob{(-\sin{t})}{\frac{\partial y}{\partial t}} 
+\end{equation*}
+</div>
+<p data-braille="continuation">Note que quando \(t=0\text{,}\) temos \(x=\sin{0}=0\) e \(y=\cos{0}=1\text{.}\) Portanto,</p>
+<div class="displaymath">
+\begin{equation*}
+\left. \frac{\dd z}{\dd t} \right|_{t=0} = (0+3)(2\cos{0})(0+0)(-\sin{0})=6.
+\end{equation*}
+</div>
+</div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-1"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-1"><h6 class="heading">
+<span class="type">Autoavaliação</span><span class="space"> </span><span class="codenumber">1.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-1"><article class="exercise exercise-like"><p id="p-8">Suponha que \(z=x^2y\text{,}\) \(x=t\text{,}\) \(y=t^3\text{.}\) Use a regra da cadeia para encontrar \(\dd z/\dd t\)  e verifique o resultado expressando \(z\)  como uma função de \(t\text{.}\)</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-1" id="answer-1"><span class="type">Resposta</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-1"><div class="answer solution-like"><p id="p-9">\(7t^6\)</p></div></div>
+</div></article></div>
+<article class="assemblage assemblage-like" id="assemblage-cadeia-2"><h6 class="heading"><span class="title">Regra da Cadeia(caso 2).</span></h6>
+<p id="p-10">Suponha que \(z=f(x, y)\)  seja uma função diferenciável de \(x\) e \(y\) , onde \(x = g(s, t)\) e \(y= h(s, t)\) são funções diferenciáveis de \(s\) e \(t\text{.}\)</p>
+<div class="displaymath">
+\begin{gather}
+\frac{\partial z}{\partial s} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial s}
++ \frac{\partial z}{\partial y}\frac{\partial y}{\partial s} \tag{1.2}
+\end{gather}
+</div>
+<div class="displaymath">
+\begin{gather}
+\frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial t}
++ \frac{\partial z}{\partial y}\frac{\partial y}{\partial t} \tag{1.3}
+\end{gather}
+</div></article><article class="example example-like" id="ex-cadeia-3"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-cadeia-3"><h6 class="heading">
+<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-cadeia-3"><article class="example example-like"><p id="p-11">Se \(z=e^x\sin{y}\text{,}\) na qual \(x=st^2\) e \(y=s^2t\text{,}\) determine \(\frac{\partial z}{\partial s}\) e  \(\frac{\partial z}{\partial t}\text{.}\)</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like">
+<p id="p-12">De acordo com <a class="xref" data-knowl="./knowl/assemblage-cadeia-2.html" title="[assemblage]: Regra da Cadeia(caso 2)">Regra da Cadeia(caso 2)</a>, temos</p>
+<div class="displaymath">
+\begin{align*}
+\frac{\partial z}{\partial s} \amp = \ob{(e^x\sin{y})}{\frac{\partial z}{\partial x}}\ob{(t^2)}{\frac{\partial x}{\partial s}} +
+\ob{(e^x\cos{y})}{\frac{\partial x}{\partial s}}\ob{(2st)}{\frac{\partial y}{\partial s}} \\
+\amp = t^2e^{st^2}\sin{(s^2t)}+ 2st^{st^2}\cos{(s^2t)} 
+\end{align*}
+</div>
+<div class="displaymath">
+\begin{align*}
+\frac{\partial z}{\partial t} \amp =  \ob{(e^x\sin{y})}{\frac{\partial z}{\partial x}}\ob{(2st)}{\frac{\partial x}{\partial t}} 
++ \ob{(e^x\cos{y})}{\frac{\partial z}{\partial y}}\ob{(s^2)}{\frac{\partial y}{\partial t}}\amp \\
+\amp= 2ste^{st^2}\sin{(s^2t)} + s^2e^{st^2}\cos{(s^2t)}
+\end{align*}
+</div>
+</div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-2"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-2"><h6 class="heading">
+<span class="type">Autoavaliação</span><span class="space"> </span><span class="codenumber">1.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-2"><article class="exercise exercise-like"><p id="p-13">Supondo que \(z=e^{xy}\text{,}\) \(x=2t+s\text{,}\) \(y=t/s\) encontre \(\partial z/\partial t\text{,}\) \(\partial z/\partial s\) usando a regra da cadeia.</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-1" id="hint-1"><span class="type">Dica</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-1"><div class="hint solution-like"><p id="p-14">Use a regra <a class="xref" data-knowl="./knowl/assemblage-cadeia-2.html" title="[assemblage]: Regra da Cadeia(caso 2)">Regra da Cadeia(caso 2)</a>.</p></div></div>
+<a data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-2" id="answer-2"><span class="type">Resposta</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-2"><div class="answer solution-like"><p id="p-15">\(-\frac{2t^2}{s^2}e^{(2t+s)(t/s)}\)</p></div></div>
+</div></article></div>
+<section class="subsection" id="subsec-derivada-implicita"><h4 class="heading hide-type">
+<span class="type">Subseção</span> <span class="codenumber">1.1.1</span> <span class="title">Derivada Implicita</span>
+</h4>
+<article class="assemblage assemblage-like" id="def-implicita"><h6 class="heading"><span class="title">Teorema da função Implicita.</span></h6>
+<p id="p-16">Suponha que uma equação \(F(x,y)=0\) defina \(y=f(x)\) implicitamente como uma função diferenciável de \(x\text{.}\) Se \(\frac{\partial F}{\partial y} \neq 0\text{,}\) então</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{\\d y}{\\d x} = -\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}} = -\frac{F_x}{F_y}.
+\end{equation*}
+</div></article><article class="example example-like" id="ex-implicita-1"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-implicita-1"><h6 class="heading">
+<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.5</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-implicita-1"><article class="example example-like"><p id="p-17">Determine \(\frac{\dd y}{\dd x}\) sabendo que \(x^3+ y^2-6xy=0\text{.}\)</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like">
+<p id="p-18">A equação pode ser escrita como</p>
+<div class="displaymath">
+\begin{equation*}
+F(x,y)=x^3+ y^3-6xy=0.    
+\end{equation*}
+</div>
+<p data-braille="continuation">Logo,  o <a class="xref" data-knowl="./knowl/def-implicita.html" title="[assemblage]: Teorema da função Implicita">Teorema da função Implicita</a>    nos fornece</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{\dd y}{\dd x}=-\frac{F_x}{F_y}=-\frac{3x^2-6y}{3y^2-6x}=-\frac{x^2-2y}{y^2-2x}.
+\end{equation*}
+</div>
+</div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-3"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-3"><h6 class="heading">
+<span class="type">Autoavaliação</span><span class="space"> </span><span class="codenumber">1.6</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-3"><article class="exercise exercise-like"><p id="p-19">Dado que</p>
+<div class="displaymath">
+\begin{equation*}
+x^3 + y^2 x − 3 = 0
+\end{equation*}
+</div>
+<p data-braille="continuation">determine \(\dd y/\dd x\) usando <a class="xref" data-knowl="./knowl/ex-implicita-1.html" title="Exemplo 1.5">Exemplo 1.5</a> .</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-3" id="answer-3"><span class="type">Resposta</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-3"><div class="answer solution-like"><p id="p-20">\(\frac{\dd y}{\dd x}=-\frac{3x^2+ y^2}{2yx}\)</p></div></div>
+</div></article></div></section><section class="subsection" id="subsec-derivadas-direcionais"><h4 class="heading hide-type">
+<span class="type">Subseção</span> <span class="codenumber">1.1.2</span> <span class="title">Derivadas Direcionais e o vetor Gradiente</span>
+</h4></section><article class="assemblage assemblage-like" id="assemblage-derivada-direcional"><h6 class="heading"><span class="title">Derivada Direcional.</span></h6>
+<p id="p-21">Se \(f\) é uma função diferênciável de \(x\) e \(y\text{,}\) então a <dfn class="terminology">derivada direcional</dfn> na direção de qualquer vetor \(u=(a,b)\) é</p>
+<div class="displaymath">
+\begin{equation*}
+D_uf(x,y)=f_x(x,y)a + f_y(x,y)b
+\end{equation*}
+</div></article><article class="example example-like" id="ex-direcional-1"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-direcional-1"><h6 class="heading">
+<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.7</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-direcional-1"><article class="example example-like"><p id="p-22">Encontre a derivada direcional \(D_uf(x,y)\) se</p>
+<div class="displaymath">
+\begin{equation*}
+f(x,y)=x^3-3xy+4y^2
+\end{equation*}
+</div>
+<p data-braille="continuation">e \(u\)  é o vetor unitário dado pelo ângulo \(\frac{\pi}{6}\text{.}\) Qual será o valor \(D_uf(1,2)\text{?}\)</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like">
+<p id="p-23">O vetor uitario será  \(u=\langle \cos{\frac{\pi}{6}}, \sin{\frac{\pi}{6}}\rangle\text{.}\) De acordo com <a class="xref" data-knowl="./knowl/assemblage-derivada-direcional.html" title="[assemblage]: Derivada Direcional">Derivada Direcional</a> temos,</p>
+<div class="displaymath">
+\begin{align*}
+D_uf(x,y) \amp = f_x(x,y) \cos{\frac{\pi}{6}}  + f_y(x,y) \sin{\frac{\pi}{6}}\\
+\amp =(3x^2-3y)\frac{\sqrt{3}}{2} + (-3x+ 8y)\frac{1}{2} \\
+\amp = \frac{1}{2}\left[3\sqrt{3}x^2 - 3x + (8-3\sqrt{3})y\right] 
+\end{align*}
+</div>
+<p data-braille="continuation">Dessa forma,</p>
+<div class="displaymath">
+\begin{align*}
+D_uf(1,2) \amp = \frac{1}{2}\left[ 3\sqrt{3}(1)^2-3(1)+ (8-3\sqrt{3})(2)\right] \\
+\amp = \frac{13-3\sqrt{3}}{2}. 
+\end{align*}
+</div>
+</div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-4"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-4"><h6 class="heading">
+<span class="type">Autoavaliação</span><span class="space"> </span><span class="codenumber">1.8</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-4"><article class="exercise exercise-like"><p id="p-24">Seja f (x, y) = x y. Encontre e interprete \(D_u f(1, 2)\) com o vetor unitário \(\langle \sqrt{3}{2}, \frac{1}{2}\rangle\)</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-4" id="answer-4"><span class="type">Resposta</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-4"><div class="answer solution-like"><p id="p-25">\(\frac{1}{2} + \sqrt{3}\)</p></div></div>
+</div></article></div>
+<section class="subsection" id="subsec-Vetor-Gradiente"><h4 class="heading hide-type">
+<span class="type">Subseção</span> <span class="codenumber">1.1.3</span> <span class="title">Vetor Gradiente</span>
+</h4>
+<article class="assemblage assemblage-like" id="assemblage-gradiente"><h6 class="heading"><span class="title">Definição.</span></h6>
+<p id="p-26">Se \(f\) é uma função  de duas variáveis \(x\) e \(y\text{,}\) então o gradiente de \(f\) é a função vetorial \(\nabla f\) definida por</p>
+<div class="displaymath">
+\begin{equation*}
+\nabla f(x,y)=\langle f_x(x,y), f_y(x,y)\rangle= \frac{\partial f}{\partial x}\mathbf{i} + \frac{\partial f}{\partial y}\mathbf{j}.
+\end{equation*}
+</div></article><article class="example example-like" id="ex-gradiente-1"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-gradiente-1"><h6 class="heading">
+<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.9</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-gradiente-1"><article class="example example-like"><p id="p-27"><article class="task exercise-like" id="task-1"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<p id="p-28">Calcule o gradiente de \(f(x,y)=\sin{x}+ e^{xy}\text{.}\)</p></article> <article class="task exercise-like" id="task-2"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<p id="p-29">Determine o vetor \(\nabla f(0,1)\text{.}\)</p></article></p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-5" id="solution-5"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like">
+<p id="p-30">De acordo com <a class="xref" data-knowl="./knowl/assemblage-gradiente.html" title="[assemblage]: Definição">Definção do gradiente</a>, temos</p>
+<div class="displaymath">
+\begin{align*}
+\nabla f(x,y) \amp= \langle \cos{x} + e^{xy},xe^{xy} \rangle 
+\end{align*}
+</div>
+<p data-braille="continuation">Então,</p>
+<div class="displaymath">
+\begin{equation*}
+\nabla f(0,1) = \langle 2,0\rangle .
+\end{equation*}
+</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-6"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-6"><h6 class="heading">
+<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.10</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-6"><article class="example example-like"><p id="p-31">Determine a derivada direcional da função \(f (x, y) = x^2y^3 - 4y\) no ponto \((2, 1)\) na direção do vetor \(v = \langle 2, 5 \rangle\)</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like">
+<p id="p-32">Novamento de  acordo com <a class="xref" data-knowl="./knowl/assemblage-gradiente.html" title="[assemblage]: Definição">Definção do gradiente</a>:</p>
+<div class="displaymath">
+\begin{align*}
+\nabla f(x,y) \amp =\langle 2xy^3, 3x^2y^2-4\rangle 
+\end{align*}
+</div>
+<div class="displaymath">
+\begin{align*}
+\nabla f(2,-1) \amp =\langle -4, 8\rangle  
+\end{align*}
+</div>
+<p data-braille="continuation">Observe que \(v\)  não é um vetor unitário, mas, como \(|v|=\sqrt{29}\text{,}\) o vetor unitário na direção de \(v\) é</p>
+<div class="displaymath">
+\begin{align*}
+v \amp= \frac{v}{|v|}=\langle \frac{2}{\sqrt{29}}, \frac{5}{\sqrt{29}}\rangle 
+\end{align*}
+</div>
+<p data-braille="continuation">Olhando para definição da <a class="xref" data-knowl="./knowl/assemblage-derivada-direcional.html" title="[assemblage]: Derivada Direcional">Derivada Direcional</a> podemos usar o vetor gradiente acima para reescrever a  derivada direcional como a seguir:</p>
+<div class="displaymath">
+\begin{align*}
+D_uf(x,y)\cdot u \amp 
+\end{align*}
+</div>
+<p data-braille="continuation">Por essa razão,</p>
+<div class="displaymath">
+\begin{align*}
+D_uf(x,y)\amp = \nabla f(2,-1)\cdot u = \langle -4, 8 \rangle\cdot\langle \frac{2}{\sqrt{29}}, \frac{5}{\sqrt{29}}\rangle \\
+\amp = \frac{-4\cdot 2 + 8\cdot 5}{\sqrt{29}} \\
+\amp = \frac{32}{\sqrt{29}} 
+\end{align*}
+</div>
+</div></div>
+</div></article></div></section><article class="theorem theorem-like" id="thm-maxima-direcional"><h6 class="heading">
+<span class="type">Teorema</span><span class="space"> </span><span class="codenumber">1.11</span><span class="period">.</span>
+</h6>
+<p id="p-33">Suponha que \(f\) seja uma função diferenciável de duas ou três variáveis. O valor máximo da derivada direcional \(D_u f(x,y)\) é \(|\nabla f(x,y)|\) e ocorre quando \(u\)  tem a mesma direção do vetor gradiente \(f(x,y)\text{.}\)</p></article><article class="example example-like" id="ex-maxima-direcional-1"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-maxima-direcional-1"><h6 class="heading">
+<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.12</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-maxima-direcional-1"><article class="example example-like"><p id="p-34"><article class="task exercise-like" id="task-3"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<p id="p-35">Se \(f(x, y)= xe^y\) , determine a taxa de variação de \(f\)  no ponto \(P(2, 0)\) na direção de \(P\) a \(Q(\frac{1}{2}, 2)\text{.}\)</p></article> <article class="task exercise-like" id="task-4"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<p id="p-36">Em que direção \(f\)  tem a máxima taxa de variação? Qual é a máxima taxa de variação?</p></article></p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-7" id="solution-7"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-7"><div class="solution solution-like">
+<p id="p-37">Iniciamos calculando o vetor gradiente:</p>
+<div class="displaymath">
+\begin{align*}
+\nabla f(x,y) \amp = \langle e, xe^y \rangle 
+\end{align*}
+</div>
+<div class="displaymath">
+\begin{align*}
+\nabla f(2,0) \amp= \langle 1, 2 \rangle 
+\end{align*}
+</div>
+<p data-braille="continuation">O vetor unitário na direção \(PQ=\langle -1.5, 2\rangle \) é \(u =\langle -3/5, 4/5\rangle\text{,}\) logo  a taxa de variação de \(f\) na direção do vetor \(PQ\) é</p>
+<div class="displaymath">
+\begin{align*}
+D_uf(2,0) \amp =\nabla f(0,2)\cdot u = \langle 1, 2\rangle \cdot \langle -3/5, 4/5\rangle \\
+\amp = 1 
+\end{align*}
+</div>
+<p data-braille="continuation">De acordo com o Teorema <a class="xref" data-knowl="./knowl/thm-maxima-direcional.html" title="Teorema 1.11">Teorema 1.11</a>, \(f\) aumenta mais depressa na direção do gradiente \(\nabla f(2,0)=\langle 1, 2 \rangle\text{.}\) A taxa máxima de variação é</p>
+<div class="displaymath">
+\begin{gather*}
+|\nabla f(2,0)= |\langle 1, 2\rangle|=\sqrt{5} \text{.}
+\end{gather*}
+</div>
+</div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-5"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-5"><h6 class="heading">
+<span class="type">Autoavaliação</span><span class="space"> </span><span class="codenumber">1.13</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-5"><article class="exercise exercise-like"><p id="p-38">Seja \(f (x, y) = x^2 e^y \text{.}\) Determine o valor máximo de uma derivada direcional em \((−2, 0)\) e o vetor unitário na direção e no sentido do qual o valor máximo ocorre.</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-2" id="hint-2"><span class="type">Dica</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-2"><div class="hint solution-like"><p id="p-39">O valor máximo ocorre na direção e no sentido de \(\nabla f(2,1)\text{.}\)</p></div></div>
+<a data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-5" id="answer-5"><span class="type">Resposta</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-5"><div class="answer solution-like"><p id="p-40">O valor máximo da derivada direcional é \(4\sqrt{2}\text{.}\) O vetor unitário nessa direção e sentido é \(\langle -1/\sqrt{2} , 1/\sqrt{2}\rangle\text{.}\)</p></div></div>
+</div></article></div></section></section></div></main>
+</div>
+</body>
+</html>

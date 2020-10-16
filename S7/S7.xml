@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!--********************************************************************
+Copyright 2015 Robert A. Beezer
+
+This file is part of MathBook XML.
+
+MathBook XML is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 or version 3 of the
+License (at your option).
+
+MathBook XML is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
+*********************************************************************-->
+
+<!-- To process this file do                                                                      -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex mathbook/xsl/pretext-latex.xsl calc-integral.xml                       -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc mathbook/xsl/pretext-html.xsl calc-integral.xml                                       -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 mathbook/xsl/pretext-smc.xsl minimal.xml           -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 mathbook/xsl/pretext-sage-doctest.xsl minimal.xml  -->
+<!--     <read further instructions in> minimal.py                                                -->
+
+<pretext  xml:lang="pt-BR">
+
+    <docinfo>
+    <brandlogo url="http://www.dm.ufrpe.br" source="images/projeto_logo_dm_2020_7.png" />
+
+
+
+       
+        <macros>
+        \newcommand{ct}[1]{\color{gray}{\text{#1}}}
+        \newcommand{ctm}[1]{\color{gray}{#1}}
+
+        \newcommand{\doubler}[1]{2#1}
+        \newcommand{\dd}{\mathrm{d}}
+        \newcommand{\ob}[2]{\color{gray}{\overbrace{\color{black}{#1}}^{#2}}}
+        \newcommand{\ub}[2]{\color{gray}{\underbrace{\color{black}{#1}}_{#2}}}
+        \newcommand{\integral}[2]{\displaystyle\int {#1}\,\dd {#2}}
+        \newcommand{\integrald}[4]{\displaystyle\int_{#2}^{#3} {#1}\,\dd {#4}}
+        \DeclareMathOperator{\arcsec}{arc \,sec}
+        \DeclareMathOperator{\sin}{sen}
+        \DeclareMathOperator{\arcsin}{arc \,sen}
+        \DeclareMathOperator{\arccos}{arc \,cos}
+        \DeclareMathOperator{\csc}{cossec}
+        \DeclareMathOperator{\tan}{tg}
+        \DeclareMathOperator{\arctan}{arc\,tg}
+        \DeclareMathOperator{\cot}{cotg}
+        </macros>
+       
+        <latex-image-preamble>
+        \usepackage{tikz}
+      <!--  \usepackage{pgfplots}               % loads tikz package-->
+        \usepackage{smartdiagram}           % for a circular diagram
+        \pgfplotsset{axis x line = middle,
+                     axis y line = middle}
+        \usetikzlibrary{backgrounds}
+        \usetikzlibrary{arrows,matrix}
+        \usetikzlibrary{positioning}        % for Dave R's worksheet
+        \usepackage{circuitikz}             % for Virgil P's worksheet
+        
+        </latex-image-preamble>
+    </docinfo>
+
+    <article xml:id="calc-derivadas-parciais">
+        <title>Cálculo Integral: S7</title>
+
+        <frontmatter>
+
+            <titlepage>
+                <author>
+                    <personname>Leon Silva</personname>
+                    <department>Departamento de Matemática</department>                    
+                    <institution>Universidade Federal Rural de Pernanbuco</institution>
+                </author>
+                <date><today /></date>
+            </titlepage>
+
+            <abstract>
+                <p>Aqui faremos um resumo das atividades da semana.</p>
+            </abstract>
+
+        </frontmatter>
+
+        <introduction>
+            <p>Aqui uma introdução será necessária. Sim. </p>
+        </introduction>
+    <section>
+    <title> Derivadas parciais parte 2</title>
+    
+         
+        <objectives>
+            <title>Estrutura</title>
+           
+            <ol>
+                <li>
+                    <p>
+                         Identificar e a aplicar a regra da cadeia.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Derivada direcional e vetor gradiente.
+                    </p>
+                </li>
+                
+            </ol>
+            
+        </objectives>
+
+<subsection xml:id="subsec-regra-cadeia">
+    <title>Regra da Cadeia</title>
+
+<assemblage xml:id="def-cadeia-1">
+<title>Regra da cadeia (caso 1)</title>
+   
+        <p>
+           Suponha que <m> z = f (x, y)</m> seja uma função diferenciável
+    de <m>x</m>  e <m>y</m> , onde <m> x =g(t)</m> e <m>y = h(t)</m> são
+     funções diferenciáveis de <m>t</m>. Então <m>z</m> é uma função diferenciável 
+     de <m>t</m>  e 
+
+     <mdn xml:id="eq-cadeia-1"> <mrow> \frac{\dd z}{\dd t}=\frac{\partial z}{\partial x}\frac{\dd x}{\dd t} + \frac{\partial z}{\partial y}\frac{\partial y}{\dd t} </mrow></mdn>
+        </p>
+  
+</assemblage>
+
+<example xml:id="ex-cadeia-1">
+    <statement>
+        <p>
+            Se <m>z=x^2y+3xy^4 + 3xy^4</m>, na qual <m>x=\sin{2t}</m> e <m>y=\cos{t}</m>, determine <m>\dd z/\dd t</m> quando <m>t=0</m>.
+        </p>
+    </statement>
+    <solution>
+        <p>
+        De acordo com <xref ref="assemblage-cadeia-2" text="title"/>, temos
+        <me>\frac{\dd z}{\dd t} = \ob{(2xy-3y^4)}{\frac{\partial z}{\partial x}}\ob{(2\cos{2t})}{\frac{\partial x}{\partial t}} 
+        + \ob{(x^2+ 12xy^3)}{\frac{\partial z}{\partial y}}\ob{(-\sin{t})}{\frac{\partial y}{\partial t}} </me>
+        
+        Note que quando <m>t=0</m>, temos <m>x=\sin{0}=0</m> e <m>y=\cos{0}=1</m>. Portanto, 
+
+       <me>
+         \left. \frac{\dd z}{\dd t} \right|_{t=0} = (0+3)(2\cos{0})(0+0)(-\sin{0})=6.
+       </me>
+        
+        </p>
+    </solution>
+</example>
+
+<!-- <example xml:id="ex-cadeia-2">
+    <statement>
+        <p>
+            depois
+        </p>
+    </statement>
+    <solution>
+        <p>
+            depois
+        </p>
+    </solution>
+</example> -->
+
+<exercise>
+    <statement>
+        <p>
+            Suponha que <m>z=x^2y</m>, <m>x=t</m>, <m>y=t^3</m>. Use a regra da cadeia para encontrar <m>\dd z/\dd t</m>  e verifique o resultado expressando <m>z</m>  como uma
+função de <m>t</m>.
+        </p>
+    </statement>
+   
+
+    <answer>
+        <p>
+           <m>7t^6</m>
+        </p>
+    </answer>
+</exercise>
+
+<assemblage xml:id="assemblage-cadeia-2">
+<title>Regra da Cadeia(caso 2)</title>
+   
+        <p>
+            Suponha que <m>z=f(x, y)</m>  seja uma função diferenciável
+                de <m>x</m> e <m>y</m> , onde <m>x = g(s, t)</m> e <m>y= h(s, t)</m> são funções diferenciáveis de <m>s</m> e <m>t</m>.
+        
+
+        <mdn xml:id="eq-cadeia-2">
+           <mrow>  \frac{\partial z}{\partial s} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial s}
+            + \frac{\partial z}{\partial y}\frac{\partial y}{\partial s} </mrow> 
+        </mdn>
+        
+
+        <mdn>
+        <mrow>      \frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial t}
+            + \frac{\partial z}{\partial y}\frac{\partial y}{\partial t} </mrow>
+        </mdn>
+        </p>
+ 
+</assemblage>
+
+
+
+<example xml:id="ex-cadeia-3">
+    <statement>
+        <p>
+            Se <m>z=e^x\sin{y}</m>, na qual <m>x=st^2</m> e <m>y=s^2t</m>,
+             determine <m>\frac{\partial z}{\partial s}</m> e  <m>\frac{\partial z}{\partial t}</m>. 
+
+            
+        </p>
+    </statement>
+    <solution>
+        <p>
+        De acordo com <xref ref="assemblage-cadeia-2" text="title"/>, temos
+            <md>
+                <mrow>\frac{\partial z}{\partial s} \amp = \ob{(e^x\sin{y})}{\frac{\partial z}{\partial x}}\ob{(t^2)}{\frac{\partial x}{\partial s}} +
+                 \ob{(e^x\cos{y})}{\frac{\partial x}{\partial s}}\ob{(2st)}{\frac{\partial y}{\partial s}} 
+                
+                </mrow>
+                <mrow> \amp = t^2e^{st^2}\sin{(s^2t)}+ 2st^{st^2}\cos{(s^2t)} </mrow>
+            </md>
+
+
+            <md>
+                <mrow>\frac{\partial z}{\partial t} \amp =  \ob{(e^x\sin{y})}{\frac{\partial z}{\partial x}}\ob{(2st)}{\frac{\partial x}{\partial t}} 
+                + \ob{(e^x\cos{y})}{\frac{\partial z}{\partial y}}\ob{(s^2)}{\frac{\partial y}{\partial t}}\amp </mrow>
+                <mrow> \amp= 2ste^{st^2}\sin{(s^2t)} + s^2e^{st^2}\cos{(s^2t)}</mrow>
+            </md>
+        </p>
+    </solution>
+</example>
+<!-- 
+<example xml:id="ex-cadeia-4">
+    <statement>
+        <p>
+            depois
+        </p>
+    </statement>
+    <solution>
+        <p>
+            depois
+        </p>
+    </solution>
+</example> -->
+
+<exercise>
+    <statement>
+        <p>
+            Supondo que <m>z=e^{xy}</m>, <m>x=2t+s</m>, <m>y=t/s</m> encontre <m>\partial z/\partial t</m>, <m> \partial z/\partial s</m>
+            usando a regra da cadeia.
+        </p>
+    </statement>
+    <hint>
+        <p>
+            Use a regra <xref ref="assemblage-cadeia-2" text="title"/>.
+        </p>
+    </hint>
+
+    <answer>
+        <p>
+          <m>  -\frac{2t^2}{s^2}e^{(2t+s)(t/s)}</m>
+        </p>
+    </answer>
+</exercise>
+
+<subsection xml:id="subsec-derivada-implicita">
+
+
+
+    <title>Derivada Implicita</title>
+    <assemblage xml:id="def-implicita">
+      <title>Teorema da função Implicita</title>
+            <p>
+                Suponha que uma equação <m>F(x,y)=0</m> defina <m>y=f(x)</m> implicitamente 
+                como uma função diferenciável de <m>x</m>. Se <m>\frac{\partial F}{\partial y} \neq 0</m>, então 
+            
+            <me>
+                \frac{\\d y}{\\d x} = -\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}} = -\frac{F_x}{F_y}.
+            </me>
+            
+            
+            </p>
+       
+    </assemblage>
+
+
+<example xml:id="ex-implicita-1">
+    <statement>
+        <p>
+            Determine <m>\frac{\dd y}{\dd x}</m> sabendo que <m>x^3+ y^2-6xy=0</m>.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            A equação pode ser escrita como 
+            <me>
+            F(x,y)=x^3+ y^3-6xy=0.    
+            </me>
+        Logo,  o <xref ref="def-implicita" text="title"/>    nos fornece
+
+        <me>
+            \frac{\dd y}{\dd x}=-\frac{F_x}{F_y}=-\frac{3x^2-6y}{3y^2-6x}=-\frac{x^2-2y}{y^2-2x}.
+        </me>
+        
+        </p>
+    </solution>
+</example>
+
+
+<!-- <example xml:id="ex-implicita-2">
+    <statement>
+        <p>
+            depois
+        </p>
+    </statement>
+    <solution>
+        <p>
+            depois
+        </p>
+    </solution>
+</example> -->
+
+<exercise>
+    <statement>
+        <p>
+           Dado que
+                       <me> x^3 + y^2 x − 3 = 0</me>
+determine <m> \dd y/\dd x</m> usando <xref ref="ex-implicita-1"/> .
+        </p>
+    </statement>
+
+
+    <answer>
+        <p>
+            <m>\frac{\dd y}{\dd x}=-\frac{3x^2+ y^2}{2yx}</m>
+        </p>
+    </answer>
+</exercise>
+
+</subsection>
+
+<subsection xml:id="subsec-derivadas-direcionais">
+    <title>Derivadas Direcionais e o vetor Gradiente</title>
+    
+</subsection>
+
+<assemblage xml:id="assemblage-derivada-direcional">
+    <title>Derivada Direcional</title>
+    <p>
+        Se <m>f</m> é uma função diferênciável de <m>x</m> e <m>y</m>, então a <term> derivada direcional</term>
+        na direção de qualquer vetor <m>u=(a,b)</m> é
+
+        <me>D_uf(x,y)=f_x(x,y)a + f_y(x,y)b</me>
+    </p>
+</assemblage>
+
+<example xml:id="ex-direcional-1">
+    <statement>
+        <p>
+           Encontre a derivada direcional <m>D_uf(x,y)</m> se 
+           <me>
+               f(x,y)=x^3-3xy+4y^2
+           </me>
+        e <m>u</m>  é o vetor unitário dado pelo ângulo <m>\frac{\pi}{6}</m>. Qual será o valor
+        <m>D_uf(1,2)</m>?
+        </p>
+    </statement>
+    
+    <solution>
+        <p> O vetor uitario será  <m>u=\langle \cos{\frac{\pi}{6}}, \sin{\frac{\pi}{6}}\rangle</m>. De acordo com <xref ref="assemblage-derivada-direcional" text="title"/> temos,
+         <md>
+             <mrow>D_uf(x,y) \amp = f_x(x,y) \cos{\frac{\pi}{6}}  + f_y(x,y) \sin{\frac{\pi}{6}}</mrow>
+             <mrow> \amp =(3x^2-3y)\frac{\sqrt{3}}{2} + (-3x+ 8y)\frac{1}{2} </mrow>
+             <mrow> \amp = \frac{1}{2}\left[3\sqrt{3}x^2 - 3x + (8-3\sqrt{3})y\right] </mrow>
+         </md>
+         Dessa forma,
+
+        <md>
+            <mrow>D_uf(1,2) \amp = \frac{1}{2}\left[ 3\sqrt{3}(1)^2-3(1)+ (8-3\sqrt{3})(2)\right] </mrow>
+            <mrow> \amp = \frac{13-3\sqrt{3}}{2}. </mrow>
+        </md>
+
+        </p>
+    </solution>
+</example>
+
+
+<!-- <example xml:id="ex-direcional-2">
+    <statement>
+        <p>
+            depois
+        </p>
+    </statement>
+    <solution>
+        <p>
+            depois
+        </p>
+    </solution>
+</example> -->
+
+<exercise>
+    <statement>
+        <p>
+            Seja f (x, y) = x y. Encontre e interprete <m> D_u f(1, 2)</m> com o vetor unitário <m>\langle \sqrt{3}{2}, \frac{1}{2}\rangle</m>
+        </p>
+    </statement>
+   
+    <answer>
+        <p>
+            <m>\frac{1}{2} + \sqrt{3}</m>
+        </p>
+    </answer>
+</exercise>
+
+<subsection xml:id="subsec-Vetor-Gradiente">
+    <title>Vetor Gradiente</title>
+    <assemblage xml:id="assemblage-gradiente">
+        <title>Definição</title>
+        <p>
+            Se <m>f</m> é uma função  de duas variáveis <m>x</m> e <m>y</m>, então o gradiente de 
+            <m>f</m> é a função vetorial <m>\nabla f</m> definida por 
+
+
+            <me>
+                \nabla f(x,y)=\langle f_x(x,y), f_y(x,y)\rangle= \frac{\partial f}{\partial x}\mathbf{i} + \frac{\partial f}{\partial y}\mathbf{j}.
+            </me>
+             
+        </p>
+    </assemblage>
+
+
+<example xml:id="ex-gradiente-1">
+    <statement>
+        <p>
+        <task>
+            <p>
+                Calcule o gradiente de <m>f(x,y)=\sin{x}+ e^{xy}</m>.
+            </p>
+        </task>
+           <task>
+               <p>
+                   Determine o vetor <m>\nabla f(0,1)</m>.
+               </p>
+           </task>
+        </p>
+    </statement>
+    <solution>
+        <p>De acordo com <xref ref="assemblage-gradiente" text="custom"> Definção do gradiente</xref>, temos
+            <md>
+                <mrow>\nabla f(x,y) \amp= \langle \cos{x} + e^{xy},xe^{xy} \rangle </mrow>.
+            </md>
+        Então,
+        <me>
+            \nabla f(0,1) = \langle 2,0\rangle .
+        </me>
+        
+        </p>
+    </solution>
+</example>
+
+<example>
+    <statement>
+        <p>
+            Determine a derivada direcional da função <m> f (x, y) = x^2y^3 - 4y</m> no ponto
+  <m> (2, 1)</m> na direção do vetor <m>v = \langle 2, 5 \rangle</m>
+        </p>
+    </statement>
+    <solution>
+        <p>
+            Novamento de  acordo com <xref ref="assemblage-gradiente" text="custom"> Definção do gradiente</xref>:
+
+            <md>
+                <mrow>\nabla f(x,y) \amp =\langle 2xy^3, 3x^2y^2-4\rangle </mrow>
+            </md>
+            <md>
+                <mrow> \nabla f(2,-1) \amp =\langle -4, 8\rangle  </mrow>
+            </md>
+            Observe que <m>v</m>  não é um vetor unitário, mas, como <m>|v|=\sqrt{29}</m>, o vetor unitário na direção
+            de <m>v</m> é
+
+            <md>
+                <mrow>v \amp= \frac{v}{|v|}=\langle \frac{2}{\sqrt{29}}, \frac{5}{\sqrt{29}}\rangle </mrow>
+            </md>
+
+            Olhando para definição da <xref ref="assemblage-derivada-direcional" text="title"/> podemos 
+            usar o vetor gradiente acima para reescrever a  derivada direcional como a seguir:
+
+            <md>
+                <mrow>D_uf(x,y)\cdot u \amp </mrow>
+            </md>
+        Por essa razão,
+
+        <md>
+            <mrow> D_uf(x,y)\amp = \nabla f(2,-1)\cdot u = \langle -4, 8 \rangle\cdot\langle \frac{2}{\sqrt{29}}, \frac{5}{\sqrt{29}}\rangle </mrow>
+            <mrow>  \amp = \frac{-4\cdot 2 + 8\cdot 5}{\sqrt{29}} </mrow>
+            <mrow> \amp = \frac{32}{\sqrt{29}} </mrow>
+        </md>
+        
+        </p>
+    </solution>
+</example>
+
+
+</subsection>
+
+<theorem xml:id="thm-maxima-direcional">
+    <statement>
+        <p>
+    Suponha que <m>f</m> seja uma função diferenciável de duas ou três variáveis.
+O valor máximo da derivada direcional <m>D_u f(x,y)</m> é <m>|\nabla f(x,y)|</m> e 
+ocorre quando <m>u</m>  tem a mesma
+direção do vetor gradiente <m>f(x,y)</m>.
+        </p>
+    </statement>
+</theorem>
+
+
+<example xml:id="ex-maxima-direcional-1">
+    <statement>
+        <p>
+            <task>
+                <p>
+                    Se <m> f(x, y)= xe^y</m> , determine a taxa de variação de <m>f</m>  no ponto <m> P(2, 0)</m> na direção de <m> P</m> a
+                    <m>Q(\frac{1}{2}, 2)</m>.
+                </p>
+            </task>
+
+            <task>
+                <p>
+                    Em que direção <m>f</m>  tem a máxima taxa de variação? Qual é a máxima taxa de variação?
+                </p>
+            </task>
+        </p>
+    </statement>
+    <solution>
+        <p>
+            Iniciamos calculando o vetor gradiente:
+
+            <md>
+                <mrow>\nabla f(x,y) \amp = \langle e, xe^y \rangle </mrow>
+            </md>
+
+            <md>
+                <mrow> \nabla f(2,0) \amp= \langle 1, 2 \rangle </mrow>
+            </md>
+
+            O vetor unitário na direção <m>PQ=\langle -1.5, 2\rangle </m> é <m> u =\langle -3/5, 4/5\rangle</m>,
+            logo  a taxa de variação de <m>f</m> na direção do vetor <m>PQ</m> é 
+
+            <md>
+                <mrow>D_uf(2,0) \amp =\nabla f(0,2)\cdot u = \langle 1, 2\rangle \cdot \langle -3/5, 4/5\rangle </mrow>
+                <mrow> \amp = 1 </mrow>
+            </md>
+
+            De acordo com o Teorema <xref ref="thm-maxima-direcional"/>, <m>f</m> aumenta mais depressa na direção do gradiente
+            <m>\nabla f(2,0)=\langle 1, 2 \rangle</m>. A taxa máxima de variação é 
+
+            <md>
+                <mrow>|\nabla f(2,0)= |\langle 1, 2\rangle|=\sqrt{5} </mrow>
+            </md>.
+        </p>
+    </solution>
+</example>
+    <exercise>
+
+    <statement>
+        <p>
+            Seja <m> f (x, y) = x^2 e^y </m>. Determine o valor máximo de uma derivada direcional
+            em <m> (−2, 0)</m> e o vetor unitário na direção e no sentido do qual o valor máximo ocorre.
+        </p>
+    </statement>
+    <hint>
+        <p>
+            O valor máximo ocorre na direção e no sentido de <m>\nabla f(2,1)</m>.
+        </p>
+    </hint>
+    <answer>
+        <p>
+            O valor máximo da derivada direcional é <m>4\sqrt{2}</m>. O vetor unitário nessa direção e
+sentido é <m>\langle -1/\sqrt{2} , 1/\sqrt{2}\rangle</m>.
+
+
+
+        </p>
+    </answer>
+</exercise>
+
+</subsection>
+ <!-- <exercises xml:id="exercises-log-integral">
+    
+<exercisegroup cols="2">
+<introduction>
+    <p>
+        xxxxxxxxxxxx
+    </p>
+</introduction>
+    
+<exercise>
+    xxxxxxxxxxxx
+</exercise> -->
+
+<!-- 
+</exercisegroup>
+ </exercises> -->
+
+
+
+
+
+
+
+</section>
+<references xml:id="references-backmatter">
+    <title>Referências</title>   
+    <biblio type="raw" xml:id="biblio-01">LARSON, Ron. <title>Cálculo Aplicado. Cursos Rápido. </title> <journal>Cengage Learning</journal>, 2011.</biblio>
+    <biblio type="raw" xml:id="biblio-02">ANTON, Howard; BIVENS, Irl; DAVIS, Stephen. <title>Cálculo.</title> <journal>Bookman</journal>, 2007.</biblio>
+    <biblio type="raw" xml:id="biblio-03">HUGHES, Hallet et al. <title>Cálculo de uma variável.</title> <journal>LTC</journal>, 2004.</biblio>
+    <biblio type="raw" xml:id="biblio-04">Stewart, James. <title>Cálculo, Volume I.</title> <journal>Cengage Learning</journal>, 2013.</biblio>
+    <biblio type="raw" xml:id="biblio-05">SILVA, Leon; SANTOS, Marcelo; Machado, Ricardo. <title>Elementos de Computação
+Matemática com SageMath. </title> <journal>SBM</journal>, 2019.</biblio>
+</references>
+
+</article>
+
+</pretext>
+
