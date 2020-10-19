@@ -235,7 +235,7 @@ função de <m>t</m>.
         De acordo com <xref ref="assemblage-cadeia-2" text="title"/>, temos
             <md>
                 <mrow>\frac{\partial z}{\partial s} \amp = \ob{(e^x\sin{y})}{\frac{\partial z}{\partial x}}\ob{(t^2)}{\frac{\partial x}{\partial s}} +
-                 \ob{(e^x\cos{y})}{\frac{\partial x}{\partial s}}\ob{(2st)}{\frac{\partial y}{\partial s}} 
+                 \ob{(e^x\cos{y})}{\frac{\partial z}{\partial y}}\ob{(2st)}{\frac{\partial y}{\partial s}} 
                 
                 </mrow>
                 <mrow> \amp = t^2e^{st^2}\sin{(s^2t)}+ 2st^{st^2}\cos{(s^2t)} </mrow>
