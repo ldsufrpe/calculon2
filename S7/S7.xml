@@ -149,7 +149,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 <example xml:id="ex-cadeia-1">
     <statement>
         <p>
-            Se <m>z=x^2y+3xy^4 + 3xy^4</m>, na qual <m>x=\sin{2t}</m> e <m>y=\cos{t}</m>, determine <m>\dd z/\dd t</m> quando <m>t=0</m>.
+            Se <m>z=x^2y+3xy^4 </m>, na qual <m>x=\sin{2t}</m> e <m>y=\cos{t}</m>, determine <m>\dd z/\dd t</m> quando <m>t=0</m>.
         </p>
     </statement>
     <solution>
