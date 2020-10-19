@@ -558,7 +558,7 @@ direção do vetor gradiente <m>f(x,y)</m>.
             Iniciamos calculando o vetor gradiente:
 
             <md>
-                <mrow>\nabla f(x,y) \amp = \langle e, xe^y \rangle </mrow>
+                <mrow>\nabla f(x,y) \amp = \langle e^y, xe^y \rangle </mrow>
             </md>
 
             <md>
