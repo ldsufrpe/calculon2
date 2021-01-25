@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2020-10-11T16:42:28-03:00       *-->
+<!--*       on 2021-01-16T18:54:28-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -57,7 +57,7 @@ MathJax.Hub.Config({
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-article has-toc has-sidebar-left">
-<a class="assistive" href="#content">[skip-to-content]</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\newcommand{ct}[1]{\color{gray}{\text{#1}}}
+<a class="assistive" href="#content">Ir ao conteúdo principal</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\newcommand{ct}[1]{\color{gray}{\text{#1}}}
 \newcommand{ctm}[1]{\color{gray}{#1}}
 
 \newcommand{\doubler}[1]{2#1}
@@ -81,7 +81,7 @@ MathJax.Hub.Config({
 <header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
 <a id="logo-link" href="http://www.dm.ufrpe.br" target="_blank"><img src="images/projeto_logo_dm_2020_7.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="calc-derivadas-parciais.html"><span class="title">Cálculo Integral: S7</span></a></h1>
-<p class="byline">Leon Silva</p>
+<p class="byline">Leon Silva, Lorena Brizza</p>
 </div>
 </div></div>
 <nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
@@ -114,7 +114,11 @@ true);
 <li class="link active">
 <a href="section-1.html" data-scroll="section-1"><span class="codenumber">1</span> <span class="title">Funções de mais de uma variável e Derivadas parciais</span></a><ul>
 <li><a href="section-1.html#subsec-funcoes-duas-tres-variaveis" data-scroll="subsec-funcoes-duas-tres-variaveis">Funções com duas e três variáveis</a></li>
+<li><a href="section-1.html#subsec-dominio-imagem" data-scroll="subsec-dominio-imagem">Domínio e Imagem de Funções de Duas Variáveis</a></li>
+<li><a href="section-1.html#subsec-limite" data-scroll="subsec-limite">Limite de Funções de Duas Variáveis</a></li>
+<li><a href="section-1.html#subsec-graficos" data-scroll="subsec-graficos">Gráficos de Funções de Duas Variáveis</a></li>
 <li><a href="section-1.html#subsec-derivadas-parciais-2" data-scroll="subsec-derivadas-parciais-2">Derivadas Parciais</a></li>
+<li><a href="section-1.html#subsec-Interpretacao-Geo-DP" data-scroll="subsec-Interpretacao-Geo-DP">Interpretação Geométrica das Derivadas Parciais</a></li>
 <li><a href="section-1.html#subsec-derivadas-parciais-ordem-superior" data-scroll="subsec-derivadas-parciais-ordem-superior">Derivadas parciais de ordem superior</a></li>
 <li><a href="section-1.html#exercises-log-integral" data-scroll="exercises-log-integral">Exercícios</a></li>
 </ul>
@@ -129,12 +133,14 @@ true);
 <span class="type">Objetivos:</span><span class="space"> </span><span class="title">Estrutura</span>
 </h6>
 <ol class="decimal">
-<li id="li-1"><p id="p-3">Calcular derivadas parciais de primeira ordem.</p></li>
-<li id="li-2"><p id="p-4">Calcular derivadas parciais de segunda ordem.</p></li>
+<li id="li-1"><p id="p-3">Conceito de funções de várias variáveis.</p></li>
+<li id="li-2"><p id="p-4">Calcular derivadas parciais de primeira ordem.</p></li>
+<li id="li-3"><p id="p-5">Calcular derivadas parciais de segunda ordem.</p></li>
 </ol></article><section class="subsection" id="subsec-funcoes-duas-tres-variaveis"><h3 class="heading hide-type">
 <span class="type">Subseção</span> <span class="codenumber">1.1</span> <span class="title">Funções com duas e três variáveis</span>
 </h3>
-<section class="introduction" id="introduction-2"><p id="p-5">A notação para uma função de duas ou mais variáveis é similar àquela para uma função de uma única variável. Seguem dois exemplos.</p>
+<figure class="figure figure-like" id="figure-1"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="funcoes-mais-variaveis" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/anfHqMW2OLI?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space"> </span><span class="codenumber">1.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure><section class="introduction" id="introduction-2"><p id="p-6">A notação para uma função de duas ou mais variáveis é similar àquela para uma função de uma única variável. Seguem dois exemplos.</p>
 <div class="displaymath">
 \begin{align*}
 z = f\ub{(x,y)}{\ct{2 variáveis}}=2x^3+ xy \amp \qquad \ct{Função depende de duas variáveis} 
@@ -145,13 +151,13 @@ z = f\ub{(x,y)}{\ct{2 variáveis}}=2x^3+ xy \amp \qquad \ct{Função depende de 
 w = f\ub{(x,y,z)}{\ct{3 variáveis }} = x^2+ x^2 + z^2\amp\qquad \ct{Função depende de três variáveis} 
 \end{align*}
 </div></section><article class="definition definition-like" id="def-funcoes-duas-tres"><h6 class="heading">
-<span class="type">Definição</span><span class="space"> </span><span class="codenumber">1.1</span><span class="period">.</span>
+<span class="type">Definição</span><span class="space"> </span><span class="codenumber">1.2</span><span class="period">.</span>
 </h6>
-<p id="p-6">Seja \(D\) um conjunto de pares ordenados de números reais. Se a cada par ordenado \((x, y)\)  em \(D\) corresponder um único número real \(f(x, y)\text{,}\) então \(f\) será chamada de função  \(x\)  e \(y\text{.}\) O conjunto \(R\)  é o domínio de \(f\)  e o conjunto correspondente de valores de \(z\) é a imagem de \(f\text{.}\) As funções de três, quatro ou  mais variáveis são definidas de maneira semelhante.</p></article><article class="example example-like" id="example-1"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-1"><h6 class="heading">
-<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.2</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-1"><article class="example example-like"><p id="p-7">Para a função de duas variáveis \(f(x,y)=2x^2-y^2\) calcule \(f(2,3)\text{.}\)</p>
+<p id="p-7">Seja \(D\) um conjunto de pares ordenados de números reais. Se a cada par ordenado \((x, y)\)  em \(D\) corresponder um único número real \(f(x, y)\text{,}\) então \(f\) será chamada de função  \(x\)  e \(y\text{.}\) O conjunto \(R\)  é o domínio de \(f\)  e o conjunto correspondente de valores de \(z\) é a imagem de \(f\text{.}\) As funções de três, quatro ou  mais variáveis são definidas de maneira semelhante.</p></article><article class="example example-like" id="example-1"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-1"><h6 class="heading">
+<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-1"><article class="example example-like"><p id="p-8">Para a função de duas variáveis \(f(x,y)=2x^2-y^2\) calcule \(f(2,3)\text{.}\)</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like"><div class="displaymath" id="p-8">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like"><div class="displaymath" id="p-9">
 \begin{align*}
 f(2,3)= \amp 2\cdot 2^2-3^2  \\
 \amp = 9-9=-1
@@ -159,20 +165,69 @@ f(2,3)= \amp 2\cdot 2^2-3^2  \\
 </div></div></div>
 </div></article></div>
 <article class="example example-like" id="example-2"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-2"><h6 class="heading">
-<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.3</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-2"><article class="example example-like"><p id="p-9">Para a função de duas variáveis \(f(x,y,z)=e^x(y+z)\) calcule \(f(0,-1,4)\text{.}\)</p>
+<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-2"><article class="example example-like"><p id="p-10">Para a função de duas variáveis \(f(x,y,z)=e^x(y+z)\) calcule \(f(0,-1,4)\text{.}\)</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like"><div class="displaymath" id="p-10">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like"><div class="displaymath" id="p-11">
 \begin{align*}
 f(0,-1,4)=e^0(-1+4)\amp \\
 \amp = 1\cdot 3=3 
 \end{align*}
 </div></div></div>
-</div></article></div></section><section class="subsection" id="subsec-derivadas-parciais-2"><h3 class="heading hide-type">
-<span class="type">Subseção</span> <span class="codenumber">1.2</span> <span class="title">Derivadas Parciais</span>
+</div></article></div></section><section class="subsection" id="subsec-dominio-imagem"><h3 class="heading hide-type">
+<span class="type">Subseção</span> <span class="codenumber">1.2</span> <span class="title">Domínio e Imagem de Funções de Duas Variáveis</span>
 </h3>
-<article class="assemblage assemblage-like" id="assemblage-parciais"><h6 class="heading"><span class="title">Derivadas parciais de uma função de duas variáveis.</span></h6>
-<p id="p-11">Se \(z= f(x,y)\) , então as primeiras derivadas parciais ou derivadas parciais de primeira ordem de \(f\)  em relação a x e y são as funções  \(\frac{\partial z}{\partial x}\text{,}\) \(\frac{\partial z}{\partial y}\text{,}\)  definidas da seguinte forma:</p>
+<figure class="figure figure-like" id="figure-2"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="funcoes-dominio-imagem" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/vn-fMv58nsI?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space"> </span><span class="codenumber">1.5<span class="period">.</span></span><span class="space"> </span></figcaption></figure><article class="example example-like" id="example-3"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-3"><h6 class="heading">
+<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.6</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-3"><article class="example example-like"><p id="p-12">em breve</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like"><p id="p-13"></p></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-1"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-1"><h6 class="heading">
+<span class="type">Autoavaliação</span><span class="space"> </span><span class="codenumber">1.7</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-1"><article class="exercise exercise-like"><p id="p-14"></p>
+<div class="solutions">
+<a data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-1" id="hint-1"><span class="type">Dica</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-1"><div class="hint solution-like"><p id="p-15"></p></div></div>
+<a data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-1" id="answer-1"><span class="type">Resposta</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-1"><div class="answer solution-like"><p id="p-16"></p></div></div>
+</div></article></div></section><section class="subsection" id="subsec-limite"><h3 class="heading hide-type">
+<span class="type">Subseção</span> <span class="codenumber">1.3</span> <span class="title">Limite de Funções de Duas Variáveis</span>
+</h3>
+<figure class="figure figure-like" id="figure-3"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="limite-duas-veriaveis" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/dptiiVIhlVg?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space"> </span><span class="codenumber">1.8<span class="period">.</span></span><span class="space"> </span></figcaption></figure><article class="example example-like" id="example-4"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-4"><h6 class="heading">
+<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.9</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-4"><article class="example example-like"><p id="p-17">em breve</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like"><p id="p-18"></p></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-2"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-2"><h6 class="heading">
+<span class="type">Autoavaliação</span><span class="space"> </span><span class="codenumber">1.10</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-2"><article class="exercise exercise-like"><p id="p-19"></p>
+<div class="solutions">
+<a data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-2" id="hint-2"><span class="type">Dica</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-2"><div class="hint solution-like"><p id="p-20"></p></div></div>
+<a data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-2" id="answer-2"><span class="type">Resposta</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-2"><div class="answer solution-like"><p id="p-21"></p></div></div>
+</div></article></div></section><section class="subsection" id="subsec-graficos"><h3 class="heading hide-type">
+<span class="type">Subseção</span> <span class="codenumber">1.4</span> <span class="title">Gráficos de Funções de Duas Variáveis</span>
+</h3>
+<figure class="figure figure-like" id="figure-4"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="graficos" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/ZWxh61HMg5E?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space"> </span><span class="codenumber">1.11<span class="period">.</span></span><span class="space"> </span></figcaption></figure><article class="example example-like" id="example-5"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-5"><h6 class="heading">
+<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.12</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like"><p id="p-22">em breve</p>
+<div class="solutions">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-5" id="solution-5"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like"><p id="p-23"></p></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-3"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-3"><h6 class="heading">
+<span class="type">Autoavaliação</span><span class="space"> </span><span class="codenumber">1.13</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-3"><article class="exercise exercise-like"><p id="p-24"></p>
+<div class="solutions">
+<a data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-3" id="hint-3"><span class="type">Dica</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-3"><div class="hint solution-like"><p id="p-25"></p></div></div>
+<a data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-3" id="answer-3"><span class="type">Resposta</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-3"><div class="answer solution-like"><p id="p-26"></p></div></div>
+</div></article></div></section><section class="subsection" id="subsec-derivadas-parciais-2"><h3 class="heading hide-type">
+<span class="type">Subseção</span> <span class="codenumber">1.5</span> <span class="title">Derivadas Parciais</span>
+</h3>
+<figure class="figure figure-like" id="figure-5"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="DP" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/--G-RKQQ2rs?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space"> </span><span class="codenumber">1.14<span class="period">.</span></span><span class="space"> </span></figcaption></figure><article class="assemblage assemblage-like" id="assemblage-parciais"><h6 class="heading"><span class="title">Derivadas parciais de uma função de duas variáveis.</span></h6>
+<p id="p-27">Se \(z= f(x,y)\) , então as primeiras derivadas parciais ou derivadas parciais de primeira ordem de \(f\)  em relação a x e y são as funções  \(\frac{\partial z}{\partial x}\text{,}\) \(\frac{\partial z}{\partial y}\text{,}\)  definidas da seguinte forma:</p>
 <div class="displaymath">
 \begin{align}
 \frac{\partial z}{\partial x}\amp = \lim_{\Delta x\to 0}\frac{f(x+\Delta x,y)-f(x,y)}{\Delta x} \label{fx}\tag{1.1}
@@ -182,31 +237,35 @@ f(0,-1,4)=e^0(-1+4)\amp \\
 \begin{align}
 \frac{\partial z}{\partial y}\amp = \lim_{\Delta y\to 0}\frac{f(x,y+\Delta x)-f(x,y)}{\Delta y} \label{fy}\tag{1.2}
 \end{align}
-</div></article><article class="paragraphs" id="paragraphs-1">De fato, se \(z=x^2 +xy^2\) igualdade <a class="xref" data-knowl="./knowl/fx.html" title="[mrow] 1.1">(1.1)</a> nos diz que para encontrar a derivada parcial de \(z\) em relação a \(x\text{,}\) considere \(y\) constante e então derive \(z\) na variável \(x\text{:}\)<div class="displaymath">
+</div></article><p id="p-28">De fato, se \(z=x^2 +xy^2\) igualdade <a class="xref" data-knowl="./knowl/fx.html" title="Equação 1.1">(1.1)</a> nos diz que para encontrar a derivada parcial de \(z\) em relação a \(x\text{,}\) considere \(y\) constante e então derive \(z\) na variável \(x\text{:}\)</p>
+<div class="displaymath">
 \begin{equation*}
 \frac{\partial z}{\partial x} =2x.
 \end{equation*}
-</div>A igualdade <a class="xref" data-knowl="./knowl/fy.html" title="[mrow] 1.2">(1.2)</a> nos diz que para encontrar  a derivada parcial de \(z\) em relação a \(y\text{,}\) considere \(x\) constante e então derive \(z\) na variável \(y\text{:}\)<div class="displaymath">
+</div>
+<p data-braille="continuation">A igualdade <a class="xref" data-knowl="./knowl/fy.html" title="Equação 1.2">(1.2)</a> nos diz que para encontrar  a derivada parcial de \(z\) em relação a \(y\text{,}\) considere \(x\) constante e então derive \(z\) na variável \(y\text{:}\)</p>
+<div class="displaymath">
 \begin{equation*}
 \frac{\partial z}{\partial y} = 2xy.
 \end{equation*}
-</div></article><article class="example example-like" id="example-3"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-3"><h6 class="heading">
-<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.4</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-3"><article class="example example-like"><p id="p-12">Se \(z=3x-x^2y^2+2x^3y\) determine \(\frac{\partial z}{\partial x}\text{,}\) \(\frac{\partial z}{\partial y}\text{.}\)</p>
+</div>
+<article class="example example-like" id="example-6"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-6"><h6 class="heading">
+<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.15</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-6"><article class="example example-like"><p id="p-29">Se \(z=3x-x^2y^2+2x^3y\) determine \(\frac{\partial z}{\partial x}\text{,}\) \(\frac{\partial z}{\partial y}\text{.}\)</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like"><div class="displaymath" id="p-13">
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like"><div class="displaymath" id="p-30">
 \begin{align*}
 \frac{\partial z}{\partial x}\amp =3-2xy^2+6x^2y \amp \quad \ct{matenha y constante e derive em relação a x.} \\
 \frac{\partial z}{\partial y}\amp  = -2x^2y+2x^3 \amp \quad \ct{matenha x constante e derive em relação a y.} 
 \end{align*}
 </div></div></div>
 </div></article></div>
-<article class="exercise exercise-like" id="exercise-1"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-1"><h6 class="heading">
-<span class="type">Autoavaliação</span><span class="space"> </span><span class="codenumber">1.5</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-1"><article class="exercise exercise-like"><p id="p-14">Para \(z = 2x^2-4x^2y^3+y^4\text{,}\) determine \(\frac{\partial z}{\partial x}\text{,}\) \(\frac{\partial z}{\partial y}\text{.}\)</p>
+<article class="exercise exercise-like" id="exercise-4"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-4"><h6 class="heading">
+<span class="type">Autoavaliação</span><span class="space"> </span><span class="codenumber">1.16</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-4"><article class="exercise exercise-like"><p id="p-31">Para \(z = 2x^2-4x^2y^3+y^4\text{,}\) determine \(\frac{\partial z}{\partial x}\text{,}\) \(\frac{\partial z}{\partial y}\text{.}\)</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-1" id="answer-1"><span class="type">Resposta</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-1"><div class="answer solution-like">
-<div class="displaymath" id="p-15">
+<a data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-4" id="answer-4"><span class="type">Resposta</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-4"><div class="answer solution-like">
+<div class="displaymath" id="p-32">
 \begin{equation*}
 \frac{\partial z}{\partial x}=-8x y^{3} + 4 x
 \end{equation*}
@@ -218,8 +277,8 @@ f(0,-1,4)=e^0(-1+4)\amp \\
 </div>
 </div></div>
 </div></article></div>
-<article class="assemblage assemblage-like" id="assemblage-"><h6 class="heading"><span class="title">Notação para derivada parcial de primeira ordem.</span></h6>
-<p id="p-16">Para \(z=f(x,y)\) as derivadas parciais podem ser denotadas por:</p>
+<article class="assemblage assemblage-like" id="assemblage-notacao"><h6 class="heading"><span class="title">Notação para derivada parcial de primeira ordem.</span></h6>
+<p id="p-33">Para \(z=f(x,y)\) as derivadas parciais podem ser denotadas por:</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{\partial z}{\partial x}=f_x(x,y) = \frac{\partial }{\partial x}[f(x,y)].
@@ -229,12 +288,12 @@ f(0,-1,4)=e^0(-1+4)\amp \\
 \begin{equation*}
 \frac{\partial z}{\partial y}=f_y(x,y)=\frac{\partial }{\partial y}[f(x,y)].
 \end{equation*}
-</div></article><article class="example example-like" id="example-4"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-4"><h6 class="heading">
-<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.6</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-4"><article class="example example-like"><p id="p-17">Determine ass derivadas parciais de primeira ordem de \(f(x,y)=xe^{x^2y}\) e calcule cada uma delas em \((1, \ln{2})\text{.}\)</p>
+</div></article><article class="example example-like" id="example-7"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-7"><h6 class="heading">
+<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.17</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-7"><article class="example example-like"><p id="p-34">Determine ass derivadas parciais de primeira ordem de \(f(x,y)=xe^{x^2y}\) e calcule cada uma delas em \((1, \ln{2})\text{.}\)</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like">
-<p id="p-18">Para realizar a derivada parcial em relação a \(x\) usando a Regra do Produto:</p>
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-7" id="solution-7"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-7"><div class="solution solution-like">
+<p id="p-35">Para realizar a derivada parcial em relação a \(x\) usando a Regra do Produto:</p>
 <div class="displaymath">
 \begin{align*}
 f_x(x,y) \amp = x \frac{\partial z}{\partial x} \left[e^{x^2y} \right]  +
@@ -267,7 +326,7 @@ f_y(1,\ln{2}) \amp = 1^3\cdot e^{(1)^2(\ln{2})} \\
 </div>
 </div></div>
 </div></article></div>
-<article class="paragraphs" id="paragraphs-2"><h5 class="heading"><span class="title">Funções de três variáveis.</span></h5> O conceito de derivada parcial pode ser estendido naturalmente para funções de três ou mais variáveis. Por exemplo, a função \(w=f(x,y,z)\) possui três derivadas parciais, cada uma delas formada considerando-se duas variáveis constantes. Por exemplo, se \(w=x^2+ xy^2+ z^2\) para obter a derivada parcial de \(w\)  em relação a \(x\text{,}\) considere  \(y\)  e \(z\)  constantes e então calcule a derivada   de \(w\) na variável \(x\) como segue:<div class="displaymath">
+<article class="paragraphs" id="paragraphs-1"><h5 class="heading"><span class="title">Funções de três variáveis.</span></h5> O conceito de derivada parcial pode ser estendido naturalmente para funções de três ou mais variáveis. Por exemplo, a função \(w=f(x,y,z)\) possui três derivadas parciais, cada uma delas formada considerando-se duas variáveis constantes. Por exemplo, se \(w=x^2+ xy^2+ z^2\) para obter a derivada parcial de \(w\)  em relação a \(x\text{,}\) considere  \(y\)  e \(z\)  constantes e então calcule a derivada   de \(w\) na variável \(x\) como segue:<div class="displaymath">
 \begin{equation*}
 \frac{\partial w}{\partial x} = f_x(x,y,z) = 2x + y^2.
 \end{equation*}
@@ -279,12 +338,12 @@ f_y(1,\ln{2}) \amp = 1^3\cdot e^{(1)^2(\ln{2})} \\
 \begin{equation*}
 \frac{\partial w}{\partial z} = f_x(x,y,z) =  2z. 
 \end{equation*}
-</div></article><article class="example example-like" id="example-5"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-5"><h6 class="heading">
-<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.7</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like"><p id="p-19">Determine as três derivadas parciais da função  \(w=xe^{xy+2z}\text{.}\)</p>
+</div></article><article class="example example-like" id="example-8"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-8"><h6 class="heading">
+<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.18</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-8"><article class="example example-like"><p id="p-36">Determine as três derivadas parciais da função  \(w=xe^{xy+2z}\text{.}\)</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-5" id="solution-5"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like">
-<p id="p-20">Mantendo \(y\)  e \(z\)  constantes, obtém-se:</p>
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-8" id="solution-8"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-8"><div class="solution solution-like">
+<p id="p-37">Mantendo \(y\)  e \(z\)  constantes, obtém-se:</p>
 <div class="displaymath">
 \begin{align*}
 \frac{\partial w}{\partial x} \amp = x\frac{\partial }{\partial x}\left[ e^{xy+2z}\right]
@@ -309,12 +368,12 @@ f_y(1,\ln{2}) \amp = 1^3\cdot e^{(1)^2(\ln{2})} \\
 </div>
 </div></div>
 </div></article></div>
-<article class="exercise exercise-like" id="exercise-2"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-2"><h6 class="heading">
-<span class="type">Autoavaliação</span><span class="space"> </span><span class="codenumber">1.8</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-2"><article class="exercise exercise-like"><p id="p-21">Determine as três derivadas parciais da função \(w=x^2y\ln{xz}\text{.}\)</p>
+<article class="exercise exercise-like" id="exercise-5"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-5"><h6 class="heading">
+<span class="type">Autoavaliação</span><span class="space"> </span><span class="codenumber">1.19</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-5"><article class="exercise exercise-like"><p id="p-38">Determine as três derivadas parciais da função \(w=x^2y\ln{xz}\text{.}\)</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-2" id="answer-2"><span class="type">Resposta</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-2"><div class="answer solution-like">
-<div class="displaymath" id="p-22">
+<a data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-5" id="answer-5"><span class="type">Resposta</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-5"><div class="answer solution-like">
+<div class="displaymath" id="p-39">
 \begin{equation*}
 \frac{\partial w}{\partial x} =  2 \, x y \ln\left(x z\right) + x y
 \end{equation*}
@@ -330,10 +389,15 @@ f_y(1,\ln{2}) \amp = 1^3\cdot e^{(1)^2(\ln{2})} \\
 \end{equation*}
 </div>
 </div></div>
-</div></article></div></section><section class="subsection" id="subsec-derivadas-parciais-ordem-superior"><h3 class="heading hide-type">
-<span class="type">Subseção</span> <span class="codenumber">1.3</span> <span class="title">Derivadas parciais de ordem superior</span>
+</div></article></div></section><section class="subsection" id="subsec-Interpretacao-Geo-DP"><h3 class="heading hide-type">
+<span class="type">Subseção</span> <span class="codenumber">1.6</span> <span class="title">Interpretação Geométrica das Derivadas Parciais</span>
 </h3>
-<section class="introduction" id="introduction-3"><p id="p-23">Derivadas de ordem superior ( segunda, terceira ordem etc.) são denotadas pela ordem na qual ocorre a derivação. Por exemplo, há quatro modos diferentes de determinar uma segunda de- rivada parcial de \(z=f(x,y)\text{.}\)</p></section><article class="assemblage assemblage-like" id="assemblage-"><div class="displaymath" id="p-24">
+<figure class="figure figure-like" id="figure-6"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="inter-geo" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/svdJCXFLceU?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space"> </span><span class="codenumber">1.20<span class="period">.</span></span><span class="space"> </span></figcaption></figure></section><section class="subsection" id="subsec-derivadas-parciais-ordem-superior"><h3 class="heading hide-type">
+<span class="type">Subseção</span> <span class="codenumber">1.7</span> <span class="title">Derivadas parciais de ordem superior</span>
+</h3>
+<figure class="figure figure-like" id="figure-7"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="ordem-superior" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/qJMiTBIct64?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space"> </span><span class="codenumber">1.21<span class="period">.</span></span><span class="space"> </span></figcaption></figure><section class="introduction" id="introduction-3"><p id="p-40">Derivadas de ordem superior ( segunda, terceira ordem etc.) são denotadas pela ordem na qual ocorre a derivação. Por exemplo, há quatro modos diferentes de determinar uma segunda de- rivada parcial de \(z=f(x,y)\text{.}\)</p></section><article class="assemblage assemblage-like" id="assemblage-"><div class="displaymath" id="p-41">
 \begin{align*}
 \frac{\partial }{\partial x} \left( \frac{\partial f}{\partial x} \right)
 \amp = \frac{\partial^2 f}{\partial x^2} = f_{xx} \amp \quad\ct{derive duas em relação a x.}\\
@@ -344,12 +408,12 @@ f_y(1,\ln{2}) \amp = 1^3\cdot e^{(1)^2(\ln{2})} \\
 \frac{\partial }{\partial x} \left( \frac{\partial f}{\partial y} \right)
 \amp = \frac{\partial^2 f}{\partial x\partial y} = f_{yx} \amp \quad\ct{derive primeiro relação a y e depois a x.}
 \end{align*}
-</div></article><article class="example example-like" id="example-6"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-6"><h6 class="heading">
-<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.9</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-6"><article class="example example-like"><p id="p-25">Determine as segundas derivadas parciais de \(f(x,y)=3xy^2-2y+5x^2y^2\) e determine o valor de \(f_{xy}(-1,2)\text{.}\)</p>
+</div></article><article class="example example-like" id="example-9"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-9"><h6 class="heading">
+<span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.22</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-9"><article class="example example-like"><p id="p-42">Determine as segundas derivadas parciais de \(f(x,y)=3xy^2-2y+5x^2y^2\) e determine o valor de \(f_{xy}(-1,2)\text{.}\)</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like">
-<p id="p-26">Comece determinando as primeiras derivadas parciais.</p>
+<a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-9" id="solution-9"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-9"><div class="solution solution-like">
+<p id="p-43">Comece determinando as primeiras derivadas parciais.</p>
 <div class="displaymath">
 \begin{align*}
 f_x(x,y)=3y^2+ 10xy^2 \amp \qquad \amp f_y(x,y)=6xy-2+10x^2y 
@@ -370,12 +434,12 @@ f_{xy}(-1,2)=6\cdot 2 + 20(-2)2=-28.
 </div>
 </div></div>
 </div></article></div>
-<article class="exercise exercise-like" id="exercise-3"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-3"><h6 class="heading">
-<span class="type">Autoavaliação</span><span class="space"> </span><span class="codenumber">1.10</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-3"><article class="exercise exercise-like"><p id="p-27">Determine as segundas derivadas parciais de \(f(x,y) = 4x^2y^2+2x+4y^2\text{.}\)</p>
+<article class="exercise exercise-like" id="exercise-6"><a data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-6"><h6 class="heading">
+<span class="type">Autoavaliação</span><span class="space"> </span><span class="codenumber">1.23</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-6"><article class="exercise exercise-like"><p id="p-44">Determine as segundas derivadas parciais de \(f(x,y) = 4x^2y^2+2x+4y^2\text{.}\)</p>
 <div class="solutions">
-<a data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-3" id="answer-3"><span class="type">Resposta</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-3"><div class="answer solution-like">
-<div class="displaymath" id="p-28">
+<a data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-6" id="answer-6"><span class="type">Resposta</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-6"><div class="answer solution-like">
+<div class="displaymath" id="p-45">
 \begin{equation*}
 f_{xx} =  8 y^{2}
 \end{equation*}
@@ -402,18 +466,18 @@ f_{zx}=0=f_{zy}
 </div>
 </div></div>
 </div></article></div></section><section class="exercises" id="exercises-log-integral"><h3 class="heading hide-type">
-<span class="type">Exercícios</span> <span class="codenumber">1.4</span> <span class="title">Exercícios</span>
+<span class="type">Exercícios</span> <span class="codenumber">1.8</span> <span class="title">Exercícios</span>
 </h3>
 <div class="exercisegroup" id="exercisegroup-1">
-<div class="introduction" id="introduction-4"><p id="p-29">Seja \(f(x,y)=e^{2x}\sin{y}\text{.}\) Determine</p></div>
+<div class="introduction" id="introduction-4"><p id="p-46">Seja \(f(x,y)=e^{2x}\sin{y}\text{.}\) Determine</p></div>
 <div class="exercisegroup-exercises cols2">
-<article class="exercise exercise-like" id="exercise-4"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>\(f_x\)</article><article class="exercise exercise-like" id="exercise-5"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>\(f_x(\ln{2},0)\)</article><article class="exercise exercise-like" id="exercise-6"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>\(f_y\)</article><article class="exercise exercise-like" id="exercise-7"><h6 class="heading"><span class="codenumber">4<span class="period">.</span></span></h6>\(f_y(\ln{2},0)\)</article>
+<article class="exercise exercise-like" id="exercise-7"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>\(f_x\)</article><article class="exercise exercise-like" id="exercise-8"><h6 class="heading"><span class="codenumber">2<span class="period">.</span></span></h6>\(f_x(\ln{2},0)\)</article><article class="exercise exercise-like" id="exercise-9"><h6 class="heading"><span class="codenumber">3<span class="period">.</span></span></h6>\(f_y\)</article><article class="exercise exercise-like" id="exercise-10"><h6 class="heading"><span class="codenumber">4<span class="period">.</span></span></h6>\(f_y(\ln{2},0)\)</article>
 </div>
 </div>
 <div class="exercisegroup" id="exercisegroup-2">
-<div class="introduction" id="introduction-5"><p id="p-30">Determine as derivadas parciais de primeira ordem da função.</p></div>
+<div class="introduction" id="introduction-5"><p id="p-47">Determine as derivadas parciais de primeira ordem da função.</p></div>
 <div class="exercisegroup-exercises cols2">
-<article class="exercise exercise-like" id="exercise-8"><h6 class="heading"><span class="codenumber">5<span class="period">.</span></span></h6>\(z=9x^2y-3x^3y \)</article><article class="exercise exercise-like" id="exercise-9"><h6 class="heading"><span class="codenumber">6<span class="period">.</span></span></h6>\(z=x^4y^3+8x^2y\)</article><article class="exercise exercise-like" id="exercise-10"><h6 class="heading"><span class="codenumber">7<span class="period">.</span></span></h6>\(f(x,y)=\dfrac{x}{y}\)</article><article class="exercise exercise-like" id="exercise-11"><h6 class="heading"><span class="codenumber">8<span class="period">.</span></span></h6>\(f(x,y)=(x^2+5x-2y)^4\)</article><article class="exercise exercise-like" id="exercise-12"><h6 class="heading"><span class="codenumber">9<span class="period">.</span></span></h6>\(z=\dfrac{x}{(x+y)^2}\)</article><article class="exercise exercise-like" id="exercise-13"><h6 class="heading"><span class="codenumber">10<span class="period">.</span></span></h6>\(w=\ln{(x+2y+3z)}\)</article><article class="exercise exercise-like" id="exercise-14"><h6 class="heading"><span class="codenumber">11<span class="period">.</span></span></h6>\(z=\cos{(2xy^2-3x^2y^2)}\)</article><article class="exercise exercise-like" id="exercise-15"><h6 class="heading"><span class="codenumber">12<span class="period">.</span></span></h6>\(z=\cos{(2xy^2-3x^2y^2)}\)</article><article class="exercise exercise-like" id="exercise-16"><h6 class="heading"><span class="codenumber">13<span class="period">.</span></span></h6>\(z=x^y\)</article><article class="exercise exercise-like" id="exercise-17"><h6 class="heading"><span class="codenumber">14<span class="period">.</span></span></h6>\(f(x,y,z)=z\ln{(x^2y\cos{z})}\)</article>
+<article class="exercise exercise-like" id="exercise-11"><h6 class="heading"><span class="codenumber">5<span class="period">.</span></span></h6>\(z=9x^2y-3x^3y \)</article><article class="exercise exercise-like" id="exercise-12"><h6 class="heading"><span class="codenumber">6<span class="period">.</span></span></h6>\(z=x^4y^3+8x^2y\)</article><article class="exercise exercise-like" id="exercise-13"><h6 class="heading"><span class="codenumber">7<span class="period">.</span></span></h6>\(f(x,y)=\dfrac{x}{y}\)</article><article class="exercise exercise-like" id="exercise-14"><h6 class="heading"><span class="codenumber">8<span class="period">.</span></span></h6>\(f(x,y)=(x^2+5x-2y)^4\)</article><article class="exercise exercise-like" id="exercise-15"><h6 class="heading"><span class="codenumber">9<span class="period">.</span></span></h6>\(z=\dfrac{x}{(x+y)^2}\)</article><article class="exercise exercise-like" id="exercise-16"><h6 class="heading"><span class="codenumber">10<span class="period">.</span></span></h6>\(w=\ln{(x+2y+3z)}\)</article><article class="exercise exercise-like" id="exercise-17"><h6 class="heading"><span class="codenumber">11<span class="period">.</span></span></h6>\(z=\cos{(2xy^2-3x^2y^2)}\)</article><article class="exercise exercise-like" id="exercise-18"><h6 class="heading"><span class="codenumber">12<span class="period">.</span></span></h6>\(z=\cos{(2xy^2-3x^2y^2)}\)</article><article class="exercise exercise-like" id="exercise-19"><h6 class="heading"><span class="codenumber">13<span class="period">.</span></span></h6>\(z=x^y\)</article><article class="exercise exercise-like" id="exercise-20"><h6 class="heading"><span class="codenumber">14<span class="period">.</span></span></h6>\(f(x,y,z)=z\ln{(x^2y\cos{z})}\)</article>
 </div>
 </div></section></section></div></main>
 </div>

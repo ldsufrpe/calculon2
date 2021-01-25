@@ -94,6 +94,14 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
                     <department>Departamento de Matemática</department>                    
                     <institution>Universidade Federal Rural de Pernanbuco</institution>
                 </author>
+
+
+                
+                <author>
+                    <personname>Lorena Brizza</personname>                 
+                    <department>Departamento de Matemática</department>                    
+                    <institution>Universidade Federal Rural de Pernanbuco</institution>
+                </author>
                 <date><today /></date>
             </titlepage>
 
@@ -114,6 +122,11 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
             <title>Estrutura</title>
            
             <ol>
+            <li>
+                <p>
+                    Conceito de funções de duas o mais variáveis.
+                </p>
+            </li>
                 <li>
                     <p>
                          Calcular derivadas parciais de primeira ordem.
@@ -131,6 +144,13 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
 <subsection xml:id="subsec-funcoes-duas-tres-variaveis">
     <title>Funções com duas e três variáveis</title>
+
+ <figure>
+  <title>Funções com duas e três variáveis</title>
+  
+  <video xml:id="funcoes-mais-variaveis" youtube="anfHqMW2OLI" />
+</figure>
+
   <introduction>
         <p>
             A notação para uma função de duas ou
@@ -204,9 +224,147 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 </subsubsection> -->
 </subsection>
 
+<subsection xml:id="subsec-dominio-imagem">
+    <title>Domínio e Imagem de Funções de Duas Variáveis</title>
+   
+<figure>
+  <title>Domínio e Imagem</title>
+  
+  <video xml:id="funcoes-dominio-imagem" youtube="vn-fMv58nsI" />
+</figure>
+
+<example>
+    <statement>
+        <p>
+            em breve
+        </p>
+    </statement>
+    <solution>
+        <p>
+            
+        </p>
+    </solution>
+</example>
+
+<exercise>
+    <statement>
+        <p>
+            
+        </p>
+    </statement>
+ <hint>
+     <p>
+         
+     </p>
+ </hint>
+
+ <answer>
+     <p>
+         
+     </p>
+ </answer>
+</exercise>
+</subsection>
+
+<subsection xml:id="subsec-limite">
+    <title>Limite de Funções de Duas Variáveis</title>
+<figure>
+  <title>Limite de Funções de Duas Variáveis</title>
+  
+  <video xml:id="limite-duas-veriaveis" youtube="dptiiVIhlVg"/>
+</figure>
+    
+<example>
+    <statement>
+        <p>
+            em breve
+        </p>
+    </statement>
+    <solution>
+        <p>
+            
+        </p>
+    </solution>
+</example>
+
+<exercise>
+    <statement>
+        <p>
+            
+        </p>
+    </statement>
+ <hint>
+     <p>
+         
+     </p>
+ </hint>
+
+ <answer>
+     <p>
+         
+     </p>
+ </answer>
+</exercise>
+
+</subsection>
+
+
+
+<subsection xml:id="subsec-graficos">
+    <title>Gráficos de Funções de Duas Variáveis</title>
+
+    <figure>
+  <title>Gráficos</title>
+  
+  <video xml:id="graficos" youtube="ZWxh61HMg5E" />
+</figure>
+
+
+<example>
+    <statement>
+        <p>
+            
+        </p>
+    </statement>
+    <solution>
+        <p>
+            
+        </p>
+    </solution>
+</example>
+
+<exercise>
+    <statement>
+        <p>
+            
+        </p>
+    </statement>
+ <hint>
+     <p>
+         
+     </p>
+ </hint>
+
+ <answer>
+     <p>
+         
+     </p>
+ </answer>
+</exercise>
+
+
+</subsection>
+    
+
 
 <subsection xml:id="subsec-derivadas-parciais-2">
     <title>Derivadas Parciais</title>
+
+<figure>
+  <title>Derivadas Parciais</title>
+  
+  <video xml:id="DP" youtube="--G-RKQQ2rs"/>
+</figure>
 
 <assemblage xml:id="assemblage-parciais">
     <title>Derivadas parciais de uma função de duas variáveis</title>
@@ -225,7 +383,7 @@ de primeira ordem de <m>f</m>  em relação a x e y são as funções  <m>\frac{
     
     </p>
 </assemblage>
-<paragraphs>
+<p>
  De fato, se <m>z=x^2 +xy^2</m> igualdade <xref ref="fx"/> nos diz que para encontrar a derivada parcial de <m>z</m> em relação a <m>x</m>, considere <m>y</m>
  constante e então derive <m>z</m> na variável <m>x</m>:
 
@@ -240,7 +398,7 @@ A igualdade <xref ref="fy"/> nos diz que para encontrar  a derivada parcial de <
      \frac{\partial z}{\partial y} = 2xy.
  </me>
     
-</paragraphs>
+</p>
 <example>
     <statement>
         <p>
@@ -275,7 +433,7 @@ A igualdade <xref ref="fy"/> nos diz que para encontrar  a derivada parcial de <
     </answer>
 </exercise>
 
-<assemblage xml:id="assemblage-">
+<assemblage xml:id="assemblage-notacao">
     <title>Notação para derivada parcial de primeira ordem</title>
     <p>Para <m>z=f(x,y)</m> as derivadas parciais podem ser denotadas por:
       <me>
@@ -421,9 +579,23 @@ Para determinar a derivada parcial de <m>w</m>  em relação a <m>y</m> , consid
 
 </subsection>
 
+<subsection xml:id="subsec-Interpretacao-Geo-DP">
+    <title>Interpretação Geométrica das Derivadas Parciais</title>
+    <figure>
+  <title>Interpretação Geométrica das Derivadas Parciais</title>
+  
+  <video xml:id="inter-geo" youtube="svdJCXFLceU" />
+</figure>
+</subsection>
 
 <subsection xml:id="subsec-derivadas-parciais-ordem-superior">
     <title>Derivadas parciais de ordem superior</title>
+    <figure>
+  <title>Interpretação Geométrica das Derivadas Parciais</title>
+  
+  <video xml:id="ordem-superior" youtube="qJMiTBIct64" />
+</figure>
+
     <introduction>
         <p>
             Derivadas de ordem superior ( segunda, terceira ordem etc.) são denotadas pela ordem na qual ocorre a
