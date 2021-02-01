@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-16T18:54:28-03:00       *-->
+<!--*       on 2021-01-31T23:23:04-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -57,7 +57,7 @@ MathJax.Hub.Config({
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-article has-toc has-sidebar-left">
-<a class="assistive" href="#content">Ir ao conteúdo principal</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\newcommand{ct}[1]{\color{gray}{\text{#1}}}
+<a class="assistive" href="#content">Ir ao conteúdo principal</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{ct}[1]{\color{gray}{\text{#1}}}
 \newcommand{ctm}[1]{\color{gray}{#1}}
 
 \newcommand{\doubler}[1]{2#1}
@@ -80,7 +80,7 @@ MathJax.Hub.Config({
 \)</div>
 <header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
 <a id="logo-link" href="http://www.dm.ufrpe.br" target="_blank"><img src="images/projeto_logo_dm_2020_7.png" alt="Logo image"></a><div class="title-container">
-<h1 class="heading"><a href="calc-derivadas-parciais.html"><span class="title">Cálculo Integral: S7</span></a></h1>
+<h1 class="heading"><a href="calc-derivadas-parciais.html"><span class="title">Derivadas Parciais: S7</span></a></h1>
 <p class="byline">Leon Silva, Lorena Brizza</p>
 </div>
 </div></div>
@@ -133,7 +133,7 @@ true);
 <span class="type">Objetivos:</span><span class="space"> </span><span class="title">Estrutura</span>
 </h6>
 <ol class="decimal">
-<li id="li-1"><p id="p-3">Conceito de funções de várias variáveis.</p></li>
+<li id="li-1"><p id="p-3">Conceito de funções de duas o mais variáveis.</p></li>
 <li id="li-2"><p id="p-4">Calcular derivadas parciais de primeira ordem.</p></li>
 <li id="li-3"><p id="p-5">Calcular derivadas parciais de segunda ordem.</p></li>
 </ol></article><section class="subsection" id="subsec-funcoes-duas-tres-variaveis"><h3 class="heading hide-type">
@@ -212,7 +212,7 @@ f(0,-1,4)=e^0(-1+4)\amp \\
 <figure class="figure figure-like" id="figure-4"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="graficos" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/ZWxh61HMg5E?&amp;modestbranding=1&amp;rel=0"></iframe></div>
 <figcaption><span class="type">Figura</span><span class="space"> </span><span class="codenumber">1.11<span class="period">.</span></span><span class="space"> </span></figcaption></figure><article class="example example-like" id="example-5"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-5"><h6 class="heading">
 <span class="type">Exemplo</span><span class="space"> </span><span class="codenumber">1.12</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like"><p id="p-22">em breve</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like"><p id="p-22"></p>
 <div class="solutions">
 <a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-5" id="solution-5"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like"><p id="p-23"></p></div></div>
 </div></article></div>
@@ -243,7 +243,7 @@ f(0,-1,4)=e^0(-1+4)\amp \\
 \frac{\partial z}{\partial x} =2x.
 \end{equation*}
 </div>
-<p data-braille="continuation">A igualdade <a class="xref" data-knowl="./knowl/fy.html" title="Equação 1.2">(1.2)</a> nos diz que para encontrar  a derivada parcial de \(z\) em relação a \(y\text{,}\) considere \(x\) constante e então derive \(z\) na variável \(y\text{:}\)</p>
+<p class="continuation">A igualdade <a class="xref" data-knowl="./knowl/fy.html" title="Equação 1.2">(1.2)</a> nos diz que para encontrar  a derivada parcial de \(z\) em relação a \(y\text{,}\) considere \(x\) constante e então derive \(z\) na variável \(y\text{:}\)</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{\partial z}{\partial y} = 2xy.
@@ -302,7 +302,7 @@ e^{x^2y} \frac{\partial z}{\partial x}\left[ x\right]\\
 \amp e^{x^2y}(2x^2y + 1)  
 \end{align*}
 </div>
-<p data-braille="continuation">Quando aplicamos \(f_x(x,y) \)  em \((1, \ln{2})\) temos:</p>
+<p class="continuation">Quando aplicamos \(f_x(x,y) \)  em \((1, \ln{2})\) temos:</p>
 <div class="displaymath">
 \begin{align*}
 f_x(1,2) \amp = e^{(1)^2(\ln{2})}\left[2\cdot 1^2\cdot \ln{2} + 1\right]\\
@@ -310,14 +310,14 @@ f_x(1,2) \amp = e^{(1)^2(\ln{2})}\left[2\cdot 1^2\cdot \ln{2} + 1\right]\\
 \amp\approx 4,773 
 \end{align*}
 </div>
-<p data-braille="continuation">Derivada parcial em relação a \(y\text{:}\)</p>
+<p class="continuation">Derivada parcial em relação a \(y\text{:}\)</p>
 <div class="displaymath">
 \begin{align*}
 f_y(x,y)\amp = x(x^2)e^{x^2y}\\
 \amp = x^3e^{x^2y} \text{.}
 \end{align*}
 </div>
-<p data-braille="continuation">Quando aplicamos \(f_y(x,y) \)  em \((1, \ln{2})\) temos:</p>
+<p class="continuation">Quando aplicamos \(f_y(x,y) \)  em \((1, \ln{2})\) temos:</p>
 <div class="displaymath">
 \begin{align*}
 f_y(1,\ln{2}) \amp = 1^3\cdot e^{(1)^2(\ln{2})} \\
@@ -352,14 +352,14 @@ f_y(1,\ln{2}) \amp = 1^3\cdot e^{(1)^2(\ln{2})} \\
 \amp = (xy+1)e^{xy+2z}  \text{.}
 \end{align*}
 </div>
-<p data-braille="continuation">Mantendo \(x\)  e \(z\)  constantes, obtém-se:</p>
+<p class="continuation">Mantendo \(x\)  e \(z\)  constantes, obtém-se:</p>
 <div class="displaymath">
 \begin{align*}
 \frac{\partial w}{\partial x} \amp = x(x)e^{xy+2z}  \quad \amp \ct{Considerando x e z constantes.}\\
 \amp = x^2e^{xy+2z}
 \end{align*}
 </div>
-<p data-braille="continuation">Mantendo \(x\)  e \(y\)  constantes, obtém-se:</p>
+<p class="continuation">Mantendo \(x\)  e \(y\)  constantes, obtém-se:</p>
 <div class="displaymath">
 \begin{align*}
 \frac{\partial w}{\partial x} \amp = x(2)e^{xy+2z} \quad \amp \ct{Considerando x e y constantes.}\\
@@ -419,14 +419,14 @@ f_y(1,\ln{2}) \amp = 1^3\cdot e^{(1)^2(\ln{2})} \\
 f_x(x,y)=3y^2+ 10xy^2 \amp \qquad \amp f_y(x,y)=6xy-2+10x^2y 
 \end{align*}
 </div>
-<p data-braille="continuation">Em seguida, a derivação em relação a \(x\)  e \(y\)  produz</p>
+<p class="continuation">Em seguida, a derivação em relação a \(x\)  e \(y\)  produz</p>
 <div class="displaymath">
 \begin{align*}
 f_{xx}(x,y) = 10y^2, \amp \qquad \amp f_{yy}(x,y)=6x+10x^2 \\
 f_{xy}(x,y) = 6y+20xy,\amp \qquad \amp  f_{yx}(x,y)= 6y+20xy.  
 \end{align*}
 </div>
-<p data-braille="continuation">Portanto, o valor de \(f_{xy}(x,y)\) no ponto \((-1,2)\) é</p>
+<p class="continuation">Portanto, o valor de \(f_{xy}(x,y)\) no ponto \((-1,2)\) é</p>
 <div class="displaymath">
 \begin{gather*}
 f_{xy}(-1,2)=6\cdot 2 + 20(-2)2=-28. 
