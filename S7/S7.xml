@@ -132,6 +132,12 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 <subsection xml:id="subsec-regra-cadeia">
     <title>Regra da Cadeia</title>
 
+<figure xml:id="fig-video-cadeia">
+    
+<video xml:id="limite-duas-veriaveis" youtube="eWdRdrC2Cfg"/>
+</figure>
+
+
 <assemblage xml:id="def-cadeia-1">
 <title>Regra da cadeia (caso 1)</title>
    
@@ -196,6 +202,13 @@ função de <m>t</m>.
         </p>
     </answer>
 </exercise>
+
+
+<figure xml:id="fig-2-video-cadeia-2">   
+
+
+<video xml:id="limite-duas-veriaveis" youtube="dK0Tp8crg9k"/>
+</figure>
 
 <assemblage xml:id="assemblage-cadeia-2">
 <title>Regra da Cadeia(caso 2)</title>
@@ -288,7 +301,13 @@ função de <m>t</m>.
 
 
 
-    <title>Derivada Implicita</title>
+    <title>Derivada Implícita</title>
+
+<figure xml:id="fig-2-video-implicita">   
+
+<video xml:id="derivada-parcial-implicita" youtube="7zAs9a0-y9U"/>
+</figure>
+
     <assemblage xml:id="def-implicita">
       <title>Teorema da função Implicita</title>
             <p>
@@ -361,9 +380,15 @@ determine <m> \dd y/\dd x</m> usando <xref ref="ex-implicita-1"/> .
 </subsection>
 
 <subsection xml:id="subsec-derivadas-direcionais">
-    <title>Derivadas Direcionais e o vetor Gradiente</title>
+    <title>Derivadas Direcionais</title>
     
-</subsection>
+<figure xml:id="fig-2-video-cadeia-2">   
+
+
+<video xml:id="derivada-parcial-direcional" youtube="MayC4DS2Rp8"/>
+</figure>
+
+
 
 <assemblage xml:id="assemblage-derivada-direcional">
     <title>Derivada Direcional</title>
@@ -433,8 +458,18 @@ determine <m> \dd y/\dd x</m> usando <xref ref="ex-implicita-1"/> .
     </answer>
 </exercise>
 
+</subsection>
+
 <subsection xml:id="subsec-Vetor-Gradiente">
     <title>Vetor Gradiente</title>
+
+
+<figure xml:id="fig-2-video-cadeia-2">   
+
+
+<video xml:id="derivada-parcial-gradiente" youtube="qJFM_zHpp-Q"/>
+</figure>
+
     <assemblage xml:id="assemblage-gradiente">
         <title>Definição</title>
         <p>
