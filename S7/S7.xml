@@ -134,7 +134,7 @@ along with MathBook XML.  If not, see <http://www.gnu.org/licenses/>.
 
 <figure xml:id="fig-video-cadeia">
     
-<video xml:id="limite-duas-veriaveis" youtube="eWdRdrC2Cfg"/>
+<video xml:id="cadeia-1" youtube="eWdRdrC2Cfg"/>
 </figure>
 
 
@@ -382,7 +382,7 @@ determine <m> \dd y/\dd x</m> usando <xref ref="ex-implicita-1"/> .
 <subsection xml:id="subsec-derivadas-direcionais">
     <title>Derivadas Direcionais</title>
     
-<figure xml:id="fig-2-video-cadeia-2">   
+<figure xml:id="fig-2-video-direcional">   
 
 
 <video xml:id="derivada-parcial-direcional" youtube="MayC4DS2Rp8"/>
