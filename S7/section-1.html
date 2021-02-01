@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-01-31T22:23:31-03:00       *-->
+<!--*       on 2021-01-31T23:19:57-03:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -57,7 +57,7 @@ MathJax.Hub.Config({
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-article has-toc has-sidebar-left">
-<a class="assistive" href="#content">Ir ao conteúdo principal</a><div xmlns:svg="http://www.w3.org/2000/svg" class="hidden-content" style="display:none">\(\newcommand{ct}[1]{\color{gray}{\text{#1}}}
+<a class="assistive" href="#content">Ir ao conteúdo principal</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{ct}[1]{\color{gray}{\text{#1}}}
 \newcommand{ctm}[1]{\color{gray}{#1}}
 
 \newcommand{\doubler}[1]{2#1}
@@ -81,7 +81,7 @@ MathJax.Hub.Config({
 <header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
 <a id="logo-link" href="http://www.dm.ufrpe.br" target="_blank"><img src="images/projeto_logo_dm_2020_7.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="calc-derivadas-parciais.html"><span class="title">Cálculo Integral: S7</span></a></h1>
-<p class="byline">Leon Silva</p>
+<p class="byline">Leon Silva, Lorena Brizza</p>
 </div>
 </div></div>
 <nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
@@ -129,7 +129,7 @@ true);
 </ol></article><section class="subsection" id="subsec-regra-cadeia"><h3 class="heading hide-type">
 <span class="type">Subseção</span> <span class="codenumber">1.1</span> <span class="title">Regra da Cadeia</span>
 </h3>
-<figure class="figure figure-like" id="fig-video-cadeia"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="limite-duas-veriaveis" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/eWdRdrC2Cfg?&amp;modestbranding=1&amp;rel=0"></iframe></div>
+<figure class="figure figure-like" id="fig-video-cadeia"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe id="cadeia-1" class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/eWdRdrC2Cfg?&amp;modestbranding=1&amp;rel=0"></iframe></div>
 <figcaption><span class="type">Figura</span><span class="space"> </span><span class="codenumber">1.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure><article class="assemblage assemblage-like" id="def-cadeia-1"><h6 class="heading"><span class="title">Regra da cadeia (caso 1).</span></h6>
 <p id="p-5">Suponha que \(z = f (x, y)\) seja uma função diferenciável de \(x\)  e \(y\) , onde \(x =g(t)\) e \(y = h(t)\) são funções diferenciáveis de \(t\text{.}\) Então \(z\) é uma função diferenciável de \(t\)  e</p>
 <div class="displaymath">
@@ -148,7 +148,7 @@ true);
 + \ob{(x^2+ 12xy^3)}{\frac{\partial z}{\partial y}}\ob{(-\sin{t})}{\frac{\partial y}{\partial t}} 
 \end{equation*}
 </div>
-<p data-braille="continuation">Note que quando \(t=0\text{,}\) temos \(x=\sin{0}=0\) e \(y=\cos{0}=1\text{.}\) Portanto,</p>
+<p class="continuation">Note que quando \(t=0\text{,}\) temos \(x=\sin{0}=0\) e \(y=\cos{0}=1\text{.}\) Portanto,</p>
 <div class="displaymath">
 \begin{equation*}
 \left. \frac{\dd z}{\dd t} \right|_{t=0} = (0+3)(2\cos{0})(0+0)(-\sin{0})=6.
@@ -226,7 +226,7 @@ true);
 F(x,y)=x^3+ y^3-6xy=0.    
 \end{equation*}
 </div>
-<p data-braille="continuation">Logo,  o <a class="xref" data-knowl="./knowl/def-implicita.html" title="[assemblage]: Teorema da função Implicita">Teorema da função Implicita</a>    nos fornece</p>
+<p class="continuation">Logo,  o <a class="xref" data-knowl="./knowl/def-implicita.html" title="[assemblage]: Teorema da função Implicita">Teorema da função Implicita</a>    nos fornece</p>
 <div class="displaymath">
 \begin{equation*}
 \frac{\dd y}{\dd x}=-\frac{F_x}{F_y}=-\frac{3x^2-6y}{3y^2-6x}=-\frac{x^2-2y}{y^2-2x}.
@@ -242,7 +242,7 @@ F(x,y)=x^3+ y^3-6xy=0.
 x^3 + y^2 x − 3 = 0
 \end{equation*}
 </div>
-<p data-braille="continuation">determine \(\dd y/\dd x\) usando <a class="xref" data-knowl="./knowl/ex-implicita-1.html" title="Exemplo 1.8">Exemplo 1.8</a> .</p>
+<p class="continuation">determine \(\dd y/\dd x\) usando <a class="xref" data-knowl="./knowl/ex-implicita-1.html" title="Exemplo 1.8">Exemplo 1.8</a> .</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-3" id="answer-3"><span class="type">Resposta</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-3"><div class="answer solution-like"><p id="p-20">\(\frac{\dd y}{\dd x}=-\frac{3x^2+ y^2}{2yx}\)</p></div></div>
 </div></article></div></section><section class="subsection" id="subsec-derivadas-direcionais"><h4 class="heading hide-type">
@@ -263,7 +263,7 @@ D_uf(x,y)=f_x(x,y)a + f_y(x,y)b
 f(x,y)=x^3-3xy+4y^2
 \end{equation*}
 </div>
-<p data-braille="continuation">e \(u\)  é o vetor unitário dado pelo ângulo \(\frac{\pi}{6}\text{.}\) Qual será o valor \(D_uf(1,2)\text{?}\)</p>
+<p class="continuation">e \(u\)  é o vetor unitário dado pelo ângulo \(\frac{\pi}{6}\text{.}\) Qual será o valor \(D_uf(1,2)\text{?}\)</p>
 <div class="solutions">
 <a data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-4" id="solution-4"><span class="type">Solução</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-4"><div class="solution solution-like">
 <p id="p-23">O vetor uitario será  \(u=\langle \cos{\frac{\pi}{6}}, \sin{\frac{\pi}{6}}\rangle\text{.}\) De acordo com <a class="xref" data-knowl="./knowl/assemblage-derivada-direcional.html" title="[assemblage]: Derivada Direcional">Derivada Direcional</a> temos,</p>
@@ -274,7 +274,7 @@ D_uf(x,y) \amp = f_x(x,y) \cos{\frac{\pi}{6}}  + f_y(x,y) \sin{\frac{\pi}{6}}\\
 \amp = \frac{1}{2}\left[3\sqrt{3}x^2 - 3x + (8-3\sqrt{3})y\right] 
 \end{align*}
 </div>
-<p data-braille="continuation">Dessa forma,</p>
+<p class="continuation">Dessa forma,</p>
 <div class="displaymath">
 \begin{align*}
 D_uf(1,2) \amp = \frac{1}{2}\left[ 3\sqrt{3}(1)^2-3(1)+ (8-3\sqrt{3})(2)\right] \\
@@ -311,7 +311,7 @@ D_uf(1,2) \amp = \frac{1}{2}\left[ 3\sqrt{3}(1)^2-3(1)+ (8-3\sqrt{3})(2)\right] 
 \nabla f(x,y) \amp= \langle \cos{x} + e^{xy},xe^{xy} \rangle 
 \end{align*}
 </div>
-<p data-braille="continuation">Então,</p>
+<p class="continuation">Então,</p>
 <div class="displaymath">
 \begin{equation*}
 \nabla f(0,1) = \langle 2,0\rangle .
@@ -335,19 +335,19 @@ D_uf(1,2) \amp = \frac{1}{2}\left[ 3\sqrt{3}(1)^2-3(1)+ (8-3\sqrt{3})(2)\right] 
 \nabla f(2,-1) \amp =\langle -4, 8\rangle  
 \end{align*}
 </div>
-<p data-braille="continuation">Observe que \(v\)  não é um vetor unitário, mas, como \(|v|=\sqrt{29}\text{,}\) o vetor unitário na direção de \(v\) é</p>
+<p class="continuation">Observe que \(v\)  não é um vetor unitário, mas, como \(|v|=\sqrt{29}\text{,}\) o vetor unitário na direção de \(v\) é</p>
 <div class="displaymath">
 \begin{align*}
 v \amp= \frac{v}{|v|}=\langle \frac{2}{\sqrt{29}}, \frac{5}{\sqrt{29}}\rangle 
 \end{align*}
 </div>
-<p data-braille="continuation">Olhando para definição da <a class="xref" data-knowl="./knowl/assemblage-derivada-direcional.html" title="[assemblage]: Derivada Direcional">Derivada Direcional</a> podemos usar o vetor gradiente acima para reescrever a  derivada direcional como a seguir:</p>
+<p class="continuation">Olhando para definição da <a class="xref" data-knowl="./knowl/assemblage-derivada-direcional.html" title="[assemblage]: Derivada Direcional">Derivada Direcional</a> podemos usar o vetor gradiente acima para reescrever a  derivada direcional como a seguir:</p>
 <div class="displaymath">
 \begin{align*}
 D_uf(x,y)\cdot u \amp 
 \end{align*}
 </div>
-<p data-braille="continuation">Por essa razão,</p>
+<p class="continuation">Por essa razão,</p>
 <div class="displaymath">
 \begin{align*}
 D_uf(x,y)\amp = \nabla f(2,-1)\cdot u = \langle -4, 8 \rangle\cdot\langle \frac{2}{\sqrt{29}}, \frac{5}{\sqrt{29}}\rangle \\
@@ -377,14 +377,14 @@ D_uf(x,y)\amp = \nabla f(2,-1)\cdot u = \langle -4, 8 \rangle\cdot\langle \frac{
 \nabla f(2,0) \amp= \langle 1, 2 \rangle 
 \end{align*}
 </div>
-<p data-braille="continuation">O vetor unitário na direção \(PQ=\langle -1.5, 2\rangle \) é \(u =\langle -3/5, 4/5\rangle\text{,}\) logo  a taxa de variação de \(f\) na direção do vetor \(PQ\) é</p>
+<p class="continuation">O vetor unitário na direção \(PQ=\langle -1.5, 2\rangle \) é \(u =\langle -3/5, 4/5\rangle\text{,}\) logo  a taxa de variação de \(f\) na direção do vetor \(PQ\) é</p>
 <div class="displaymath">
 \begin{align*}
 D_uf(2,0) \amp =\nabla f(0,2)\cdot u = \langle 1, 2\rangle \cdot \langle -3/5, 4/5\rangle \\
 \amp = 1 
 \end{align*}
 </div>
-<p data-braille="continuation">De acordo com o Teorema <a class="xref" data-knowl="./knowl/thm-maxima-direcional.html" title="Teorema 1.16">Teorema 1.16</a>, \(f\) aumenta mais depressa na direção do gradiente \(\nabla f(2,0)=\langle 1, 2 \rangle\text{.}\) A taxa máxima de variação é</p>
+<p class="continuation">De acordo com o Teorema <a class="xref" data-knowl="./knowl/thm-maxima-direcional.html" title="Teorema 1.16">Teorema 1.16</a>, \(f\) aumenta mais depressa na direção do gradiente \(\nabla f(2,0)=\langle 1, 2 \rangle\text{.}\) A taxa máxima de variação é</p>
 <div class="displaymath">
 \begin{gather*}
 |\nabla f(2,0)= |\langle 1, 2\rangle|=\sqrt{5} \text{.}
