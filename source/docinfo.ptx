@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<docinfo xmlns:xi="http://www.w3.org/2001/XInclude">
+    <!-- <brandlogo url="http://www.dm.ufrpe.br" source="images/projeto_logo_dm_2020_7.png" /> -->
+    <macros>
+    \newcommand{\ct}[1]{\color{gray}{\text{#1}}}
+    \newcommand{\ctm}[1]{\color{gray}{#1}}
+    \newcommand{\doubler}[1]{2#1}
+    \newcommand{\dd}{\mathrm{d}}
+    \newcommand{\ob}[2]{\color{gray}{\overbrace{\color{black}{#1}}^{#2}}}
+    \newcommand{\ub}[2]{\color{gray}{\underbrace{\color{black}{#1}}_{#2}}}
+    \newcommand{\integral}[2]{\displaystyle\int {#1}\,\dd {#2}}
+    \newcommand{\integrald}[4]{\displaystyle\int_{#2}^{#3} {#1}\,\dd {#4}}
+    \let\arcsec\relax
+    \DeclareMathOperator{\arcsec}{arc \,sec}
+    \let\sin\relax
+    \DeclareMathOperator{\sin}{sen}
+    \let\arcsin\relax
+    \DeclareMathOperator{\arcsin}{arc \,sen}
+    \let\arccos\relax
+    \DeclareMathOperator{\arccos}{arc \,cos}
+    \let\csc\relax
+    \DeclareMathOperator{\csc}{cossec}
+    \let\tan\relax
+    \DeclareMathOperator{\tan}{tg}
+    \let\arctan\relax
+    \DeclareMathOperator{\arctan}{arc\,tg}
+    \let\cot\relax
+    \DeclareMathOperator{\cot}{cotg}
+    </macros>
+    <latex-image-preamble>
+    \usepackage{tikz}
+    \usepackage{pgfplots}
+    \usepackage{smartdiagram}
+    \pgfplotsset{axis x line = middle, axis y line = middle}
+    \usetikzlibrary{backgrounds,arrows,matrix,positioning}
+    \usepackage{circuitikz}
+    </latex-image-preamble>
+</docinfo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project ptx-version="2" source="source" publication="publication" output-dir="output">
+  <targets>
+    <target name="s6-web" format="html" source="S6.ptx" output-dir="s6-web" deploy-dir="s6" />
+    <target name="s7-web" format="html" source="S7.ptx" output-dir="s7-web" deploy-dir="s7" />
+    <target name="s6-print" format="pdf" source="S6.ptx" output-dir="s6-print" />
+    <target name="s7-print" format="pdf" source="S7.ptx" output-dir="s7-print" />
+  </targets>
+</project>
