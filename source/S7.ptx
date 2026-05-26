@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pretext xml:lang="pt-BR" xmlns:xi="http://www.w3.org/2001/XInclude">
     <xi:include href="./docinfo.ptx" />
-    <article xml:id="calc-derivadas-parciais">
-        <title>Derivadas Parciais: S8</title>
+    <article xml:id="calc-derivadas-parciais-s7">
+        <title>Derivadas Parciais: S7</title>
 
         <frontmatter>
             <bibinfo>
@@ -32,7 +32,7 @@
         </frontmatter>
 
         <introduction>
-            <p>Aqui uma introdução será necessária. Sim. </p>
+            <p>Nesta aula, continuaremos nosso estudo sobre derivadas de funções de várias variáveis. Exploraremos como a regra da cadeia se estende para essas funções, permitindo calcular derivadas de funções compostas. Em seguida, discutiremos a derivação implícita para equações de múltiplas variáveis. Por fim, introduziremos os conceitos fundamentais de derivada direcional e vetor gradiente, que descrevem a taxa de variação de uma função em qualquer direção e a direção de maior crescimento, respectivamente.</p>
         </introduction>
     <section>
     <title> Derivadas parciais parte 2</title>
@@ -64,6 +64,12 @@
     
 <video xml:id="cadeia-1" youtube="eWdRdrC2Cfg"/>
 </figure>
+
+<introduction>
+    <p>
+        No cálculo de uma variável, a Regra da Cadeia é utilizada para derivar funções compostas. Para funções de várias variáveis, o princípio é o mesmo, mas devemos considerar as contribuições de cada variável independente. Veremos que a Regra da Cadeia para funções de várias variáveis pode assumir diferentes formas dependendo do número de variáveis independentes e intermediárias envolvidas.
+    </p>
+</introduction>
 
 
 <assemblage xml:id="def-cadeia-1">
@@ -127,6 +133,42 @@ função de <m>t</m>.
     <answer>
         <p>
            <m>7t^6</m>
+        </p>
+    </answer>
+</exercise>
+
+<example xml:id="ex-cadeia-2">
+    <statement>
+        <p>
+            Seja <m>w = x e^y</m>, onde <m>x = \ln t</m> e <m>y = t^2</m>. Determine <m>\frac{\dd w}{\dd t}</m> utilizando a Regra da Cadeia.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            Temos que:
+            <me>\frac{\dd w}{\dd t} = \frac{\partial w}{\partial x}\frac{\dd x}{\dd t} + \frac{\partial w}{\partial y}\frac{\dd y}{\dd t}</me>
+            Calculando as derivadas, obtemos:
+            <me>\frac{\partial w}{\partial x} = e^y, \quad \frac{\partial w}{\partial y} = x e^y</me>
+            <me>\frac{\dd x}{\dd t} = \frac{1}{t}, \quad \frac{\dd y}{\dd t} = 2t</me>
+            Substituindo, resulta em:
+            <md>
+                <mrow>\frac{\dd w}{\dd t} \amp= (e^y)\left(\frac{1}{t}\right) + (x e^y)(2t)</mrow>
+                <mrow>\amp= e^{t^2}\left(\frac{1}{t}\right) + (\ln t) e^{t^2} (2t)</mrow>
+                <mrow>\amp= e^{t^2}\left(\frac{1}{t} + 2t \ln t\right)</mrow>
+            </md>
+        </p>
+    </solution>
+</example>
+
+<exercise>
+    <statement>
+        <p>
+            Se <m>z = \sin(xy)</m>, onde <m>x = t^2</m> e <m>y = \frac{1}{t}</m>, encontre <m>\frac{\dd z}{\dd t}</m>.
+        </p>
+    </statement>
+    <answer>
+        <p>
+            <m>\cos(t)</m>
         </p>
     </answer>
 </exercise>
@@ -225,6 +267,50 @@ função de <m>t</m>.
     </answer>
 </exercise>
 
+<example xml:id="ex-cadeia-4">
+    <statement>
+        <p>
+            Se <m>z = \ln(x^2 + y^2)</m>, onde <m>x = r \cos \theta</m> e <m>y = r \sin \theta</m>, determine <m>\frac{\partial z}{\partial r}</m> e <m>\frac{\partial z}{\partial \theta}</m>.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            Usando a Regra da Cadeia, temos:
+            <me>\frac{\partial z}{\partial r} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial r} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial r}</me>
+            <me>\frac{\partial z}{\partial \theta} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial \theta} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial \theta}</me>
+            Calculando as derivadas parciais:
+            <md>
+                <mrow>\frac{\partial z}{\partial x} = \frac{2x}{x^2+y^2}, \quad \frac{\partial z}{\partial y} = \frac{2y}{x^2+y^2}</mrow>
+                <mrow>\frac{\partial x}{\partial r} = \cos \theta, \quad \frac{\partial y}{\partial r} = \sin \theta</mrow>
+                <mrow>\frac{\partial x}{\partial \theta} = -r\sin \theta, \quad \frac{\partial y}{\partial \theta} = r\cos \theta</mrow>
+            </md>
+            Substituindo na primeira equação:
+            <md>
+                <mrow>\frac{\partial z}{\partial r} \amp= \left(\frac{2x}{x^2+y^2}\right)(\cos \theta) + \left(\frac{2y}{x^2+y^2}\right)(\sin \theta)</mrow>
+                <mrow>\amp= \frac{2r\cos^2\theta + 2r\sin^2\theta}{r^2\cos^2\theta + r^2\sin^2\theta} = \frac{2r(\cos^2\theta + \sin^2\theta)}{r^2} = \frac{2}{r}</mrow>
+            </md>
+            Substituindo na segunda equação:
+            <md>
+                <mrow>\frac{\partial z}{\partial \theta} \amp= \left(\frac{2x}{x^2+y^2}\right)(-r\sin \theta) + \left(\frac{2y}{x^2+y^2}\right)(r\cos \theta)</mrow>
+                <mrow>\amp= \frac{-2r^2\cos\theta\sin\theta + 2r^2\sin\theta\cos\theta}{r^2} = 0</mrow>
+            </md>
+        </p>
+    </solution>
+</example>
+
+<exercise>
+    <statement>
+        <p>
+            Seja <m>w = x^2 - y^2</m>, onde <m>x = u + v</m> e <m>y = u - v</m>. Determine <m>\frac{\partial w}{\partial u}</m> e <m>\frac{\partial w}{\partial v}</m>.
+        </p>
+    </statement>
+    <answer>
+        <p>
+            <m>\frac{\partial w}{\partial u} = 4v</m> e <m>\frac{\partial w}{\partial v} = 4u</m>
+        </p>
+    </answer>
+</exercise>
+
 <subsection xml:id="subsec-derivada-implicita">
 
 
@@ -236,6 +322,12 @@ função de <m>t</m>.
 <video xml:id="derivada-parcial-implicita" youtube="7zAs9a0-y9U"/>
 </figure>
 
+<introduction>
+    <p>
+        Em muitas situações, uma variável não pode ser isolada facilmente em função de outras. A derivação implícita, já conhecida do cálculo de uma variável, pode ser estendida para funções de várias variáveis usando derivadas parciais. O Teorema da Função Implícita fornece uma fórmula direta para calcular essas derivadas sem a necessidade de isolar a variável dependente.
+    </p>
+</introduction>
+
     <assemblage xml:id="def-implicita">
       <title>Teorema da função Implicita</title>
             <p>
@@ -243,7 +335,7 @@ função de <m>t</m>.
                 como uma função diferenciável de <m>x</m>. Se <m>\frac{\partial F}{\partial y} \neq 0</m>, então 
             
             <me>
-                \frac{\\d y}{\\d x} = -\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}} = -\frac{F_x}{F_y}.
+                \frac{\dd y}{\dd x} = -\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}} = -\frac{F_x}{F_y}.
             </me>
             
             
@@ -305,6 +397,42 @@ determine <m> \dd y/\dd x</m> usando <xref ref="ex-implicita-1"/> .
     </answer>
 </exercise>
 
+<example xml:id="ex-implicita-2">
+    <statement>
+        <p>
+            Determine <m>\frac{\dd y}{\dd x}</m> sabendo que <m>e^{xy} + \sin y = x</m>.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            A equação pode ser escrita como 
+            <me>
+            F(x,y)=e^{xy} + \sin y - x = 0.    
+            </me>
+            Calculando as derivadas parciais, temos:
+            <me>F_x = y e^{xy} - 1</me>
+            <me>F_y = x e^{xy} + \cos y</me>
+            Aplicando o Teorema da Função Implícita:
+            <me>
+                \frac{\dd y}{\dd x}=-\frac{F_x}{F_y} = -\frac{y e^{xy} - 1}{x e^{xy} + \cos y}.
+            </me>
+        </p>
+    </solution>
+</example>
+
+<exercise>
+    <statement>
+        <p>
+            Determine <m>\frac{\dd y}{\dd x}</m> para a equação <m>\ln(x^2 + y^2) + y = 4</m>.
+        </p>
+    </statement>
+    <answer>
+        <p>
+            <m>\frac{\dd y}{\dd x} = -\frac{2x}{2y + x^2 + y^2}</m>
+        </p>
+    </answer>
+</exercise>
+
 </subsection>
 
 <subsection xml:id="subsec-derivadas-direcionais">
@@ -315,6 +443,12 @@ determine <m> \dd y/\dd x</m> usando <xref ref="ex-implicita-1"/> .
 
 <video xml:id="derivada-parcial-direcional" youtube="MayC4DS2Rp8"/>
 </figure>
+
+<introduction>
+    <p>
+        As derivadas parciais <m>f_x</m> e <m>f_y</m> medem a taxa de variação de uma função nas direções dos eixos <m>x</m> e <m>y</m>. No entanto, muitas vezes precisamos saber a taxa de variação em uma direção arbitrária. A derivada direcional generaliza as derivadas parciais, permitindo-nos calcular a taxa de variação de uma função de várias variáveis em qualquer direção especificada por um vetor unitário.
+    </p>
+</introduction>
 
 
 
@@ -375,13 +509,50 @@ determine <m> \dd y/\dd x</m> usando <xref ref="ex-implicita-1"/> .
 <exercise>
     <statement>
         <p>
-            Seja f (x, y) = x y. Encontre e interprete <m> D_u f(1, 2)</m> com o vetor unitário <m>\langle \sqrt{3}{2}, \frac{1}{2}\rangle</m>
+            Seja f (x, y) = x y. Encontre e interprete <m> D_u f(1, 2)</m> com o vetor unitário <m>\langle \frac{\sqrt{3}}{2}, \frac{1}{2}\rangle</m>
         </p>
     </statement>
    
     <answer>
         <p>
             <m>\frac{1}{2} + \sqrt{3}</m>
+        </p>
+    </answer>
+</exercise>
+
+<example xml:id="ex-direcional-2">
+    <statement>
+        <p>
+           Encontre a derivada direcional de <m>f(x,y) = x \ln y</m> no ponto <m>(1, e)</m> na direção do vetor <m>v = \langle -3, 4 \rangle</m>.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            Primeiramente, notamos que <m>v</m> não é um vetor unitário. O seu módulo é <m>|v| = \sqrt{(-3)^2 + 4^2} = 5</m>.
+            Assim, o vetor unitário na mesma direção e sentido é <m>u = \langle -\frac{3}{5}, \frac{4}{5} \rangle</m>.
+        </p>
+        <p>
+            As derivadas parciais são:
+            <me>f_x(x,y) = \ln y</me>
+            <me>f_y(x,y) = \frac{x}{y}</me>
+            Avaliando no ponto <m>(1, e)</m>:
+            <me>f_x(1,e) = \ln e = 1</me>
+            <me>f_y(1,e) = \frac{1}{e}</me>
+            A derivada direcional é:
+            <me>D_u f(1,e) = f_x(1,e)\left(-\frac{3}{5}\right) + f_y(1,e)\left(\frac{4}{5}\right) = 1\left(-\frac{3}{5}\right) + \frac{1}{e}\left(\frac{4}{5}\right) = \frac{-3e + 4}{5e}</me>
+        </p>
+    </solution>
+</example>
+
+<exercise>
+    <statement>
+        <p>
+            Determine a derivada direcional de <m>f(x,y) = \sqrt{x^2+y^2}</m> no ponto <m>(3, 4)</m> na direção do vetor <m>v = \langle 1, -1 \rangle</m>.
+        </p>
+    </statement>
+    <answer>
+        <p>
+            <m>-\frac{\sqrt{2}}{10}</m>
         </p>
     </answer>
 </exercise>
@@ -397,6 +568,12 @@ determine <m> \dd y/\dd x</m> usando <xref ref="ex-implicita-1"/> .
 
 <video xml:id="derivada-parcial-gradiente" youtube="qJFM_zHpp-Q"/>
 </figure>
+
+<introduction>
+    <p>
+        A derivada direcional pode ser expressa de forma compacta como o produto escalar entre um vetor unitário e um vetor especial formado pelas derivadas parciais da função. Esse vetor é chamado de vetor gradiente. O gradiente não apenas simplifica o cálculo das derivadas direcionais, mas também possui propriedades geométricas importantes, apontando para a direção de maior crescimento da função.
+    </p>
+</introduction>
 
     <assemblage xml:id="assemblage-gradiente">
         <title>Definição</title>
@@ -416,73 +593,84 @@ determine <m> \dd y/\dd x</m> usando <xref ref="ex-implicita-1"/> .
 <example xml:id="ex-gradiente-1">
     <statement>
         <p>
-        <task>
-            <p>
-                Calcule o gradiente de <m>f(x,y)=\sin{x}+ e^{xy}</m>.
-            </p>
-        </task>
-           <task>
-               <p>
-                   Determine o vetor <m>\nabla f(0,1)</m>.
-               </p>
-           </task>
+            Determine a derivada direcional da função <m>f(x, y) = x^2y^3 - 4y</m> no ponto <m>(2, -1)</m> na direção do vetor <m>v = \langle 2, 5 \rangle</m> utilizando o vetor gradiente.
         </p>
     </statement>
     <solution>
-        <p>De acordo com <xref ref="assemblage-gradiente" text="custom"> Definção do gradiente</xref>, temos
+        <p>
+            Primeiro, calculamos o vetor gradiente <m>\nabla f</m>:
             <md>
-                <mrow>\nabla f(x,y) \amp= \langle \cos{x} + e^{xy},xe^{xy} \rangle </mrow>.
+                <mrow>\nabla f(x,y) \amp =\langle f_x(x,y), f_y(x,y) \rangle</mrow>
+                <mrow>\amp =\langle 2xy^3, 3x^2y^2-4\rangle </mrow>
             </md>
-        Então,
-        <me>
-            \nabla f(0,1) = \langle 2,0\rangle .
-        </me>
-        
+            Avaliando no ponto <m>(2,-1)</m>:
+            <md>
+                <mrow> \nabla f(2,-1) \amp =\langle 2(2)(-1)^3, 3(2)^2(-1)^2-4 \rangle = \langle -4, 8\rangle  </mrow>
+            </md>
+            Observe que <m>v</m> não é um vetor unitário. Como <m>|v|=\sqrt{2^2 + 5^2}=\sqrt{29}</m>, o vetor unitário <m>u</m> na direção de <m>v</m> é:
+            <md>
+                <mrow>u \amp= \frac{v}{|v|}=\langle \frac{2}{\sqrt{29}}, \frac{5}{\sqrt{29}}\rangle </mrow>
+            </md>
+            A derivada direcional pode ser calculada como o produto escalar entre o gradiente e o vetor unitário:
+            <md>
+                <mrow> D_uf(2,-1)\amp = \nabla f(2,-1)\cdot u = \langle -4, 8 \rangle\cdot\langle \frac{2}{\sqrt{29}}, \frac{5}{\sqrt{29}}\rangle </mrow>
+                <mrow>  \amp = \frac{-4\cdot 2 + 8\cdot 5}{\sqrt{29}} = \frac{32}{\sqrt{29}} </mrow>
+            </md>
         </p>
     </solution>
 </example>
 
-<example>
+<exercise>
     <statement>
         <p>
-            Determine a derivada direcional da função <m> f (x, y) = x^2y^3 - 4y</m> no ponto
-  <m> (2, 1)</m> na direção do vetor <m>v = \langle 2, 5 \rangle</m>
+            Calcule o vetor gradiente de <m>f(x,y) = x \sin(y)</m> no ponto <m>(1, \frac{\pi}{2})</m> e, em seguida, utilize-o para determinar a derivada direcional de <m>f</m> nesse ponto na direção do vetor <m>v = \langle 3, -4 \rangle</m>.
+        </p>
+    </statement>
+    <answer>
+        <p>
+            <m>\nabla f(1, \frac{\pi}{2}) = \langle 1, 0 \rangle</m> e <m>D_u f(1, \frac{\pi}{2}) = \frac{3}{5}</m>.
+        </p>
+    </answer>
+</exercise>
+
+<example xml:id="ex-gradiente-2">
+    <statement>
+        <p>
+            A definição de vetor gradiente se estende de maneira natural para funções de três variáveis. 
+            Calcule o vetor gradiente da função <m>f(x,y,z) = x \ln(yz)</m> no ponto <m>(1, 2, \frac{1}{2})</m> e determine a derivada direcional na direção do vetor <m>v = \langle 1, 2, -2 \rangle</m>.
         </p>
     </statement>
     <solution>
         <p>
-            Novamento de  acordo com <xref ref="assemblage-gradiente" text="custom"> Definção do gradiente</xref>:
-
+            O gradiente de uma função de três variáveis é dado por <m>\nabla f = \langle f_x, f_y, f_z \rangle</m>. Calculando as derivadas parciais:
             <md>
-                <mrow>\nabla f(x,y) \amp =\langle 2xy^3, 3x^2y^2-4\rangle </mrow>
+                <mrow>f_x(x,y,z) \amp= \ln(yz)</mrow>
+                <mrow>f_y(x,y,z) \amp= x \cdot \frac{1}{yz} \cdot z = \frac{x}{y}</mrow>
+                <mrow>f_z(x,y,z) \amp= x \cdot \frac{1}{yz} \cdot y = \frac{x}{z}</mrow>
             </md>
+            Avaliando no ponto <m>(1, 2, \frac{1}{2})</m>:
             <md>
-                <mrow> \nabla f(2,-1) \amp =\langle -4, 8\rangle  </mrow>
+                <mrow>\nabla f\left(1, 2, \frac{1}{2}\right) \amp= \langle \ln(1), \frac{1}{2}, \frac{1}{1/2} \rangle = \langle 0, \frac{1}{2}, 2 \rangle</mrow>
             </md>
-            Observe que <m>v</m>  não é um vetor unitário, mas, como <m>|v|=\sqrt{29}</m>, o vetor unitário na direção
-            de <m>v</m> é
-
-            <md>
-                <mrow>v \amp= \frac{v}{|v|}=\langle \frac{2}{\sqrt{29}}, \frac{5}{\sqrt{29}}\rangle </mrow>
-            </md>
-
-            Olhando para definição da <xref ref="assemblage-derivada-direcional" text="title"/> podemos 
-            usar o vetor gradiente acima para reescrever a  derivada direcional como a seguir:
-
-            <md>
-                <mrow>D_uf(x,y)\cdot u \amp </mrow>
-            </md>
-        Por essa razão,
-
-        <md>
-            <mrow> D_uf(x,y)\amp = \nabla f(2,-1)\cdot u = \langle -4, 8 \rangle\cdot\langle \frac{2}{\sqrt{29}}, \frac{5}{\sqrt{29}}\rangle </mrow>
-            <mrow>  \amp = \frac{-4\cdot 2 + 8\cdot 5}{\sqrt{29}} </mrow>
-            <mrow> \amp = \frac{32}{\sqrt{29}} </mrow>
-        </md>
-        
+            O módulo do vetor <m>v</m> é <m>|v| = \sqrt{1^2 + 2^2 + (-2)^2} = \sqrt{9} = 3</m>. O vetor unitário <m>u</m> correspondente é <m>\langle \frac{1}{3}, \frac{2}{3}, -\frac{2}{3} \rangle</m>.
+            A derivada direcional é:
+            <me>D_u f = \langle 0, \frac{1}{2}, 2 \rangle \cdot \langle \frac{1}{3}, \frac{2}{3}, -\frac{2}{3} \rangle = 0 + \frac{1}{3} - \frac{4}{3} = -1</me>
         </p>
     </solution>
 </example>
+
+<exercise>
+    <statement>
+        <p>
+            Encontre o vetor gradiente da função <m>g(x,y,z) = z^2 e^{xy}</m> no ponto <m>(0, 1, 2)</m>.
+        </p>
+    </statement>
+    <answer>
+        <p>
+            <m>\nabla g(0, 1, 2) = \langle 4, 0, 4 \rangle</m>
+        </p>
+    </answer>
+</exercise>
 
 
 </subsection>
@@ -555,37 +743,167 @@ direção do vetor gradiente <m>f(x,y)</m>.
     </statement>
     <hint>
         <p>
-            O valor máximo ocorre na direção e no sentido de <m>\nabla f(2,1)</m>.
+            O valor máximo ocorre na direção e no sentido de <m>\nabla f(-2,0)</m>.
         </p>
     </hint>
     <answer>
         <p>
             O valor máximo da derivada direcional é <m>4\sqrt{2}</m>. O vetor unitário nessa direção e
 sentido é <m>\langle -1/\sqrt{2} , 1/\sqrt{2}\rangle</m>.
+        </p>
+    </answer>
+</exercise>
 
+<example xml:id="ex-maxima-direcional-2">
+    <statement>
+        <p>
+            Suponha que você esteja escalando um morro cuja forma seja dada pela equação <m>z = 1000 - 0.01x^2 - 0.02y^2</m>, e que você esteja no ponto de coordenadas <m>(60, 40)</m>. 
+            <ol>
+                <li>Em qual direção você deve se mover inicialmente para subir o mais rápido possível?</li>
+                <li>Qual é a taxa máxima de ascensão nesse ponto?</li>
+            </ol>
+        </p>
+    </statement>
+    <solution>
+        <p>
+            O morro é descrito pela função <m>f(x,y) = 1000 - 0.01x^2 - 0.02y^2</m>. A direção de subida mais íngreme é dada pelo vetor gradiente de <m>f</m>.
+            <md>
+                <mrow>\nabla f(x,y) \amp= \langle -0.02x, -0.04y \rangle</mrow>
+            </md>
+            Avaliando no ponto de posição <m>(60, 40)</m>:
+            <md>
+                <mrow>\nabla f(60,40) \amp= \langle -0.02(60), -0.04(40) \rangle = \langle -1.2, -1.6 \rangle</mrow>
+            </md>
+            Portanto, você deve se mover na direção do vetor <m>\langle -1.2, -1.6 \rangle</m> (que equivale à direção <m>\langle -3, -4 \rangle</m>).
+            A taxa máxima de ascensão é o módulo desse gradiente:
+            <md>
+                <mrow>|\nabla f(60,40)| \amp= \sqrt{(-1.2)^2 + (-1.6)^2} = \sqrt{1.44 + 2.56} = \sqrt{4} = 2</mrow>
+            </md>
+        </p>
+    </solution>
+</example>
 
-
+<exercise>
+    <statement>
+        <p>
+            A temperatura em uma placa metálica é dada por <m>T(x,y) = 20 - 4x^2 - y^2</m>. Se uma formiga está na posição <m>(1, 2)</m>, em que direção ela deve andar para que a temperatura aumente o mais rápido possível?
+        </p>
+    </statement>
+    <answer>
+        <p>
+            Na direção do vetor <m>\langle -8, -4 \rangle</m>.
         </p>
     </answer>
 </exercise>
 
 </subsection>
- <!-- <exercises xml:id="exercises-log-integral">
-    
-<exercisegroup cols="2">
-<introduction>
-    <p>
-        xxxxxxxxxxxx
-    </p>
-</introduction>
-    
-<exercise>
-    xxxxxxxxxxxx
-</exercise> -->
+<exercises xml:id="exercises-derivadas-parciais-2">
+    <title>Exercícios Propostos</title>
 
-<!-- 
-</exercisegroup>
- </exercises> -->
+    <exercisegroup cols="2">
+        <introduction>
+            <p>Utilize a regra da cadeia para calcular as derivadas indicadas.</p>
+        </introduction>
+        <exercise>
+            <statement>
+                <p>Se <m>z = x^2 y^3</m>, onde <m>x = t^2</m> e <m>y = 2t</m>, determine <m>\frac{\dd z}{\dd t}</m>.</p>
+            </statement>
+            <answer>
+                <p><m>56t^6</m></p>
+            </answer>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>Se <m>w = x e^y</m>, onde <m>x = 2s - t</m> e <m>y = s + 2t</m>, determine <m>\frac{\partial w}{\partial s}</m>.</p>
+            </statement>
+            <answer>
+                <p><m>e^{s+2t}(2s - t + 2)</m></p>
+            </answer>
+        </exercise>
+    </exercisegroup>
+
+    <exercisegroup cols="2">
+        <introduction>
+            <p>Encontre a derivada implícita.</p>
+        </introduction>
+        <exercise>
+            <statement>
+                <p>Seja <m>x^2 y + y^2 x = 6</m>. Determine <m>\frac{\dd y}{\dd x}</m>.</p>
+            </statement>
+            <answer>
+                <p><m>-\frac{2xy + y^2}{x^2 + 2xy}</m></p>
+            </answer>
+        </exercise>
+    </exercisegroup>
+
+    <exercisegroup cols="2">
+        <introduction>
+            <p>Calcule a derivada direcional e o vetor gradiente.</p>
+        </introduction>
+        <exercise>
+            <statement>
+                <p>Encontre o vetor gradiente <m>\nabla f(x,y)</m> de <m>f(x,y) = x^2 + y^2 - 2xy</m> no ponto <m>(1, 2)</m>.</p>
+            </statement>
+            <answer>
+                <p><m>\langle -2, 2 \rangle</m></p>
+            </answer>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>Determine a derivada direcional de <m>f(x,y) = x^2 y</m> no ponto <m>(2, 1)</m> na direção do vetor <m>v = \langle 3, 4 \rangle</m>.</p>
+            </statement>
+            <answer>
+                <p>O vetor unitário é <m>u = \langle 3/5, 4/5 \rangle</m>. A derivada direcional é <m>28/5</m>.</p>
+            </answer>
+        </exercise>
+    </exercisegroup>
+
+    <exercisegroup cols="2">
+        <introduction>
+            <p>Exercícios adicionais.</p>
+        </introduction>
+        <exercise>
+            <statement>
+                <p>Se <m>z = \sin(x+y)</m>, onde <m>x = st</m> e <m>y = \frac{s}{t}</m>, determine <m>\frac{\partial z}{\partial s}</m>.</p>
+            </statement>
+            <answer>
+                <p><m>\cos\left(st + \frac{s}{t}\right)\left(t + \frac{1}{t}\right)</m></p>
+            </answer>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>Encontre <m>\frac{\dd y}{\dd x}</m> por derivação implícita para a equação <m>x \cos y + y \cos x = 1</m>.</p>
+            </statement>
+            <answer>
+                <p><m>\frac{y \sin x - \cos y}{\cos x - x \sin y}</m></p>
+            </answer>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>Calcule o vetor gradiente de <m>f(x,y,z) = x^2 y z^3</m> no ponto <m>(1, -1, 2)</m>.</p>
+            </statement>
+            <answer>
+                <p><m>\langle -16, 8, -12 \rangle</m></p>
+            </answer>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>Qual é a taxa máxima de variação da função <m>f(x,y) = \ln(x^2+y^2)</m> no ponto <m>(1,2)</m>?</p>
+            </statement>
+            <answer>
+                <p><m>\frac{2\sqrt{5}}{5}</m></p>
+            </answer>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>A temperatura em um ambiente é modelada por <m>T(x,y) = 2xy - x^2</m>. Se um inseto está na posição <m>(2,1)</m> e quer esfriar o mais rápido possível (diminuir a temperatura), em que direção ele deve voar?</p>
+            </statement>
+            <answer>
+                <p>Na direção oposta ao gradiente: <m>-\nabla T(2,1) = \langle 2, -4 \rangle</m>.</p>
+            </answer>
+        </exercise>
+    </exercisegroup>
+</exercises>
 
 
 
