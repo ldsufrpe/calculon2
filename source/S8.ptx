@@ -253,7 +253,7 @@
                     <title>Teste das Segundas Derivadas Parciais para Extremos Relativos</title>
                     <p>Suponha que <m>f</m> possua segundas derivadas parciais contínuas em uma região aberta que contenha <m>(a, b)</m>, para o qual <m>\frac{\partial f}{\partial x}(a, b) = 0</m> e <m>\frac{\partial f}{\partial y}(a, b) = 0</m>.</p>
                     <p>Para testar os extremos relativos de <m>f</m>, considere a quantidade discriminante <m>d</m> dada por:
-                    <me>d = \frac{\partial^2 f}{\partial x^2}(a, b) \frac{\partial^2 f}{\partial y^2}(a, b) - \left[ \frac{\partial^2 f}{\partial x \partial y}(a, b) \right]^2</me></p>
+                    <me>d = \frac{\partial^2 f}{\partial x^2}(a, b) \frac{\partial^2 f}{\partial y^2}(a, b) - \left[ \frac{\partial^2 f}{\partial x \partial y}(a, b) \right]^2</me>
                     <ol>
                         <li>
                             <p>Se <m>d \gt 0</m> e <m>\frac{\partial^2 f}{\partial x^2}(a, b) \gt 0</m>, então <m>f</m> possui um <term>mínimo relativo</term> em <m>(a, b)</m>.</p>
@@ -267,7 +267,7 @@
                         <li>
                             <p>O teste não fornece nenhuma informação se <m>d = 0</m>.</p>
                         </li>
-                    </ol>
+                    </ol></p>
                     <p><alert>Atenção:</alert> Observe no Teste das Segundas Derivadas Parciais que se <m>d \gt 0</m>, então <m>\frac{\partial^2 f}{\partial x^2}(a, b)</m> e <m>\frac{\partial^2 f}{\partial y^2}(a, b)</m> devem possuir obrigatoriamente o mesmo sinal. Assim, pode-se substituir <m>\frac{\partial^2 f}{\partial x^2}(a, b)</m> por <m>\frac{\partial^2 f}{\partial y^2}(a, b)</m> nas duas primeiras partes do teste.</p>
                 </assemblage>
 
