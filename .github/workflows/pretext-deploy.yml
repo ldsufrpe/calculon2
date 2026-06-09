@@ -62,6 +62,14 @@ jobs:
       - name: run deploy
         run: pretext deploy --no-push
 
+      - name: overwrite landing page with custom index.html
+        run: |
+          cp index.html /tmp/index.html
+          git checkout gh-pages
+          cp /tmp/index.html index.html
+          git add index.html
+          git commit --amend --no-edit
+
       - name: push gh-pages branch
         run: git push origin gh-pages --force
         env:

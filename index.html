@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculon 2 - Portal de Apoio Didático</title>
+    <meta name="description" content="Portal de apoio didático para a disciplina de Cálculo Diferencial e Integral II (Cálculo 2) na UFRPE. Aulas interativas com visualizações 3D e exercícios resolvidos.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.15);
+            --secondary: #10b981;
+            --secondary-glow: rgba(16, 185, 129, 0.15);
+            --accent: #8b5cf6;
+            --accent-glow: rgba(139, 92, 246, 0.15);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        header {
+            padding: 4rem 2rem 2.5rem;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .meta-item i {
+            color: var(--primary);
+        }
+
+        main {
+            flex-grow: 1;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 2rem 5rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            opacity: 0.8;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px -15px var(--glow-color);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--card-accent);
+        }
+
+        .card-tag {
+            align-self: flex-start;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+            background: var(--tag-bg);
+            color: var(--card-accent);
+            border: 1px solid var(--tag-border);
+        }
+
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-topics {
+            list-style: none;
+            margin-bottom: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1.25rem;
+        }
+
+        .card-topics li {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .card-topics li i {
+            color: var(--card-accent);
+            font-size: 0.8rem;
+        }
+
+        .card-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            color: #ffffff;
+            background: var(--btn-bg);
+            border: 1px solid var(--btn-border);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .card-btn:hover {
+            background: var(--card-accent);
+            box-shadow: 0 0 15px var(--card-accent-glow);
+            transform: scale(1.02);
+        }
+
+        /* Specific Card Styles via CSS variables */
+        .card-s6 {
+            --gradient-start: #3b82f6;
+            --gradient-end: #60a5fa;
+            --glow-color: rgba(59, 130, 246, 0.25);
+            --card-accent: #3b82f6;
+            --card-accent-glow: rgba(59, 130, 246, 0.4);
+            --tag-bg: rgba(59, 130, 246, 0.06);
+            --tag-border: rgba(59, 130, 246, 0.15);
+            --btn-bg: rgba(59, 130, 246, 0.12);
+            --btn-border: rgba(59, 130, 246, 0.25);
+        }
+
+        .card-s7 {
+            --gradient-start: #8b5cf6;
+            --gradient-end: #a78bfa;
+            --glow-color: rgba(139, 92, 246, 0.25);
+            --card-accent: #8b5cf6;
+            --card-accent-glow: rgba(139, 92, 246, 0.4);
+            --tag-bg: rgba(139, 92, 246, 0.06);
+            --tag-border: rgba(139, 92, 246, 0.15);
+            --btn-bg: rgba(139, 92, 246, 0.12);
+            --btn-border: rgba(139, 92, 246, 0.25);
+        }
+
+        .card-s8 {
+            --gradient-start: #10b981;
+            --gradient-end: #34d399;
+            --glow-color: rgba(16, 185, 129, 0.25);
+            --card-accent: #10b981;
+            --card-accent-glow: rgba(16, 185, 129, 0.4);
+            --tag-bg: rgba(16, 185, 129, 0.06);
+            --tag-border: rgba(16, 185, 129, 0.15);
+            --btn-bg: rgba(16, 185, 129, 0.12);
+            --btn-border: rgba(16, 185, 129, 0.25);
+        }
+
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            margin-top: auto;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+
+        footer a:hover {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            header {
+                padding: 3rem 1.5rem 2rem;
+            }
+            .meta-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+            .grid-container {
+                gap: 1.5rem;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div id="ufrpe-logo" class="meta-item" style="display: inline-flex; margin-bottom: 1.5rem;">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>UFRPE - Departamento de Matemática</span>
+        </div>
+        <h1 id="main-title">Calculon 2</h1>
+        <p class="subtitle" id="main-description">
+            Portal interativo de apoio didático para a disciplina de Cálculo Diferencial e Integral de Várias Variáveis (Cálculo II).
+        </p>
+        
+        <div class="meta-info" id="meta-authors-container">
+            <div class="meta-item" id="author-leon">
+                <i class="fa-solid fa-user-tie"></i>
+                <span>Prof. Leon Silva</span>
+            </div>
+            <div class="meta-item" id="author-lorena">
+                <i class="fa-solid fa-user-tie"></i>
+                <span>Profª. Lorena Brizza</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="grid-container" id="lessons-grid">
+            
+            <!-- Card Aula S6 -->
+            <section class="card card-s6" id="card-s6">
+                <div class="card-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                <div class="card-tag">Semana 6</div>
+                <h2 class="card-title">Derivadas Parciais I</h2>
+                <p class="card-desc">
+                    Introdução ao estudo de funções de várias variáveis, conceitos de limite e continuidade, e cálculo básico das derivadas parciais de primeira e segunda ordem.
+                </p>
+                <ul class="card-topics">
+                    <li><i class="fa-solid fa-chevron-right"></i><span>Domínio e Imagem em 2D/3D</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i><span>Limites e Continuidade</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i><span>Derivadas Parciais de 1ª e 2ª Ordem</span></li>
+                </ul>
+                <a href="./s6/" class="card-btn" id="btn-s6">
+                    <span>Acessar Conteúdo</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </section>
+
+            <!-- Card Aula S7 -->
+            <section class="card card-s7" id="card-s7">
+                <div class="card-icon"><i class="fa-solid fa-wind"></i></div>
+                <div class="card-tag">Semana 7</div>
+                <h2 class="card-title">Derivadas Parciais II</h2>
+                <p class="card-desc">
+                    Aprofundamento em derivação de várias variáveis, incluindo a Regra da Cadeia de ordem superior, diferenciação implícita e a direção de maior taxa de variação via gradiente.
+                </p>
+                <ul class="card-topics">
+                    <li><i class="fa-solid fa-chevron-right"></i><span>Regra da Cadeia Geral</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i><span>Derivação Implícita</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i><span>Derivada Direcional e Vetor Gradiente</span></li>
+                </ul>
+                <a href="./s7/" class="card-btn" id="btn-s7">
+                    <span>Acessar Conteúdo</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </section>
+
+            <!-- Card Aula S8 -->
+            <section class="card card-s8" id="card-s8">
+                <div class="card-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+                <div class="card-tag" style="background: rgba(16, 185, 129, 0.12);">Novo</div>
+                <h2 class="card-title">Extremos e Otimização</h2>
+                <p class="card-desc">
+                    Identificação de extremos locais e absolutos em superfícies. Aprenda a aplicar os testes de derivadas parciais e resolver problemas práticos de maximização e minimização.
+                </p>
+                <ul class="card-topics">
+                    <li><i class="fa-solid fa-chevron-right"></i><span>Máximos, Mínimos e Pontos de Sela</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i><span>Teste das Segundas Derivadas Parciais</span></li>
+                    <li><i class="fa-solid fa-chevron-right"></i><span>Problemas Práticos de Otimização</span></li>
+                </ul>
+                <a href="./s8/" class="card-btn" id="btn-s8">
+                    <span>Acessar Conteúdo</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Calculon 2. Desenvolvido para a <a href="http://www.ufrpe.br" target="_blank" rel="noopener">Universidade Federal Rural de Pernambuco</a>.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem; opacity: 0.6;">Material elaborado pelos professores do Departamento de Matemática.</p>
+    </footer>
+
+</body>
+</html>
