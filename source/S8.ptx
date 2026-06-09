@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pretext xml:lang="pt-BR" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <xi:include href="./docinfo.ptx" />
+    <article xml:id="calc-extremos-duas-variaveis">
+        <title>Extremos de Funções de Duas Variáveis: S8</title>
+
+        <frontmatter>
+            <bibinfo>
+                <author>
+                    <personname>Leon Silva</personname>
+                    <department>Departamento de Matemática</department>                    
+                    <institution>Universidade Federal Rural de Pernanbuco</institution>
+                </author>
+                
+                <author>
+                    <personname>Lorena Brizza</personname>                 
+                    <department>Departamento de Matemática</department>                    
+                    <institution>Universidade Federal Rural de Pernanbuco</institution>
+                </author>
+                <date><today /></date>
+            </bibinfo>
+
+            <titlepage>
+                <titlepage-items/>
+            </titlepage>
+
+            <abstract>
+                <p>Aqui faremos um resumo das atividades da semana sobre extremos de funções de duas variáveis e suas aplicações em otimização.</p>
+            </abstract>
+        </frontmatter>
+
+        <introduction>
+            <p>Nesta aula, discutiremos a determinação e classificação dos extremos relativos de funções de duas variáveis. Começaremos estudando a definição de extremos relativos e o Teste de Primeiras Derivadas Parciais, que nos auxilia na localização de pontos críticos (candidatos a extremos). Em seguida, utilizaremos o Teste de Segundas Derivadas Parciais para classificar esses pontos em máximos locais, mínimos locais ou pontos de sela. Por fim, aplicaremos esses conceitos analíticos em problemas de otimização da vida real, como a maximização do lucro de produtos substitutos e o cálculo de dimensões ótimas de sólidos geométricos.</p>
+        </introduction>
+
+        <section>
+            <title>Extremos de funções de duas variáveis</title>
+            
+            <objectives>
+                <title>Estrutura</title>
+                <ol>
+                    <li>
+                        <p>Compreender os extremos relativos de funções de duas variáveis.</p>
+                    </li>
+                    <li>
+                        <p>Utilizar o Teste de Primeiras Derivadas Parciais para determinar os extremos relativos de funções de duas variáveis.</p>
+                    </li>
+                    <li>
+                        <p>Utilizar o Teste de Segundas Derivadas Parciais para determinar os extremos relativos de funções de duas variáveis.</p>
+                    </li>
+                    <li>
+                        <p>Utilizar extremos relativos para responder questões sobre situações da vida real.</p>
+                    </li>
+                </ol>
+            </objectives>
+
+            <subsection xml:id="subsec-def-extremos">
+                <title>Extremos Relativos e Pontos de Sela</title>
+
+                <figure xml:id="fig-video-pontos-sela">
+                    <title>Introdução a Extremos Locais e Pontos de Sela</title>
+                    <video xml:id="video-pontos-sela" youtube="FRgP17L29wU" />
+                </figure>
+
+                <introduction>
+                    <p>Como no cálculo de uma única variável, nas funções de duas variáveis é necessário distinguir entre extremos relativos e absolutos. Dizemos que uma função de duas variáveis possui um extremo relativo (ou local) em um ponto se o valor da função nesse ponto for maior ou igual (máximo relativo) ou menor ou igual (mínimo relativo) a todos os valores da função em uma pequena região circular centrada no ponto.</p>
+                </introduction>
+
+                <definition xml:id="def-extremos-relativos">
+                    <statement>
+                        <p>Suponha que <m>f</m> seja uma função definida em uma região que contém <m>(x_0, y_0)</m>.</p>
+                        <ol>
+                            <li>
+                                <p>A função <m>f</m> possui um <term>máximo relativo</term> em <m>(x_0, y_0)</m> se houver uma região circular <m>R</m> com centro em <m>(x_0, y_0)</m> tal que <m>f(x, y) \le f(x_0, y_0)</m> para todo <m>(x, y)</m> em <m>R</m>.</p>
+                            </li>
+                            <li>
+                                <p>A função <m>f</m> possui um <term>mínimo relativo</term> em <m>(x_0, y_0)</m> se houver uma região circular <m>R</m> com centro em <m>(x_0, y_0)</m> tal que <m>f(x, y) \ge f(x_0, y_0)</m> para todo <m>(x, y)</m> em <m>R</m>.</p>
+                            </li>
+                        </ol>
+                    </statement>
+                </definition>
+
+                <p>Dizer que <m>f</m> possui um máximo relativo em <m>(x_0, y_0)</m> significa que o ponto <m>(x_0, y_0, f(x_0, y_0))</m> é pelo menos tão alto quanto todos os pontos próximos no gráfico da superfície <m>z = f(x, y)</m>. De modo similar, <m>f</m> possui um mínimo relativo em <m>(x_0, y_0)</m> se <m>(x_0, y_0, f(x_0, y_0))</m> for pelo menos tão baixo quanto todos os pontos vizinhos no gráfico.</p>
+                <p>Por outro lado, o valor de <term>máximo absoluto</term> de uma função em uma região é o maior valor assumido por ela em toda a região. Por exemplo, a função <m>f(x, y) = -(x^2 + y^2)</m> apresenta um gráfico em formato de paraboloide voltado para baixo, conforme ilustrado na <xref ref="fig-paraboloide-maximo-absoluto" />. Note que o vértice está posicionado exatamente na origem <m>(0, 0, 0)</m>, destacando-se visualmente como o ponto mais alto da superfície. Desse modo, o valor <m>f(0, 0) = 0</m> é o <term>máximo absoluto</term> de <m>f</m> em todo o plano <m>xy</m>. Um <term>mínimo absoluto</term> de <m>f</m> em uma região é definido de maneira semelhante (como o ponto mais baixo de uma superfície).</p>
+
+                <figure xml:id="fig-paraboloide-maximo-absoluto">
+                    <title>Gráfico do paraboloide <m>f(x, y) = -(x^2 + y^2)</m> com o ponto de máximo absoluto na origem</title>
+                    <image width="60%">
+                        <latex-image>
+                            <![CDATA[
+                            \begin{tikzpicture}
+                              \begin{axis}[
+                                view={60}{30},
+                                axis lines=center,
+                                axis on top,
+                                ticks=none,
+                                domain=-2:2,
+                                y domain=-2:2,
+                                samples=30,
+                                zmin=-5, zmax=1.5,
+                                clip=false
+                              ]
+                                \addplot3[surf, colormap={bluecyan}{color(0cm)=(blue!80!black); color(1cm)=(cyan!80!white)}, shader=faceted] {-(x^2 + y^2)};
+                                \addplot3[mark=*, mark size=3pt, color=red] coordinates {(0,0,0)};
+                                \node[color=red, anchor=south east] at (axis cs:0,0,0) {\textbf{Máximo $(0,0,0)$}};
+                                \node[anchor=west, color=blue!85!black] at (axis cs:1, -1, -2.5) {$z = -(x^2 + y^2)$};
+                                \node[anchor=north east] at (axis cs:2.1, 0, 0) {$x$};
+                                \node[anchor=south west] at (axis cs:0, 2.1, 0) {$y$};
+                                \node[anchor=south] at (axis cs:0, 0, 1.6) {$z$};
+                              \end{axis}
+                            \end{tikzpicture}
+                            ]]>
+                        </latex-image>
+                    </image>
+                </figure>
+            </subsection>
+
+            <subsection xml:id="subsec-teste-primeiras-derivadas">
+                <title>Teste de Primeiras Derivadas Parciais e Pontos Críticos</title>
+
+                <figure xml:id="fig-video-pontos-criticos">
+                    <title>Identificação de Pontos Críticos</title>
+                    <video xml:id="video-pontos-criticos" youtube="-To9rLraJE4" />
+                </figure>
+
+                <introduction>
+                    <p>Para localizar os extremos relativos de uma função de duas variáveis, empregamos um procedimento similar ao teste da primeira derivada utilizado para funções de uma única variável: procuramos por pontos onde o plano tangente ao gráfico é horizontal ou onde a derivada não existe.</p>
+                </introduction>
+
+                <assemblage xml:id="assemblage-primeiras-derivadas">
+                    <title>Teste das Primeiras Derivadas Parciais para Extremos Relativos</title>
+                    <p>Se <m>f</m> possui um extremo relativo em <m>(x_0, y_0)</m> em uma região aberta <m>R</m> no plano <m>xy</m> e as primeiras derivadas parciais de <m>f</m> existem em <m>R</m>, então:
+                    <me>\frac{\partial f}{\partial x}(x_0, y_0) = 0 \quad \text{e} \quad \frac{\partial f}{\partial y}(x_0, y_0) = 0</me></p>
+                </assemblage>
+
+                <definition xml:id="def-ponto-critico">
+                    <statement>
+                        <p>Um ponto <m>(x_0, y_0)</m> na região aberta <m>R</m> é chamado de <term>ponto crítico</term> de <m>f</m> se:</p>
+                        <ul>
+                            <li>
+                                <p><m>\frac{\partial f}{\partial x}(x_0, y_0) = 0</m> e <m>\frac{\partial f}{\partial y}(x_0, y_0) = 0</m>; ou</p>
+                            </li>
+                            <li>
+                                <p>uma das primeiras derivadas parciais <m>\frac{\partial f}{\partial x}</m> ou <m>\frac{\partial f}{\partial y}</m> não for definida em <m>(x_0, y_0)</m>.</p>
+                            </li>
+                        </ul>
+                    </statement>
+                </definition>
+
+                <p>Como ocorre para funções de uma única variável, os pontos críticos de uma função de duas variáveis nem sempre resultam em extremos relativos. Por exemplo, consideremos a função <m>f(x, y) = y^2 - x^2</m> exibida na <xref ref="fig-ponto-sela" />. O ponto <m>(0, 0)</m> é um ponto crítico desta superfície, mas o ponto correspondente na superfície não é um extremo local. Se nos aproximarmos da origem ao longo do eixo <m>x</m> (onde <m>y = 0</m>), a função assume valores da forma <m>f(x, 0) = -x^2</m>, fazendo com que a origem se comporte como um ponto de máximo relativo. Contudo, se nos aproximarmos ao longo do eixo <m>y</m> (onde <m>x = 0</m>), a função assume valores <m>f(0, y) = y^2</m>, fazendo com que a origem se comporte como um ponto de mínimo relativo. Tais pontos, que possuem o formato característico de uma sela de montaria, são chamados <term>pontos de sela</term> da função.</p>
+
+                <figure xml:id="fig-ponto-sela">
+                    <title>Gráfico da sela <m>f(x, y) = y^2 - x^2</m> com ponto de sela destacado na origem</title>
+                    <image width="60%">
+                        <latex-image>
+                            <![CDATA[
+                            \begin{tikzpicture}
+                              \begin{axis}[
+                                view={60}{30},
+                                axis lines=center,
+                                axis on top,
+                                ticks=none,
+                                domain=-2:2,
+                                y domain=-2:2,
+                                samples=30,
+                                zmin=-4, zmax=4.5,
+                                clip=false
+                              ]
+                                \addplot3[surf, colormap={cool}{color(0cm)=(blue!75!black); color(1cm)=(magenta!75!white)}, shader=faceted] {y^2 - x^2};
+                                \addplot3[mark=*, mark size=3pt, color=red] coordinates {(0,0,0)};
+                                \node[color=red, anchor=south east] at (axis cs:0,0,0) {\textbf{Ponto de Sela $(0,0,0)$}};
+                                \node[anchor=west, color=magenta!85!black] at (axis cs:0.5, -1.8, 3.5) {$z = y^2 - x^2$};
+                                \node[anchor=north east] at (axis cs:2.1, 0, 0) {$x$};
+                                \node[anchor=south west] at (axis cs:0, 2.1, 0) {$y$};
+                                \node[anchor=south] at (axis cs:0, 0, 4.6) {$z$};
+                              \end{axis}
+                            \end{tikzpicture}
+                            ]]>
+                        </latex-image>
+                    </image>
+                </figure>
+
+                <example xml:id="ex-extremos-1">
+                    <statement>
+                        <p>Determine os extremos relativos de <m>f(x, y) = 2x^2 + y^2 - 8x - 6y + 20</m>.</p>
+                    </statement>
+                    <solution>
+                        <p>Começamos determinando as primeiras derivadas parciais de <m>f</m>:
+                        <me>\frac{\partial f}{\partial x}(x, y) = 4x - 8 \quad \text{e} \quad \frac{\partial f}{\partial y}(x, y) = 2y - 6</me></p>
+                        <p>Como essas derivadas parciais são definidas para todos os pontos do plano <m>xy</m>, os únicos pontos críticos são aqueles para os quais ambas as primeiras derivadas parciais são zero. Igualando-as a zero, obtemos o seguinte sistema de equações lineares:
+                        <md>
+                            <mrow>4x - 8 \amp = 0 \implies x = 2</mrow>
+                            <mrow>2y - 6 \amp = 0 \implies y = 3</mrow>
+                        </md></p>
+                        <p>Portanto, o ponto <m>(2, 3)</m> é o único ponto crítico de <m>f</m>. Calculando o valor da função neste ponto:
+                        <me>f(2, 3) = 2(2)^2 + 3^2 - 8(2) - 6(3) + 20 = 3</me></p>
+                        <p>Pela análise algébrica da função, reescrevendo-a completando os quadrados:
+                        <me>f(x, y) = 2(x - 2)^2 + (y - 3)^2 + 3</me>
+                        Como os termos quadráticos são sempre não negativos, vemos que <m>f(x, y) \ge 3</m> para todo par <m>(x, y)</m>. Assim, a função possui apenas um extremo relativo, que é o <term>mínimo relativo</term> de valor <m>3</m> no ponto crítico <m>(2, 3)</m>.</p>
+                    </solution>
+                </example>
+
+                <exercise xml:id="exec-extremos-1">
+                    <statement>
+                        <p>Determine os extremos relativos da função <m>f(x, y) = x^2 + 2y^2 - 16x - 8y + 8</m>.</p>
+                    </statement>
+                    <hint>
+                        <p>Calcule as primeiras derivadas parciais de <m>f</m>, iguale-as a zero para determinar o ponto crítico e complete os quadrados para verificar seu comportamento.</p>
+                    </hint>
+                    <answer>
+                        <p>Mínimo relativo de <m>-64</m> no ponto crítico <m>(8, 2)</m>.</p>
+                    </answer>
+                </exercise>
+
+                <example xml:id="ex-extremos-2">
+                    <statement>
+                        <p>Determine os extremos relativos de <m>f(x, y) = 1 - (x^2 + y^2)^{1/3}</m>.</p>
+                    </statement>
+                    <solution>
+                        <p>Começamos determinando as primeiras derivadas parciais de <m>f</m> utilizando a Regra da Cadeia:
+                        <me>\frac{\partial f}{\partial x}(x, y) = -\frac{2x}{3(x^2 + y^2)^{2/3}} \quad \text{e} \quad \frac{\partial f}{\partial y}(x, y) = -\frac{2y}{3(x^2 + y^2)^{2/3}}</me></p>
+                        <p>Essas derivadas parciais são definidas para todos os pontos no plano <m>xy</m>, exceto no ponto <m>(0, 0)</m>. Portanto, o ponto <m>(0, 0)</m> é um ponto crítico de <m>f</m> (do tipo onde as derivadas parciais não são definidas).</p>
+                        <p>Como a quantidade sob a raiz cúbica é positiva para todos os valores de <m>(x,y) \neq (0,0)</m>, temos que <m>f(x, y) = 1 - (x^2 + y^2)^{1/3} \lt 1</m> para todo ponto diferente da origem. Como na origem <m>f(0, 0) = 1</m>, este ponto crítico resulta em um <term>máximo relativo</term> de valor <m>1</m> em <m>(0, 0)</m>.</p>
+                    </solution>
+                </example>
+
+                <exercise xml:id="exec-extremos-2">
+                    <statement>
+                        <p>Determine os extremos relativos da função <m>f(x, y) = 1 - \frac{x^2}{16} - \frac{y^2}{4}</m>.</p>
+                    </statement>
+                    <hint>
+                        <p>Diferencie a função e encontre onde as primeiras derivadas parciais de primeira ordem se anulam.</p>
+                    </hint>
+                    <answer>
+                        <p>Máximo relativo de <m>1</m> no ponto crítico <m>(0, 0)</m>.</p>
+                    </answer>
+                </exercise>
+            </subsection>
+
+            <subsection xml:id="subsec-teste-segundas-derivadas">
+                <title>Teste das Segundas Derivadas Parciais</title>
+
+                <figure xml:id="fig-video-segunda-derivada">
+                    <title>O Teste da Segunda Derivada Parcial</title>
+                    <video xml:id="video-segunda-derivada" youtube="aturPd4GapA" />
+                </figure>
+
+                <introduction>
+                    <p>Para funções mais complexas, onde as análises gráficas ou o método de completar quadrados não são fáceis de aplicar, utilizamos um teste analítico baseado nas derivadas parciais de segunda ordem.</p>
+                </introduction>
+
+                <assemblage xml:id="assemblage-segundas-derivadas">
+                    <title>Teste das Segundas Derivadas Parciais para Extremos Relativos</title>
+                    <p>Suponha que <m>f</m> possua segundas derivadas parciais contínuas em uma região aberta que contenha <m>(a, b)</m>, para o qual <m>\frac{\partial f}{\partial x}(a, b) = 0</m> e <m>\frac{\partial f}{\partial y}(a, b) = 0</m>.</p>
+                    <p>Para testar os extremos relativos de <m>f</m>, considere a quantidade discriminante <m>d</m> dada por:
+                    <me>d = \frac{\partial^2 f}{\partial x^2}(a, b) \frac{\partial^2 f}{\partial y^2}(a, b) - \left[ \frac{\partial^2 f}{\partial x \partial y}(a, b) \right]^2</me></p>
+                    <ol>
+                        <li>
+                            <p>Se <m>d \gt 0</m> e <m>\frac{\partial^2 f}{\partial x^2}(a, b) \gt 0</m>, então <m>f</m> possui um <term>mínimo relativo</term> em <m>(a, b)</m>.</p>
+                        </li>
+                        <li>
+                            <p>Se <m>d \gt 0</m> e <m>\frac{\partial^2 f}{\partial x^2}(a, b) \lt 0</m>, então <m>f</m> possui um <term>máximo relativo</term> em <m>(a, b)</m>.</p>
+                        </li>
+                        <li>
+                            <p>Se <m>d \lt 0</m>, então <m>(a, b, f(a, b))</m> é um <term>ponto de sela</term>.</p>
+                        </li>
+                        <li>
+                            <p>O teste não fornece nenhuma informação se <m>d = 0</m>.</p>
+                        </li>
+                    </ol>
+                    <p><alert>Atenção:</alert> Observe no Teste das Segundas Derivadas Parciais que se <m>d \gt 0</m>, então <m>\frac{\partial^2 f}{\partial x^2}(a, b)</m> e <m>\frac{\partial^2 f}{\partial y^2}(a, b)</m> devem possuir obrigatoriamente o mesmo sinal. Assim, pode-se substituir <m>\frac{\partial^2 f}{\partial x^2}(a, b)</m> por <m>\frac{\partial^2 f}{\partial y^2}(a, b)</m> nas duas primeiras partes do teste.</p>
+                </assemblage>
+
+                <example xml:id="ex-extremos-3">
+                    <statement>
+                        <p>Determine os extremos relativos e os pontos de sela de <m>f(x, y) = xy - \frac{1}{4}x^4 - \frac{1}{4}y^4</m>.</p>
+                    </statement>
+                    <solution>
+                        <p>Começamos determinando os pontos críticos de <m>f</m>. Calculamos as primeiras derivadas parciais:
+                        <me>\frac{\partial f}{\partial x} = y - x^3 \quad \text{e} \quad \frac{\partial f}{\partial y} = x - y^3</me></p>
+                        <p>Como as derivadas parciais estão definidas para todos os pontos no plano <m>xy</m>, igualamo-las a zero para achar os pontos críticos:
+                        <md>
+                            <mrow>y - x^3 \amp = 0 \implies y = x^3</mrow>
+                            <mrow>x - y^3 \amp = 0</mrow>
+                        </md></p>
+                        <p>Substituindo <m>y = x^3</m> na segunda equação, temos:
+                        <me>x - (x^3)^3 = x(1 - x^8) = 0 \implies x = 0, \quad x = 1, \quad x = -1</me>
+                        Substituindo esses valores de volta em <m>y = x^3</m>, obtemos os três pontos críticos:
+                        <me>(0, 0), \quad (1, 1) \quad \text{e} \quad (-1, -1)</me></p>
+                        <p>Para classificar os pontos, calculamos as derivadas parciais de segunda ordem:
+                        <me>\frac{\partial^2 f}{\partial x^2} = -3x^2, \quad \frac{\partial^2 f}{\partial y^2} = -3y^2, \quad \frac{\partial^2 f}{\partial x \partial y} = 1</me>
+                        A quantidade discriminante é:
+                        <me>d = (-3x^2)(-3y^2) - (1)^2 = 9x^2y^2 - 1</me></p>
+                        <p>Classificamos cada ponto crítico avaliando <m>d</m> e <m>\frac{\partial^2 f}{\partial x^2}</m>:</p>
+                        <ul>
+                            <li>
+                                <p>Para o ponto <m>(0, 0)</m>: temos <m>d = 9(0)^2(0)^2 - 1 = -1 \lt 0</m>. Logo, <m>(0, 0)</m> é um <term>ponto de sela</term>.</p>
+                            </li>
+                            <li>
+                                <p>Para o ponto <m>(1, 1)</m>: temos <m>d = 9(1)^2(1)^2 - 1 = 8 \gt 0</m> e <m>\frac{\partial^2 f}{\partial x^2}(1, 1) = -3(1)^2 = -3 \lt 0</m>. Logo, a função possui um <term>máximo relativo</term> de valor <m>f(1, 1) = \frac{1}{2}</m> no ponto <m>(1, 1)</m>.</p>
+                            </li>
+                            <li>
+                                <p>Para o ponto <m>(-1, -1)</m>: temos <m>d = 9(-1)^2(-1)^2 - 1 = 8 \gt 0</m> e <m>\frac{\partial^2 f}{\partial x^2}(-1, -1) = -3(-1)^2 = -3 \lt 0</m>. Logo, a função possui um <term>máximo relativo</term> de valor <m>f(-1, -1) = \frac{1}{2}</m> no ponto <m>(-1, -1)</m>.</p>
+                            </li>
+                        </ul>
+                    </solution>
+                </example>
+
+                <exercise xml:id="exec-extremos-3">
+                    <statement>
+                        <p>Determine os extremos relativos e pontos de sela de <m>f(x, y) = \frac{y^2}{16} - \frac{x^2}{4}</m>.</p>
+                    </statement>
+                    <hint>
+                        <p>Calcule as derivadas parciais e encontre o único ponto crítico. Em seguida, utilize o discriminante <m>d</m> para classificar.</p>
+                    </hint>
+                    <answer>
+                        <p>Ponto de sela na origem <m>(0, 0)</m> com valor de <m>f(0, 0) = 0</m>.</p>
+                    </answer>
+                </exercise>
+            </subsection>
+
+            <subsection xml:id="subsec-otimizacao-aplicada">
+                <title>Aplicações de Extremos (Otimização)</title>
+
+                <introduction>
+                    <p>Os problemas de otimização no mundo real envolvem a maximização ou minimização de uma função de duas variáveis modelando lucro, custo, volume ou área.</p>
+                </introduction>
+
+                <example xml:id="ex-otimizacao-4">
+                    <title>Determinação do Lucro Máximo</title>
+                    <statement>
+                        <p>Uma empresa fabrica dois produtos substitutos cujas funções de demanda são dadas por:
+                        <md>
+                            <mrow>x_1 \amp = 200(p_2 - p_1) \quad \text{(demanda pelo produto 1)}</mrow>
+                            <mrow>x_2 \amp = 500 + 100p_1 - 180p_2 \quad \text{(demanda pelo produto 2)}</mrow>
+                        </md>
+                        em que <m>p_1</m> e <m>p_2</m> são os preços por unidade (em dólares) e <m>x_1</m> e <m>x_2</m> são os números de unidades vendidas. Os custos de produção de cada produto são, respectivamente, <m>\$0,50</m> e <m>\$0,75</m> por unidade. Determine os preços que resultarão em lucro máximo.</p>
+                    </statement>
+                    <solution>
+                        <p>As funções de custo total <m>C</m> e de receita total <m>R</m> são formuladas da seguinte maneira:</p>
+                        <p>Escrevendo o custo total em termos dos preços substituindo <m>x_1</m> e <m>x_2</m>:
+                        <md>
+                            <mrow>C \amp = 0,50x_1 + 0,75x_2</mrow>
+                            <mrow>\amp = 0,50[200(p_2 - p_1)] + 0,75[500 + 100p_1 - 180p_2]</mrow>
+                            <mrow>\amp = 100p_2 - 100p_1 + 375 + 75p_1 - 135p_2</mrow>
+                            <mrow>\amp = 375 - 25p_1 - 35p_2</mrow>
+                        </md></p>
+                        <p>Escrevendo a receita total:
+                        <md>
+                            <mrow>R \amp = p_1x_1 + p_2x_2</mrow>
+                            <mrow>\amp = p_1[200(p_2 - p_1)] + p_2[500 + 100p_1 - 180p_2]</mrow>
+                            <mrow>\amp = 200p_1p_2 - 200p_1^2 + 500p_2 + 100p_1p_2 - 180p_2^2</mrow>
+                            <mrow>\amp = -200p_1^2 - 180p_2^2 + 300p_1p_2 + 500p_2</mrow>
+                        </md></p>
+                        <p>Obtemos assim a função de lucro total <m>P = R - C</m>:
+                        <md>
+                            <mrow>P \amp = (-200p_1^2 - 180p_2^2 + 300p_1p_2 + 500p_2) - (375 - 25p_1 - 35p_2)</mrow>
+                            <mrow>\amp = -200p_1^2 - 180p_2^2 + 300p_1p_2 + 25p_1 + 535p_2 - 375</mrow>
+                        </md></p>
+                        <p>O lucro máximo ocorre quando as derivadas parciais de primeira ordem em relação a <m>p_1</m> e <m>p_2</m> são zero:
+                        <md>
+                            <mrow>\frac{\partial P}{\partial p_1} \amp = -400p_1 + 300p_2 + 25 = 0</mrow>
+                            <mrow>\frac{\partial P}{\partial p_2} \amp = 300p_1 - 360p_2 + 535 = 0</mrow>
+                        </md></p>
+                        <p>Resolvendo esse sistema linear simultaneamente: da primeira equação temos <m>p_2 = \frac{4}{3}p_1 - \frac{1}{12}</m>. Substituindo na segunda:
+                        <md>
+                            <mrow>300p_1 - 360\left(\frac{4}{3}p_1 - \frac{1}{12}\right) + 535 \amp = 0</mrow>
+                            <mrow>300p_1 - 480p_1 + 30 + 535 \amp = 0</mrow>
+                            <mrow>-180p_1 + 565 \amp = 0 \implies p_1 \approx 3,14</mrow>
+                        </md>
+                        E então:
+                        <me>p_2 = \frac{4}{3}(3,14) - 0,08 \approx 4,10</me>
+                        Como as segundas derivadas parciais são <m>\frac{\partial^2 P}{\partial p_1^2} = -400 \lt 0</m>, <m>\frac{\partial^2 P}{\partial p_2^2} = -360 \lt 0</m> e <m>\frac{\partial^2 P}{\partial p_1 \partial p_2} = 300</m>, temos:
+                        <me>d = (-400)(-360) - (300)^2 = 54.000 \gt 0</me>
+                        Portanto, o ponto crítico representa de fato um máximo relativo. Assim, os preços de venda que maximizam o lucro são <m>p_1 = \$3,14</m> e <m>p_2 = \$4,10</m>, resultando em um lucro total máximo de <m>P(3,14, 4,10) \approx \$761,48</m>.</p>
+                    </solution>
+                </example>
+
+                <exercise xml:id="exec-otimizacao-4">
+                    <statement>
+                        <p>Determine os preços que resultarão em lucro máximo para os produtos do Exemplo 4 se os custos de produção unitários passarem a ser <m>\$0,75</m> para o produto 1 e <m>\$0,50</m> para o produto 2.</p>
+                    </statement>
+                    <hint>
+                        <p>Substitua os novos custos na equação de custo, recalcule a expressão do lucro e resolva o novo sistema linear gerado pelas derivadas de primeira ordem.</p>
+                    </hint>
+                    <answer>
+                        <p>Preços ótimos: <m>p_1 \approx \$3,11</m> e <m>p_2 \approx \$3,81</m>.</p>
+                    </answer>
+                </exercise>
+
+                <example xml:id="ex-otimizacao-5">
+                    <title>Determinação de um Volume Máximo</title>
+                    <statement>
+                        <p>Considere todos os sólidos retangulares possíveis localizados no primeiro octante que estejam apoiados sobre o plano <m>xy</m> com um vértice na origem e o vértice oposto no plano <m>6x + 4y + 3z = 24</m>. Dentre todos esses sólidos, determine aquele que possui o maior volume.</p>
+                    </statement>
+                    <solution>
+                        <p>O vértice oposto localiza-se no plano dado por <m>6x + 4y + 3z = 24</m>. Isolando a variável <m>z</m>, expressamos a altura do sólido em termos de <m>x</m> e <m>y</m>:
+                        <me>z = 8 - 2x - \frac{4}{3}y</me></p>
+                        <p>O volume do sólido retangular é dado por <m>V = x y z</m>. Substituindo <m>z</m> na equação, temos:
+                        <me>V(x, y) = xy\left(8 - 2x - \frac{4}{3}y\right) = 8xy - 2x^2y - \frac{4}{3}xy^2</me></p>
+                        <p>Para determinar os pontos críticos, igualamos as primeiras derivadas parciais a zero:
+                        <md>
+                            <mrow>\frac{\partial V}{\partial x} \amp = 8y - 4xy - \frac{4}{3}y^2 = y\left(8 - 4x - \frac{4}{3}y\right) = 0</mrow>
+                            <mrow>\frac{\partial V}{\partial y} \amp = 8x - 2x^2 - \frac{8}{3}xy = x\left(8 - 2x - \frac{8}{3}y\right) = 0</mrow>
+                        </md></p>
+                        <p>Desconsiderando as soluções triviais onde as dimensões são zero (<m>x = 0</m> ou <m>y = 0</m>), resolvemos o sistema:
+                        <md>
+                            <mrow>8 - 4x - \frac{4}{3}y \amp = 0 \implies 3x + y = 6 \implies y = 6 - 3x</mrow>
+                            <mrow>8 - 2x - \frac{8}{3}y \amp = 0 \implies 3x + 4y = 12</mrow>
+                        </md></p>
+                        <p>Substituindo <m>y = 6 - 3x</m> na segunda equação simplificada:
+                        <me>3x + 4(6 - 3x) = 12 \implies -9x + 24 = 12 \implies x = \frac{4}{3}</me>
+                        Substituindo o valor de <m>x</m>:
+                        <me>y = 6 - 3\left(\frac{4}{3}\right) = 2 \quad \text{e} \quad z = 8 - 2\left(\frac{4}{3}\right) - \frac{4}{3}(2) = \frac{8}{3}</me>
+                        Assim, o sólido que maximiza o volume possui as dimensões <m>x = \frac{4}{3}</m>, <m>y = 2</m> e <m>z = \frac{8}{3}</m>, gerando um volume máximo de <m>V = \frac{64}{9} \approx 7,11</m> unidades de volume.</p>
+                    </solution>
+                </example>
+            </subsection>
+
+            <exercises xml:id="exercises-extremos-funcoes">
+                <title>Exercícios Propostos</title>
+                <exercise>
+                    <statement>
+                        <p>Examine os extremos relativos e pontos de sela da função <m>f(x, y) = x^2 + y^2 - 4x - 4y + 8</m>.</p>
+                    </statement>
+                    <answer>
+                        <p>Mínimo relativo de <m>0</m> no ponto crítico <m>(2, 2)</m>.</p>
+                    </answer>
+                </exercise>
+                
+                <exercise>
+                    <statement>
+                        <p>Examine os extremos relativos e pontos de sela da função <m>f(x, y) = 3x^2 + 2y^2 - 3x - 4y + 5</m>.</p>
+                    </statement>
+                    <answer>
+                        <p>Mínimo relativo de <m>\frac{9}{4}</m> no ponto crítico <m>(\frac{1}{2}, 1)</m>.</p>
+                    </answer>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        <p>Examine os extremos relativos e pontos de sela da função <m>f(x, y) = x^2 - 6xy + 10y^2 - 4y - 4</m>.</p>
+                    </statement>
+                    <answer>
+                        <p>Mínimo relativo de <m>-8</m> no ponto crítico <m>(6, 2)</m>.</p>
+                    </answer>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        <p>Examine os extremos relativos e pontos de sela da função clássica <m>f(x, y) = x^3 - 3xy + y^3</m>.</p>
+                    </statement>
+                    <answer>
+                        <p>Ponto de sela na origem <m>(0, 0)</m> com valor <m>f(0,0)=0</m> e mínimo relativo de <m>-1</m> no ponto crítico <m>(1, 1)</m>.</p>
+                    </answer>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        <p>Determine os extremos relativos da função <m>f(x, y) = 9 - (x - 3)^2 - (y - 2)^2</m>.</p>
+                    </statement>
+                    <answer>
+                        <p>Máximo relativo de <m>9</m> no ponto crítico <m>(3, 2)</m>.</p>
+                    </answer>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        <p>Determine três números positivos <m>x</m>, <m>y</m> e <m>z</m> cuja soma é <m>30</m> e cujo produto é máximo.</p>
+                    </statement>
+                    <answer>
+                        <p>Os números são <m>x = 10</m>, <m>y = 10</m> e <m>z = 10</m>, gerando o produto máximo de <m>1000</m>.</p>
+                    </answer>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        <p>A receita total semanal estimada de uma loja que comercializa dois modelos de aparadores de grama é modelada por <m>R(p_1, p_2) = -2p_1^2 - 3p_2^2 + 2p_1p_2 + 100p_1 + 120p_2</m>, em que <m>p_1</m> e <m>p_2</m> são os preços unitários de venda de cada modelo. Determine os preços que maximizam a receita total semanal.</p>
+                    </statement>
+                    <answer>
+                        <p>Preços ótimos de venda: <m>p_1 = \$42</m> e <m>p_2 = \$34</m>.</p>
+                    </answer>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        <p>Um fabricante produz um engradado de madeira para armazenamento que possui a parte superior aberta (sem tampa). O volume de cada engradado é de <m>6</m> pés cúbicos. Os custos com o material são de <m>\$0,15</m> por pé quadrado para a base do engradado e de <m>\$0,10</m> por pé quadrado para as laterais. Determine as dimensões que minimizam o custo de cada engradado e calcule o valor desse custo mínimo.</p>
+                    </statement>
+                    <answer>
+                        <p>Dimensões da base: <m>2 \text{ pés} \times 2 \text{ pés}</m>; altura: <m>1,5 \text{ pé}</m>. Custo mínimo: <m>\$1,80</m>.</p>
+                    </answer>
+                </exercise>
+            </exercises>
+        </section>
+    </article>
+</pretext>

@@ -3,7 +3,9 @@
   <targets>
     <target name="s6-web" format="html" source="S6.ptx" output-dir="s6-web" deploy-dir="s6" />
     <target name="s7-web" format="html" source="S7.ptx" output-dir="s7-web" deploy-dir="s7" />
+    <target name="s8-web" format="html" source="S8.ptx" output-dir="s8-web" deploy-dir="s8" />
     <target name="s6-print" format="pdf" source="S6.ptx" output-dir="s6-print" />
     <target name="s7-print" format="pdf" source="S7.ptx" output-dir="s7-print" />
+    <target name="s8-print" format="pdf" source="S8.ptx" output-dir="s8-print" />
   </targets>
 </project>
