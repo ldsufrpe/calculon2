@@ -271,6 +271,25 @@
                     <p><alert>Atenção:</alert> Observe no Teste das Segundas Derivadas Parciais que se <m>d \gt 0</m>, então <m>\frac{\partial^2 f}{\partial x^2}(a, b)</m> e <m>\frac{\partial^2 f}{\partial y^2}(a, b)</m> devem possuir obrigatoriamente o mesmo sinal. Assim, pode-se substituir <m>\frac{\partial^2 f}{\partial x^2}(a, b)</m> por <m>\frac{\partial^2 f}{\partial y^2}(a, b)</m> nas duas primeiras partes do teste.</p>
                 </assemblage>
 
+                <example xml:id="ex-extremos-simples">
+                    <title>Classificação de Ponto Crítico</title>
+                    <statement>
+                        <p>Determine e classifique os extremos relativos de <m>f(x, y) = x^2 + 2y^2 - 4x - 4y</m>.</p>
+                    </statement>
+                    <solution>
+                        <p>Primeiro, encontramos os pontos críticos calculando e igualando a zero as primeiras derivadas parciais:
+                        <me>\frac{\partial f}{\partial x} = 2x - 4 = 0 \implies x = 2</me>
+                        <me>\frac{\partial f}{\partial y} = 4y - 4 = 0 \implies y = 1</me>
+                        Assim, o único ponto crítico da função é <m>(2, 1)</m>.</p>
+                        <p>Agora, aplicamos o Teste das Segundas Derivadas Parciais. Calculamos as derivadas de segunda ordem:
+                        <me>\frac{\partial^2 f}{\partial x^2} = 2, \quad \frac{\partial^2 f}{\partial y^2} = 4, \quad \frac{\partial^2 f}{\partial x \partial y} = 0</me></p>
+                        <p>Calculamos a quantidade discriminante <m>d</m>:
+                        <me>d = \frac{\partial^2 f}{\partial x^2}(2, 1) \frac{\partial^2 f}{\partial y^2}(2, 1) - \left[ \frac{\partial^2 f}{\partial x \partial y}(2, 1) \right]^2 = (2)(4) - (0)^2 = 8</me></p>
+                        <p>Como <m>d = 8 \gt 0</m> e <m>\frac{\partial^2 f}{\partial x^2}(2, 1) = 2 \gt 0</m>, concluímos que a função possui um <term>mínimo relativo</term> no ponto <m>(2, 1)</m>. O valor do mínimo relativo é:
+                        <me>f(2, 1) = (2)^2 + 2(1)^2 - 4(2) - 4(1) = 4 + 2 - 8 - 4 = -6</me></p>
+                    </solution>
+                </example>
+
                 <example xml:id="ex-extremos-3">
                     <statement>
                         <p>Determine os extremos relativos e os pontos de sela de <m>f(x, y) = xy - \frac{1}{4}x^4 - \frac{1}{4}y^4</m>.</p>
