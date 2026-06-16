@@ -57,6 +57,11 @@
             <subsection xml:id="subsec-lagrange-uma-restricao">
                 <title>Multiplicadores de Lagrange com uma Restrição</title>
 
+                <figure xml:id="fig-video-lagrange-intro">
+                    <title>Introdução Geométrica aos Multiplicadores de Lagrange (Khan Academy)</title>
+                    <video xml:id="video-lagrange-intro" youtube="AAyWUDWI8y7" />
+                </figure>
+
                 <introduction>
                     <p>Suponha que desejamos determinar os valores máximos ou mínimos de uma função diferenciável de duas variáveis <m>f(x, y)</m> cujos pontos <m>(x, y)</m> estão restritos a pertencer a uma curva de nível suave de outra função, dada por <m>g(x, y) = k</m>. Ou seja, queremos otimizar <m>f(x, y)</m> sujeita à restrição <m>g(x, y) = k</m>.</p>
                     <p>Geometricamente, a <xref ref="fig-geometria-lagrange" /> ilustra a curva de restrição <m>g(x, y) = k</m> juntamente com diversas curvas de nível da função objetivo <m>f(x, y) = c</m> para diferentes valores de <m>c</m>. Para maximizar <m>f(x, y)</m> sob a restrição, procuramos o maior valor possível de <m>c</m> tal que a curva de nível correspondente intercepte a curva de restrição.</p>
@@ -79,19 +84,19 @@
                               ]
                                 % Desenhar a curva de restrição g(x,y) = k (um arco de círculo)
                                 \addplot[domain=0:2, samples=100, blue, ultra thick] {sqrt(4 - x^2)};
-                                \node[blue, anchor=south west] at (axis cs:1.3, 1.6) {$g(x,y) = k$};
+                                \node[blue, anchor=south west] at (axis cs:0.2, 2.1) {$g(x,y) = k$};
 
                                 % Curvas de nível de f(x,y) = c (retas x+y=c)
                                 \addplot[domain=-0.2:3, samples=2, gray, dashed] {2 - x} node[right] {$f(x,y)=c_1$};
                                 \addplot[domain=-0.2:3.5, samples=2, red, thick] {2.828 - x} node[above right] {$f(x,y) = c_{\max}$};
                                 \addplot[domain=0.5:4.2, samples=2, gray, dashed] {3.8 - x} node[right] {$f(x,y)=c_2$};
 
-                                % Ponto de tangência
-                                \addplot[mark=*, mark size=2.5pt, color=black] coordinates {(1.414, 1.414)} node[anchor=south west] {$P_0(x_0, y_0)$};
+                                % Ponto de tangência (rótulo posicionado para evitar colisão com os vetores)
+                                \addplot[mark=*, mark size=2.5pt, color=black] coordinates {(1.414, 1.414)} node[below left] {$P_0(x_0, y_0)$};
 
-                                % Vetores Gradientes
-                                \draw[->, >=stealth, red, ultra thick] (axis cs:1.414, 1.414) -- (axis cs:2.2, 2.2) node[above right] {$\nabla f$};
-                                \draw[->, >=stealth, blue, ultra thick] (axis cs:1.414, 1.414) -- (axis cs:2.8, 2.8) node[left] {$\nabla g$};
+                                % Vetores Gradientes (alinhados e com rótulos em lados opostos da linha)
+                                \draw[->, >=stealth, red, ultra thick] (axis cs:1.414, 1.414) -- (axis cs:2.2, 2.2) node[left] {$\nabla f$};
+                                \draw[->, >=stealth, blue, ultra thick] (axis cs:1.414, 1.414) -- (axis cs:2.8, 2.8) node[right] {$\nabla g$};
                               \end{axis}
                             \end{tikzpicture}
                             ]]>
@@ -171,6 +176,18 @@
                     </solution>
                 </example>
 
+                <exercise xml:id="exec-lagrange-caixa">
+                    <statement>
+                        <p>Determine o ponto sobre o plano <m>2x - 3y + z = 14</m> que está mais próximo da origem <m>(0, 0, 0)</m>.</p>
+                    </statement>
+                    <hint>
+                        <p>Minimize a distância quadrática <m>f(x, y, z) = x^2 + y^2 + z^2</m> sujeita à restrição de pertencer ao plano <m>g(x, y, z) = 2x - 3y + z = 14</m>.</p>
+                    </hint>
+                    <answer>
+                        <p>O ponto mais próximo é <m>(2, -3, 1)</m>.</p>
+                    </answer>
+                </exercise>
+
                 <example xml:id="ex-lagrange-cobb-douglas">
                     <title>Otimização de Produção (Modelo Cobb-Douglas)</title>
                     <statement>
@@ -201,6 +218,18 @@
                         <me>f(250, 50) = 100(250)^{3/4}(50)^{1/4} \approx 16.719 \text{ unidades.}</me>
                     </solution>
                 </example>
+
+                <exercise xml:id="exec-lagrange-cobb-douglas">
+                    <statement>
+                        <p>A produção de uma empresa é modelada pela função de Cobb-Douglas <m>f(x, y) = 80 x^{0.6} y^{0.4}</m>, onde <m>x</m> representa as unidades de trabalho e <m>y</m> as unidades de capital. Cada unidade de trabalho custa $120 e cada unidade de capital custa $300. Se o orçamento total da empresa é de $60.000, determine a quantidade ideal de insumos de trabalho e capital para maximizar a produção.</p>
+                    </statement>
+                    <hint>
+                        <p>Use a restrição orçamentária de igualdade <m>120x + 300y = 60.000</m> e encontre o ponto crítico da Lagrangiana correspondente.</p>
+                    </hint>
+                    <answer>
+                        <p>Trabalho <m>x = 300</m> unidades e capital <m>y = 80</m> unidades.</p>
+                    </answer>
+                </exercise>
             </subsection>
 
             <subsection xml:id="subsec-lagrange-duas-restricoes">
@@ -280,6 +309,67 @@
                         <me>f(P_1) = -\frac{2}{\sqrt{29}} + 2\left(\frac{5}{\sqrt{29}}\right) + 3\left(1 + \frac{7}{\sqrt{29}}\right) = 3 + \frac{-2 + 10 + 21}{\sqrt{29}} = 3 + \frac{29}{\sqrt{29}} = 3 + \sqrt{29} \approx 8,39</me>
                         <me>f(P_2) = \frac{2}{\sqrt{29}} + 2\left(-\frac{5}{\sqrt{29}}\right) + 3\left(1 - \frac{7}{\sqrt{29}}\right) = 3 + \frac{2 - 10 - 21}{\sqrt{29}} = 3 - \frac{29}{\sqrt{29}} = 3 - \sqrt{29} \approx -2,39</me>
                         <p>Consequentemente, o valor máximo absoluto da função sobre a curva de interseção é <m>3 + \sqrt{29}</m> e ocorre em <m>P_1</m>, enquanto o valor mínimo absoluto é <m>3 - \sqrt{29}</m> e ocorre em <m>P_2</m>.</p>
+                    </solution>
+                </example>
+
+                <exercise xml:id="exec-lagrange-duas-restricoes-1">
+                    <statement>
+                        <p>Encontre os valores máximo e mínimo da função <m>f(x, y, z) = z</m> sujeita às duas restrições: <m>x + y + z = 12</m> e <m>x^2 + y^2 = 8</m>.</p>
+                    </statement>
+                    <hint>
+                        <p>Utilize as funções de restrição <m>g(x, y, z) = x + y + z = 12</m> e <m>h(x, y, z) = x^2 + y^2 = 8</m>. Com o sistema <m>\nabla f = \lambda \nabla g + \mu \nabla h</m>, mostre que <m>\lambda = 1</m> e <m>x = y</m>.</p>
+                    </hint>
+                    <answer>
+                        <p>Máximo de <m>16</m> no ponto <m>(-2, -2, 16)</m>; Mínimo de <m>8</m> no ponto <m>(2, 2, 8)</m>.</p>
+                    </answer>
+                </exercise>
+
+                <example xml:id="ex-lagrange-duas-restricoes-2">
+                    <title>Extremos em Curva de Interseção de Paraboloide e Plano</title>
+                    <statement>
+                        <p>A curva de interseção do paraboloide <m>z = x^2 + y^2</m> com o plano <m>x + y + 2z = 4</m> é uma elipse. Determine os pontos nesta elipse que estão mais próximo e mais distante da origem.</p>
+                    </statement>
+                    <solution>
+                        <p>Queremos encontrar os extremos da distância de um ponto <m>(x,y,z)</m> na elipse até a origem. Algebricamente, é mais simples otimizar o quadrado da distância:</p>
+                        <me>f(x, y, z) = x^2 + y^2 + z^2</me>
+                        <p>sujeito às restrições:</p>
+                        <me>g(x, y, z) = x^2 + y^2 - z = 0 \quad \text{e} \quad h(x, y, z) = x + y + 2z = 4</me>
+                        <p>Os gradientes são:</p>
+                        <me>\nabla f = \langle 2x, 2y, 2z \rangle, \quad \nabla g = \langle 2x, 2y, -1 \rangle, \quad \nabla h = \langle 1, 1, 2 \rangle</me>
+                        <p>O sistema de equações de Lagrange <m>\nabla f = \lambda \nabla g + \mu \nabla h</m> se escreve em componentes como:</p>
+                        <md>
+                            <mrow>2x \amp = 2\lambda x + \mu \implies 2x(1 - \lambda) = \mu \quad \text{(Equação 1)}</mrow>
+                            <mrow>2y \amp = 2\lambda y + \mu \implies 2y(1 - \lambda) = \mu \quad \text{(Equação 2)}</mrow>
+                            <mrow>2z \amp = -\lambda + 2\mu \quad \text{(Equação 3)}</mrow>
+                            <mrow>z \amp = x^2 + y^2 \quad \text{(Equação 4)}</mrow>
+                            <mrow>x + y + 2z \amp = 4 \quad \text{(Equação 5)}</mrow>
+                        </md>
+                        <p>Subtraindo a Equação 2 da Equação 1, obtemos:</p>
+                        <me>2x(1-\lambda) - 2y(1-\lambda) = 0 \implies 2(x - y)(1 - \lambda) = 0</me>
+                        <p>Isso nos dá dois casos a considerar:</p>
+                        <ul>
+                            <li>
+                                <p>Se <m>\lambda = 1</m>: da Equação 1 concluímos que <m>\mu = 0</m>. Substituindo <m>\lambda = 1</m> e <m>\mu = 0</m> na Equação 3, temos <m>2z = -1 \implies z = -1/2</m>. No entanto, a Equação 4 exige <m>z = x^2 + y^2 \ge 0</m>, gerando uma contradição. Logo, não há solução para este caso.</p>
+                            </li>
+                            <li>
+                                <p>Se <m>x = y</m>: substituímos esta relação nas Equações 4 e 5. Da Equação 4, temos <m>z = 2x^2</m>. Substituindo isso e <m>y = x</m> na Equação 5:</p>
+                                <me>x + x + 2(2x^2) = 4 \implies 4x^2 + 2x - 4 = 0 \implies 2x^2 + x - 2 = 0</me>
+                                <p>Resolvendo a equação de segundo grau pela fórmula quadrática:</p>
+                                <me>x = \frac{-1 \pm \sqrt{1^2 - 4(2)(-2)}}{2(2)} = \frac{-1 \pm \sqrt{17}}{4}</me>
+                                <p>Como <m>x = y</m>, temos os seguintes pontos críticos:</p>
+                                <ul>
+                                    <li>
+                                        <p>Para <m>x_1 = y_1 = \frac{-1 + \sqrt{17}}{4} \approx 0,78</m>, temos <m>z_1 = 2 - x_1 = \frac{9 - \sqrt{17}}{4} \approx 1,22</m>.</p>
+                                        <p>A distância quadrática à origem é <m>f(P_1) = 2x_1^2 + z_1^2 \approx 2(0,78)^2 + (1,22)^2 \approx 2,70</m> (distância de <m>\approx 1,64</m>).</p>
+                                    </li>
+                                    <li>
+                                        <p>Para <m>x_2 = y_2 = \frac{-1 - \sqrt{17}}{4} \approx -1,28</m>, temos <m>z_2 = 2 - x_2 = \frac{9 + \sqrt{17}}{4} \approx 3,28</m>.</p>
+                                        <p>A distância quadrática à origem é <m>f(P_2) = 2x_2^2 + z_2^2 \approx 2(-1,28)^2 + (3,28)^2 \approx 14,04</m> (distância de <m>\approx 3,75</m>).</p>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p>Comparando os valores, concluímos que o ponto na elipse mais próximo da origem é <m>\left(\frac{-1 + \sqrt{17}}{4}, \frac{-1 + \sqrt{17}}{4}, \frac{9 - \sqrt{17}}{4}\right)</m> e o ponto mais distante é <m>\left(\frac{-1 - \sqrt{17}}{4}, \frac{-1 - \sqrt{17}}{4}, \frac{9 + \sqrt{17}}{4}\right)</m>.</p>
                     </solution>
                 </example>
             </subsection>
