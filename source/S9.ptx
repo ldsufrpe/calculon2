@@ -59,7 +59,7 @@
 
                 <figure xml:id="fig-video-lagrange-intro">
                     <title>Introdução Geométrica aos Multiplicadores de Lagrange (Khan Academy)</title>
-                    <video xml:id="video-lagrange-intro" youtube="kYJ_tDk3a6U" />
+                    <video xml:id="video-lagrange-intro" youtube="yuqB-d5MjZA" />
                 </figure>
 
                 <introduction>
@@ -110,37 +110,60 @@
 
                 <assemblage xml:id="assemblage-metodo-lagrange">
                   <title>O Método dos Multiplicadores de Lagrange (Uma Restrição)</title>
-                  <p>Suponha que <m>f</m> e <m>g</m> sejam funções diferenciáveis com <m>\nabla g \neq \mathbf{0}</m> sobre a curva de restrição <m>g(x, y) = k</m>. Para determinar os valores de máximo e mínimo de <m>f</m> sujeitos à restrição <m>g(x, y) = k</m>:</p>
+                  <p>Suponha que <m>f</m> e <m>g</m> sejam funções diferenciáveis com <m>\nabla g \neq \mathbf{0}</m> sobre a curva ou superfície de restrição <m>g = k</m>. Para determinar os valores de máximo e mínimo de <m>f</m> sujeitos à restrição <m>g = k</m>:</p>
                   <ol>
                       <li>
-                          <p>Determine todos os valores de <m>x</m>, <m>y</m> e <m>\lambda</m> que satisfazem o sistema de equações:</p>
+                          <p>Determine todos os valores das variáveis independentes e do multiplicador de Lagrange <m>\lambda</m> que satisfazem o sistema:</p>
                           <md>
-                              <mrow>\nabla f(x, y) \amp = \lambda \nabla g(x, y)</mrow>
-                              <mrow>g(x, y) \amp = k</mrow>
+                              <mrow>\nabla f \amp = \lambda \nabla g</mrow>
+                              <mrow>g \amp = k</mrow>
                           </md>
-                          <p>que em termos de componentes se escreve como:</p>
+                          <p>Para funções de duas variáveis, <m>f(x, y)</m> sujeita a <m>g(x, y) = k</m>, o sistema em componentes é:</p>
                           <mdn>
                               <mrow xml:id="eq-lagrange-sistema-2d">f_x(x, y) \amp = \lambda g_x(x, y)</mrow>
                               <mrow>f_y(x, y) \amp = \lambda g_y(x, y)</mrow>
                               <mrow>g(x, y) \amp = k</mrow>
                           </mdn>
+                          <p>Para funções de três variáveis, <m>f(x, y, z)</m> sujeita a <m>g(x, y, z) = k</m>, o sistema em componentes é:</p>
+                          <mdn>
+                              <mrow xml:id="eq-lagrange-sistema-3d">f_x(x, y, z) \amp = \lambda g_x(x, y, z)</mrow>
+                              <mrow>f_y(x, y, z) \amp = \lambda g_y(x, y, z)</mrow>
+                              <mrow>f_z(x, y, z) \amp = \lambda g_z(x, y, z)</mrow>
+                              <mrow>g(x, y, z) \amp = k</mrow>
+                          </mdn>
                       </li>
                       <li>
-                          <p>Calcule os valores de <m>f</m> em todos os pontos <m>(x, y)</m> resultantes do passo anterior. O maior valor obtido será o valor máximo de <m>f</m> e o menor valor será o mínimo de <m>f</m> sob a restrição.</p>
+                          <p>Calcule os valores de <m>f</m> em todos os pontos resultantes do passo anterior. O maior valor obtido será o valor máximo de <m>f</m> e o menor valor será o mínimo de <m>f</m> sob a restrição.</p>
                       </li>
                   </ol>
-                  <p>Para funções de três variáveis <m>f(x, y, z)</m> sujeitas a <m>g(x, y, z) = k</m>, o sistema correspondente é análogo, adicionando-se a equação <m>f_z = \lambda g_z</m>.</p>
                 </assemblage>
 
-                <p>Alternativamente (conforme apresentado por Ron Larson), podemos introduzir a função auxiliar <term>Lagrangiana</term> <m>F(x, y, \lambda)</m> definida por:</p>
-                <me>F(x, y, \lambda) = f(x, y) - \lambda \left(g(x, y) - k\right)</me>
-                <p>Para encontrar os pontos críticos de <m>F</m>, igualamos a zero suas derivadas parciais de primeira ordem em relação a todas as variáveis:</p>
-                <md>
-                    <mrow>F_x(x, y, \lambda) \amp = f_x(x, y) - \lambda g_x(x, y) = 0 \implies f_x = \lambda g_x</mrow>
-                    <mrow>F_y(x, y, \lambda) \amp = f_y(x, y) - \lambda g_y(x, y) = 0 \implies f_y = \lambda g_y</mrow>
-                    <mrow>F_\lambda(x, y, \lambda) \amp = -\left(g(x, y) - k\right) = 0 \implies g(x, y) = k</mrow>
-                </md>
-                <p>Observe que este procedimento gera exatamente o mesmo sistema de equações <xref ref="eq-lagrange-sistema-2d" />.</p>
+                <p>Alternativamente (conforme apresentado por Ron Larson), podemos introduzir a função auxiliar <term>Lagrangiana</term> <m>F</m> definida por:</p>
+                <ul>
+                    <li>
+                        <p>Para duas variáveis, <m>f(x, y)</m> sujeita a <m>g(x, y) = k</m>:</p>
+                        <me>F(x, y, \lambda) = f(x, y) - \lambda \left(g(x, y) - k\right)</me>
+                        <p>Para encontrar os pontos críticos de <m>F</m>, igualamos a zero suas derivadas parciais de primeira ordem em relação a todas as variáveis:</p>
+                        <md>
+                            <mrow>F_x(x, y, \lambda) \amp = f_x(x, y) - \lambda g_x(x, y) = 0 \implies f_x = \lambda g_x</mrow>
+                            <mrow>F_y(x, y, \lambda) \amp = f_y(x, y) - \lambda g_y(x, y) = 0 \implies f_y = \lambda g_y</mrow>
+                            <mrow>F_\lambda(x, y, \lambda) \amp = -\left(g(x, y) - k\right) = 0 \implies g(x, y) = k</mrow>
+                        </md>
+                        <p>Observe que este procedimento gera exatamente o mesmo sistema de equações <xref ref="eq-lagrange-sistema-2d" />.</p>
+                    </li>
+                    <li>
+                        <p>Para três variáveis, <m>f(x, y, z)</m> sujeita a <m>g(x, y, z) = k</m>:</p>
+                        <me>F(x, y, z, \lambda) = f(x, y, z) - \lambda \left(g(x, y, z) - k\right)</me>
+                        <p>Para encontrar os pontos críticos de <m>F</m>, igualamos a zero suas derivadas parciais de primeira ordem em relação a todas as variáveis:</p>
+                        <md>
+                            <mrow>F_x(x, y, z, \lambda) \amp = f_x(x, y, z) - \lambda g_x(x, y, z) = 0 \implies f_x = \lambda g_x</mrow>
+                            <mrow>F_y(x, y, z, \lambda) \amp = f_y(x, y, z) - \lambda g_y(x, y, z) = 0 \implies f_y = \lambda g_y</mrow>
+                            <mrow>F_z(x, y, z, \lambda) \amp = f_z(x, y, z) - \lambda g_z(x, y, z) = 0 \implies f_z = \lambda g_z</mrow>
+                            <mrow>F_\lambda(x, y, z, \lambda) \amp = -\left(g(x, y, z) - k\right) = 0 \implies g(x, y, z) = k</mrow>
+                        </md>
+                        <p>Observe que este procedimento gera exatamente o mesmo sistema de equações <xref ref="eq-lagrange-sistema-3d" />.</p>
+                    </li>
+                </ul>
 
                 <example xml:id="ex-lagrange-caixa">
                     <title>Volume Máximo de Sólido Retangular</title>
@@ -261,6 +284,18 @@
                         </li>
                     </ol>
                 </assemblage>
+
+                <p>De forma equivalente (estendendo a formulação de Ron Larson), podemos introduzir a função auxiliar Lagrangiana com dois multiplicadores de Lagrange, <m>F(x, y, z, \lambda, \mu)</m>, definida por:</p>
+                <me>F(x, y, z, \lambda, \mu) = f(x, y, z) - \lambda \left(g(x, y, z) - k\right) - \mu \left(h(x, y, z) - c\right)</me>
+                <p>Para encontrar os pontos críticos de <m>F</m>, igualamos a zero suas derivadas parciais de primeira ordem em relação a todas as variáveis:</p>
+                <md>
+                    <mrow>F_x(x, y, z, \lambda, \mu) \amp = f_x(x, y, z) - \lambda g_x(x, y, z) - \mu h_x(x, y, z) = 0 \implies f_x = \lambda g_x + \mu h_x</mrow>
+                    <mrow>F_y(x, y, z, \lambda, \mu) \amp = f_y(x, y, z) - \lambda g_y(x, y, z) - \mu h_y(x, y, z) = 0 \implies f_y = \lambda g_y + \mu h_y</mrow>
+                    <mrow>F_z(x, y, z, \lambda, \mu) \amp = f_z(x, y, z) - \lambda g_z(x, y, z) - \mu h_z(x, y, z) = 0 \implies f_z = \lambda g_z + \mu h_z</mrow>
+                    <mrow>F_\lambda(x, y, z, \lambda, \mu) \amp = -\left(g(x, y, z) - k\right) = 0 \implies g(x, y, z) = k</mrow>
+                    <mrow>F_\mu(x, y, z, \lambda, \mu) \amp = -\left(h(x, y, z) - c\right) = 0 \implies h(x, y, z) = c</mrow>
+                </md>
+                <p>Observe que este procedimento gera exatamente o mesmo sistema de equações <xref ref="eq-lagrange-sistema-duas" />.</p>
 
                 <example xml:id="ex-lagrange-duas-restricoes">
                     <title>Extremos sobre uma Curva de Interseção</title>
