@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="pt-BR" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Extremos de funções de duas variáveis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="article">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.2';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.d0616b3d72ab3b06.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.af9055d29ed602c4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Executar (Sage)';
+</script>
+</head>
+<body class="pretext article ignore-math">
+<a class="assistive" href="#ptx-content">Ir ao conteúdo principal</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="calc-extremos-duas-variaveis.html"><span class="title">Extremos de Funções de Duas Variáveis: S8</span></a></h1>
+<p class="byline">Leon Silva, Lorena Brizza</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Sumário"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Sumário</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Buscando por: </h2>
+<div id="searchempty" class="searchempty"><span>Não encontrado.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="calc-extremos-duas-variaveis.html" title="Anterior"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Anterior</span></a><a class="up-button button" href="calc-extremos-duas-variaveis.html" title="Acima"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Acima</span></a><span class="next-button button disabled"><span class="name">Próximo</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ct}[1]{\color{gray}{\text{#1}}}
+\newcommand{\ctm}[1]{\color{gray}{#1}}
+\newcommand{\doubler}[1]{2#1}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ob}[2]{\color{gray}{\overbrace{\color{black}{#1}}^{#2}}}
+\newcommand{\ub}[2]{\color{gray}{\underbrace{\color{black}{#1}}_{#2}}}
+\newcommand{\integral}[2]{\displaystyle\int {#1}\,\dd {#2}}
+\newcommand{\integrald}[4]{\displaystyle\int_{#2}^{#3} {#1}\,\dd {#4}}
+\let\arcsec\relax
+\DeclareMathOperator{\arcsec}{arc \,sec}
+\let\sin\relax
+\DeclareMathOperator{\sin}{sen}
+\let\arcsin\relax
+\DeclareMathOperator{\arcsin}{arc \,sen}
+\let\arccos\relax
+\DeclareMathOperator{\arccos}{arc \,cos}
+\let\csc\relax
+\DeclareMathOperator{\csc}{cossec}
+\let\tan\relax
+\DeclareMathOperator{\tan}{tg}
+\let\arctan\relax
+\DeclareMathOperator{\arctan}{arc\,tg}
+\let\cot\relax
+\DeclareMathOperator{\cot}{cotg}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="calc-extremos-duas-variaveis-2.html" class="internal"><span class="title">Pré-textual</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-abstract"><div class="toc-title-box"><a href="calc-extremos-duas-variaveis-2.html#calc-extremos-duas-variaveis-2-3" class="internal"><span class="title">Resumo</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="calc-extremos-duas-variaveis-4.html" class="internal"><span class="codenumber">1</span> <span class="title">Extremos de funções de duas variáveis</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="calc-extremos-duas-variaveis-4.html#subsec-def-extremos" class="internal"><span class="codenumber">1.1</span> <span class="title">Extremos Relativos e Pontos de Sela</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="calc-extremos-duas-variaveis-4.html#subsec-teste-primeiras-derivadas" class="internal"><span class="codenumber">1.2</span> <span class="title">Teste de Primeiras Derivadas Parciais e Pontos Críticos</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="calc-extremos-duas-variaveis-4.html#subsec-teste-segundas-derivadas" class="internal"><span class="codenumber">1.3</span> <span class="title">Teste das Segundas Derivadas Parciais</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="calc-extremos-duas-variaveis-4.html#subsec-otimizacao-aplicada" class="internal"><span class="codenumber">1.4</span> <span class="title">Aplicações de Extremos (Otimização)</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="calc-extremos-duas-variaveis-4.html#exercises-extremos-funcoes" class="internal"><span class="codenumber">1.5</span> <span class="title">Exercícios Propostos</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="calc-extremos-duas-variaveis-4">
+<h2 class="heading hide-type">
+<span class="type">Seção</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Extremos de funções de duas variáveis</span>
+</h2>
+<article class="objectives goal-like" id="calc-extremos-duas-variaveis-4-2"><h3 class="heading">
+<span class="type">Objetivos<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Estrutura</span>
+</h3>
+<ol class="decimal" id="calc-extremos-duas-variaveis-4-2-2">
+<li id="calc-extremos-duas-variaveis-4-2-2-1">
+<div class="para" id="calc-extremos-duas-variaveis-4-2-2-1-1">Compreender os extremos relativos de funções de duas variáveis.<div class="autopermalink" data-description="Parágrafo"><a href="#calc-extremos-duas-variaveis-4-2-2-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objetivo 1.1"><a href="#calc-extremos-duas-variaveis-4-2-2-1" title="Copy heading and permalink for Objetivo 1.1" aria-label="Copy heading and permalink for Objetivo 1.1">🔗</a></div>
+</li>
+<li id="calc-extremos-duas-variaveis-4-2-2-2">
+<div class="para" id="calc-extremos-duas-variaveis-4-2-2-2-1">Utilizar o Teste de Primeiras Derivadas Parciais para determinar os extremos relativos de funções de duas variáveis.<div class="autopermalink" data-description="Parágrafo"><a href="#calc-extremos-duas-variaveis-4-2-2-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objetivo 1.2"><a href="#calc-extremos-duas-variaveis-4-2-2-2" title="Copy heading and permalink for Objetivo 1.2" aria-label="Copy heading and permalink for Objetivo 1.2">🔗</a></div>
+</li>
+<li id="calc-extremos-duas-variaveis-4-2-2-3">
+<div class="para" id="calc-extremos-duas-variaveis-4-2-2-3-1">Utilizar o Teste de Segundas Derivadas Parciais para determinar os extremos relativos de funções de duas variáveis.<div class="autopermalink" data-description="Parágrafo"><a href="#calc-extremos-duas-variaveis-4-2-2-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objetivo 1.3"><a href="#calc-extremos-duas-variaveis-4-2-2-3" title="Copy heading and permalink for Objetivo 1.3" aria-label="Copy heading and permalink for Objetivo 1.3">🔗</a></div>
+</li>
+<li id="calc-extremos-duas-variaveis-4-2-2-4">
+<div class="para" id="calc-extremos-duas-variaveis-4-2-2-4-1">Utilizar extremos relativos para responder questões sobre situações da vida real.<div class="autopermalink" data-description="Parágrafo"><a href="#calc-extremos-duas-variaveis-4-2-2-4-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objetivo 1.4"><a href="#calc-extremos-duas-variaveis-4-2-2-4" title="Copy heading and permalink for Objetivo 1.4" aria-label="Copy heading and permalink for Objetivo 1.4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Objetivos 1: Estrutura"><a href="#calc-extremos-duas-variaveis-4-2" title="Copy heading and permalink for Objetivos 1: Estrutura" aria-label="Copy heading and permalink for Objetivos 1: Estrutura">🔗</a></div>
+</article>
+<section class="subsection" id="subsec-def-extremos">
+<h3 class="heading hide-type">
+<span class="type">Subseção</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Extremos Relativos e Pontos de Sela</span>
+</h3>
+<figure class="figure figure-like" id="fig-video-pontos-sela"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/FRgP17L29wU?&amp;modestbranding=1&amp;rel=0" id="video-pontos-sela"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figura 1.1: Introdução a Extremos Locais e Pontos de Sela"><a href="#fig-video-pontos-sela" title="Copy heading and permalink for Figura 1.1: Introdução a Extremos Locais e Pontos de Sela" aria-label="Copy heading and permalink for Figura 1.1: Introdução a Extremos Locais e Pontos de Sela">🔗</a></div></figcaption>
+</figure>
+<section class="introduction" id="subsec-def-extremos-3">
+<div class="para" id="subsec-def-extremos-3-1">Como no cálculo de uma única variável, nas funções de duas variáveis é necessário distinguir entre extremos relativos e absolutos. Dizemos que uma função de duas variáveis possui um extremo relativo (ou local) em um ponto se o valor da função nesse ponto for maior ou igual (máximo relativo) ou menor ou igual (mínimo relativo) a todos os valores da função em uma pequena região circular centrada no ponto.<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-def-extremos-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div></section>
+<article class="definition definition-like" id="def-extremos-relativos"><h4 class="heading">
+<span class="type">Definição</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="def-extremos-relativos-1-1">Suponha que <span class="process-math">\(f\)</span> seja uma função definida em uma região que contém <span class="process-math">\((x_0, y_0)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#def-extremos-relativos-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div> 
+<ol class="decimal" id="def-extremos-relativos-1-2">
+<li id="def-extremos-relativos-1-2-1">
+<div class="para" id="def-extremos-relativos-1-2-1-1">A função <span class="process-math">\(f\)</span> possui um <dfn class="terminology">máximo relativo</dfn> em <span class="process-math">\((x_0, y_0)\)</span> se houver uma região circular <span class="process-math">\(R\)</span> com centro em <span class="process-math">\((x_0, y_0)\)</span> tal que <span class="process-math">\(f(x, y) \le f(x_0, y_0)\)</span> para todo <span class="process-math">\((x, y)\)</span> em <span class="process-math">\(R\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#def-extremos-relativos-1-2-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#def-extremos-relativos-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="def-extremos-relativos-1-2-2">
+<div class="para" id="def-extremos-relativos-1-2-2-1">A função <span class="process-math">\(f\)</span> possui um <dfn class="terminology">mínimo relativo</dfn> em <span class="process-math">\((x_0, y_0)\)</span> se houver uma região circular <span class="process-math">\(R\)</span> com centro em <span class="process-math">\((x_0, y_0)\)</span> tal que <span class="process-math">\(f(x, y) \ge f(x_0, y_0)\)</span> para todo <span class="process-math">\((x, y)\)</span> em <span class="process-math">\(R\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#def-extremos-relativos-1-2-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#def-extremos-relativos-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Definição 1.2"><a href="#def-extremos-relativos" title="Copy heading and permalink for Definição 1.2" aria-label="Copy heading and permalink for Definição 1.2">🔗</a></div>
+</article>
+<div class="para" id="subsec-def-extremos-5">Dizer que <span class="process-math">\(f\)</span> possui um máximo relativo em <span class="process-math">\((x_0, y_0)\)</span> significa que o ponto <span class="process-math">\((x_0, y_0, f(x_0, y_0))\)</span> é pelo menos tão alto quanto todos os pontos próximos no gráfico da superfície <span class="process-math">\(z = f(x, y)\text{.}\)</span> De modo similar, <span class="process-math">\(f\)</span> possui um mínimo relativo em <span class="process-math">\((x_0, y_0)\)</span> se <span class="process-math">\((x_0, y_0, f(x_0, y_0))\)</span> for pelo menos tão baixo quanto todos os pontos vizinhos no gráfico.<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-def-extremos-5" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para" id="subsec-def-extremos-6">Por outro lado, o valor de <dfn class="terminology">máximo absoluto</dfn> de uma função em uma região é o maior valor assumido por ela em toda a região. Por exemplo, a função <span class="process-math">\(f(x, y) = -(x^2 + y^2)\)</span> apresenta um gráfico em formato de paraboloide voltado para baixo, conforme ilustrado na <a href="calc-extremos-duas-variaveis-4.html#fig-paraboloide-maximo-absoluto" class="xref" data-knowl="./knowl/xref/fig-paraboloide-maximo-absoluto.html" data-reveal-label="Revelar" data-close-label="Fechar" title="Figura 1.3: Gráfico do paraboloide f(x, y) = -(x^2 + y^2) com o ponto de máximo absoluto na origem">Figura 1.3</a>. Note que o vértice está posicionado exatamente na origem <span class="process-math">\((0, 0, 0)\text{,}\)</span> destacando-se visualmente como o ponto mais alto da superfície. Desse modo, o valor <span class="process-math">\(f(0, 0) = 0\)</span> é o <dfn class="terminology">máximo absoluto</dfn> de <span class="process-math">\(f\)</span> em todo o plano <span class="process-math">\(xy\text{.}\)</span> Um <dfn class="terminology">mínimo absoluto</dfn> de <span class="process-math">\(f\)</span> em uma região é definido de maneira semelhante (como o ponto mais baixo de uma superfície).<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-def-extremos-6" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-paraboloide-maximo-absoluto"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/fig-paraboloide-maximo-absoluto-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figura</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figura 1.3: Gráfico do paraboloide f(x, y) = -(x^2 + y^2) com o ponto de máximo absoluto na origem"><a href="#fig-paraboloide-maximo-absoluto" title="Copy heading and permalink for Figura 1.3: Gráfico do paraboloide f(x, y) = -(x^2 + y^2) com o ponto de máximo absoluto na origem" aria-label="Copy heading and permalink for Figura 1.3: Gráfico do paraboloide f(x, y) = -(x^2 + y^2) com o ponto de máximo absoluto na origem">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Subseção 1.1: Extremos Relativos e Pontos de Sela"><a href="#subsec-def-extremos" title="Copy heading and permalink for Subseção 1.1: Extremos Relativos e Pontos de Sela" aria-label="Copy heading and permalink for Subseção 1.1: Extremos Relativos e Pontos de Sela">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-teste-primeiras-derivadas">
+<h3 class="heading hide-type">
+<span class="type">Subseção</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Teste de Primeiras Derivadas Parciais e Pontos Críticos</span>
+</h3>
+<figure class="figure figure-like" id="fig-video-pontos-criticos"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/-To9rLraJE4?&amp;modestbranding=1&amp;rel=0" id="video-pontos-criticos"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figura 1.4: Identificação de Pontos Críticos"><a href="#fig-video-pontos-criticos" title="Copy heading and permalink for Figura 1.4: Identificação de Pontos Críticos" aria-label="Copy heading and permalink for Figura 1.4: Identificação de Pontos Críticos">🔗</a></div></figcaption>
+</figure>
+<section class="introduction" id="subsec-teste-primeiras-derivadas-3">
+<div class="para" id="subsec-teste-primeiras-derivadas-3-1">Para localizar os extremos relativos de uma função de duas variáveis, empregamos um procedimento similar ao teste da primeira derivada utilizado para funções de uma única variável: procuramos por pontos onde o plano tangente ao gráfico é horizontal ou onde a derivada não existe.<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-teste-primeiras-derivadas-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div></section>
+<article class="assemblage assemblage-like" id="assemblage-primeiras-derivadas"><h4 class="heading"><span class="title">Teste das Primeiras Derivadas Parciais para Extremos Relativos.</span></h4>
+<div class="para logical" id="assemblage-primeiras-derivadas-2">
+<div class="para">Se <span class="process-math">\(f\)</span> possui um extremo relativo em <span class="process-math">\((x_0, y_0)\)</span> em uma região aberta <span class="process-math">\(R\)</span> no plano <span class="process-math">\(xy\)</span> e as primeiras derivadas parciais de <span class="process-math">\(f\)</span> existem em <span class="process-math">\(R\text{,}\)</span> então:</div>
+<div class="displaymath process-math" id="assemblage-primeiras-derivadas-2-7">
+\begin{equation*}
+\frac{\partial f}{\partial x}(x_0, y_0) = 0 \quad \text{e} \quad \frac{\partial f}{\partial y}(x_0, y_0) = 0
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#assemblage-primeiras-derivadas-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Coleção: Teste das Primeiras Derivadas Parciais para Extremos Relativos"><a href="#assemblage-primeiras-derivadas" title="Copy heading and permalink for Coleção: Teste das Primeiras Derivadas Parciais para Extremos Relativos" aria-label="Copy heading and permalink for Coleção: Teste das Primeiras Derivadas Parciais para Extremos Relativos">🔗</a></div>
+</article>
+<article class="definition definition-like" id="def-ponto-critico"><h4 class="heading">
+<span class="type">Definição</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="def-ponto-critico-1-1">Um ponto <span class="process-math">\((x_0, y_0)\)</span> na região aberta <span class="process-math">\(R\)</span> é chamado de <dfn class="terminology">ponto crítico</dfn> de <span class="process-math">\(f\)</span> se:<div class="autopermalink" data-description="Parágrafo"><a href="#def-ponto-critico-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div> 
+<ul class="disc" id="def-ponto-critico-1-2">
+<li id="def-ponto-critico-1-2-1">
+<div class="para" id="def-ponto-critico-1-2-1-1">
+<span class="process-math">\(\frac{\partial f}{\partial x}(x_0, y_0) = 0\)</span> e <span class="process-math">\(\frac{\partial f}{\partial y}(x_0, y_0) = 0\text{;}\)</span> ou<div class="autopermalink" data-description="Parágrafo"><a href="#def-ponto-critico-1-2-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#def-ponto-critico-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="def-ponto-critico-1-2-2">
+<div class="para" id="def-ponto-critico-1-2-2-1">uma das primeiras derivadas parciais <span class="process-math">\(\frac{\partial f}{\partial x}\)</span> ou <span class="process-math">\(\frac{\partial f}{\partial y}\)</span> não for definida em <span class="process-math">\((x_0, y_0)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#def-ponto-critico-1-2-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#def-ponto-critico-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Definição 1.5"><a href="#def-ponto-critico" title="Copy heading and permalink for Definição 1.5" aria-label="Copy heading and permalink for Definição 1.5">🔗</a></div>
+</article>
+<div class="para" id="subsec-teste-primeiras-derivadas-6">Como ocorre para funções de uma única variável, os pontos críticos de uma função de duas variáveis nem sempre resultam em extremos relativos. Por exemplo, consideremos a função <span class="process-math">\(f(x, y) = y^2 - x^2\)</span> exibida na <a href="calc-extremos-duas-variaveis-4.html#fig-ponto-sela" class="xref" data-knowl="./knowl/xref/fig-ponto-sela.html" data-reveal-label="Revelar" data-close-label="Fechar" title="Figura 1.6: Gráfico da sela f(x, y) = y^2 - x^2 com ponto de sela destacado na origem">Figura 1.6</a>. O ponto <span class="process-math">\((0, 0)\)</span> é um ponto crítico desta superfície, mas o ponto correspondente na superfície não é um extremo local. Se nos aproximarmos da origem ao longo do eixo <span class="process-math">\(x\)</span> (onde <span class="process-math">\(y = 0\)</span>), a função assume valores da forma <span class="process-math">\(f(x, 0) = -x^2\text{,}\)</span> fazendo com que a origem se comporte como um ponto de máximo relativo. Contudo, se nos aproximarmos ao longo do eixo <span class="process-math">\(y\)</span> (onde <span class="process-math">\(x = 0\)</span>), a função assume valores <span class="process-math">\(f(0, y) = y^2\text{,}\)</span> fazendo com que a origem se comporte como um ponto de mínimo relativo. Tais pontos, que possuem o formato característico de uma sela de montaria, são chamados <dfn class="terminology">pontos de sela</dfn> da função.<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-teste-primeiras-derivadas-6" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-ponto-sela"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/fig-ponto-sela-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figura</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figura 1.6: Gráfico da sela f(x, y) = y^2 - x^2 com ponto de sela destacado na origem"><a href="#fig-ponto-sela" title="Copy heading and permalink for Figura 1.6: Gráfico da sela f(x, y) = y^2 - x^2 com ponto de sela destacado na origem" aria-label="Copy heading and permalink for Figura 1.6: Gráfico da sela f(x, y) = y^2 - x^2 com ponto de sela destacado na origem">🔗</a></div></figcaption>
+</figure>
+<details id="ex-extremos-1" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-extremos-1-1-1">Determine os extremos relativos de <span class="process-math">\(f(x, y) = 2x^2 + y^2 - 8x - 6y + 20\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-1-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-extremos-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-extremos-1-2-1">
+<div class="para">Começamos determinando as primeiras derivadas parciais de <span class="process-math">\(f\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-extremos-1-2-1-2">
+\begin{equation*}
+\frac{\partial f}{\partial x}(x, y) = 4x - 8 \quad \text{e} \quad \frac{\partial f}{\partial y}(x, y) = 2y - 6
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-1-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-extremos-1-2-2">
+<div class="para">Como essas derivadas parciais são definidas para todos os pontos do plano <span class="process-math">\(xy\text{,}\)</span> os únicos pontos críticos são aqueles para os quais ambas as primeiras derivadas parciais são zero. Igualando-as a zero, obtemos o seguinte sistema de equações lineares:</div>
+<div class="displaymath process-math" id="ex-extremos-1-2-2-2">
+\begin{align*}
+4x - 8 \amp = 0 \implies x = 2\\
+2y - 6 \amp = 0 \implies y = 3
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-1-2-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-extremos-1-2-3">
+<div class="para">Portanto, o ponto <span class="process-math">\((2, 3)\)</span> é o único ponto crítico de <span class="process-math">\(f\text{.}\)</span> Calculando o valor da função neste ponto:</div>
+<div class="displaymath process-math" id="ex-extremos-1-2-3-3">
+\begin{equation*}
+f(2, 3) = 2(2)^2 + 3^2 - 8(2) - 6(3) + 20 = 3
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-1-2-3" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-extremos-1-2-4">
+<div class="para">Pela análise algébrica da função, reescrevendo-a completando os quadrados:</div>
+<div class="displaymath process-math" id="ex-extremos-1-2-4-1">
+\begin{equation*}
+f(x, y) = 2(x - 2)^2 + (y - 3)^2 + 3
+\end{equation*}
+</div>
+<div class="para">Como os termos quadráticos são sempre não negativos, vemos que <span class="process-math">\(f(x, y) \ge 3\)</span> para todo par <span class="process-math">\((x, y)\text{.}\)</span> Assim, a função possui apenas um extremo relativo, que é o <dfn class="terminology">mínimo relativo</dfn> de valor <span class="process-math">\(3\)</span> no ponto crítico <span class="process-math">\((2, 3)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-1-2-4" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solução 1.7.1"><a href="#ex-extremos-1-2" title="Copy heading and permalink for Solução 1.7.1" aria-label="Copy heading and permalink for Solução 1.7.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.7"><a href="#ex-extremos-1" title="Copy heading and permalink for Exemplo 1.7" aria-label="Copy heading and permalink for Exemplo 1.7">🔗</a></div>
+</article></details>
+<details id="exec-extremos-1" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exercício de Verificação</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exec-extremos-1-1-1">Determine os extremos relativos da função <span class="process-math">\(f(x, y) = x^2 + 2y^2 - 16x - 8y + 8\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exec-extremos-1-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exec-extremos-1-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Dica</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="exec-extremos-1-2-1">Calcule as primeiras derivadas parciais de <span class="process-math">\(f\text{,}\)</span> iguale-as a zero para determinar o ponto crítico e complete os quadrados para verificar seu comportamento.<div class="autopermalink" data-description="Parágrafo"><a href="#exec-extremos-1-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Dica 1.8.1"><a href="#exec-extremos-1-2" title="Copy heading and permalink for Dica 1.8.1" aria-label="Copy heading and permalink for Dica 1.8.1">🔗</a></div>
+</div></details>
+<details id="exec-extremos-1-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="exec-extremos-1-3-1">Mínimo relativo de <span class="process-math">\(-64\)</span> no ponto crítico <span class="process-math">\((8, 2)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exec-extremos-1-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.8.1"><a href="#exec-extremos-1-3" title="Copy heading and permalink for Resposta 1.8.1" aria-label="Copy heading and permalink for Resposta 1.8.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício de Verificação 1.8"><a href="#exec-extremos-1" title="Copy heading and permalink for Exercício de Verificação 1.8" aria-label="Copy heading and permalink for Exercício de Verificação 1.8">🔗</a></div>
+</article></details>
+<details id="ex-extremos-2" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-extremos-2-1-1">Determine os extremos relativos de <span class="process-math">\(f(x, y) = 1 - (x^2 + y^2)^{1/3}\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-2-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-extremos-2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-extremos-2-2-1">
+<div class="para">Começamos determinando as primeiras derivadas parciais de <span class="process-math">\(f\)</span> utilizando a Regra da Cadeia:</div>
+<div class="displaymath process-math" id="ex-extremos-2-2-1-2">
+\begin{equation*}
+\frac{\partial f}{\partial x}(x, y) = -\frac{2x}{3(x^2 + y^2)^{2/3}} \quad \text{e} \quad \frac{\partial f}{\partial y}(x, y) = -\frac{2y}{3(x^2 + y^2)^{2/3}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-2-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para" id="ex-extremos-2-2-2">Essas derivadas parciais são definidas para todos os pontos no plano <span class="process-math">\(xy\text{,}\)</span> exceto no ponto <span class="process-math">\((0, 0)\text{.}\)</span> Portanto, o ponto <span class="process-math">\((0, 0)\)</span> é um ponto crítico de <span class="process-math">\(f\)</span> (do tipo onde as derivadas parciais não são definidas).<div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-2-2-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para" id="ex-extremos-2-2-3">Como a quantidade sob a raiz cúbica é positiva para todos os valores de <span class="process-math">\((x,y) \neq (0,0)\text{,}\)</span> temos que <span class="process-math">\(f(x, y) = 1 - (x^2 + y^2)^{1/3} \lt 1\)</span> para todo ponto diferente da origem. Como na origem <span class="process-math">\(f(0, 0) = 1\text{,}\)</span> este ponto crítico resulta em um <dfn class="terminology">máximo relativo</dfn> de valor <span class="process-math">\(1\)</span> em <span class="process-math">\((0, 0)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-2-2-3" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solução 1.9.1"><a href="#ex-extremos-2-2" title="Copy heading and permalink for Solução 1.9.1" aria-label="Copy heading and permalink for Solução 1.9.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.9"><a href="#ex-extremos-2" title="Copy heading and permalink for Exemplo 1.9" aria-label="Copy heading and permalink for Exemplo 1.9">🔗</a></div>
+</article></details>
+<details id="exec-extremos-2" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exercício de Verificação</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exec-extremos-2-1-1">Determine os extremos relativos da função <span class="process-math">\(f(x, y) = 1 - \frac{x^2}{16} - \frac{y^2}{4}\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exec-extremos-2-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exec-extremos-2-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Dica</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="exec-extremos-2-2-1">Diferencie a função e encontre onde as primeiras derivadas parciais de primeira ordem se anulam.<div class="autopermalink" data-description="Parágrafo"><a href="#exec-extremos-2-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Dica 1.10.1"><a href="#exec-extremos-2-2" title="Copy heading and permalink for Dica 1.10.1" aria-label="Copy heading and permalink for Dica 1.10.1">🔗</a></div>
+</div></details>
+<details id="exec-extremos-2-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="exec-extremos-2-3-1">Máximo relativo de <span class="process-math">\(1\)</span> no ponto crítico <span class="process-math">\((0, 0)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exec-extremos-2-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.10.1"><a href="#exec-extremos-2-3" title="Copy heading and permalink for Resposta 1.10.1" aria-label="Copy heading and permalink for Resposta 1.10.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício de Verificação 1.10"><a href="#exec-extremos-2" title="Copy heading and permalink for Exercício de Verificação 1.10" aria-label="Copy heading and permalink for Exercício de Verificação 1.10">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Subseção 1.2: Teste de Primeiras Derivadas Parciais e Pontos Críticos"><a href="#subsec-teste-primeiras-derivadas" title="Copy heading and permalink for Subseção 1.2: Teste de Primeiras Derivadas Parciais e Pontos Críticos" aria-label="Copy heading and permalink for Subseção 1.2: Teste de Primeiras Derivadas Parciais e Pontos Críticos">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-teste-segundas-derivadas">
+<h3 class="heading hide-type">
+<span class="type">Subseção</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Teste das Segundas Derivadas Parciais</span>
+</h3>
+<figure class="figure figure-like" id="fig-video-segunda-derivada"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/aturPd4GapA?&amp;modestbranding=1&amp;rel=0" id="video-segunda-derivada"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figura 1.11: O Teste da Segunda Derivada Parcial"><a href="#fig-video-segunda-derivada" title="Copy heading and permalink for Figura 1.11: O Teste da Segunda Derivada Parcial" aria-label="Copy heading and permalink for Figura 1.11: O Teste da Segunda Derivada Parcial">🔗</a></div></figcaption>
+</figure>
+<section class="introduction" id="subsec-teste-segundas-derivadas-3">
+<div class="para" id="subsec-teste-segundas-derivadas-3-1">Para funções mais complexas, onde as análises gráficas ou o método de completar quadrados não são fáceis de aplicar, utilizamos um teste analítico baseado nas derivadas parciais de segunda ordem.<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-teste-segundas-derivadas-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div></section>
+<article class="assemblage assemblage-like" id="assemblage-segundas-derivadas"><h4 class="heading"><span class="title">Teste das Segundas Derivadas Parciais para Extremos Relativos.</span></h4>
+<div class="para" id="assemblage-segundas-derivadas-2">Suponha que <span class="process-math">\(f\)</span> possua segundas derivadas parciais contínuas em uma região aberta que contenha <span class="process-math">\((a, b)\text{,}\)</span> para o qual <span class="process-math">\(\frac{\partial f}{\partial x}(a, b) = 0\)</span> e <span class="process-math">\(\frac{\partial f}{\partial y}(a, b) = 0\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#assemblage-segundas-derivadas-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="assemblage-segundas-derivadas-3">
+<div class="para">Para testar os extremos relativos de <span class="process-math">\(f\text{,}\)</span> considere a quantidade discriminante <span class="process-math">\(d\)</span> dada por:</div>
+<div class="displaymath process-math" id="assemblage-segundas-derivadas-3-3">
+\begin{equation*}
+d = \frac{\partial^2 f}{\partial x^2}(a, b) \frac{\partial^2 f}{\partial y^2}(a, b) - \left[ \frac{\partial^2 f}{\partial x \partial y}(a, b) \right]^2
+\end{equation*}
+</div>
+<ol class="decimal" id="assemblage-segundas-derivadas-3-4">
+<li id="assemblage-segundas-derivadas-3-4-1">
+<div class="para" id="assemblage-segundas-derivadas-3-4-1-1">Se <span class="process-math">\(d \gt 0\)</span> e <span class="process-math">\(\frac{\partial^2 f}{\partial x^2}(a, b) \gt 0\text{,}\)</span> então <span class="process-math">\(f\)</span> possui um <dfn class="terminology">mínimo relativo</dfn> em <span class="process-math">\((a, b)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#assemblage-segundas-derivadas-3-4-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#assemblage-segundas-derivadas-3-4-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="assemblage-segundas-derivadas-3-4-2">
+<div class="para" id="assemblage-segundas-derivadas-3-4-2-1">Se <span class="process-math">\(d \gt 0\)</span> e <span class="process-math">\(\frac{\partial^2 f}{\partial x^2}(a, b) \lt 0\text{,}\)</span> então <span class="process-math">\(f\)</span> possui um <dfn class="terminology">máximo relativo</dfn> em <span class="process-math">\((a, b)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#assemblage-segundas-derivadas-3-4-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#assemblage-segundas-derivadas-3-4-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="assemblage-segundas-derivadas-3-4-3">
+<div class="para" id="assemblage-segundas-derivadas-3-4-3-1">Se <span class="process-math">\(d \lt 0\text{,}\)</span> então <span class="process-math">\((a, b, f(a, b))\)</span> é um <dfn class="terminology">ponto de sela</dfn>.<div class="autopermalink" data-description="Parágrafo"><a href="#assemblage-segundas-derivadas-3-4-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#assemblage-segundas-derivadas-3-4-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="assemblage-segundas-derivadas-3-4-4">
+<div class="para" id="assemblage-segundas-derivadas-3-4-4-1">O teste não fornece nenhuma informação se <span class="process-math">\(d = 0\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#assemblage-segundas-derivadas-3-4-4-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#assemblage-segundas-derivadas-3-4-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Parágrafo"><a href="#assemblage-segundas-derivadas-3" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para" id="assemblage-segundas-derivadas-4">
+<em class="alert">Atenção:</em> Observe no Teste das Segundas Derivadas Parciais que se <span class="process-math">\(d \gt 0\text{,}\)</span> então <span class="process-math">\(\frac{\partial^2 f}{\partial x^2}(a, b)\)</span> e <span class="process-math">\(\frac{\partial^2 f}{\partial y^2}(a, b)\)</span> devem possuir obrigatoriamente o mesmo sinal. Assim, pode-se substituir <span class="process-math">\(\frac{\partial^2 f}{\partial x^2}(a, b)\)</span> por <span class="process-math">\(\frac{\partial^2 f}{\partial y^2}(a, b)\)</span> nas duas primeiras partes do teste.<div class="autopermalink" data-description="Parágrafo"><a href="#assemblage-segundas-derivadas-4" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Coleção: Teste das Segundas Derivadas Parciais para Extremos Relativos"><a href="#assemblage-segundas-derivadas" title="Copy heading and permalink for Coleção: Teste das Segundas Derivadas Parciais para Extremos Relativos" aria-label="Copy heading and permalink for Coleção: Teste das Segundas Derivadas Parciais para Extremos Relativos">🔗</a></div>
+</article>
+<details id="ex-extremos-simples" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Classificação de Ponto Crítico.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-extremos-simples-2-1">Determine e classifique os extremos relativos de <span class="process-math">\(f(x, y) = x^2 + 2y^2 - 4x - 4y\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-simples-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-extremos-simples-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-extremos-simples-3-1">
+<div class="para">Primeiro, encontramos os pontos críticos calculando e igualando a zero as primeiras derivadas parciais:</div>
+<div class="displaymath process-math" id="ex-extremos-simples-3-1-1">
+\begin{equation*}
+\frac{\partial f}{\partial x} = 2x - 4 = 0 \implies x = 2
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ex-extremos-simples-3-1-2">
+\begin{equation*}
+\frac{\partial f}{\partial y} = 4y - 4 = 0 \implies y = 1
+\end{equation*}
+</div>
+<div class="para">Assim, o único ponto crítico da função é <span class="process-math">\((2, 1)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-simples-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-extremos-simples-3-2">
+<div class="para">Agora, aplicamos o Teste das Segundas Derivadas Parciais. Calculamos as derivadas de segunda ordem:</div>
+<div class="displaymath process-math" id="ex-extremos-simples-3-2-1">
+\begin{equation*}
+\frac{\partial^2 f}{\partial x^2} = 2, \quad \frac{\partial^2 f}{\partial y^2} = 4, \quad \frac{\partial^2 f}{\partial x \partial y} = 0
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-simples-3-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-extremos-simples-3-3">
+<div class="para">Calculamos a quantidade discriminante <span class="process-math">\(d\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-extremos-simples-3-3-2">
+\begin{equation*}
+d = \frac{\partial^2 f}{\partial x^2}(2, 1) \frac{\partial^2 f}{\partial y^2}(2, 1) - \left[ \frac{\partial^2 f}{\partial x \partial y}(2, 1) \right]^2 = (2)(4) - (0)^2 = 8
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-simples-3-3" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-extremos-simples-3-4">
+<div class="para">Como <span class="process-math">\(d = 8 \gt 0\)</span> e <span class="process-math">\(\frac{\partial^2 f}{\partial x^2}(2, 1) = 2 \gt 0\text{,}\)</span> concluímos que a função possui um <dfn class="terminology">mínimo relativo</dfn> no ponto <span class="process-math">\((2, 1)\text{.}\)</span> O valor do mínimo relativo é:</div>
+<div class="displaymath process-math" id="ex-extremos-simples-3-4-5">
+\begin{equation*}
+f(2, 1) = (2)^2 + 2(1)^2 - 4(2) - 4(1) = 4 + 2 - 8 - 4 = -6
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-simples-3-4" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solução 1.12.1"><a href="#ex-extremos-simples-3" title="Copy heading and permalink for Solução 1.12.1" aria-label="Copy heading and permalink for Solução 1.12.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.12: Classificação de Ponto Crítico"><a href="#ex-extremos-simples" title="Copy heading and permalink for Exemplo 1.12: Classificação de Ponto Crítico" aria-label="Copy heading and permalink for Exemplo 1.12: Classificação de Ponto Crítico">🔗</a></div>
+</article></details>
+<details id="ex-extremos-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-extremos-3-1-1">Determine os extremos relativos e os pontos de sela de <span class="process-math">\(f(x, y) = xy - \frac{1}{4}x^4 - \frac{1}{4}y^4\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-3-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-extremos-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-extremos-3-2-1">
+<div class="para">Começamos determinando os pontos críticos de <span class="process-math">\(f\text{.}\)</span> Calculamos as primeiras derivadas parciais:</div>
+<div class="displaymath process-math" id="ex-extremos-3-2-1-2">
+\begin{equation*}
+\frac{\partial f}{\partial x} = y - x^3 \quad \text{e} \quad \frac{\partial f}{\partial y} = x - y^3
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-3-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-extremos-3-2-2">
+<div class="para">Como as derivadas parciais estão definidas para todos os pontos no plano <span class="process-math">\(xy\text{,}\)</span> igualamo-las a zero para achar os pontos críticos:</div>
+<div class="displaymath process-math" id="ex-extremos-3-2-2-2">
+\begin{align*}
+y - x^3 \amp = 0 \implies y = x^3\\
+x - y^3 \amp = 0
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-3-2-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-extremos-3-2-3">
+<div class="para">Substituindo <span class="process-math">\(y = x^3\)</span> na segunda equação, temos:</div>
+<div class="displaymath process-math" id="ex-extremos-3-2-3-2">
+\begin{equation*}
+x - (x^3)^3 = x(1 - x^8) = 0 \implies x = 0, \quad x = 1, \quad x = -1
+\end{equation*}
+</div>
+<div class="para">Substituindo esses valores de volta em <span class="process-math">\(y = x^3\text{,}\)</span> obtemos os três pontos críticos:</div>
+<div class="displaymath process-math" id="ex-extremos-3-2-3-4">
+\begin{equation*}
+(0, 0), \quad (1, 1) \quad \text{e} \quad (-1, -1)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-3-2-3" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-extremos-3-2-4">
+<div class="para">Para classificar os pontos, calculamos as derivadas parciais de segunda ordem:</div>
+<div class="displaymath process-math" id="ex-extremos-3-2-4-1">
+\begin{equation*}
+\frac{\partial^2 f}{\partial x^2} = -3x^2, \quad \frac{\partial^2 f}{\partial y^2} = -3y^2, \quad \frac{\partial^2 f}{\partial x \partial y} = 1
+\end{equation*}
+</div>
+<div class="para">A quantidade discriminante é:</div>
+<div class="displaymath process-math" id="ex-extremos-3-2-4-2">
+\begin{equation*}
+d = (-3x^2)(-3y^2) - (1)^2 = 9x^2y^2 - 1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-3-2-4" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para" id="ex-extremos-3-2-5">Classificamos cada ponto crítico avaliando <span class="process-math">\(d\)</span> e <span class="process-math">\(\frac{\partial^2 f}{\partial x^2}\text{:}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-3-2-5" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<ul class="disc" id="ex-extremos-3-2-6">
+<li id="ex-extremos-3-2-6-1">
+<div class="para" id="ex-extremos-3-2-6-1-1">Para o ponto <span class="process-math">\((0, 0)\text{:}\)</span> temos <span class="process-math">\(d = 9(0)^2(0)^2 - 1 = -1 \lt 0\text{.}\)</span> Logo, <span class="process-math">\((0, 0)\)</span> é um <dfn class="terminology">ponto de sela</dfn>.<div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-3-2-6-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-extremos-3-2-6-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-extremos-3-2-6-2">
+<div class="para" id="ex-extremos-3-2-6-2-1">Para o ponto <span class="process-math">\((1, 1)\text{:}\)</span> temos <span class="process-math">\(d = 9(1)^2(1)^2 - 1 = 8 \gt 0\)</span> e <span class="process-math">\(\frac{\partial^2 f}{\partial x^2}(1, 1) = -3(1)^2 = -3 \lt 0\text{.}\)</span> Logo, a função possui um <dfn class="terminology">máximo relativo</dfn> de valor <span class="process-math">\(f(1, 1) = \frac{1}{2}\)</span> no ponto <span class="process-math">\((1, 1)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-3-2-6-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-extremos-3-2-6-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-extremos-3-2-6-3">
+<div class="para" id="ex-extremos-3-2-6-3-1">Para o ponto <span class="process-math">\((-1, -1)\text{:}\)</span> temos <span class="process-math">\(d = 9(-1)^2(-1)^2 - 1 = 8 \gt 0\)</span> e <span class="process-math">\(\frac{\partial^2 f}{\partial x^2}(-1, -1) = -3(-1)^2 = -3 \lt 0\text{.}\)</span> Logo, a função possui um <dfn class="terminology">máximo relativo</dfn> de valor <span class="process-math">\(f(-1, -1) = \frac{1}{2}\)</span> no ponto <span class="process-math">\((-1, -1)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#ex-extremos-3-2-6-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-extremos-3-2-6-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Solução 1.13.1"><a href="#ex-extremos-3-2" title="Copy heading and permalink for Solução 1.13.1" aria-label="Copy heading and permalink for Solução 1.13.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.13"><a href="#ex-extremos-3" title="Copy heading and permalink for Exemplo 1.13" aria-label="Copy heading and permalink for Exemplo 1.13">🔗</a></div>
+</article></details>
+<details id="exec-extremos-3" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exercício de Verificação</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exec-extremos-3-1-1">Determine os extremos relativos e pontos de sela de <span class="process-math">\(f(x, y) = \frac{y^2}{16} - \frac{x^2}{4}\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exec-extremos-3-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exec-extremos-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Dica</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="exec-extremos-3-2-1">Calcule as derivadas parciais e encontre o único ponto crítico. Em seguida, utilize o discriminante <span class="process-math">\(d\)</span> para classificar.<div class="autopermalink" data-description="Parágrafo"><a href="#exec-extremos-3-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Dica 1.14.1"><a href="#exec-extremos-3-2" title="Copy heading and permalink for Dica 1.14.1" aria-label="Copy heading and permalink for Dica 1.14.1">🔗</a></div>
+</div></details>
+<details id="exec-extremos-3-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="exec-extremos-3-3-1">Ponto de sela na origem <span class="process-math">\((0, 0)\)</span> com valor de <span class="process-math">\(f(0, 0) = 0\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exec-extremos-3-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.14.1"><a href="#exec-extremos-3-3" title="Copy heading and permalink for Resposta 1.14.1" aria-label="Copy heading and permalink for Resposta 1.14.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício de Verificação 1.14"><a href="#exec-extremos-3" title="Copy heading and permalink for Exercício de Verificação 1.14" aria-label="Copy heading and permalink for Exercício de Verificação 1.14">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Subseção 1.3: Teste das Segundas Derivadas Parciais"><a href="#subsec-teste-segundas-derivadas" title="Copy heading and permalink for Subseção 1.3: Teste das Segundas Derivadas Parciais" aria-label="Copy heading and permalink for Subseção 1.3: Teste das Segundas Derivadas Parciais">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-otimizacao-aplicada">
+<h3 class="heading hide-type">
+<span class="type">Subseção</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Aplicações de Extremos (Otimização)</span>
+</h3>
+<section class="introduction" id="subsec-otimizacao-aplicada-2">
+<div class="para" id="subsec-otimizacao-aplicada-2-1">Os problemas de otimização no mundo real envolvem a maximização ou minimização de uma função de duas variáveis modelando lucro, custo, volume ou área.<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-otimizacao-aplicada-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div></section>
+<details id="ex-otimizacao-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Determinação do Lucro Máximo.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="ex-otimizacao-4-2-1">
+<div class="para">Uma empresa fabrica dois produtos substitutos cujas funções de demanda são dadas por:</div>
+<div class="displaymath process-math" id="ex-otimizacao-4-2-1-1">
+\begin{align*}
+x_1 \amp = 200(p_2 - p_1) \quad \text{(demanda pelo produto 1)}\\
+x_2 \amp = 500 + 100p_1 - 180p_2 \quad \text{(demanda pelo produto 2)}
+\end{align*}
+</div>
+<div class="para">em que <span class="process-math">\(p_1\)</span> e <span class="process-math">\(p_2\)</span> são os preços por unidade (em dólares) e <span class="process-math">\(x_1\)</span> e <span class="process-math">\(x_2\)</span> são os números de unidades vendidas. Os custos de produção de cada produto são, respectivamente, <span class="process-math">\(\$0,50\)</span> e <span class="process-math">\(\$0,75\)</span> por unidade. Determine os preços que resultarão em lucro máximo.</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-otimizacao-4-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-otimizacao-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="ex-otimizacao-4-3-1">As funções de custo total <span class="process-math">\(C\)</span> e de receita total <span class="process-math">\(R\)</span> são formuladas da seguinte maneira:<div class="autopermalink" data-description="Parágrafo"><a href="#ex-otimizacao-4-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-otimizacao-4-3-2">
+<div class="para">Escrevendo o custo total em termos dos preços substituindo <span class="process-math">\(x_1\)</span> e <span class="process-math">\(x_2\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-otimizacao-4-3-2-3">
+\begin{align*}
+C \amp = 0,50x_1 + 0,75x_2\\
+\amp = 0,50[200(p_2 - p_1)] + 0,75[500 + 100p_1 - 180p_2]\\
+\amp = 100p_2 - 100p_1 + 375 + 75p_1 - 135p_2\\
+\amp = 375 - 25p_1 - 35p_2
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-otimizacao-4-3-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-otimizacao-4-3-3">
+<div class="para">Escrevendo a receita total:</div>
+<div class="displaymath process-math" id="ex-otimizacao-4-3-3-1">
+\begin{align*}
+R \amp = p_1x_1 + p_2x_2\\
+\amp = p_1[200(p_2 - p_1)] + p_2[500 + 100p_1 - 180p_2]\\
+\amp = 200p_1p_2 - 200p_1^2 + 500p_2 + 100p_1p_2 - 180p_2^2\\
+\amp = -200p_1^2 - 180p_2^2 + 300p_1p_2 + 500p_2
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-otimizacao-4-3-3" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-otimizacao-4-3-4">
+<div class="para">Obtemos assim a função de lucro total <span class="process-math">\(P = R - C\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-otimizacao-4-3-4-2">
+\begin{align*}
+P \amp = (-200p_1^2 - 180p_2^2 + 300p_1p_2 + 500p_2) - (375 - 25p_1 - 35p_2)\\
+\amp = -200p_1^2 - 180p_2^2 + 300p_1p_2 + 25p_1 + 535p_2 - 375
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-otimizacao-4-3-4" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-otimizacao-4-3-5">
+<div class="para">O lucro máximo ocorre quando as derivadas parciais de primeira ordem em relação a <span class="process-math">\(p_1\)</span> e <span class="process-math">\(p_2\)</span> são zero:</div>
+<div class="displaymath process-math" id="ex-otimizacao-4-3-5-3">
+\begin{align*}
+\frac{\partial P}{\partial p_1} \amp = -400p_1 + 300p_2 + 25 = 0\\
+\frac{\partial P}{\partial p_2} \amp = 300p_1 - 360p_2 + 535 = 0
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-otimizacao-4-3-5" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-otimizacao-4-3-6">
+<div class="para">Resolvendo esse sistema linear simultaneamente: da primeira equação temos <span class="process-math">\(p_2 = \frac{4}{3}p_1 - \frac{1}{12}\text{.}\)</span> Substituindo na segunda:</div>
+<div class="displaymath process-math" id="ex-otimizacao-4-3-6-2">
+\begin{align*}
+300p_1 - 360\left(\frac{4}{3}p_1 - \frac{1}{12}\right) + 535 \amp = 0\\
+300p_1 - 480p_1 + 30 + 535 \amp = 0\\
+-180p_1 + 565 \amp = 0 \implies p_1 \approx 3,14
+\end{align*}
+</div>
+<div class="para">E então:</div>
+<div class="displaymath process-math" id="ex-otimizacao-4-3-6-3">
+\begin{equation*}
+p_2 = \frac{4}{3}(3,14) - 0,08 \approx 4,10
+\end{equation*}
+</div>
+<div class="para">Como as segundas derivadas parciais são <span class="process-math">\(\frac{\partial^2 P}{\partial p_1^2} = -400 \lt 0\text{,}\)</span> <span class="process-math">\(\frac{\partial^2 P}{\partial p_2^2} = -360 \lt 0\)</span> e <span class="process-math">\(\frac{\partial^2 P}{\partial p_1 \partial p_2} = 300\text{,}\)</span> temos:</div>
+<div class="displaymath process-math" id="ex-otimizacao-4-3-6-7">
+\begin{equation*}
+d = (-400)(-360) - (300)^2 = 54.000 \gt 0
+\end{equation*}
+</div>
+<div class="para">Portanto, o ponto crítico representa de fato um máximo relativo. Assim, os preços de venda que maximizam o lucro são <span class="process-math">\(p_1 = \$3,14\)</span> e <span class="process-math">\(p_2 = \$4,10\text{,}\)</span> resultando em um lucro total máximo de <span class="process-math">\(P(3,14, 4,10) \approx \$761,48\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-otimizacao-4-3-6" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solução 1.15.1"><a href="#ex-otimizacao-4-3" title="Copy heading and permalink for Solução 1.15.1" aria-label="Copy heading and permalink for Solução 1.15.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.15: Determinação do Lucro Máximo"><a href="#ex-otimizacao-4" title="Copy heading and permalink for Exemplo 1.15: Determinação do Lucro Máximo" aria-label="Copy heading and permalink for Exemplo 1.15: Determinação do Lucro Máximo">🔗</a></div>
+</article></details>
+<details id="exec-otimizacao-4" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exercício de Verificação</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="exec-otimizacao-4-1-1">Determine os preços que resultarão em lucro máximo para os produtos do Exemplo 4 se os custos de produção unitários passarem a ser <span class="process-math">\(\$0,75\)</span> para o produto 1 e <span class="process-math">\(\$0,50\)</span> para o produto 2.<div class="autopermalink" data-description="Parágrafo"><a href="#exec-otimizacao-4-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exec-otimizacao-4-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Dica</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="exec-otimizacao-4-2-1">Substitua os novos custos na equação de custo, recalcule a expressão do lucro e resolva o novo sistema linear gerado pelas derivadas de primeira ordem.<div class="autopermalink" data-description="Parágrafo"><a href="#exec-otimizacao-4-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Dica 1.16.1"><a href="#exec-otimizacao-4-2" title="Copy heading and permalink for Dica 1.16.1" aria-label="Copy heading and permalink for Dica 1.16.1">🔗</a></div>
+</div></details>
+<details id="exec-otimizacao-4-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="exec-otimizacao-4-3-1">Preços ótimos: <span class="process-math">\(p_1 \approx \$3,11\)</span> e <span class="process-math">\(p_2 \approx \$3,81\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exec-otimizacao-4-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.16.1"><a href="#exec-otimizacao-4-3" title="Copy heading and permalink for Resposta 1.16.1" aria-label="Copy heading and permalink for Resposta 1.16.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício de Verificação 1.16"><a href="#exec-otimizacao-4" title="Copy heading and permalink for Exercício de Verificação 1.16" aria-label="Copy heading and permalink for Exercício de Verificação 1.16">🔗</a></div>
+</article></details>
+<details id="ex-otimizacao-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Determinação de um Volume Máximo.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="ex-otimizacao-5-2-1">Considere todos os sólidos retangulares possíveis localizados no primeiro octante que estejam apoiados sobre o plano <span class="process-math">\(xy\)</span> com um vértice na origem e o vértice oposto no plano <span class="process-math">\(6x + 4y + 3z = 24\text{.}\)</span> Dentre todos esses sólidos, determine aquele que possui o maior volume.<div class="autopermalink" data-description="Parágrafo"><a href="#ex-otimizacao-5-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-otimizacao-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-otimizacao-5-3-1">
+<div class="para">O vértice oposto localiza-se no plano dado por <span class="process-math">\(6x + 4y + 3z = 24\text{.}\)</span> Isolando a variável <span class="process-math">\(z\text{,}\)</span> expressamos a altura do sólido em termos de <span class="process-math">\(x\)</span> e <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-otimizacao-5-3-1-5">
+\begin{equation*}
+z = 8 - 2x - \frac{4}{3}y
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-otimizacao-5-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-otimizacao-5-3-2">
+<div class="para">O volume do sólido retangular é dado por <span class="process-math">\(V = x y z\text{.}\)</span> Substituindo <span class="process-math">\(z\)</span> na equação, temos:</div>
+<div class="displaymath process-math" id="ex-otimizacao-5-3-2-3">
+\begin{equation*}
+V(x, y) = xy\left(8 - 2x - \frac{4}{3}y\right) = 8xy - 2x^2y - \frac{4}{3}xy^2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-otimizacao-5-3-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-otimizacao-5-3-3">
+<div class="para">Para determinar os pontos críticos, igualamos as primeiras derivadas parciais a zero:</div>
+<div class="displaymath process-math" id="ex-otimizacao-5-3-3-1">
+\begin{align*}
+\frac{\partial V}{\partial x} \amp = 8y - 4xy - \frac{4}{3}y^2 = y\left(8 - 4x - \frac{4}{3}y\right) = 0\\
+\frac{\partial V}{\partial y} \amp = 8x - 2x^2 - \frac{8}{3}xy = x\left(8 - 2x - \frac{8}{3}y\right) = 0
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-otimizacao-5-3-3" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-otimizacao-5-3-4">
+<div class="para">Desconsiderando as soluções triviais onde as dimensões são zero (<span class="process-math">\(x = 0\)</span> ou <span class="process-math">\(y = 0\)</span>), resolvemos o sistema:</div>
+<div class="displaymath process-math" id="ex-otimizacao-5-3-4-3">
+\begin{align*}
+8 - 4x - \frac{4}{3}y \amp = 0 \implies 3x + y = 6 \implies y = 6 - 3x\\
+8 - 2x - \frac{8}{3}y \amp = 0 \implies 3x + 4y = 12
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-otimizacao-5-3-4" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="ex-otimizacao-5-3-5">
+<div class="para">Substituindo <span class="process-math">\(y = 6 - 3x\)</span> na segunda equação simplificada:</div>
+<div class="displaymath process-math" id="ex-otimizacao-5-3-5-2">
+\begin{equation*}
+3x + 4(6 - 3x) = 12 \implies -9x + 24 = 12 \implies x = \frac{4}{3}
+\end{equation*}
+</div>
+<div class="para">Substituindo o valor de <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-otimizacao-5-3-5-4">
+\begin{equation*}
+y = 6 - 3\left(\frac{4}{3}\right) = 2 \quad \text{e} \quad z = 8 - 2\left(\frac{4}{3}\right) - \frac{4}{3}(2) = \frac{8}{3}
+\end{equation*}
+</div>
+<div class="para">Assim, o sólido que maximiza o volume possui as dimensões <span class="process-math">\(x = \frac{4}{3}\text{,}\)</span> <span class="process-math">\(y = 2\)</span> e <span class="process-math">\(z = \frac{8}{3}\text{,}\)</span> gerando um volume máximo de <span class="process-math">\(V = \frac{64}{9} \approx 7,11\)</span> unidades de volume.</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#ex-otimizacao-5-3-5" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solução 1.17.1"><a href="#ex-otimizacao-5-3" title="Copy heading and permalink for Solução 1.17.1" aria-label="Copy heading and permalink for Solução 1.17.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.17: Determinação de um Volume Máximo"><a href="#ex-otimizacao-5" title="Copy heading and permalink for Exemplo 1.17: Determinação de um Volume Máximo" aria-label="Copy heading and permalink for Exemplo 1.17: Determinação de um Volume Máximo">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Subseção 1.4: Aplicações de Extremos (Otimização)"><a href="#subsec-otimizacao-aplicada" title="Copy heading and permalink for Subseção 1.4: Aplicações de Extremos (Otimização)" aria-label="Copy heading and permalink for Subseção 1.4: Aplicações de Extremos (Otimização)">🔗</a></div>
+</section>
+<section class="exercises" id="exercises-extremos-funcoes">
+<h3 class="heading hide-type">
+<span class="type">Exercícios</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercícios Propostos</span>
+</h3>
+<article class="exercise exercise-like" id="exercises-extremos-funcoes-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercises-extremos-funcoes-2-1-1">Examine os extremos relativos e pontos de sela da função <span class="process-math">\(f(x, y) = x^2 + y^2 - 4x - 4y + 8\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exercises-extremos-funcoes-2-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercises-extremos-funcoes-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="exercises-extremos-funcoes-2-2-1">Mínimo relativo de <span class="process-math">\(0\)</span> no ponto crítico <span class="process-math">\((2, 2)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exercises-extremos-funcoes-2-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.5.1.1"><a href="#exercises-extremos-funcoes-2-2" title="Copy heading and permalink for Resposta 1.5.1.1" aria-label="Copy heading and permalink for Resposta 1.5.1.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício 1.5.1"><a href="#exercises-extremos-funcoes-2" title="Copy heading and permalink for Exercício 1.5.1" aria-label="Copy heading and permalink for Exercício 1.5.1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-extremos-funcoes-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercises-extremos-funcoes-3-1-1">Examine os extremos relativos e pontos de sela da função <span class="process-math">\(f(x, y) = 3x^2 + 2y^2 - 3x - 4y + 5\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exercises-extremos-funcoes-3-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercises-extremos-funcoes-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="exercises-extremos-funcoes-3-2-1">Mínimo relativo de <span class="process-math">\(\frac{9}{4}\)</span> no ponto crítico <span class="process-math">\((\frac{1}{2}, 1)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exercises-extremos-funcoes-3-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.5.2.1"><a href="#exercises-extremos-funcoes-3-2" title="Copy heading and permalink for Resposta 1.5.2.1" aria-label="Copy heading and permalink for Resposta 1.5.2.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício 1.5.2"><a href="#exercises-extremos-funcoes-3" title="Copy heading and permalink for Exercício 1.5.2" aria-label="Copy heading and permalink for Exercício 1.5.2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-extremos-funcoes-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercises-extremos-funcoes-4-1-1">Examine os extremos relativos e pontos de sela da função <span class="process-math">\(f(x, y) = x^2 - 6xy + 10y^2 - 4y - 4\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exercises-extremos-funcoes-4-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercises-extremos-funcoes-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="exercises-extremos-funcoes-4-2-1">Mínimo relativo de <span class="process-math">\(-8\)</span> no ponto crítico <span class="process-math">\((6, 2)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exercises-extremos-funcoes-4-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.5.3.1"><a href="#exercises-extremos-funcoes-4-2" title="Copy heading and permalink for Resposta 1.5.3.1" aria-label="Copy heading and permalink for Resposta 1.5.3.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício 1.5.3"><a href="#exercises-extremos-funcoes-4" title="Copy heading and permalink for Exercício 1.5.3" aria-label="Copy heading and permalink for Exercício 1.5.3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-extremos-funcoes-5"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercises-extremos-funcoes-5-1-1">Examine os extremos relativos e pontos de sela da função clássica <span class="process-math">\(f(x, y) = x^3 - 3xy + y^3\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exercises-extremos-funcoes-5-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercises-extremos-funcoes-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="exercises-extremos-funcoes-5-2-1">Ponto de sela na origem <span class="process-math">\((0, 0)\)</span> com valor <span class="process-math">\(f(0,0)=0\)</span> e mínimo relativo de <span class="process-math">\(-1\)</span> no ponto crítico <span class="process-math">\((1, 1)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exercises-extremos-funcoes-5-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.5.4.1"><a href="#exercises-extremos-funcoes-5-2" title="Copy heading and permalink for Resposta 1.5.4.1" aria-label="Copy heading and permalink for Resposta 1.5.4.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício 1.5.4"><a href="#exercises-extremos-funcoes-5" title="Copy heading and permalink for Exercício 1.5.4" aria-label="Copy heading and permalink for Exercício 1.5.4">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-extremos-funcoes-6"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercises-extremos-funcoes-6-1-1">Determine os extremos relativos da função <span class="process-math">\(f(x, y) = 9 - (x - 3)^2 - (y - 2)^2\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exercises-extremos-funcoes-6-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercises-extremos-funcoes-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="exercises-extremos-funcoes-6-2-1">Máximo relativo de <span class="process-math">\(9\)</span> no ponto crítico <span class="process-math">\((3, 2)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exercises-extremos-funcoes-6-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.5.5.1"><a href="#exercises-extremos-funcoes-6-2" title="Copy heading and permalink for Resposta 1.5.5.1" aria-label="Copy heading and permalink for Resposta 1.5.5.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício 1.5.5"><a href="#exercises-extremos-funcoes-6" title="Copy heading and permalink for Exercício 1.5.5" aria-label="Copy heading and permalink for Exercício 1.5.5">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-extremos-funcoes-7"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercises-extremos-funcoes-7-1-1">Determine três números positivos <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> e <span class="process-math">\(z\)</span> cuja soma é <span class="process-math">\(30\)</span> e cujo produto é máximo.<div class="autopermalink" data-description="Parágrafo"><a href="#exercises-extremos-funcoes-7-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercises-extremos-funcoes-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="exercises-extremos-funcoes-7-2-1">Os números são <span class="process-math">\(x = 10\text{,}\)</span> <span class="process-math">\(y = 10\)</span> e <span class="process-math">\(z = 10\text{,}\)</span> gerando o produto máximo de <span class="process-math">\(1000\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exercises-extremos-funcoes-7-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.5.6.1"><a href="#exercises-extremos-funcoes-7-2" title="Copy heading and permalink for Resposta 1.5.6.1" aria-label="Copy heading and permalink for Resposta 1.5.6.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício 1.5.6"><a href="#exercises-extremos-funcoes-7" title="Copy heading and permalink for Exercício 1.5.6" aria-label="Copy heading and permalink for Exercício 1.5.6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-extremos-funcoes-8"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercises-extremos-funcoes-8-1-1">A receita total semanal estimada de uma loja que comercializa dois modelos de aparadores de grama é modelada por <span class="process-math">\(R(p_1, p_2) = -2p_1^2 - 3p_2^2 + 2p_1p_2 + 100p_1 + 120p_2\text{,}\)</span> em que <span class="process-math">\(p_1\)</span> e <span class="process-math">\(p_2\)</span> são os preços unitários de venda de cada modelo. Determine os preços que maximizam a receita total semanal.<div class="autopermalink" data-description="Parágrafo"><a href="#exercises-extremos-funcoes-8-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercises-extremos-funcoes-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="exercises-extremos-funcoes-8-2-1">Preços ótimos de venda: <span class="process-math">\(p_1 = \$42\)</span> e <span class="process-math">\(p_2 = \$34\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exercises-extremos-funcoes-8-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.5.7.1"><a href="#exercises-extremos-funcoes-8-2" title="Copy heading and permalink for Resposta 1.5.7.1" aria-label="Copy heading and permalink for Resposta 1.5.7.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício 1.5.7"><a href="#exercises-extremos-funcoes-8" title="Copy heading and permalink for Exercício 1.5.7" aria-label="Copy heading and permalink for Exercício 1.5.7">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-extremos-funcoes-9"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="exercises-extremos-funcoes-9-1-1">Um fabricante produz um engradado de madeira para armazenamento que possui a parte superior aberta (sem tampa). O volume de cada engradado é de <span class="process-math">\(6\)</span> pés cúbicos. Os custos com o material são de <span class="process-math">\(\$0,15\)</span> por pé quadrado para a base do engradado e de <span class="process-math">\(\$0,10\)</span> por pé quadrado para as laterais. Determine as dimensões que minimizam o custo de cada engradado e calcule o valor desse custo mínimo.<div class="autopermalink" data-description="Parágrafo"><a href="#exercises-extremos-funcoes-9-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="exercises-extremos-funcoes-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="exercises-extremos-funcoes-9-2-1">Dimensões da base: <span class="process-math">\(2 \text{ pés} \times 2 \text{ pés}\text{;}\)</span> altura: <span class="process-math">\(1,5 \text{ pé}\text{.}\)</span> Custo mínimo: <span class="process-math">\(\$1,80\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#exercises-extremos-funcoes-9-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.5.8.1"><a href="#exercises-extremos-funcoes-9-2" title="Copy heading and permalink for Resposta 1.5.8.1" aria-label="Copy heading and permalink for Resposta 1.5.8.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício 1.5.8"><a href="#exercises-extremos-funcoes-9" title="Copy heading and permalink for Exercício 1.5.8" aria-label="Copy heading and permalink for Exercício 1.5.8">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercícios 1.5: Exercícios Propostos"><a href="#exercises-extremos-funcoes" title="Copy heading and permalink for Exercícios 1.5: Exercícios Propostos" aria-label="Copy heading and permalink for Exercícios 1.5: Exercícios Propostos">🔗</a></div>
+</section><div class="autopermalink" data-description="Seção 1: Extremos de funções de duas variáveis"><a href="#calc-extremos-duas-variaveis-4" title="Copy heading and permalink for Seção 1: Extremos de funções de duas variáveis" aria-label="Copy heading and permalink for Seção 1: Extremos de funções de duas variáveis">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="calc-extremos-duas-variaveis.html" title="Anterior"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Anterior</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Próximo</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

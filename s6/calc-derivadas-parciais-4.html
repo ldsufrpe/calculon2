@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="pt-BR" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Funções de mais de uma variável e Derivadas parciais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="article">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.2';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.d0616b3d72ab3b06.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.af9055d29ed602c4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Executar (Sage)';
+</script>
+</head>
+<body class="pretext article ignore-math">
+<a class="assistive" href="#ptx-content">Ir ao conteúdo principal</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="calc-derivadas-parciais.html"><span class="title">Derivadas Parciais: S7</span></a></h1>
+<p class="byline">Leon Silva, Lorena Brizza</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Sumário"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Sumário</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Buscando por: </h2>
+<div id="searchempty" class="searchempty"><span>Não encontrado.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="calc-derivadas-parciais.html" title="Anterior"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Anterior</span></a><a class="up-button button" href="calc-derivadas-parciais.html" title="Acima"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Acima</span></a><a class="next-button button" href="references-backmatter.html" title="Próximo"><span class="name">Próximo</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\ct}[1]{\color{gray}{\text{#1}}}
+\newcommand{\ctm}[1]{\color{gray}{#1}}
+\newcommand{\doubler}[1]{2#1}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ob}[2]{\color{gray}{\overbrace{\color{black}{#1}}^{#2}}}
+\newcommand{\ub}[2]{\color{gray}{\underbrace{\color{black}{#1}}_{#2}}}
+\newcommand{\integral}[2]{\displaystyle\int {#1}\,\dd {#2}}
+\newcommand{\integrald}[4]{\displaystyle\int_{#2}^{#3} {#1}\,\dd {#4}}
+\let\arcsec\relax
+\DeclareMathOperator{\arcsec}{arc \,sec}
+\let\sin\relax
+\DeclareMathOperator{\sin}{sen}
+\let\arcsin\relax
+\DeclareMathOperator{\arcsin}{arc \,sen}
+\let\arccos\relax
+\DeclareMathOperator{\arccos}{arc \,cos}
+\let\csc\relax
+\DeclareMathOperator{\csc}{cossec}
+\let\tan\relax
+\DeclareMathOperator{\tan}{tg}
+\let\arctan\relax
+\DeclareMathOperator{\arctan}{arc\,tg}
+\let\cot\relax
+\DeclareMathOperator{\cot}{cotg}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="calc-derivadas-parciais-2.html" class="internal"><span class="title">Pré-textual</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-abstract"><div class="toc-title-box"><a href="calc-derivadas-parciais-2.html#calc-derivadas-parciais-2-3" class="internal"><span class="title">Resumo</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="calc-derivadas-parciais-4.html" class="internal"><span class="codenumber">1</span> <span class="title">Funções de mais de uma variável e Derivadas parciais</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="calc-derivadas-parciais-4.html#subsec-funcoes-duas-tres-variaveis" class="internal"><span class="codenumber">1.1</span> <span class="title">Funções com duas e três variáveis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="calc-derivadas-parciais-4.html#subsec-dominio-imagem" class="internal"><span class="codenumber">1.2</span> <span class="title">Domínio e Imagem de Funções de Duas Variáveis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="calc-derivadas-parciais-4.html#subsec-limite" class="internal"><span class="codenumber">1.3</span> <span class="title">Limite de Funções de Duas Variáveis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="calc-derivadas-parciais-4.html#subsec-graficos" class="internal"><span class="codenumber">1.4</span> <span class="title">Gráficos e Curvas de Nível</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="calc-derivadas-parciais-4.html#subsec-derivadas-parciais-2" class="internal"><span class="codenumber">1.5</span> <span class="title">Derivadas Parciais</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="calc-derivadas-parciais-4.html#subsec-Interpretacao-Geo-DP" class="internal"><span class="codenumber">1.6</span> <span class="title">Interpretação Geométrica das Derivadas Parciais</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="calc-derivadas-parciais-4.html#subsec-derivadas-parciais-ordem-superior" class="internal"><span class="codenumber">1.7</span> <span class="title">Derivadas parciais de ordem superior</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="calc-derivadas-parciais-4.html#exercises-log-integral" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercícios</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="references-backmatter.html" class="internal"><span class="codenumber">2</span> <span class="title">Referências</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="calc-derivadas-parciais-4">
+<h2 class="heading hide-type">
+<span class="type">Seção</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Funções de mais de uma variável e Derivadas parciais</span>
+</h2>
+<article class="objectives goal-like" id="calc-derivadas-parciais-4-2"><h3 class="heading">
+<span class="type">Objetivos<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Estrutura</span>
+</h3>
+<ol class="decimal" id="calc-derivadas-parciais-4-2-2">
+<li id="calc-derivadas-parciais-4-2-2-1">
+<div class="para" id="calc-derivadas-parciais-4-2-2-1-1">Conceito de funções de duas o mais variáveis.<div class="autopermalink" data-description="Parágrafo"><a href="#calc-derivadas-parciais-4-2-2-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objetivo 1.1"><a href="#calc-derivadas-parciais-4-2-2-1" title="Copy heading and permalink for Objetivo 1.1" aria-label="Copy heading and permalink for Objetivo 1.1">🔗</a></div>
+</li>
+<li id="calc-derivadas-parciais-4-2-2-2">
+<div class="para" id="calc-derivadas-parciais-4-2-2-2-1">Calcular derivadas parciais de primeira ordem.<div class="autopermalink" data-description="Parágrafo"><a href="#calc-derivadas-parciais-4-2-2-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objetivo 1.2"><a href="#calc-derivadas-parciais-4-2-2-2" title="Copy heading and permalink for Objetivo 1.2" aria-label="Copy heading and permalink for Objetivo 1.2">🔗</a></div>
+</li>
+<li id="calc-derivadas-parciais-4-2-2-3">
+<div class="para" id="calc-derivadas-parciais-4-2-2-3-1">Calcular derivadas parciais de segunda ordem.<div class="autopermalink" data-description="Parágrafo"><a href="#calc-derivadas-parciais-4-2-2-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objetivo 1.3"><a href="#calc-derivadas-parciais-4-2-2-3" title="Copy heading and permalink for Objetivo 1.3" aria-label="Copy heading and permalink for Objetivo 1.3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Objetivos 1: Estrutura"><a href="#calc-derivadas-parciais-4-2" title="Copy heading and permalink for Objetivos 1: Estrutura" aria-label="Copy heading and permalink for Objetivos 1: Estrutura">🔗</a></div>
+</article>
+<section class="subsection" id="subsec-funcoes-duas-tres-variaveis">
+<h3 class="heading hide-type">
+<span class="type">Subseção</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Funções com duas e três variáveis</span>
+</h3>
+<figure class="figure figure-like" id="subsec-funcoes-duas-tres-variaveis-2"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/anfHqMW2OLI?&amp;modestbranding=1&amp;rel=0" id="funcoes-mais-variaveis"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figura 1.1: Funções com duas e três variáveis"><a href="#subsec-funcoes-duas-tres-variaveis-2" title="Copy heading and permalink for Figura 1.1: Funções com duas e três variáveis" aria-label="Copy heading and permalink for Figura 1.1: Funções com duas e três variáveis">🔗</a></div></figcaption>
+</figure>
+<section class="introduction" id="subsec-funcoes-duas-tres-variaveis-3">
+<div class="para logical" id="subsec-funcoes-duas-tres-variaveis-3-1">
+<div class="para">A notação para uma função de duas ou mais variáveis é similar àquela para uma função de uma única variável. Vejamos dois exemplos:</div>
+<ul class="disc" id="subsec-funcoes-duas-tres-variaveis-3-1-1">
+<li id="subsec-funcoes-duas-tres-variaveis-3-1-1-1">
+<div class="para" id="subsec-funcoes-duas-tres-variaveis-3-1-1-1-1">
+<span class="process-math">\(z = f(x,y) = 2x^3 + xy\)</span> (função de duas variáveis).<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-funcoes-duas-tres-variaveis-3-1-1-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-funcoes-duas-tres-variaveis-3-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-funcoes-duas-tres-variaveis-3-1-1-2">
+<div class="para" id="subsec-funcoes-duas-tres-variaveis-3-1-1-2-1">
+<span class="process-math">\(w = f(x,y,z) = x^2 + y^2 + z^2\)</span> (função de três variáveis).<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-funcoes-duas-tres-variaveis-3-1-1-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-funcoes-duas-tres-variaveis-3-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-funcoes-duas-tres-variaveis-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div></section>
+<article class="definition definition-like" id="def-funcoes-duas-tres"><h4 class="heading">
+<span class="type">Definição</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="def-funcoes-duas-tres-1-1">Seja <span class="process-math">\(D\)</span> um conjunto de pares ordenados de números reais. Se a cada par ordenado <span class="process-math">\((x, y)\)</span> em <span class="process-math">\(D\)</span> corresponder um único número real <span class="process-math">\(f(x, y)\text{,}\)</span> então <span class="process-math">\(f\)</span> é chamada de <dfn class="terminology">função de duas variáveis</dfn> (<span class="process-math">\(x\)</span> e <span class="process-math">\(y\)</span>). O conjunto <span class="process-math">\(D\)</span> é o <dfn class="terminology">domínio</dfn> de <span class="process-math">\(f\text{,}\)</span> e o conjunto correspondente de valores de <span class="process-math">\(z\)</span> é a <dfn class="terminology">imagem</dfn> de <span class="process-math">\(f\text{.}\)</span> As funções de três, quatro ou mais variáveis são definidas de maneira semelhante.<div class="autopermalink" data-description="Parágrafo"><a href="#def-funcoes-duas-tres-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definição 1.2"><a href="#def-funcoes-duas-tres" title="Copy heading and permalink for Definição 1.2" aria-label="Copy heading and permalink for Definição 1.2">🔗</a></div>
+</article>
+<details id="subsec-funcoes-duas-tres-variaveis-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="subsec-funcoes-duas-tres-variaveis-5-1-1">Para a função de duas variáveis <span class="process-math">\(f(x,y)=2x^2-y^2\)</span> calcule <span class="process-math">\(f(2,3)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-funcoes-duas-tres-variaveis-5-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-funcoes-duas-tres-variaveis-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-funcoes-duas-tres-variaveis-5-2-1">
+<div class="displaymath process-math" id="subsec-funcoes-duas-tres-variaveis-5-2-1-1">
+\begin{align*}
+f(2,3)= \amp 2\cdot 2^2-3^2  \\
+\amp = 9-9=-1
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-funcoes-duas-tres-variaveis-5-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solução 1.3.1"><a href="#subsec-funcoes-duas-tres-variaveis-5-2" title="Copy heading and permalink for Solução 1.3.1" aria-label="Copy heading and permalink for Solução 1.3.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.3"><a href="#subsec-funcoes-duas-tres-variaveis-5" title="Copy heading and permalink for Exemplo 1.3" aria-label="Copy heading and permalink for Exemplo 1.3">🔗</a></div>
+</article></details>
+<details id="subsec-funcoes-duas-tres-variaveis-6" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="subsec-funcoes-duas-tres-variaveis-6-1-1">Para a função de duas variáveis <span class="process-math">\(f(x,y,z)=e^x(y+z)\)</span> calcule <span class="process-math">\(f(0,-1,4)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-funcoes-duas-tres-variaveis-6-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-funcoes-duas-tres-variaveis-6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-funcoes-duas-tres-variaveis-6-2-1">
+<div class="displaymath process-math" id="subsec-funcoes-duas-tres-variaveis-6-2-1-1">
+\begin{align*}
+f(0,-1,4)=e^0(-1+4)\amp \\
+\amp = 1\cdot 3=3 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-funcoes-duas-tres-variaveis-6-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solução 1.4.1"><a href="#subsec-funcoes-duas-tres-variaveis-6-2" title="Copy heading and permalink for Solução 1.4.1" aria-label="Copy heading and permalink for Solução 1.4.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.4"><a href="#subsec-funcoes-duas-tres-variaveis-6" title="Copy heading and permalink for Exemplo 1.4" aria-label="Copy heading and permalink for Exemplo 1.4">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Subseção 1.1: Funções com duas e três variáveis"><a href="#subsec-funcoes-duas-tres-variaveis" title="Copy heading and permalink for Subseção 1.1: Funções com duas e três variáveis" aria-label="Copy heading and permalink for Subseção 1.1: Funções com duas e três variáveis">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-dominio-imagem">
+<h3 class="heading hide-type">
+<span class="type">Subseção</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Domínio e Imagem de Funções de Duas Variáveis</span>
+</h3>
+<figure class="figure figure-like" id="subsec-dominio-imagem-2"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/vn-fMv58nsI?&amp;modestbranding=1&amp;rel=0" id="funcoes-dominio-imagem"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figura 1.5: Domínio e Imagem"><a href="#subsec-dominio-imagem-2" title="Copy heading and permalink for Figura 1.5: Domínio e Imagem" aria-label="Copy heading and permalink for Figura 1.5: Domínio e Imagem">🔗</a></div></figcaption>
+</figure>
+<details id="subsec-dominio-imagem-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="subsec-dominio-imagem-3-1-1">Determine o domínio e a imagem da função <span class="process-math">\(f(x, y) = \sqrt{64 - x^2 - y^2}\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-dominio-imagem-3-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-dominio-imagem-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-dominio-imagem-3-2-1">
+<div class="para">Como nenhuma restrição foi dada, pressupõe-se que o domínio seja o conjunto de todos os pontos para os quais a equação definidora faça sentido. A quantidade no interior do radical deve ser não negativa:</div>
+<div class="displaymath process-math" id="subsec-dominio-imagem-3-2-1-1">
+\begin{equation*}
+64 - x^2 - y^2 \ge 0
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="subsec-dominio-imagem-3-2-1-2">
+\begin{equation*}
+x^2 + y^2 \le 64
+\end{equation*}
+</div>
+<div class="para">Assim, o domínio é o conjunto de todos os pontos que se localizam sobre ou dentro do círculo centrado na origem com raio <span class="process-math">\(8\text{.}\)</span> Como a raiz quadrada não pode ser negativa e o valor máximo dentro da raiz ocorre quando <span class="process-math">\(x=0, y=0\)</span> (resultando em <span class="process-math">\(\sqrt{64} = 8\)</span>), a imagem de <span class="process-math">\(f\)</span> é o conjunto <span class="process-math">\(0 \le z \le 8\text{.}\)</span> O gráfico desta função é a metade superior de uma esfera (um hemisfério).</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-dominio-imagem-3-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solução 1.6.1"><a href="#subsec-dominio-imagem-3-2" title="Copy heading and permalink for Solução 1.6.1" aria-label="Copy heading and permalink for Solução 1.6.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.6"><a href="#subsec-dominio-imagem-3" title="Copy heading and permalink for Exemplo 1.6" aria-label="Copy heading and permalink for Exemplo 1.6">🔗</a></div>
+</article></details>
+<details id="subsec-dominio-imagem-4" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exercício de Verificação</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="subsec-dominio-imagem-4-1-1">Determine o domínio e a imagem da função <span class="process-math">\(f(x, y) = \sqrt{9 - x^2 - y^2}\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-dominio-imagem-4-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-dominio-imagem-4-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Dica</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="subsec-dominio-imagem-4-2-1">O valor dentro da raiz quadrada deve ser maior ou igual a zero.<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-dominio-imagem-4-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Dica 1.7.1"><a href="#subsec-dominio-imagem-4-2" title="Copy heading and permalink for Dica 1.7.1" aria-label="Copy heading and permalink for Dica 1.7.1">🔗</a></div>
+</div></details>
+<details id="subsec-dominio-imagem-4-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="subsec-dominio-imagem-4-3-1">Domínio: <span class="process-math">\(x^2 + y^2 \le 9\text{.}\)</span> Imagem: <span class="process-math">\(0 \le z \le 3\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-dominio-imagem-4-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.7.1"><a href="#subsec-dominio-imagem-4-3" title="Copy heading and permalink for Resposta 1.7.1" aria-label="Copy heading and permalink for Resposta 1.7.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício de Verificação 1.7"><a href="#subsec-dominio-imagem-4" title="Copy heading and permalink for Exercício de Verificação 1.7" aria-label="Copy heading and permalink for Exercício de Verificação 1.7">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Subseção 1.2: Domínio e Imagem de Funções de Duas Variáveis"><a href="#subsec-dominio-imagem" title="Copy heading and permalink for Subseção 1.2: Domínio e Imagem de Funções de Duas Variáveis" aria-label="Copy heading and permalink for Subseção 1.2: Domínio e Imagem de Funções de Duas Variáveis">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-limite">
+<h3 class="heading hide-type">
+<span class="type">Subseção</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limite de Funções de Duas Variáveis</span>
+</h3>
+<figure class="figure figure-like" id="subsec-limite-2"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/dptiiVIhlVg?&amp;modestbranding=1&amp;rel=0" id="limite-duas-veriaveis"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figura 1.8: Limite de Funções de Duas Variáveis"><a href="#subsec-limite-2" title="Copy heading and permalink for Figura 1.8: Limite de Funções de Duas Variáveis" aria-label="Copy heading and permalink for Figura 1.8: Limite de Funções de Duas Variáveis">🔗</a></div></figcaption>
+</figure>
+<section class="introduction" id="subsec-limite-3">
+<div class="para" id="subsec-limite-3-1">O conceito de limite no plano (para funções de duas variáveis) é uma extensão natural do limite de uma única variável. Dizemos que o limite de <span class="process-math">\(f(x,y)\)</span> quando <span class="process-math">\((x,y)\)</span> se aproxima de <span class="process-math">\((a,b)\)</span> é <span class="process-math">\(L\)</span> se o valor de <span class="process-math">\(f(x,y)\)</span> se aproxima de <span class="process-math">\(L\)</span> para todos os pontos suficientemente próximos de <span class="process-math">\((a,b)\text{,}\)</span> independentemente do caminho escolhido. Para funções contínuas (como polinômios e funções racionais bem comportadas no ponto), o limite pode ser calculado por simples substituição.<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div></section>
+<details id="subsec-limite-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="subsec-limite-4-1-1">Calcule o limite: <span class="process-math">\(\lim_{(x,y) \to (1,2)} (x^2y - 3x + 4y)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-4-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-limite-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-limite-4-2-1">
+<div class="para">Como se trata de um polinômio em duas variáveis, a função é contínua em todo o plano. Assim, podemos calcular o limite pela substituição direta dos valores <span class="process-math">\(x = 1\)</span> e <span class="process-math">\(y = 2\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-limite-4-2-1-3">
+\begin{align*}
+\lim_{(x,y) \to (1,2)} (x^2y - 3x + 4y) \amp = (1)^2(2) - 3(1) + 4(2)\\
+\amp = 2 - 3 + 8\\
+\amp = 7
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-4-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solução 1.9.1"><a href="#subsec-limite-4-2" title="Copy heading and permalink for Solução 1.9.1" aria-label="Copy heading and permalink for Solução 1.9.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.9"><a href="#subsec-limite-4" title="Copy heading and permalink for Exemplo 1.9" aria-label="Copy heading and permalink for Exemplo 1.9">🔗</a></div>
+</article></details>
+<details id="subsec-limite-5" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exercício de Verificação</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="subsec-limite-5-1-1">Calcule <span class="process-math">\(\lim_{(x,y) \to (0,1)} \frac{x + y}{x^2 + 1}\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-5-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-limite-5-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Dica</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="subsec-limite-5-2-1">Verifique se o denominador se anula no ponto <span class="process-math">\((0,1)\text{.}\)</span> Se não, use a substituição direta.<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-5-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Dica 1.10.1"><a href="#subsec-limite-5-2" title="Copy heading and permalink for Dica 1.10.1" aria-label="Copy heading and permalink for Dica 1.10.1">🔗</a></div>
+</div></details>
+<details id="subsec-limite-5-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="subsec-limite-5-3-1">
+<span class="process-math">\(1\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-5-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.10.1"><a href="#subsec-limite-5-3" title="Copy heading and permalink for Resposta 1.10.1" aria-label="Copy heading and permalink for Resposta 1.10.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício de Verificação 1.10"><a href="#subsec-limite-5" title="Copy heading and permalink for Exercício de Verificação 1.10" aria-label="Copy heading and permalink for Exercício de Verificação 1.10">🔗</a></div>
+</article></details>
+<div class="para" id="subsec-limite-6">Abaixo estão alguns exemplos clássicos de como demonstrar a não existência de limites na origem <span class="process-math">\((0,0)\)</span> através do teste de múltiplos caminhos.<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-6" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<details id="subsec-limite-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Aproximação pelos eixos coordenados.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="subsec-limite-7-2-1">
+<div class="para">Mostre que o limite não existe na origem para a função:</div>
+<div class="displaymath process-math" id="subsec-limite-7-2-1-1">
+\begin{equation*}
+f(x,y) = \frac{x^2 - y^2}{x^2 + y^2}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-7-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-limite-7-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-limite-7-3-1">
+<div class="para">Para provar que o limite <span class="process-math">\(\lim_{(x,y) \to (0,0)} f(x,y)\)</span> não existe, avaliamos a aproximação por dois caminhos:</div>
+<ul class="disc" id="subsec-limite-7-3-1-2">
+<li id="subsec-limite-7-3-1-2-1">
+<div class="para logical" id="subsec-limite-7-3-1-2-1-1">
+<div class="para">Aproximando pelo eixo <span class="process-math">\(x\)</span> (onde <span class="process-math">\(y=0\)</span>): o limite se torna</div>
+<div class="displaymath process-math" id="subsec-limite-7-3-1-2-1-1-3">
+\begin{equation*}
+\lim_{x \to 0} \frac{x^2 - 0}{x^2 + 0} = \lim_{x \to 0} 1 = 1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-7-3-1-2-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-limite-7-3-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-limite-7-3-1-2-2">
+<div class="para logical" id="subsec-limite-7-3-1-2-2-1">
+<div class="para">Aproximando pelo eixo <span class="process-math">\(y\)</span> (onde <span class="process-math">\(x=0\)</span>): o limite se torna</div>
+<div class="displaymath process-math" id="subsec-limite-7-3-1-2-2-1-3">
+\begin{equation*}
+\lim_{y \to 0} \frac{0 - y^2}{0 + y^2} = \lim_{y \to 0} -1 = -1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-7-3-1-2-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-limite-7-3-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Como a função tende a valores diferentes dependendo do caminho escolhido, o limite geral não existe.</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-7-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-caminhos-eixos"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/fig-caminhos-eixos-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figura</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figura 1.12: Caminhos de aproximação ao longo dos eixos coordenados"><a href="#fig-caminhos-eixos" title="Copy heading and permalink for Figura 1.12: Caminhos de aproximação ao longo dos eixos coordenados" aria-label="Copy heading and permalink for Figura 1.12: Caminhos de aproximação ao longo dos eixos coordenados">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Solução 1.11.1"><a href="#subsec-limite-7-3" title="Copy heading and permalink for Solução 1.11.1" aria-label="Copy heading and permalink for Solução 1.11.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.11: Aproximação pelos eixos coordenados"><a href="#subsec-limite-7" title="Copy heading and permalink for Exemplo 1.11: Aproximação pelos eixos coordenados" aria-label="Copy heading and permalink for Exemplo 1.11: Aproximação pelos eixos coordenados">🔗</a></div>
+</article></details>
+<details id="subsec-limite-8" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exercício de Verificação</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para logical" id="subsec-limite-8-1-1">
+<div class="para">Mostre que o limite não existe na origem para a função:</div>
+<div class="displaymath process-math" id="subsec-limite-8-1-1-1">
+\begin{equation*}
+g(x,y) = \frac{x^2 - 2y^2}{x^2 + y^2}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-8-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-limite-8-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Dica</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="subsec-limite-8-2-1">Calcule os limites aproximando-se pelo eixo <span class="process-math">\(x\)</span> (<span class="process-math">\(y=0\)</span>) e, em seguida, pelo eixo <span class="process-math">\(y\)</span> (<span class="process-math">\(x=0\)</span>).<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-8-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Dica 1.13.1"><a href="#subsec-limite-8-2" title="Copy heading and permalink for Dica 1.13.1" aria-label="Copy heading and permalink for Dica 1.13.1">🔗</a></div>
+</div></details>
+<details id="subsec-limite-8-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="subsec-limite-8-3-1">O limite ao longo do eixo <span class="process-math">\(x\)</span> é <span class="process-math">\(1\text{,}\)</span> enquanto ao longo do eixo <span class="process-math">\(y\)</span> é <span class="process-math">\(-2\text{.}\)</span> Como os limites são diferentes, o limite geral não existe.<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-8-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.13.1"><a href="#subsec-limite-8-3" title="Copy heading and permalink for Resposta 1.13.1" aria-label="Copy heading and permalink for Resposta 1.13.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício de Verificação 1.13"><a href="#subsec-limite-8" title="Copy heading and permalink for Exercício de Verificação 1.13" aria-label="Copy heading and permalink for Exercício de Verificação 1.13">🔗</a></div>
+</article></details>
+<details id="subsec-limite-9" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Aproximação por retas genéricas.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="subsec-limite-9-2-1">
+<div class="para">Verifique a existência do limite na origem para a função:</div>
+<div class="displaymath process-math" id="subsec-limite-9-2-1-1">
+\begin{equation*}
+f(x,y) = \frac{xy}{x^2 + y^2}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-9-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-limite-9-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-limite-9-3-1">
+<div class="para">Os limites ao longo dos eixos coordenados dão o mesmo resultado (<span class="process-math">\(0\)</span>). Para verificar a existência do limite, nos aproximamos da origem por qualquer reta que passe pela origem da forma <span class="process-math">\(y = mx\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-limite-9-3-1-3">
+\begin{equation*}
+\lim_{x \to 0} \frac{x(mx)}{x^2 + (mx)^2} = \lim_{x \to 0} \frac{mx^2}{x^2(1 + m^2)} = \frac{m}{1 + m^2}
+\end{equation*}
+</div>
+<div class="para">O limite depende estritamente do coeficiente angular <span class="process-math">\(m\text{.}\)</span> Por exemplo:</div>
+<ul class="disc" id="subsec-limite-9-3-1-5">
+<li id="subsec-limite-9-3-1-5-1">
+<div class="para" id="subsec-limite-9-3-1-5-1-1">Aproximando-se pela reta <span class="process-math">\(y = x\)</span> (<span class="process-math">\(m=1\)</span>), o valor do limite é <span class="process-math">\(\frac{1}{2}\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-9-3-1-5-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-limite-9-3-1-5-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-limite-9-3-1-5-2">
+<div class="para" id="subsec-limite-9-3-1-5-2-1">Aproximando-se pela reta <span class="process-math">\(y = -x\)</span> (<span class="process-math">\(m=-1\)</span>), o valor do limite é <span class="process-math">\(-\frac{1}{2}\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-9-3-1-5-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-limite-9-3-1-5-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Como o limite varia conforme a inclinação da reta escolhida, o limite não existe na origem.</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-9-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-caminhos-retas"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/fig-caminhos-retas-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figura</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figura 1.15: Caminhos de aproximação por retas genéricas y = mx"><a href="#fig-caminhos-retas" title="Copy heading and permalink for Figura 1.15: Caminhos de aproximação por retas genéricas y = mx" aria-label="Copy heading and permalink for Figura 1.15: Caminhos de aproximação por retas genéricas y = mx">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Solução 1.14.1"><a href="#subsec-limite-9-3" title="Copy heading and permalink for Solução 1.14.1" aria-label="Copy heading and permalink for Solução 1.14.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.14: Aproximação por retas genéricas"><a href="#subsec-limite-9" title="Copy heading and permalink for Exemplo 1.14: Aproximação por retas genéricas" aria-label="Copy heading and permalink for Exemplo 1.14: Aproximação por retas genéricas">🔗</a></div>
+</article></details>
+<details id="subsec-limite-10" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exercício de Verificação</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para logical" id="subsec-limite-10-1-1">
+<div class="para">Verifique a existência do limite na origem para a função:</div>
+<div class="displaymath process-math" id="subsec-limite-10-1-1-1">
+\begin{equation*}
+g(x,y) = \frac{2xy}{x^2 + y^2}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-10-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-limite-10-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Dica</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="subsec-limite-10-2-1">Aproxime-se da origem usando caminhos retilíneos da forma <span class="process-math">\(y = mx\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-10-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Dica 1.16.1"><a href="#subsec-limite-10-2" title="Copy heading and permalink for Dica 1.16.1" aria-label="Copy heading and permalink for Dica 1.16.1">🔗</a></div>
+</div></details>
+<details id="subsec-limite-10-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="subsec-limite-10-3-1">O limite ao longo de qualquer reta <span class="process-math">\(y = mx\)</span> é dado por <span class="process-math">\(\frac{2m}{1+m^2}\text{.}\)</span> Como este valor varia com a inclinação <span class="process-math">\(m\text{,}\)</span> o limite não existe.<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-10-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.16.1"><a href="#subsec-limite-10-3" title="Copy heading and permalink for Resposta 1.16.1" aria-label="Copy heading and permalink for Resposta 1.16.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício de Verificação 1.16"><a href="#subsec-limite-10" title="Copy heading and permalink for Exercício de Verificação 1.16" aria-label="Copy heading and permalink for Exercício de Verificação 1.16">🔗</a></div>
+</article></details>
+<details id="subsec-limite-11" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A armadilha das retas (Aproximação por curvas).</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para logical" id="subsec-limite-11-2-1">
+<div class="para">Investigue a existência do limite na origem para a função:</div>
+<div class="displaymath process-math" id="subsec-limite-11-2-1-1">
+\begin{equation*}
+f(x,y) = \frac{x^2y}{x^4 + y^2}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-11-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-limite-11-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-limite-11-3-1">
+<div class="para">Se tentarmos calcular o limite nos aproximando por qualquer reta que passe pela origem (da forma <span class="process-math">\(y = mx\)</span>), teremos:</div>
+<div class="displaymath process-math" id="subsec-limite-11-3-1-2">
+\begin{equation*}
+\lim_{x \to 0} \frac{x^2(mx)}{x^4 + (mx)^2} = \lim_{x \to 0} \frac{mx^3}{x^4 + m^2x^2} = \lim_{x \to 0} \frac{mx}{x^2 + m^2}
+\end{equation*}
+</div>
+<div class="para">Como <span class="process-math">\(m\)</span> é uma constante, quando <span class="process-math">\(x \to 0\text{,}\)</span> o numerador tende a zero e o denominador tende a <span class="process-math">\(m^2\text{,}\)</span> resultando em um limite igual a <span class="process-math">\(0\text{.}\)</span> O mesmo ocorre se nos aproximarmos pelo eixo <span class="process-math">\(y\)</span> (onde <span class="process-math">\(x=0\)</span>).</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-11-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-limite-11-3-2">
+<div class="para">No entanto, a definição de limite de duas variáveis exige que o valor seja o mesmo por qualquer caminho possível, o que inclui curvas. Vamos testar a aproximação pela parábola <span class="process-math">\(y = x^2\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-limite-11-3-2-2">
+\begin{equation*}
+\lim_{x \to 0} \frac{x^2(x^2)}{x^4 + (x^2)^2} = \lim_{x \to 0} \frac{x^4}{x^4 + x^4} = \lim_{x \to 0} \frac{x^4}{2x^4} = \frac{1}{2}
+\end{equation*}
+</div>
+<div class="para">Como a aproximação por retas resulta em <span class="process-math">\(0\)</span> e a aproximação pela parábola resulta em <span class="process-math">\(\frac{1}{2}\text{,}\)</span> os valores são distintos. Portanto, o limite não existe na origem, mesmo que todas as retas sugiram o contrário.</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-11-3-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-caminhos-curva"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/fig-caminhos-curva-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figura</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figura 1.18: Caminhos de aproximação por retas y = mx e pela parábola y = x^2"><a href="#fig-caminhos-curva" title="Copy heading and permalink for Figura 1.18: Caminhos de aproximação por retas y = mx e pela parábola y = x^2" aria-label="Copy heading and permalink for Figura 1.18: Caminhos de aproximação por retas y = mx e pela parábola y = x^2">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Solução 1.17.1"><a href="#subsec-limite-11-3" title="Copy heading and permalink for Solução 1.17.1" aria-label="Copy heading and permalink for Solução 1.17.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.17: A armadilha das retas (Aproximação por curvas)"><a href="#subsec-limite-11" title="Copy heading and permalink for Exemplo 1.17: A armadilha das retas (Aproximação por curvas)" aria-label="Copy heading and permalink for Exemplo 1.17: A armadilha das retas (Aproximação por curvas)">🔗</a></div>
+</article></details>
+<details id="subsec-limite-12" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exercício de Verificação</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para logical" id="subsec-limite-12-1-1">
+<div class="para">Investigue a existência do limite na origem para a função:</div>
+<div class="displaymath process-math" id="subsec-limite-12-1-1-1">
+\begin{equation*}
+g(x,y) = \frac{xy^2}{x^2 + y^4}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-12-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-limite-12-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Dica</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="subsec-limite-12-2-1">Aproxime-se por retas da forma <span class="process-math">\(x = my\)</span> e depois pela parábola <span class="process-math">\(x = y^2\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-12-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Dica 1.19.1"><a href="#subsec-limite-12-2" title="Copy heading and permalink for Dica 1.19.1" aria-label="Copy heading and permalink for Dica 1.19.1">🔗</a></div>
+</div></details>
+<details id="subsec-limite-12-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="subsec-limite-12-3-1">Ao longo de qualquer reta <span class="process-math">\(x = my\)</span> o limite é <span class="process-math">\(0\text{,}\)</span> mas ao longo de <span class="process-math">\(x = y^2\)</span> o limite é <span class="process-math">\(\frac{1}{2}\text{.}\)</span> Portanto, o limite geral não existe.<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-limite-12-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.19.1"><a href="#subsec-limite-12-3" title="Copy heading and permalink for Resposta 1.19.1" aria-label="Copy heading and permalink for Resposta 1.19.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício de Verificação 1.19"><a href="#subsec-limite-12" title="Copy heading and permalink for Exercício de Verificação 1.19" aria-label="Copy heading and permalink for Exercício de Verificação 1.19">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Subseção 1.3: Limite de Funções de Duas Variáveis"><a href="#subsec-limite" title="Copy heading and permalink for Subseção 1.3: Limite de Funções de Duas Variáveis" aria-label="Copy heading and permalink for Subseção 1.3: Limite de Funções de Duas Variáveis">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-graficos">
+<h3 class="heading hide-type">
+<span class="type">Subseção</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Gráficos e Curvas de Nível</span>
+</h3>
+<figure class="figure figure-like" id="subsec-graficos-2"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/ZWxh61HMg5E?&amp;modestbranding=1&amp;rel=0" id="graficos"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figura 1.20: Gráficos"><a href="#subsec-graficos-2" title="Copy heading and permalink for Figura 1.20: Gráficos" aria-label="Copy heading and permalink for Figura 1.20: Gráficos">🔗</a></div></figcaption>
+</figure>
+<section class="introduction" id="subsec-graficos-3">
+<div class="para" id="subsec-graficos-3-1">Uma função de duas variáveis pode ser representada graficamente como uma superfície no espaço, fazendo <span class="process-math">\(z = f(x, y)\text{.}\)</span> Para auxiliar a visualização, frequentemente utilizamos mapas de contorno, que são formados por <dfn class="terminology">curvas de nível</dfn>. Cada curva de nível representa a interseção da superfície com um plano <span class="process-math">\(z = c\)</span> (onde <span class="process-math">\(c\)</span> é uma constante).<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-graficos-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div></section>
+<details id="subsec-graficos-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.21</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="subsec-graficos-4-1-1">A função de produção de Cobb-Douglas é utilizada em economia para representar o número de unidades produzidas por quantidades variáveis de mão de obra e de capital. Assuma que <span class="process-math">\(x\)</span> represente o número de unidades de mão de obra e <span class="process-math">\(y\)</span> o número de unidades de capital. Então, o nível de produção é modelado por <span class="process-math">\(f(x, y) = Cx^a y^{1-a}\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-graficos-4-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div> 
+<div class="para logical" id="subsec-graficos-4-1-2">
+<div class="para">Um fabricante estima que sua produção pode ser modelada por <span class="process-math">\(f(x, y) = 100x^{0,6}y^{0,4}\text{,}\)</span> em que a mão de obra <span class="process-math">\(x\)</span> é medida em pessoas-hora e o capital <span class="process-math">\(y\)</span> em milhares de dólares.</div>
+<ol class="decimal" id="subsec-graficos-4-1-2-4">
+<li id="subsec-graficos-4-1-2-4-1">
+<div class="para" id="p-derived-subsec-graficos-4-1-2-4-1">Qual é o nível de produção quando <span class="process-math">\(x = 1000\)</span> e <span class="process-math">\(y = 500\text{?}\)</span>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#subsec-graficos-4-1-2-4-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="subsec-graficos-4-1-2-4-2">
+<div class="para" id="p-derived-subsec-graficos-4-1-2-4-2">Qual é o nível de produção quando <span class="process-math">\(x = 2000\)</span> e <span class="process-math">\(y = 1000\text{?}\)</span>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#subsec-graficos-4-1-2-4-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-graficos-4-1-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-graficos-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-graficos-4-2-1">
+<ol class="decimal" id="subsec-graficos-4-2-1-1">
+<li id="subsec-graficos-4-2-1-1-1">
+<div class="para" id="p-derived-subsec-graficos-4-2-1-1-1">Quando <span class="process-math">\(x = 1000\)</span> e <span class="process-math">\(y = 500\text{,}\)</span> o nível de produção é:<div class="displaymath process-math" id="subsec-graficos-4-2-1-1-1-3">
+\begin{equation*}
+f(1000, 500) = 100(1000)^{0,6} (500)^{0,4} \approx 75.786 \text{ unidades}
+\end{equation*}
+</div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#subsec-graficos-4-2-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="subsec-graficos-4-2-1-1-2">
+<div class="para" id="p-derived-subsec-graficos-4-2-1-1-2">Quando <span class="process-math">\(x = 2000\)</span> e <span class="process-math">\(y = 1000\text{,}\)</span> o nível de produção é:<div class="displaymath process-math" id="subsec-graficos-4-2-1-1-2-3">
+\begin{equation*}
+f(2000, 1000) = 100(2000)^{0,6} (1000)^{0,4} \approx 151.572 \text{ unidades}
+\end{equation*}
+</div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#subsec-graficos-4-2-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="para">Observe que quando as quantidades de mão de obra e capital são dobradas, o nível de produção também dobra! As curvas de nível desta função representariam diferentes combinações de mão de obra e capital que geram a mesma quantidade de produção.</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-graficos-4-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solução 1.21.1"><a href="#subsec-graficos-4-2" title="Copy heading and permalink for Solução 1.21.1" aria-label="Copy heading and permalink for Solução 1.21.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.21"><a href="#subsec-graficos-4" title="Copy heading and permalink for Exemplo 1.21" aria-label="Copy heading and permalink for Exemplo 1.21">🔗</a></div>
+</article></details>
+<details id="subsec-graficos-5" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exercício de Verificação</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.22</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="subsec-graficos-5-1-1">Utilize a função de produção de Cobb-Douglas <span class="process-math">\(f(x, y) = 100x^{0,6}y^{0,4}\)</span> para determinar o nível de produção quando <span class="process-math">\(x = 1500\)</span> e <span class="process-math">\(y = 1000\text{.}\)</span> Em seguida, determine para <span class="process-math">\(x = 1000\)</span> e <span class="process-math">\(y = 1500\text{.}\)</span> Qual variável possui maior influência sobre a produção?<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-graficos-5-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-graficos-5-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Dica</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="subsec-graficos-5-2-1">Basta substituir os valores na função e usar uma calculadora. Lembre-se que o expoente de <span class="process-math">\(x\)</span> é maior que o expoente de <span class="process-math">\(y\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-graficos-5-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Dica 1.22.1"><a href="#subsec-graficos-5-2" title="Copy heading and permalink for Dica 1.22.1" aria-label="Copy heading and permalink for Dica 1.22.1">🔗</a></div>
+</div></details>
+<details id="subsec-graficos-5-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="subsec-graficos-5-3-1">
+<span class="process-math">\(f(1500, 1000) \approx 127.542\)</span> e <span class="process-math">\(f(1000, 1500) \approx 117.608\text{.}\)</span> A mão de obra (<span class="process-math">\(x\)</span>) tem maior influência.<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-graficos-5-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.22.1"><a href="#subsec-graficos-5-3" title="Copy heading and permalink for Resposta 1.22.1" aria-label="Copy heading and permalink for Resposta 1.22.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício de Verificação 1.22"><a href="#subsec-graficos-5" title="Copy heading and permalink for Exercício de Verificação 1.22" aria-label="Copy heading and permalink for Exercício de Verificação 1.22">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Subseção 1.4: Gráficos e Curvas de Nível"><a href="#subsec-graficos" title="Copy heading and permalink for Subseção 1.4: Gráficos e Curvas de Nível" aria-label="Copy heading and permalink for Subseção 1.4: Gráficos e Curvas de Nível">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-derivadas-parciais-2">
+<h3 class="heading hide-type">
+<span class="type">Subseção</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Derivadas Parciais</span>
+</h3>
+<figure class="figure figure-like" id="subsec-derivadas-parciais-2-2"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/--G-RKQQ2rs?&amp;modestbranding=1&amp;rel=0" id="DP"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figura 1.23: Derivadas Parciais"><a href="#subsec-derivadas-parciais-2-2" title="Copy heading and permalink for Figura 1.23: Derivadas Parciais" aria-label="Copy heading and permalink for Figura 1.23: Derivadas Parciais">🔗</a></div></figcaption>
+</figure>
+<article class="assemblage assemblage-like" id="assemblage-parciais"><h4 class="heading"><span class="title">Derivadas parciais de uma função de duas variáveis.</span></h4>
+<div class="para logical" id="assemblage-parciais-2">
+<div class="para">Se <span class="process-math">\(z= f(x,y)\text{,}\)</span> então as <dfn class="terminology">primeiras derivadas parciais</dfn> (ou <dfn class="terminology">derivadas parciais de primeira ordem</dfn>) de <span class="process-math">\(f\)</span> em relação a <span class="process-math">\(x\)</span> e <span class="process-math">\(y\)</span> são as funções <span class="process-math">\(\frac{\partial z}{\partial x}\)</span> e <span class="process-math">\(\frac{\partial z}{\partial y}\text{,}\)</span> definidas da seguinte forma:</div>
+<div class="displaymath process-math" id="assemblage-parciais-2-9">
+\begin{align}
+\frac{\partial z}{\partial x}\amp = \lim_{\Delta x\to 0}\frac{f(x+\Delta x,y)-f(x,y)}{\Delta x} \tag{1.1}
+\end{align}
+</div>
+<div class="displaymath process-math" id="assemblage-parciais-2-10">
+\begin{align}
+\frac{\partial z}{\partial y}\amp = \lim_{\Delta y\to 0}\frac{f(x,y+\Delta y)-f(x,y)}{\Delta y} \tag{1.2}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#assemblage-parciais-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Coleção: Derivadas parciais de uma função de duas variáveis"><a href="#assemblage-parciais" title="Copy heading and permalink for Coleção: Derivadas parciais de uma função de duas variáveis" aria-label="Copy heading and permalink for Coleção: Derivadas parciais de uma função de duas variáveis">🔗</a></div>
+</article>
+<div class="para logical" id="subsec-derivadas-parciais-2-4">
+<div class="para">De fato, se <span class="process-math">\(z=x^2 +xy^2\)</span> igualdade <a href="calc-derivadas-parciais-4.html#assemblage-parciais-2-9" class="xref" data-knowl="./knowl/xref/fx.html" data-reveal-label="Revelar" data-close-label="Fechar" title="Equação 1.1">(1.1)</a> nos diz que para encontrar a derivada parcial de <span class="process-math">\(z\)</span> em relação a <span class="process-math">\(x\text{,}\)</span> considere <span class="process-math">\(y\)</span> constante e então derive <span class="process-math">\(z\)</span> na variável <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fx.html ./knowl/xref/fy.html" id="subsec-derivadas-parciais-2-4-8">
+\begin{equation*}
+\frac{\partial z}{\partial x} =2x.
+\end{equation*}
+</div>
+<div class="para">A igualdade <a href="calc-derivadas-parciais-4.html#assemblage-parciais-2-10" class="xref" data-knowl="./knowl/xref/fy.html" data-reveal-label="Revelar" data-close-label="Fechar" title="Equação 1.2">(1.2)</a> nos diz que para encontrar  a derivada parcial de <span class="process-math">\(z\)</span> em relação a <span class="process-math">\(y\text{,}\)</span> considere <span class="process-math">\(x\)</span> constante e então derive <span class="process-math">\(z\)</span> na variável <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fx.html ./knowl/xref/fy.html" id="subsec-derivadas-parciais-2-4-15">
+\begin{equation*}
+\frac{\partial z}{\partial y} = 2xy.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-4" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<details id="subsec-derivadas-parciais-2-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.24</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="subsec-derivadas-parciais-2-5-1-1">Se <span class="process-math">\(z=3x-x^2y^2+2x^3y\)</span> determine <span class="process-math">\(\frac{\partial z}{\partial x}\text{,}\)</span> <span class="process-math">\(\frac{\partial z}{\partial y}\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-5-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-derivadas-parciais-2-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-derivadas-parciais-2-5-2-1">
+<div class="para">Para encontrar <span class="process-math">\(\frac{\partial z}{\partial x}\text{,}\)</span> consideramos <span class="process-math">\(y\)</span> constante e derivamos em relação a <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-5-2-1-4">
+\begin{equation*}
+\frac{\partial z}{\partial x} = 3 - 2xy^2 + 6x^2y
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-5-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-derivadas-parciais-2-5-2-2">
+<div class="para">Para encontrar <span class="process-math">\(\frac{\partial z}{\partial y}\text{,}\)</span> consideramos <span class="process-math">\(x\)</span> constante e derivamos em relação a <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-5-2-2-4">
+\begin{equation*}
+\frac{\partial z}{\partial y} = -2x^2y + 2x^3
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-5-2-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solução 1.24.1"><a href="#subsec-derivadas-parciais-2-5-2" title="Copy heading and permalink for Solução 1.24.1" aria-label="Copy heading and permalink for Solução 1.24.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.24"><a href="#subsec-derivadas-parciais-2-5" title="Copy heading and permalink for Exemplo 1.24" aria-label="Copy heading and permalink for Exemplo 1.24">🔗</a></div>
+</article></details>
+<details id="subsec-derivadas-parciais-2-6" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exercício de Verificação</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.25</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="subsec-derivadas-parciais-2-6-1-1">Para <span class="process-math">\(z = 2x^2-4x^2y^3+y^4\text{,}\)</span> determine <span class="process-math">\(\frac{\partial z}{\partial x}\text{,}\)</span> <span class="process-math">\(\frac{\partial z}{\partial y}\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-6-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-derivadas-parciais-2-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para logical" id="subsec-derivadas-parciais-2-6-2-1">
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-6-2-1-1">
+\begin{equation*}
+\frac{\partial z}{\partial x}=-8x y^{3} + 4 x
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-6-2-1-2">
+\begin{equation*}
+\frac{\partial z}{\partial y}-12 x^{2} y^{2} + 4 y^{3}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-6-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.25.1"><a href="#subsec-derivadas-parciais-2-6-2" title="Copy heading and permalink for Resposta 1.25.1" aria-label="Copy heading and permalink for Resposta 1.25.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício de Verificação 1.25"><a href="#subsec-derivadas-parciais-2-6" title="Copy heading and permalink for Exercício de Verificação 1.25" aria-label="Copy heading and permalink for Exercício de Verificação 1.25">🔗</a></div>
+</article></details>
+<article class="assemblage assemblage-like" id="assemblage-notacao"><h4 class="heading"><span class="title">Notação para derivada parcial de primeira ordem.</span></h4>
+<div class="para logical" id="assemblage-notacao-2">
+<div class="para">Para <span class="process-math">\(z=f(x,y)\)</span> as derivadas parciais podem ser denotadas por:</div>
+<div class="displaymath process-math" id="assemblage-notacao-2-2">
+\begin{equation*}
+\frac{\partial z}{\partial x}=f_x(x,y) = \frac{\partial }{\partial x}[f(x,y)].
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="assemblage-notacao-2-3">
+\begin{equation*}
+\frac{\partial z}{\partial y}=f_y(x,y)=\frac{\partial }{\partial y}[f(x,y)].
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#assemblage-notacao-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Coleção: Notação para derivada parcial de primeira ordem"><a href="#assemblage-notacao" title="Copy heading and permalink for Coleção: Notação para derivada parcial de primeira ordem" aria-label="Copy heading and permalink for Coleção: Notação para derivada parcial de primeira ordem">🔗</a></div>
+</article>
+<details id="subsec-derivadas-parciais-2-8" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.26</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="subsec-derivadas-parciais-2-8-1-1">Determine ass derivadas parciais de primeira ordem de <span class="process-math">\(f(x,y)=xe^{x^2y}\)</span> e calcule cada uma delas em <span class="process-math">\((1, \ln{2})\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-8-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-derivadas-parciais-2-8-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-derivadas-parciais-2-8-2-1">
+<div class="para">Para realizar a derivada parcial em relação a <span class="process-math">\(x\)</span> usando a Regra do Produto:</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-8-2-1-2">
+\begin{align*}
+f_x(x,y) \amp = x \frac{\partial z}{\partial x} \left[e^{x^2y} \right]  +
+e^{x^2y} \frac{\partial z}{\partial x}\left[ x\right]\\
+\amp x(2xy)e^{x^2y} + e^{x^2y}  \\
+\amp e^{x^2y}(2x^2y + 1)  
+\end{align*}
+</div>
+<div class="para">Quando aplicamos <span class="process-math">\(f_x(x,y) \)</span>  em <span class="process-math">\((1, \ln{2})\)</span> temos:</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-8-2-1-5">
+\begin{align*}
+f_x(1,2) \amp = e^{(1)^2(\ln{2})}\left[2\cdot 1^2\cdot \ln{2} + 1\right]\\
+\amp = 2(2\ln{2} + 1) \\
+\amp\approx 4,773 
+\end{align*}
+</div>
+<div class="para">Derivada parcial em relação a <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-8-2-1-7">
+\begin{align*}
+f_y(x,y)\amp = x(x^2)e^{x^2y}\\
+\amp = x^3e^{x^2y} \text{.}
+\end{align*}
+</div>
+<div class="para">Quando aplicamos <span class="process-math">\(f_y(x,y) \)</span>  em <span class="process-math">\((1, \ln{2})\)</span> temos:</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-8-2-1-10">
+\begin{align*}
+f_y(1,\ln{2}) \amp = 1^3\cdot e^{(1)^2(\ln{2})} \\
+\amp = 2 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-8-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solução 1.26.1"><a href="#subsec-derivadas-parciais-2-8-2" title="Copy heading and permalink for Solução 1.26.1" aria-label="Copy heading and permalink for Solução 1.26.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.26"><a href="#subsec-derivadas-parciais-2-8" title="Copy heading and permalink for Exemplo 1.26" aria-label="Copy heading and permalink for Exemplo 1.26">🔗</a></div>
+</article></details>
+<section class="paragraphs" id="subsec-derivadas-parciais-2-9"><h4 class="heading"><span class="title">Funções de três variáveis.</span></h4>
+<div class="para" id="subsec-derivadas-parciais-2-9-2">O conceito de derivada parcial estende-se naturalmente para funções de três ou mais variáveis, sendo uma extensão direta da <a href="calc-derivadas-parciais-4.html#assemblage-parciais" class="xref" data-knowl="./knowl/xref/assemblage-parciais.html" data-reveal-label="Revelar" data-close-label="Fechar" title="Coleção: Derivadas parciais de uma função de duas variáveis">definição para duas variáveis</a> com os limites das equações <a href="calc-derivadas-parciais-4.html#assemblage-parciais-2-9" class="xref" data-knowl="./knowl/xref/fx.html" data-reveal-label="Revelar" data-close-label="Fechar" title="Equação 1.1">(1.1)</a> e <a href="calc-derivadas-parciais-4.html#assemblage-parciais-2-10" class="xref" data-knowl="./knowl/xref/fy.html" data-reveal-label="Revelar" data-close-label="Fechar" title="Equação 1.2">(1.2)</a>. A notação utilizada para representar essas derivadas segue o padrão da <a href="calc-derivadas-parciais-4.html#assemblage-notacao" class="xref" data-knowl="./knowl/xref/assemblage-notacao.html" data-reveal-label="Revelar" data-close-label="Fechar" title="Coleção: Notação para derivada parcial de primeira ordem">Notação para derivada parcial de primeira ordem</a> apresentada anteriormente.<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-9-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para" id="subsec-derivadas-parciais-2-9-3">Para uma função de três variáveis <span class="process-math">\(w = f(x, y, z)\text{,}\)</span> existem três derivadas parciais de primeira ordem. Para calcular cada uma delas, mantemos duas variáveis como constantes e derivamos em relação à terceira:<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-9-3" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-derivadas-parciais-2-9-4">
+<div class="para">Se <span class="process-math">\(w = x^2 + xy^2 + z^2\text{,}\)</span> suas derivadas parciais de primeira ordem são:</div>
+<ul class="disc" id="subsec-derivadas-parciais-2-9-4-2">
+<li id="subsec-derivadas-parciais-2-9-4-2-1">
+<div class="para logical" id="subsec-derivadas-parciais-2-9-4-2-1-1">
+<div class="para">Derivada em relação a <span class="process-math">\(x\)</span> (mantendo <span class="process-math">\(y\)</span> e <span class="process-math">\(z\)</span> constantes):</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-9-4-2-1-1-4">
+\begin{equation*}
+\frac{\partial w}{\partial x} = f_x(x,y,z) = 2x + y^2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-9-4-2-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-derivadas-parciais-2-9-4-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-derivadas-parciais-2-9-4-2-2">
+<div class="para logical" id="subsec-derivadas-parciais-2-9-4-2-2-1">
+<div class="para">Derivada em relação a <span class="process-math">\(y\)</span> (mantendo <span class="process-math">\(x\)</span> e <span class="process-math">\(z\)</span> constantes):</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-9-4-2-2-1-4">
+\begin{equation*}
+\frac{\partial w}{\partial y} = f_y(x,y,z) = 2xy
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-9-4-2-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-derivadas-parciais-2-9-4-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-derivadas-parciais-2-9-4-2-3">
+<div class="para logical" id="subsec-derivadas-parciais-2-9-4-2-3-1">
+<div class="para">Derivada em relação a <span class="process-math">\(z\)</span> (mantendo <span class="process-math">\(x\)</span> e <span class="process-math">\(y\)</span> constantes):</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-9-4-2-3-1-4">
+\begin{equation*}
+\frac{\partial w}{\partial z} = f_z(x,y,z) = 2z
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-9-4-2-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-derivadas-parciais-2-9-4-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-9-4" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Parágrafos: Funções de três variáveis"><a href="#subsec-derivadas-parciais-2-9" title="Copy heading and permalink for Parágrafos: Funções de três variáveis" aria-label="Copy heading and permalink for Parágrafos: Funções de três variáveis">🔗</a></div>
+</section>
+<details id="subsec-derivadas-parciais-2-10" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.27</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="subsec-derivadas-parciais-2-10-1-1">Determine as três derivadas parciais da função <span class="process-math">\(w=xe^{xy+2z}\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-10-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-derivadas-parciais-2-10-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-derivadas-parciais-2-10-2-1">
+<div class="para">Mantendo <span class="process-math">\(y\)</span> e <span class="process-math">\(z\)</span> constantes, usamos a Regra do Produto para obter a derivada parcial em relação a <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-10-2-1-4">
+\begin{align*}
+\frac{\partial w}{\partial x} \amp = x\frac{\partial }{\partial x}\left[ e^{xy+2z}\right] + e^{xy+2z}\frac{\partial }{\partial x}[x]\\
+\amp = x(ye^{xy+2z}) + e^{xy+2z}(1)\\
+\amp = (xy+1)e^{xy+2z}\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-10-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-derivadas-parciais-2-10-2-2">
+<div class="para">Mantendo <span class="process-math">\(x\)</span> e <span class="process-math">\(z\)</span> constantes, obtém-se a derivada parcial em relação a <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-10-2-2-4">
+\begin{align*}
+\frac{\partial w}{\partial y} \amp = x(x)e^{xy+2z}\\
+\amp = x^2e^{xy+2z}\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-10-2-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-derivadas-parciais-2-10-2-3">
+<div class="para">Mantendo <span class="process-math">\(x\)</span> e <span class="process-math">\(y\)</span> constantes, obtém-se a derivada parcial em relação a <span class="process-math">\(z\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-10-2-3-4">
+\begin{align*}
+\frac{\partial w}{\partial z} \amp = x(2)e^{xy+2z}\\
+\amp = 2xe^{xy+2z}\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-10-2-3" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solução 1.27.1"><a href="#subsec-derivadas-parciais-2-10-2" title="Copy heading and permalink for Solução 1.27.1" aria-label="Copy heading and permalink for Solução 1.27.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.27"><a href="#subsec-derivadas-parciais-2-10" title="Copy heading and permalink for Exemplo 1.27" aria-label="Copy heading and permalink for Exemplo 1.27">🔗</a></div>
+</article></details>
+<details id="subsec-derivadas-parciais-2-11" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exercício de Verificação</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.28</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="subsec-derivadas-parciais-2-11-1-1">Determine as três derivadas parciais da função <span class="process-math">\(w=x^2y\ln{xz}\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-11-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-derivadas-parciais-2-11-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para logical" id="subsec-derivadas-parciais-2-11-2-1">
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-11-2-1-1">
+\begin{equation*}
+\frac{\partial w}{\partial x} =  2 \, x y \ln\left(x z\right) + x y
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-11-2-1-2">
+\begin{equation*}
+\frac{\partial w}{\partial y} =  x^{2} \ln\left(x z\right)
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-2-11-2-1-3">
+\begin{equation*}
+\frac{\partial w}{\partial z}=  \frac{x^{2} y}{z}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-2-11-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.28.1"><a href="#subsec-derivadas-parciais-2-11-2" title="Copy heading and permalink for Resposta 1.28.1" aria-label="Copy heading and permalink for Resposta 1.28.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício de Verificação 1.28"><a href="#subsec-derivadas-parciais-2-11" title="Copy heading and permalink for Exercício de Verificação 1.28" aria-label="Copy heading and permalink for Exercício de Verificação 1.28">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Subseção 1.5: Derivadas Parciais"><a href="#subsec-derivadas-parciais-2" title="Copy heading and permalink for Subseção 1.5: Derivadas Parciais" aria-label="Copy heading and permalink for Subseção 1.5: Derivadas Parciais">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-Interpretacao-Geo-DP">
+<h3 class="heading hide-type">
+<span class="type">Subseção</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Interpretação Geométrica das Derivadas Parciais</span>
+</h3>
+<figure class="figure figure-like" id="subsec-Interpretacao-Geo-DP-2"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/svdJCXFLceU?&amp;modestbranding=1&amp;rel=0" id="inter-geo"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.29<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figura 1.29: Interpretação Geométrica das Derivadas Parciais"><a href="#subsec-Interpretacao-Geo-DP-2" title="Copy heading and permalink for Figura 1.29: Interpretação Geométrica das Derivadas Parciais" aria-label="Copy heading and permalink for Figura 1.29: Interpretação Geométrica das Derivadas Parciais">🔗</a></div></figcaption>
+</figure>
+<section class="introduction" id="subsec-Interpretacao-Geo-DP-3">
+<div class="para" id="subsec-Interpretacao-Geo-DP-3-1">Assim como a derivada de uma função de uma variável representa a inclinação da reta tangente à curva, as derivadas parciais têm uma interpretação geométrica semelhante.<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-Interpretacao-Geo-DP-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para" id="subsec-Interpretacao-Geo-DP-3-2">O gráfico de uma função <span class="process-math">\(z = f(x, y)\)</span> é uma superfície no espaço. Se mantivermos <span class="process-math">\(y\)</span> constante (por exemplo, <span class="process-math">\(y = y_0\)</span>), a equação <span class="process-math">\(z = f(x, y_0)\)</span> representa a curva resultante da interseção da superfície com o plano vertical <span class="process-math">\(y = y_0\text{.}\)</span> A derivada parcial <span class="process-math">\(\frac{\partial z}{\partial x}\)</span> calculada no ponto <span class="process-math">\((x_0, y_0)\)</span> representa a <em class="emphasis">inclinação da reta tangente</em> a essa curva no plano da direção <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-Interpretacao-Geo-DP-3-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="para" id="subsec-Interpretacao-Geo-DP-3-3">De forma análoga, se mantivermos <span class="process-math">\(x\)</span> constante (por exemplo, <span class="process-math">\(x = x_0\)</span>), a equação <span class="process-math">\(z = f(x_0, y)\)</span> é uma curva de interseção com o plano vertical <span class="process-math">\(x = x_0\text{.}\)</span> Neste caso, a derivada parcial <span class="process-math">\(\frac{\partial z}{\partial y}\)</span> no ponto <span class="process-math">\((x_0, y_0)\)</span> nos dá a <em class="emphasis">inclinação da reta tangente</em> à superfície na direção <span class="process-math">\(y\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-Interpretacao-Geo-DP-3-3" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div></section><div class="autopermalink" data-description="Subseção 1.6: Interpretação Geométrica das Derivadas Parciais"><a href="#subsec-Interpretacao-Geo-DP" title="Copy heading and permalink for Subseção 1.6: Interpretação Geométrica das Derivadas Parciais" aria-label="Copy heading and permalink for Subseção 1.6: Interpretação Geométrica das Derivadas Parciais">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-derivadas-parciais-ordem-superior">
+<h3 class="heading hide-type">
+<span class="type">Subseção</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Derivadas parciais de ordem superior</span>
+</h3>
+<figure class="figure figure-like" id="subsec-derivadas-parciais-ordem-superior-2"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/qJMiTBIct64?&amp;modestbranding=1&amp;rel=0" id="ordem-superior"></iframe></div>
+<figcaption><span class="type">Figura</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.30<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figura 1.30: Interpretação Geométrica das Derivadas Parciais"><a href="#subsec-derivadas-parciais-ordem-superior-2" title="Copy heading and permalink for Figura 1.30: Interpretação Geométrica das Derivadas Parciais" aria-label="Copy heading and permalink for Figura 1.30: Interpretação Geométrica das Derivadas Parciais">🔗</a></div></figcaption>
+</figure>
+<section class="introduction" id="subsec-derivadas-parciais-ordem-superior-3">
+<div class="para" id="subsec-derivadas-parciais-ordem-superior-3-1">Derivadas de ordem superior ( segunda, terceira ordem etc.) são denotadas pela ordem na qual ocorre a derivação. Por exemplo, há quatro modos diferentes de determinar uma segunda de- rivada parcial de <span class="process-math">\(z=f(x,y)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-ordem-superior-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div></section>
+<article class="assemblage assemblage-like" id="assemblage-segunda-ordem"><h4 class="heading"><span class="title">Notação para derivadas parciais de segunda ordem.</span></h4>
+<div class="para logical" id="assemblage-segunda-ordem-2">
+<div class="para">Há quatro maneiras de calcular uma segunda derivada parcial de <span class="process-math">\(z = f(x,y)\text{:}\)</span>
+</div>
+<ul class="disc" id="assemblage-segunda-ordem-2-2">
+<li id="assemblage-segunda-ordem-2-2-1">
+<div class="para" id="assemblage-segunda-ordem-2-2-1-1">
+<span class="process-math">\(\frac{\partial}{\partial x} \left( \frac{\partial f}{\partial x} \right) = \frac{\partial^2 f}{\partial x^2} = f_{xx}\text{:}\)</span> derive duas vezes em relação a <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#assemblage-segunda-ordem-2-2-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#assemblage-segunda-ordem-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="assemblage-segunda-ordem-2-2-2">
+<div class="para" id="assemblage-segunda-ordem-2-2-2-1">
+<span class="process-math">\(\frac{\partial}{\partial y} \left( \frac{\partial f}{\partial y} \right) = \frac{\partial^2 f}{\partial y^2} = f_{yy}\text{:}\)</span> derive duas vezes em relação a <span class="process-math">\(y\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#assemblage-segunda-ordem-2-2-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#assemblage-segunda-ordem-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="assemblage-segunda-ordem-2-2-3">
+<div class="para" id="assemblage-segunda-ordem-2-2-3-1">
+<span class="process-math">\(\frac{\partial}{\partial y} \left( \frac{\partial f}{\partial x} \right) = \frac{\partial^2 f}{\partial y\partial x} = f_{xy}\text{:}\)</span> derive primeiro em relação a <span class="process-math">\(x\)</span> e depois em relação a <span class="process-math">\(y\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#assemblage-segunda-ordem-2-2-3-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#assemblage-segunda-ordem-2-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="assemblage-segunda-ordem-2-2-4">
+<div class="para" id="assemblage-segunda-ordem-2-2-4-1">
+<span class="process-math">\(\frac{\partial}{\partial x} \left( \frac{\partial f}{\partial y} \right) = \frac{\partial^2 f}{\partial x\partial y} = f_{yx}\text{:}\)</span> derive primeiro em relação a <span class="process-math">\(y\)</span> e depois em relação a <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#assemblage-segunda-ordem-2-2-4-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#assemblage-segunda-ordem-2-2-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Parágrafo"><a href="#assemblage-segunda-ordem-2" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Coleção: Notação para derivadas parciais de segunda ordem"><a href="#assemblage-segunda-ordem" title="Copy heading and permalink for Coleção: Notação para derivadas parciais de segunda ordem" aria-label="Copy heading and permalink for Coleção: Notação para derivadas parciais de segunda ordem">🔗</a></div>
+</article>
+<details id="subsec-derivadas-parciais-ordem-superior-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemplo</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.31</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="example example-like knowl__content">
+<div class="para" id="subsec-derivadas-parciais-ordem-superior-5-1-1">Determine as segundas derivadas parciais de <span class="process-math">\(f(x,y)=3xy^2-2y+5x^2y^2\)</span> e determine o valor de <span class="process-math">\(f_{xy}(-1,2)\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-ordem-superior-5-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-derivadas-parciais-ordem-superior-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solução</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-derivadas-parciais-ordem-superior-5-2-1">
+<div class="para">Comece determinando as primeiras derivadas parciais.</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-ordem-superior-5-2-1-1">
+\begin{align*}
+f_x(x,y)=3y^2+ 10xy^2 \amp \qquad \amp f_y(x,y)=6xy-2+10x^2y 
+\end{align*}
+</div>
+<div class="para">Em seguida, a derivação em relação a <span class="process-math">\(x\)</span>  e <span class="process-math">\(y\)</span>  produz</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-ordem-superior-5-2-1-4">
+\begin{align*}
+f_{xx}(x,y) = 10y^2, \amp \qquad \amp f_{yy}(x,y)=6x+10x^2 \\
+f_{xy}(x,y) = 6y+20xy,\amp \qquad \amp  f_{yx}(x,y)= 6y+20xy.  
+\end{align*}
+</div>
+<div class="para">Portanto, o valor de <span class="process-math">\(f_{xy}(x,y)\)</span> no ponto <span class="process-math">\((-1,2)\)</span> é</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-ordem-superior-5-2-1-7">
+\begin{gather*}
+f_{xy}(-1,2)=6\cdot 2 + 20(-2)2=-28. 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-ordem-superior-5-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solução 1.31.1"><a href="#subsec-derivadas-parciais-ordem-superior-5-2" title="Copy heading and permalink for Solução 1.31.1" aria-label="Copy heading and permalink for Solução 1.31.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exemplo 1.31"><a href="#subsec-derivadas-parciais-ordem-superior-5" title="Copy heading and permalink for Exemplo 1.31" aria-label="Copy heading and permalink for Exemplo 1.31">🔗</a></div>
+</article></details>
+<details id="subsec-derivadas-parciais-ordem-superior-6" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exercício de Verificação</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.32</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="subsec-derivadas-parciais-ordem-superior-6-1-1">Determine as segundas derivadas parciais de <span class="process-math">\(f(x,y) = 4x^2y^2+2x+4y^2\text{.}\)</span><div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-ordem-superior-6-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="subsec-derivadas-parciais-ordem-superior-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Resposta</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para logical" id="subsec-derivadas-parciais-ordem-superior-6-2-1">
+<div class="displaymath process-math" id="subsec-derivadas-parciais-ordem-superior-6-2-1-1">
+\begin{equation*}
+f_{xx} =  8 y^{2}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-ordem-superior-6-2-1-2">
+\begin{equation*}
+f_{yy} = 8x^{2} + 8
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-ordem-superior-6-2-1-3">
+\begin{equation*}
+f_{zz} = 0
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-ordem-superior-6-2-1-4">
+\begin{equation*}
+f_{xy} = 16xy
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="subsec-derivadas-parciais-ordem-superior-6-2-1-5">
+\begin{equation*}
+f_{zx}=0=f_{zy}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Parágrafo"><a href="#subsec-derivadas-parciais-ordem-superior-6-2-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Resposta 1.32.1"><a href="#subsec-derivadas-parciais-ordem-superior-6-2" title="Copy heading and permalink for Resposta 1.32.1" aria-label="Copy heading and permalink for Resposta 1.32.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Exercício de Verificação 1.32"><a href="#subsec-derivadas-parciais-ordem-superior-6" title="Copy heading and permalink for Exercício de Verificação 1.32" aria-label="Copy heading and permalink for Exercício de Verificação 1.32">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Subseção 1.7: Derivadas parciais de ordem superior"><a href="#subsec-derivadas-parciais-ordem-superior" title="Copy heading and permalink for Subseção 1.7: Derivadas parciais de ordem superior" aria-label="Copy heading and permalink for Subseção 1.7: Derivadas parciais de ordem superior">🔗</a></div>
+</section>
+<section class="exercises" id="exercises-log-integral">
+<h3 class="heading hide-type">
+<span class="type">Exercícios</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.8</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercícios</span>
+</h3>
+<div class="exercisegroup" id="exercises-log-integral-1">
+<h4 class="heading"><span class="title">Grupo de exercícios.</span></h4>
+<div class="introduction" id="exercises-log-integral-1-1">
+<div class="para" id="exercises-log-integral-1-1-1">Seja <span class="process-math">\(f(x,y)=e^{2x}\sin{y}\text{.}\)</span> Determine<div class="autopermalink" data-description="Parágrafo"><a href="#exercises-log-integral-1-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+</div>
+<div class="exercisegroup-exercises cols2 multicolumn">
+<article class="exercise exercise-like" id="exercises-log-integral-1-2"><h5 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<span class="process-math">\(f_x\)</span><div class="autopermalink" data-description="Exercício 1.8.1"><a href="#exercises-log-integral-1-2" title="Copy heading and permalink for Exercício 1.8.1" aria-label="Copy heading and permalink for Exercício 1.8.1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-log-integral-1-3"><h5 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<span class="process-math">\(f_x(\ln{2},0)\)</span><div class="autopermalink" data-description="Exercício 1.8.2"><a href="#exercises-log-integral-1-3" title="Copy heading and permalink for Exercício 1.8.2" aria-label="Copy heading and permalink for Exercício 1.8.2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-log-integral-1-4"><h5 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<span class="process-math">\(f_y\)</span><div class="autopermalink" data-description="Exercício 1.8.3"><a href="#exercises-log-integral-1-4" title="Copy heading and permalink for Exercício 1.8.3" aria-label="Copy heading and permalink for Exercício 1.8.3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-log-integral-1-5"><h5 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<span class="process-math">\(f_y(\ln{2},0)\)</span><div class="autopermalink" data-description="Exercício 1.8.4"><a href="#exercises-log-integral-1-5" title="Copy heading and permalink for Exercício 1.8.4" aria-label="Copy heading and permalink for Exercício 1.8.4">🔗</a></div>
+</article>
+</div>
+<div class="autopermalink" data-description="Grupo de exercícios 1.8.1–4"><a href="#exercises-log-integral-1" title="Copy heading and permalink for Grupo de exercícios 1.8.1–4" aria-label="Copy heading and permalink for Grupo de exercícios 1.8.1–4">🔗</a></div>
+</div>
+<div class="exercisegroup" id="exercises-log-integral-2">
+<h4 class="heading"><span class="title">Grupo de exercícios.</span></h4>
+<div class="introduction" id="exercises-log-integral-2-1">
+<div class="para" id="exercises-log-integral-2-1-1">Determine as derivadas parciais de primeira ordem da função.<div class="autopermalink" data-description="Parágrafo"><a href="#exercises-log-integral-2-1-1" title="Copy heading and permalink for Parágrafo" aria-label="Copy heading and permalink for Parágrafo">🔗</a></div>
+</div>
+</div>
+<div class="exercisegroup-exercises cols2 multicolumn">
+<article class="exercise exercise-like" id="exercises-log-integral-2-2"><h5 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<span class="process-math">\(z=9x^2y-3x^3y \)</span><div class="autopermalink" data-description="Exercício 1.8.5"><a href="#exercises-log-integral-2-2" title="Copy heading and permalink for Exercício 1.8.5" aria-label="Copy heading and permalink for Exercício 1.8.5">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-log-integral-2-3"><h5 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<span class="process-math">\(z=x^4y^3+8x^2y\)</span><div class="autopermalink" data-description="Exercício 1.8.6"><a href="#exercises-log-integral-2-3" title="Copy heading and permalink for Exercício 1.8.6" aria-label="Copy heading and permalink for Exercício 1.8.6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-log-integral-2-4"><h5 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<span class="process-math">\(f(x,y)=\dfrac{x}{y}\)</span><div class="autopermalink" data-description="Exercício 1.8.7"><a href="#exercises-log-integral-2-4" title="Copy heading and permalink for Exercício 1.8.7" aria-label="Copy heading and permalink for Exercício 1.8.7">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-log-integral-2-5"><h5 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<span class="process-math">\(f(x,y)=(x^2+5x-2y)^4\)</span><div class="autopermalink" data-description="Exercício 1.8.8"><a href="#exercises-log-integral-2-5" title="Copy heading and permalink for Exercício 1.8.8" aria-label="Copy heading and permalink for Exercício 1.8.8">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-log-integral-2-6"><h5 class="heading"><span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<span class="process-math">\(z=\dfrac{x}{(x+y)^2}\)</span><div class="autopermalink" data-description="Exercício 1.8.9"><a href="#exercises-log-integral-2-6" title="Copy heading and permalink for Exercício 1.8.9" aria-label="Copy heading and permalink for Exercício 1.8.9">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-log-integral-2-7"><h5 class="heading"><span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<span class="process-math">\(w=\ln{(x+2y+3z)}\)</span><div class="autopermalink" data-description="Exercício 1.8.10"><a href="#exercises-log-integral-2-7" title="Copy heading and permalink for Exercício 1.8.10" aria-label="Copy heading and permalink for Exercício 1.8.10">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-log-integral-2-8"><h5 class="heading"><span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<span class="process-math">\(z=\cos{(2xy^2-3x^2y^2)}\)</span><div class="autopermalink" data-description="Exercício 1.8.11"><a href="#exercises-log-integral-2-8" title="Copy heading and permalink for Exercício 1.8.11" aria-label="Copy heading and permalink for Exercício 1.8.11">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-log-integral-2-9"><h5 class="heading"><span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<span class="process-math">\(z=\cos{(2xy^2-3x^2y^2)}\)</span><div class="autopermalink" data-description="Exercício 1.8.12"><a href="#exercises-log-integral-2-9" title="Copy heading and permalink for Exercício 1.8.12" aria-label="Copy heading and permalink for Exercício 1.8.12">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-log-integral-2-10"><h5 class="heading"><span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<span class="process-math">\(z=x^y\)</span><div class="autopermalink" data-description="Exercício 1.8.13"><a href="#exercises-log-integral-2-10" title="Copy heading and permalink for Exercício 1.8.13" aria-label="Copy heading and permalink for Exercício 1.8.13">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="exercises-log-integral-2-11"><h5 class="heading"><span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<span class="process-math">\(f(x,y,z)=z\ln{(x^2y\cos{z})}\)</span><div class="autopermalink" data-description="Exercício 1.8.14"><a href="#exercises-log-integral-2-11" title="Copy heading and permalink for Exercício 1.8.14" aria-label="Copy heading and permalink for Exercício 1.8.14">🔗</a></div>
+</article>
+</div>
+<div class="autopermalink" data-description="Grupo de exercícios 1.8.5–14"><a href="#exercises-log-integral-2" title="Copy heading and permalink for Grupo de exercícios 1.8.5–14" aria-label="Copy heading and permalink for Grupo de exercícios 1.8.5–14">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercícios 1.8"><a href="#exercises-log-integral" title="Copy heading and permalink for Exercícios 1.8" aria-label="Copy heading and permalink for Exercícios 1.8">🔗</a></div>
+</section><div class="autopermalink" data-description="Seção 1: Funções de mais de uma variável e Derivadas parciais"><a href="#calc-derivadas-parciais-4" title="Copy heading and permalink for Seção 1: Funções de mais de uma variável e Derivadas parciais" aria-label="Copy heading and permalink for Seção 1: Funções de mais de uma variável e Derivadas parciais">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="calc-derivadas-parciais.html" title="Anterior"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Anterior</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="references-backmatter.html" title="Próximo"><span class="name">Próximo</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
