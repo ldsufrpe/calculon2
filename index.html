@@ -53,7 +53,7 @@
         }
 
         header {
-            max-width: 900px;
+            max-width: 950px;
             width: 100%;
             margin: 0 auto;
             padding: 2.5rem 2rem 1.5rem;
@@ -88,7 +88,7 @@
         .subtitle {
             font-size: 1rem;
             color: var(--text-muted);
-            max-width: 750px;
+            max-width: 800px;
             margin-bottom: 1rem;
         }
 
@@ -112,7 +112,7 @@
 
         main {
             flex-grow: 1;
-            max-width: 900px;
+            max-width: 950px;
             width: 100%;
             margin: 0 auto;
             padding: 1.5rem 2rem 3rem;
@@ -122,10 +122,15 @@
             font-family: 'Lora', Georgia, serif;
             font-size: 1.35rem;
             font-weight: 600;
+            margin-top: 2rem;
             margin-bottom: 1.25rem;
             color: var(--text-main);
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 0.4rem;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0.5rem;
         }
 
         /* Tabela Compacta */
@@ -284,9 +289,111 @@
     </header>
 
     <main>
-        <h2 class="section-title">Aulas e Roteiros de Conteúdo</h2>
         
-        <div class="table-container" id="lessons-table">
+        <!-- Primeira Parte -->
+        <h2 class="section-title">Primeira Parte: Cálculo Integral</h2>
+        <div class="table-container" id="lessons-table-p1">
+            <!-- Header da Tabela -->
+            <div class="table-row header-row">
+                <div class="col-week">Aula</div>
+                <div class="col-content">Conteúdo e Tópicos Principais</div>
+                <div class="col-action">Acesso</div>
+            </div>
+            
+            <!-- Aula N1 -->
+            <div class="table-row" id="row-n1">
+                <div class="col-week">Aula N1</div>
+                <div class="col-content">
+                    <a href="https://ldsufrpe.github.io/calculo/N1/" target="_blank" rel="noopener" class="lesson-link-title">Primitiva</a>
+                    <span class="lesson-topics-summary">Definição de antiderivada &bull; Integrais indefinidas básicas &bull; Propriedades da primitivação</span>
+                </div>
+                <div class="col-action">
+                    <a href="https://ldsufrpe.github.io/calculo/N1/" target="_blank" rel="noopener" class="action-btn" id="btn-n1">
+                        <span>Acessar</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Aula N2 -->
+            <div class="table-row" id="row-n2">
+                <div class="col-week">Aula N2</div>
+                <div class="col-content">
+                    <a href="https://ldsufrpe.github.io/calculo/N2/" target="_blank" rel="noopener" class="lesson-link-title">Integração por Substituição u</a>
+                    <span class="lesson-topics-summary">Regra da substituição para integrais indefinidas &bull; Mudança de variáveis &bull; Integração de funções compostas</span>
+                </div>
+                <div class="col-action">
+                    <a href="https://ldsufrpe.github.io/calculo/N2/" target="_blank" rel="noopener" class="action-btn" id="btn-n2">
+                        <span>Acessar</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Aula N3 -->
+            <div class="table-row" id="row-n3">
+                <div class="col-week">Aula N3</div>
+                <div class="col-content">
+                    <a href="https://ldsufrpe.github.io/calculo/N3/" target="_blank" rel="noopener" class="lesson-link-title">Integral Definida</a>
+                    <span class="lesson-topics-summary">Teorema Fundamental do Cálculo &bull; Cálculo de integrais definidas &bull; Propriedades da integral definida</span>
+                </div>
+                <div class="col-action">
+                    <a href="https://ldsufrpe.github.io/calculo/N3/" target="_blank" rel="noopener" class="action-btn" id="btn-n3">
+                        <span>Acessar</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Aula N4 -->
+            <div class="table-row" id="row-n4">
+                <div class="col-week">Aula N4</div>
+                <div class="col-content">
+                    <a href="https://ldsufrpe.github.io/calculo/N4/" target="_blank" rel="noopener" class="lesson-link-title">Integração por Partes e Frações Parciais</a>
+                    <span class="lesson-topics-summary">Integração por partes &bull; Decomposição em frações parciais &bull; Integração de funções racionais</span>
+                </div>
+                <div class="col-action">
+                    <a href="https://ldsufrpe.github.io/calculo/N4/" target="_blank" rel="noopener" class="action-btn" id="btn-n4">
+                        <span>Acessar</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Aula N5 -->
+            <div class="table-row" id="row-n5">
+                <div class="col-week">Aula N5</div>
+                <div class="col-content">
+                    <a href="https://ldsufrpe.github.io/calculo/N5/" target="_blank" rel="noopener" class="lesson-link-title">Aplicações: Área e Volume</a>
+                    <span class="lesson-topics-summary">Cálculo de áreas entre curvas &bull; Volumes de sólidos de revolução &bull; Métodos dos discos e cascas</span>
+                </div>
+                <div class="col-action">
+                    <a href="https://ldsufrpe.github.io/calculo/N5/" target="_blank" rel="noopener" class="action-btn" id="btn-n5">
+                        <span>Acessar</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Aula N10 -->
+            <div class="table-row" id="row-n10">
+                <div class="col-week">Aula N10</div>
+                <div class="col-content">
+                    <a href="https://ldsufrpe.github.io/calculo/N10/" target="_blank" rel="noopener" class="lesson-link-title">Integral Imprópria</a>
+                    <span class="lesson-topics-summary">Limites de integração infinitos &bull; Integrais com descontinuidades infinitas &bull; Teste de comparação</span>
+                </div>
+                <div class="col-action">
+                    <a href="https://ldsufrpe.github.io/calculo/N10/" target="_blank" rel="noopener" class="action-btn" id="btn-n10">
+                        <span>Acessar</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Segunda Parte -->
+        <h2 class="section-title">Segunda Parte: Funções de Várias Variáveis</h2>
+        <div class="table-container" id="lessons-table-p2">
             <!-- Header da Tabela -->
             <div class="table-row header-row">
                 <div class="col-week">Semana</div>
