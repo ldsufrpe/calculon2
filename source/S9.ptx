@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pretext xml:lang="pt-BR" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <xi:include href="./docinfo.ptx" />
+    <article xml:id="calc-multiplicadores-lagrange">
+        <title>Multiplicadores de Lagrange: S9</title>
+
+        <frontmatter>
+            <bibinfo>
+                <author>
+                    <personname>Leon Silva</personname>
+                    <department>Departamento de Matemática</department>                    
+                    <institution>Universidade Federal Rural de Pernambuco</institution>
+                </author>
+                
+                <author>
+                    <personname>Lorena Brizza</personname>                 
+                    <department>Departamento de Matemática</department>                    
+                    <institution>Universidade Federal Rural de Pernambuco</institution>
+                </author>
+                <date><today /></date>
+            </bibinfo>
+
+            <titlepage>
+                <titlepage-items/>
+            </titlepage>
+
+            <abstract>
+                <p>Nesta semana, abordaremos os multiplicadores de Lagrange, uma técnica elegante e poderosa para encontrar os extremos locais de funções sujeitas a restrições de igualdade.</p>
+            </abstract>
+        </frontmatter>
+
+        <introduction>
+            <p>Nesta aula, discutiremos a determinação de valores máximos e mínimos de funções sujeitas a restrições ou vínculos (otimização restrita). Em vez de tentarmos eliminar variáveis substituindo a restrição na função objetivo, usaremos o elegante método dos multiplicadores de Lagrange. Iniciaremos o estudo com uma interpretação geométrica visual de curvas de nível tangentes e gradientes paralelos. Em seguida, utilizaremos a formulação da função Lagrangiana para estruturar os problemas de otimização de forma sistemática. Resolveremos problemas práticos em duas e três variáveis, incluindo a maximização de lucros e produções sob restrições orçamentárias (como o modelo de Cobb-Douglas). Por fim, estenderemos o método para problemas com múltiplas restrições.</p>
+        </introduction>
+
+        <section>
+            <title>Multiplicadores de Lagrange</title>
+            
+            <objectives>
+                <title>Estrutura</title>
+                <ol>
+                    <li>
+                        <p>Compreender a interpretação geométrica do método dos multiplicadores de Lagrange (gradientes paralelos).</p>
+                    </li>
+                    <li>
+                        <p>Aplicar o método dos multiplicadores de Lagrange com uma restrição para resolver problemas de otimização.</p>
+                    </li>
+                    <li>
+                        <p>Modelar e resolver problemas de otimização aplicados em economia (função Cobb-Douglas) e geometria utilizando multiplicadores de Lagrange.</p>
+                    </li>
+                    <li>
+                        <p>Estender o método para situações contendo duas restrições simultâneas.</p>
+                    </li>
+                </ol>
+            </objectives>
+
+            <subsection xml:id="subsec-lagrange-uma-restricao">
+                <title>Multiplicadores de Lagrange com uma Restrição</title>
+
+                <introduction>
+                    <p>Suponha que desejamos determinar os valores máximos ou mínimos de uma função diferenciável de duas variáveis <m>f(x, y)</m> cujos pontos <m>(x, y)</m> estão restritos a pertencer a uma curva de nível suave de outra função, dada por <m>g(x, y) = k</m>. Ou seja, queremos otimizar <m>f(x, y)</m> sujeita à restrição <m>g(x, y) = k</m>.</p>
+                    <p>Geometricamente, a <xref ref="fig-geometria-lagrange" /> ilustra a curva de restrição <m>g(x, y) = k</m> juntamente com diversas curvas de nível da função objetivo <m>f(x, y) = c</m> para diferentes valores de <m>c</m>. Para maximizar <m>f(x, y)</m> sob a restrição, procuramos o maior valor possível de <m>c</m> tal que a curva de nível correspondente intercepte a curva de restrição.</p>
+                </introduction>
+
+                <figure xml:id="fig-geometria-lagrange">
+                    <title>Interpretação geométrica do Método de Lagrange: a curva de nível de <m>f(x,y)</m> tangencia a restrição <m>g(x,y)=k</m></title>
+                    <image width="60%">
+                        <latex-image>
+                            <![CDATA[
+                            \begin{tikzpicture}
+                              \begin{axis}[
+                                axis lines=middle,
+                                xlabel={$x$},
+                                ylabel={$y$},
+                                xmin=-0.5, xmax=4.5,
+                                ymin=-0.5, ymax=4.5,
+                                ticks=none,
+                                clip=false
+                              ]
+                                % Desenhar a curva de restrição g(x,y) = k (um arco de círculo)
+                                \addplot[domain=0:2, samples=100, blue, ultra thick] {sqrt(4 - x^2)};
+                                \node[blue, anchor=south west] at (axis cs:1.3, 1.6) {$g(x,y) = k$};
+
+                                % Curvas de nível de f(x,y) = c (retas x+y=c)
+                                \addplot[domain=-0.2:3, samples=2, gray, dashed] {2 - x} node[right] {$f(x,y)=c_1$};
+                                \addplot[domain=-0.2:3.5, samples=2, red, thick] {2.828 - x} node[above right] {$f(x,y) = c_{\max}$};
+                                \addplot[domain=0.5:4.2, samples=2, gray, dashed] {3.8 - x} node[right] {$f(x,y)=c_2$};
+
+                                % Ponto de tangência
+                                \addplot[mark=*, mark size=2.5pt, color=black] coordinates {(1.414, 1.414)} node[anchor=south west] {$P_0(x_0, y_0)$};
+
+                                % Vetores Gradientes
+                                \draw[->, >=stealth, red, ultra thick] (axis cs:1.414, 1.414) -- (axis cs:2.2, 2.2) node[above right] {$\nabla f$};
+                                \draw[->, >=stealth, blue, ultra thick] (axis cs:1.414, 1.414) -- (axis cs:2.8, 2.8) node[left] {$\nabla g$};
+                              \end{axis}
+                            \end{tikzpicture}
+                            ]]>
+                        </latex-image>
+                    </image>
+                </figure>
+
+                <p>Note na figura que esse valor de máximo ocorre precisamente quando a curva de nível de <m>f</m> é tangente à curva de restrição <m>g(x, y) = k</m>. Se elas se cruzassem transversalmente, poderíamos nos mover ao longo da restrição para alcançar uma curva de nível com valor de <m>c</m> ainda maior. No ponto de tangência <m>P_0(x_0, y_0)</m>, a reta tangente à curva de nível de <m>f</m> e a reta tangente à curva de restrição coincidem. Consequentemente, as direções normais a essas curvas no ponto também devem coincidir. Como os vetores gradientes <m>\nabla f(x_0, y_0)</m> e <m>\nabla g(x_0, y_0)</m> são normais às suas respectivas curvas de nível, concluímos que eles devem ser paralelos. Algebricamente, isto significa que:</p>
+                <me>\nabla f(x_0, y_0) = \lambda \nabla g(x_0, y_0)</me>
+                <p>para algum escalar constante <m>\lambda</m>, que é chamado de <term>multiplicador de Lagrange</term>.</p>
+
+                <assemblage xml:id="assemblage-metodo-lagrange">
+                  <title>O Método dos Multiplicadores de Lagrange (Uma Restrição)</title>
+                  <p>Suponha que <m>f</m> e <m>g</m> sejam funções diferenciáveis com <m>\nabla g \neq \mathbf{0}</m> sobre a curva de restrição <m>g(x, y) = k</m>. Para determinar os valores de máximo e mínimo de <m>f</m> sujeitos à restrição <m>g(x, y) = k</m>:</p>
+                  <ol>
+                      <li>
+                          <p>Determine todos os valores de <m>x</m>, <m>y</m> e <m>\lambda</m> que satisfazem o sistema de equações:</p>
+                          <md>
+                              <mrow>\nabla f(x, y) \amp = \lambda \nabla g(x, y)</mrow>
+                              <mrow>g(x, y) \amp = k</mrow>
+                          </md>
+                          <p>que em termos de componentes se escreve como:</p>
+                          <mdn>
+                              <mrow xml:id="eq-lagrange-sistema-2d">f_x(x, y) \amp = \lambda g_x(x, y)</mrow>
+                              <mrow>f_y(x, y) \amp = \lambda g_y(x, y)</mrow>
+                              <mrow>g(x, y) \amp = k</mrow>
+                          </mdn>
+                      </li>
+                      <li>
+                          <p>Calcule os valores de <m>f</m> em todos os pontos <m>(x, y)</m> resultantes do passo anterior. O maior valor obtido será o valor máximo de <m>f</m> e o menor valor será o mínimo de <m>f</m> sob a restrição.</p>
+                      </li>
+                  </ol>
+                  <p>Para funções de três variáveis <m>f(x, y, z)</m> sujeitas a <m>g(x, y, z) = k</m>, o sistema correspondente é análogo, adicionando-se a equação <m>f_z = \lambda g_z</m>.</p>
+                </assemblage>
+
+                <p>Alternativamente (conforme apresentado por Ron Larson), podemos introduzir a função auxiliar <term>Lagrangiana</term> <m>F(x, y, \lambda)</m> definida por:</p>
+                <me>F(x, y, \lambda) = f(x, y) - \lambda \left(g(x, y) - k\right)</me>
+                <p>Para encontrar os pontos críticos de <m>F</m>, igualamos a zero suas derivadas parciais de primeira ordem em relação a todas as variáveis:</p>
+                <md>
+                    <mrow>F_x(x, y, \lambda) \amp = f_x(x, y) - \lambda g_x(x, y) = 0 \implies f_x = \lambda g_x</mrow>
+                    <mrow>F_y(x, y, \lambda) \amp = f_y(x, y) - \lambda g_y(x, y) = 0 \implies f_y = \lambda g_y</mrow>
+                    <mrow>F_\lambda(x, y, \lambda) \amp = -\left(g(x, y) - k\right) = 0 \implies g(x, y) = k</mrow>
+                </md>
+                <p>Observe que este procedimento gera exatamente o mesmo sistema de equações <xref ref="eq-lagrange-sistema-2d" />.</p>
+
+                <example xml:id="ex-lagrange-caixa">
+                    <title>Volume Máximo de Sólido Retangular</title>
+                    <statement>
+                        <p>Determine o volume máximo de uma caixa retangular (sólido) no primeiro octante com faces paralelas aos planos coordenados, sabendo que o vértice oposto à origem está situado sobre o plano <m>6x + 4y + 3z = 24</m>.</p>
+                    </statement>
+                    <solution>
+                        <p>O volume da caixa com dimensões <m>x</m>, <m>y</m> e <m>z</m> é a nossa função objetivo:</p>
+                        <me>f(x, y, z) = xyz</me>
+                        <p>O ponto <m>(x, y, z)</m> está restrito a pertencer ao plano no primeiro octante (<m>x &gt; 0, y &gt; 0, z &gt; 0</m>). A restrição é dada por:</p>
+                        <me>g(x, y, z) = 6x + 4y + 3z = 24</me>
+                        <p>Definimos a função Lagrangiana:</p>
+                        <me>F(x, y, z, \lambda) = xyz - \lambda(6x + 4y + 3z - 24)</me>
+                        <p>Calculando as derivadas parciais de <m>F</m> e igualando-as a zero, obtemos o sistema:</p>
+                        <md>
+                            <mrow>F_x \amp = yz - 6\lambda = 0 \implies \lambda = \frac{yz}{6}</mrow>
+                            <mrow>F_y \amp = xz - 4\lambda = 0 \implies \lambda = \frac{xz}{4}</mrow>
+                            <mrow>F_z \amp = xy - 3\lambda = 0 \implies \lambda = \frac{xy}{3}</mrow>
+                            <mrow>F_\lambda \amp = -(6x + 4y + 3z - 24) = 0 \implies 6x + 4y + 3z = 24</mrow>
+                        </md>
+                        <p>Igualando as expressões para <m>\lambda</m> das duas primeiras equações (com <m>z \neq 0</m>, pois queremos volume máximo):</p>
+                        <me>\frac{yz}{6} = \frac{xz}{4} \implies 4y = 6x \implies y = \frac{3}{2}x</me>
+                        <p>Igualando a primeira com a terceira equação (com <m>y \neq 0</m>):</p>
+                        <me>\frac{yz}{6} = \frac{xy}{3} \implies 3z = 6x \implies z = 2x</me>
+                        <p>Agora, substituímos essas relações na equação de restrição:</p>
+                        <me>6x + 4\left(\frac{3}{2}x\right) + 3\left(2x\right) = 24</me>
+                        <me>6x + 6x + 6x = 24 \implies 18x = 24 \implies x = \frac{4}{3}</me>
+                        <p>Substituindo de volta para obter as outras dimensões e o multiplicador de Lagrange:</p>
+                        <me>y = \frac{3}{2}\left(\frac{4}{3}\right) = 2</me>
+                        <me>z = 2\left(\frac{4}{3}\right) = \frac{8}{3}</me>
+                        <p>Portanto, as dimensões ótimas são <m>x = 4/3</m>, <m>y = 2</m> e <m>z = 8/3</m>. O volume máximo é:</p>
+                        <me>f\left(\frac{4}{3}, 2, \frac{8}{3}\right) = \left(\frac{4}{3}\right)(2)\left(\frac{8}{3}\right) = \frac{64}{9} \approx 7,11 \text{ unidades cúbicas.}</me>
+                    </solution>
+                </example>
+
+                <example xml:id="ex-lagrange-cobb-douglas">
+                    <title>Otimização de Produção (Modelo Cobb-Douglas)</title>
+                    <statement>
+                        <p>A produção de uma fabricante é modelada pela função de Cobb-Douglas <m>f(x, y) = 100 x^{3/4} y^{1/4}</m>, onde <m>x</m> representa as unidades de mão de obra e <m>y</m> as unidades de capital. Cada unidade de mão de obra custa $150 e cada unidade de capital custa $250. O orçamento total da fábrica é de $50.000. Determine a quantidade ideal de insumos de mão de obra e capital para maximizar a produção.</p>
+                    </statement>
+                    <solution>
+                        <p>A nossa função objetivo (produção) é <m>f(x, y) = 100 x^{3/4} y^{1/4}</m>. O custo total não pode exceder $50.000. Uma vez que queremos maximizar a produção, utilizaremos todo o orçamento. Assim, a restrição de custo é:</p>
+                        <me>150x + 250y = 50.000 \implies g(x, y) = 150x + 250y - 50.000 = 0</me>
+                        <p>Montamos a Lagrangiana:</p>
+                        <me>F(x, y, \lambda) = 100 x^{3/4} y^{1/4} - \lambda(150x + 250y - 50.000)</me>
+                        <p>Derivando parcialmente em relação a <m>x</m>, <m>y</m> e <m>\lambda</m> e igualando a zero:</p>
+                        <md>
+                            <mrow>F_x \amp = 75 x^{-1/4} y^{1/4} - 150\lambda = 0 \implies \lambda = \frac{75 y^{1/4}}{150 x^{1/4}} = \frac{1}{2}\left(\frac{y}{x}\right)^{1/4}</mrow>
+                            <mrow>F_y \amp = 25 x^{3/4} y^{-3/4} - 250\lambda = 0 \implies \lambda = \frac{25 x^{3/4}}{250 y^{3/4}} = \frac{1}{10}\left(\frac{x}{y}\right)^{3/4}</mrow>
+                            <mrow>F_\lambda \amp = -(150x + 250y - 50.000) = 0 \implies 150x + 250y = 50.000</mrow>
+                        </md>
+                        <p>Igualando as duas expressões obtidas para <m>\lambda</m>:</p>
+                        <me>\frac{1}{2}\left(\frac{y}{x}\right)^{1/4} = \frac{1}{10}\left(\frac{x}{y}\right)^{3/4}</me>
+                        <p>Multiplicamos ambos os lados por <m>10 \cdot x^{1/4} y^{3/4}</m> para simplificar os expoentes fracionários:</p>
+                        <me>5 \left(\frac{y}{x}\right)^{1/4} x^{1/4} y^{3/4} = \left(\frac{x}{y}\right)^{3/4} x^{1/4} y^{3/4}</me>
+                        <me>5 y = x</me>
+                        <p>Substituímos <m>x = 5y</m> na equação de restrição orçamentária:</p>
+                        <me>150(5y) + 250y = 50.000</me>
+                        <me>750y + 250y = 50.000 \implies 1.000y = 50.000 \implies y = 50</me>
+                        <p>Determinamos <m>x</m> a partir de <m>y</m>:</p>
+                        <me>x = 5(50) = 250</me>
+                        <p>Portanto, a combinação ótima de insumos é de 250 unidades de mão de obra e 50 unidades de capital. O nível de produção máximo alcançado sob essa restrição é:</p>
+                        <me>f(250, 50) = 100(250)^{3/4}(50)^{1/4} \approx 16.719 \text{ unidades.}</me>
+                    </solution>
+                </example>
+            </subsection>
+
+            <subsection xml:id="subsec-lagrange-duas-restricoes">
+                <title>Multiplicadores de Lagrange com duas Restrições</title>
+
+                <introduction>
+                    <p>Suponha agora que queiramos otimizar uma função de três variáveis <m>f(x, y, z)</m> sujeita a duas restrições da forma <m>g(x, y, z) = k</m> e <m>h(x, y, z) = c</m>. Supondo que as superfícies de restrição se interceptem em uma curva suave <m>C</m>, queremos determinar os extremos de <m>f</m> sobre esta curva de interseção.</p>
+                    <p>Geometricamente, para que <m>f</m> tenha um valor extremo em um ponto <m>P_0</m> sobre a curva <m>C</m>, a superfície de nível de <m>f</m> passando por <m>P_0</m> deve ser tangente à curva <m>C</m>. Consequentemente, o vetor gradiente <m>\nabla f(P_0)</m> deve ser ortogonal à direção tangente de <m>C</m>. Como os gradientes <m>\nabla g(P_0)</m> e <m>\nabla h(P_0)</m> também são ortogonais a <m>C</m>, conclui-se que <m>\nabla f(P_0)</m> deve estar contido no plano gerado por <m>\nabla g(P_0)</m> e <m>\nabla h(P_0)</m>. Isto é, <m>\nabla f</m> deve ser uma combinação linear de <m>\nabla g</m> e <m>\nabla h</m>:</p>
+                    <me>\nabla f(x, y, z) = \lambda \nabla g(x, y, z) + \mu \nabla h(x, y, z)</me>
+                    <p>onde <m>\lambda</m> e <m>\mu</m> são dois multiplicadores de Lagrange escalares independentes.</p>
+                </introduction>
+
+                <assemblage xml:id="assemblage-lagrange-duas-restricoes">
+                    <title>O Método dos Multiplicadores de Lagrange (Duas Restrições)</title>
+                    <p>Para determinar os valores extremos de uma função diferenciável <m>f(x, y, z)</m> sujeita às restrições <m>g(x, y, z) = k</m> e <m>h(x, y, z) = c</m>:</p>
+                    <ol>
+                        <li>
+                            <p>Encontre os valores de <m>x</m>, <m>y</m>, <m>z</m>, <m>\lambda</m> e <m>\mu</m> resolvendo o sistema de equações:</p>
+                            <mdn>
+                                <mrow xml:id="eq-lagrange-sistema-duas">f_x(x, y, z) \amp = \lambda g_x(x, y, z) + \mu h_x(x, y, z)</mrow>
+                                <mrow>f_y(x, y, z) \amp = \lambda g_y(x, y, z) + \mu h_y(x, y, z)</mrow>
+                                <mrow>f_z(x, y, z) \amp = \lambda g_z(x, y, z) + \mu h_z(x, y, z)</mrow>
+                                <mrow>g(x, y, z) \amp = k</mrow>
+                                <mrow>h(x, y, z) \amp = c</mrow>
+                            </mdn>
+                        </li>
+                        <li>
+                            <p>Avalie <m>f</m> em todos os pontos <m>(x, y, z)</m> encontrados. O maior valor de <m>f</m> é o valor máximo, e o menor é o valor mínimo.</p>
+                        </li>
+                    </ol>
+                </assemblage>
+
+                <example xml:id="ex-lagrange-duas-restricoes">
+                    <title>Extremos sobre uma Curva de Interseção</title>
+                    <statement>
+                        <p>Determine os valores máximo e mínimo da função <m>f(x, y, z) = x + 2y + 3z</m> sobre a curva de interseção do plano <m>x - y + z = 1</m> com o cilindro <m>x^2 + y^2 = 1</m>.</p>
+                    </statement>
+                    <solution>
+                        <p>Neste problema, temos a função objetivo <m>f(x, y, z) = x + 2y + 3z</m> sujeita às restrições:</p>
+                        <me>g(x, y, z) = x - y + z = 1 \quad \text{e} \quad h(x, y, z) = x^2 + y^2 = 1</me>
+                        <p>Calculando os vetores gradientes de cada função:</p>
+                        <me>\nabla f = \langle 1, 2, 3 \rangle, \quad \nabla g = \langle 1, -1, 1 \rangle, \quad \nabla h = \langle 2x, 2y, 0 \rangle</me>
+                        <p>O sistema de equações de Lagrange <m>\nabla f = \lambda \nabla g + \mu \nabla h</m> junto com as restrições é dado por:</p>
+                        <md>
+                            <mrow>1 \amp = \lambda + 2\mu x \quad \text{(Equação 1)}</mrow>
+                            <mrow>2 \amp = -\lambda + 2\mu y \quad \text{(Equação 2)}</mrow>
+                            <mrow>3 \amp = \lambda \quad \text{(Equação 3)}</mrow>
+                            <mrow>x - y + z \amp = 1 \quad \text{(Equação 4)}</mrow>
+                            <mrow>x^2 + y^2 \amp = 1 \quad \text{(Equação 5)}</mrow>
+                        </md>
+                        <p>Substituindo <m>\lambda = 3</m> (da Equação 3) nas Equações 1 e 2:</p>
+                        <me>1 = 3 + 2\mu x \implies 2\mu x = -2 \implies \mu x = -1</me>
+                        <me>2 = -3 + 2\mu y \implies 2\mu y = 5 \implies \mu y = \frac{5}{2}</me>
+                        <p>Como <m>\mu x = -1</m>, vemos que <m>\mu \neq 0</m>. Desse modo, podemos expressar <m>x</m> e <m>y</m> em termos de <m>\mu</m>:</p>
+                        <me>x = -\frac{1}{\mu} \quad \text{e} \quad y = \frac{5}{2\mu}</me>
+                        <p>Substituímos estas expressões na Equação 5 (cilindro):</p>
+                        <me>\left(-\frac{1}{\mu}\right)^2 + \left(\frac{5}{2\mu}\right)^2 = 1 \implies \frac{1}{\mu^2} + \frac{25}{4\mu^2} = 1</me>
+                        <me>\frac{29}{4\mu^2} = 1 \implies \mu^2 = \frac{29}{4} \implies \mu = \pm \frac{\sqrt{29}}{2}</me>
+                        <p>Temos duas situações para analisar dependendo do sinal de <m>\mu</m>:</p>
+                        <ul>
+                            <li>
+                                <p>Se <m>\mu = \frac{\sqrt{29}}{2}</m>:</p>
+                                <me>x = -\frac{2}{\sqrt{29}} \quad \text{e} \quad y = \frac{5}{\sqrt{29}}</me>
+                                <p>Substituímos na Equação 4 para achar <m>z</m>:</p>
+                                <me>z = 1 - x + y = 1 - \left(-\frac{2}{\sqrt{29}}\right) + \frac{5}{\sqrt{29}} = 1 + \frac{7}{\sqrt{29}}</me>
+                                <p>Obtemos o ponto crítico <m>P_1 = \left(-\frac{2}{\sqrt{29}}, \frac{5}{\sqrt{29}}, 1 + \frac{7}{\sqrt{29}}\right)</m>.</p>
+                            </li>
+                            <li>
+                                <p>Se <m>\mu = -\frac{\sqrt{29}}{2}</m>:</p>
+                                <me>x = \frac{2}{\sqrt{29}} \quad \text{e} \quad y = -\frac{5}{\sqrt{29}}</me>
+                                <p>Substituímos na Equação 4 para achar <m>z</m>:</p>
+                                <me>z = 1 - x + y = 1 - \frac{2}{\sqrt{29}} + \left(-\frac{5}{\sqrt{29}}\right) = 1 - \frac{7}{\sqrt{29}}</me>
+                                <p>Obtemos o ponto crítico <m>P_2 = \left(\frac{2}{\sqrt{29}}, -\frac{5}{\sqrt{29}}, 1 - \frac{7}{\sqrt{29}}\right)</m>.</p>
+                            </li>
+                        </ul>
+                        <p>Agora calculamos o valor da função objetivo <m>f(x, y, z) = x + 2y + 3z</m> em cada ponto crítico:</p>
+                        <me>f(P_1) = -\frac{2}{\sqrt{29}} + 2\left(\frac{5}{\sqrt{29}}\right) + 3\left(1 + \frac{7}{\sqrt{29}}\right) = 3 + \frac{-2 + 10 + 21}{\sqrt{29}} = 3 + \frac{29}{\sqrt{29}} = 3 + \sqrt{29} \approx 8,39</me>
+                        <me>f(P_2) = \frac{2}{\sqrt{29}} + 2\left(-\frac{5}{\sqrt{29}}\right) + 3\left(1 - \frac{7}{\sqrt{29}}\right) = 3 + \frac{2 - 10 - 21}{\sqrt{29}} = 3 - \frac{29}{\sqrt{29}} = 3 - \sqrt{29} \approx -2,39</me>
+                        <p>Consequentemente, o valor máximo absoluto da função sobre a curva de interseção é <m>3 + \sqrt{29}</m> e ocorre em <m>P_1</m>, enquanto o valor mínimo absoluto é <m>3 - \sqrt{29}</m> e ocorre em <m>P_2</m>.</p>
+                    </solution>
+                </example>
+            </subsection>
+
+            <exercises xml:id="exercises-multiplicadores-lagrange">
+                <title>Exercícios Propostos</title>
+
+                <exercisegroup cols="2">
+                    <introduction>
+                        <p>Utilize os multiplicadores de Lagrange para encontrar os valores extremos (máximos e mínimos) sujeitos às restrições indicadas.</p>
+                    </introduction>
+                    <exercise>
+                        <statement>
+                            <p>Encontre os extremos de <m>f(x, y) = x^2 y</m> sujeito à restrição <m>x^2 + 2y^2 = 6</m>.</p>
+                        </statement>
+                        <answer>
+                            <p>Máximo de <m>4</m> nos pontos <m>(2, 1)</m> e <m>(-2, 1)</m>; Mínimo de <m>-4</m> nos pontos <m>(2, -1)</m> e <m>(-2, -1)</m>.</p>
+                        </answer>
+                    </exercise>
+                    <exercise>
+                        <statement>
+                            <p>Determine o ponto pertencente ao plano <m>x - 2y + 3z = 6</m> que está mais próximo da origem <m>(0, 0, 0)</m>.</p>
+                        </statement>
+                        <answer>
+                            <p>O ponto mais próximo é <m>\left(\frac{3}{7}, -\frac{6}{7}, \frac{9}{7}\right)</m>.</p>
+                        </answer>
+                    </exercise>
+                </exercisegroup>
+
+                <exercisegroup cols="2">
+                    <introduction>
+                        <p>Exercícios adicionais e aplicados.</p>
+                    </introduction>
+                    <exercise>
+                        <statement>
+                            <p>Uma empresa possui a função de produção Cobb-Douglas <m>Q(x, y) = 10x^{0.5} y^{0.5}</m>, onde <m>x</m> e <m>y</m> são as quantidades de dois fatores produtivos. O custo unitário do primeiro fator é $2 e do segundo fator é $4. Com um orçamento total fixado em $80, qual é a quantidade ideal de cada fator para maximizar a produção?</p>
+                        </statement>
+                        <answer>
+                            <p><m>x = 20</m> unidades e <m>y = 10</m> unidades, com produção máxima de <m>100\sqrt{2} \approx 141,42</m>.</p>
+                        </answer>
+                    </exercise>
+                    <exercise>
+                        <statement>
+                            <p>Encontre os valores extremos da função <m>f(x, y, z) = 3x - y - 3z</m> sujeita às duas restrições: <m>x + y - z = 0</m> e <m>x^2 + 2z^2 = 1</m>.</p>
+                        </statement>
+                        <answer>
+                            <p>O máximo é <m>2\sqrt{6}</m> no ponto <m>\left(\frac{2}{\sqrt{6}}, -\frac{3}{\sqrt{6}}, -\frac{1}{\sqrt{6}}\right)</m>; O mínimo é <m>-2\sqrt{6}</m> no ponto <m>\left(-\frac{2}{\sqrt{6}}, \frac{3}{\sqrt{6}}, \frac{1}{\sqrt{6}}\right)</m>.</p>
+                        </answer>
+                    </exercise>
+                </exercisegroup>
+            </exercises>
+
+        </section>
+
+        <references xml:id="references-lagrange">
+            <title>Referências</title>   
+            <biblio type="raw" xml:id="biblio-larson">LARSON, Ron. <title>Cálculo Aplicado. Curso Rápido. </title> <journal>Cengage Learning</journal>, 2011.</biblio>
+            <biblio type="raw" xml:id="biblio-stewart">STEWART, James. <title>Cálculo, Volume II. </title> <journal>Cengage Learning</journal>, 7ª Edição, 2013.</biblio>
+            <biblio type="raw" xml:id="biblio-anton">ANTON, Howard; BIVENS, Irl; DAVIS, Stephen. <title>Cálculo.</title> <journal>Bookman</journal>, 2007.</biblio>
+        </references>
+
+    </article>
+</pretext>
