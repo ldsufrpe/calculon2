@@ -77,12 +77,12 @@
    
         <p>
            Suponha que <m> z = f (x, y)</m> seja uma função diferenciável
-    de <m>x</m>  e <m>y</m> , onde <m> x =g(t)</m> e <m>y = h(t)</m> são
+     de <m>x</m>  e <m>y</m> , onde <m> x =g(t)</m> e <m>y = h(t)</m> são
      funções diferenciáveis de <m>t</m>. Então <m>z</m> é uma função diferenciável 
      de <m>t</m>  e 
 
-     <mdn xml:id="eq-cadeia-1"> <mrow> \frac{\dd z}{\dd t}=\frac{\partial z}{\partial x}\frac{\dd x}{\dd t} + \frac{\partial z}{\partial y}\frac{\partial y}{\dd t} </mrow></mdn>
-        </p>
+     <mdn xml:id="eq-cadeia-1"> <mrow> \frac{\dd z}{\dd t}=\frac{\partial z}{\partial x}\frac{\dd x}{\dd t} + \frac{\partial z}{\partial y}\frac{\dd y}{\dd t} </mrow></mdn>
+        </p> <!-- pequena alteração no simbolo da derivada parcial para derivada ordinaria. -->
   
 </assemblage>
 
@@ -132,7 +132,7 @@ função de <m>t</m>.
 
     <answer>
         <p>
-           <m>7t^6</m>
+           <m>5t^4</m> <!-- a resposta certa 5t^4, dz/dt = 2xy+3x^2t^2 = 5t^4 -->
         </p>
     </answer>
 </exercise>
@@ -213,7 +213,7 @@ função de <m>t</m>.
             
         </p>
     </statement>
-    <solution>
+    <solution> <!-- aqui o e^x ficaria em evidencia, a resposta tá sem ele-->
         <p>
         De acordo com <xref ref="assemblage-cadeia-2" text="title"/>, temos
             <md>
@@ -221,14 +221,14 @@ função de <m>t</m>.
                  \ob{(e^x\cos{y})}{\frac{\partial z}{\partial y}}\ob{(2st)}{\frac{\partial y}{\partial s}} 
                 
                 </mrow>
-                <mrow> \amp = t^2e^{st^2}\sin{(s^2t)}+ 2st^{st^2}\cos{(s^2t)} </mrow>
+                <mrow> \amp = e^{st^2} t(t \sin{( s^{2 }t )} + \cos{(s^{2 }t)} 2s) </mrow>
             </md>
 
 
             <md>
                 <mrow>\frac{\partial z}{\partial t} \amp =  \ob{(e^x\sin{y})}{\frac{\partial z}{\partial x}}\ob{(2st)}{\frac{\partial x}{\partial t}} 
                 + \ob{(e^x\cos{y})}{\frac{\partial z}{\partial y}}\ob{(s^2)}{\frac{\partial y}{\partial t}}\amp </mrow>
-                <mrow> \amp= 2ste^{st^2}\sin{(s^2t)} + s^2e^{st^2}\cos{(s^2t)}</mrow>
+                <mrow> \amp = e^{st^2} s(2t \sin{( s^{2 }t )} + s \cos{(s^{2 }t)}) </mrow>
             </md>
         </p>
     </solution>
@@ -310,6 +310,39 @@ função de <m>t</m>.
         </p>
     </answer>
 </exercise>
+
+<!-- adicionei uma caso geral e um exemplo -->
+<assemblage xml:id="assemblage-cadeia-3">
+
+<title>Regra da Cadeia (Caso Geral)</title>
+   
+        <p>
+            A Regra da Cadeia para funções de várias variáveis pode ser generalizada
+            para um número arbitrário de variáveis independentes e intermediárias.
+            Seja <m>z=f(x_1,x_2,\ldots,x_n)</m>, onde cada variável
+            <m>x_i=x_i(t_1,t_2,\ldots,t_m)</m> é diferenciável. Então:
+
+        
+        <mdn xml:id="eq-cadeia-3">
+           <mrow>  \frac{\partial z}{\partial t_j} = \sum_{i=1}^{n} \frac{\partial z}{\partial x_i} \frac{\partial x_i}{\partial t_j}
+            </mrow> 
+        </mdn>
+        
+        </p>
+ 
+</assemblage>
+
+<example xml:id="ex-cadeia-5">
+    <!--
+    <statement>
+        
+    </statement>
+    <solution>
+       
+    </solution>
+    -->
+</example>
+
 
 <subsection xml:id="subsec-derivada-implicita">
 
